@@ -1,0 +1,39 @@
+
+.navbar {
+    background-color: #A4F6FD;
+}
+
+
+#SeccionImagen{
+    padding-left: 100px;
+}
+
+#ptFooter{
+    background-color: #0B486B;
+    color: white;
+}
+
+#ptDerechos{
+    color: white;
+    background-color: #4BADB6;
+}
+
+.MenuSec .dropdown{
+    padding-right: 40px;
+}
+
+.SecBarra{
+    background-color: #76E6F0;
+
+}
+
+.MenuSec .btn{
+    background-color: #4BADB6;
+    border: #4BADB6;
+    color: white;
+}
+
+.btn-secondary:hover{
+    background-color: #4BADB6;
+}
+
