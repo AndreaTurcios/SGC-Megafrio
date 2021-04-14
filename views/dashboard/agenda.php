@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/agenda/agenda.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/Estilos/agenda.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda de SGC MEGAFRIO</title>
@@ -52,6 +52,6 @@
 
     <div id="modalBackDrop"></div>
 
-    <script src="../../resources/js/agenda_script.js"></script>
+    <script src="../../resources/js/agenda.js"></script>
 </body>
 </html>
