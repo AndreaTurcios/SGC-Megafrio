@@ -41,7 +41,7 @@ include("../../app/helpers/plantillaHeader.php");
 
             <input id="eventTitleInput" placeholder="Tarea" />
 
-            <select id="cli-select">
+            <select id="est-select">
                 <option disabled selected>Seleccionar un estado</option>
                 <option value="1">En proceso</option>
                 <option value="2">Finalizada</option>

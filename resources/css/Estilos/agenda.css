@@ -166,7 +166,7 @@ button{
     background-color: rgba(0,0,0,0.8);
 }
 
-#emp-select, #cli-select, #ser-select{
+#emp-select, #cli-select, #ser-select, #est-select{
     padding: 10px;
     width: 100%;
     box-sizing: border-box;

@@ -5,39 +5,68 @@ include("../../app/helpers/plantillaHeader.php");
 
 <body>
     <div id="contenedor-bit">
-        <div id="box">
+        <div id="box" class="row">
             <div id="header">
                 <h1 id="titleBt">Gestión de bitácora</h1>
                 
-                <button id="buttonIng" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="fas fa-plus"></i>Agregar</button>
+                <button id="buttonIng" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bitacoraModal" data-bs-whatever="@mdo"><i class="fas fa-plus"></i>Agregar</button>
             </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="bitacoraModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Nueva bitácora</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form>
                     <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Recipient:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="message-text" class="col-form-label">Selecciona un cliente:</label>
+                        <select class="form-control" id="cli-select">
+                            <option disabled selected>Seleccionar un cliente</option>
+                            <option value="1">Zachery C. Horton</option>
+                            <option value="2">Naomi J. Fitzpatrick</option>
+                            <option value="3">Mariko Z. Casey</option>
+                            <option value="4">Timon K. Macias</option>
+                        </select>
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Message:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+                        <label for="message-text" class="col-form-label">Selecciona un empleado:</label>
+                        <select id="emp-select" class="form-control">
+                            <option disabled selected>Seleccionar un empleado</option>
+                            <option value="1">Gregory H. Maxwell</option>
+                            <option value="2">Ramona I. Woodk</option>
+                            <option value="3">Teagan I. Grimes</option>
+                            <option value="4">Duncan X. Fitzgerald</option>
+                            <option value="5">Deborah S. Pearson</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Fecha:</label>
+                        <!-- Campo de entrada de fecha -->
+                        
+                        <input type="date" name="fecha" class="form-control" min="2000-01-01" max="2023-12-31" step="2" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Hora:</label>
+                        
+                        <input type="time" name="hora" class="form-control" min="18:00" max="21:00" step="3600" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Acción realizada:</label>
+                        <input type="text" class="form-control" id="recipient-name">
                     </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Guardar</button>
                 </div>
                 </div>
             </div>
             </div>  
         </div>
+        <br>
         <div class="col-12 p-text-center">
             <div class="table-responsive">
                 <table class="table table-dark table-striped">

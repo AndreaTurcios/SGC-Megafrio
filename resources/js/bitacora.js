@@ -5,7 +5,7 @@ myModal.addEventListener('shown.bs.modal', function () {
   myInput.focus()
 })
 
-var exampleModal = document.getElementById('exampleModal')
+var bitacoraModal = document.getElementById('bitacoraModal')
 exampleModal.addEventListener('show.bs.modal', function (event) {
   // Button that triggered the modal
   var button = event.relatedTarget
