@@ -1,0 +1,54 @@
+
+#CajaDatos{
+    background: linear-gradient(120deg, #4BADB6, #2cafbb);
+    color: white;
+    border-radius: 15px;
+}
+
+#TituloLogin{
+    background-color: #60CFDA;
+    padding: 10px;
+    border-radius: 20px;
+    
+    
+}
+
+
+#EspacioBlanco{
+    min-height: 161px;
+}
+
+#RowTitulo{
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+#CajaBoton a{
+    padding: 10px;
+    text-decoration: none;
+    border: solid white 1px;
+    color: white;
+    border-radius: 10px;
+}
+
+#CajaBoton2 a{
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+
+}
+
+
+#CajaBoton a:hover{
+    background-color: white;
+    color: #4BADB6;
+}
+
+#EspacioBlanco2{
+    min-height: 50px;
+}
+
+#SolicitarContra a{
+    color: white;
+    text-decoration: underline;
+}
