@@ -38,5 +38,52 @@
     background-color: #4BADB6;
 }
 
+#contenedor-bit{
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: white;
+}
+
+#box{
+    background: #4BADB6;
+    position: relative;
+    margin: auto;
+}
+
+#buttonIng{
+    width: 85px;
+    height: 100%;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px gray;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: black;
+}
+  
+#header{
+    padding: 10px;
+    color: black;
+    font-size: 26px;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: space-between;
+}
+
+#header #buttonIng{
+    background-color: white;
+    border: #4BADB6;
+    color: black;
+}
+
+#container{
+    width: 700px;
+}
+
 
 
