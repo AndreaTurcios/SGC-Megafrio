@@ -9,7 +9,6 @@
     </footer>
 
 
-
 <script src="../../resources/js/bootstrap/bootstrap.min.js"></script>
 <script src="https://kit.fontawesome.com/592eb2e9e3.js" crossorigin="anonymous"></script>
 </body>
