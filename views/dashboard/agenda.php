@@ -1,3 +1,8 @@
+<?php
+//Se incluye la plantilla del encabezado para la página web
+include("../../app/helpers/plantillaHeader.php");
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -108,3 +113,8 @@
     <script src="../../resources/js/agenda.js"></script>
 </body>
 </html>
+
+<?php
+//Se incluye la plantilla del encabezado para la página web
+include("../../app/helpers/plantillaFooter.php");
+?>

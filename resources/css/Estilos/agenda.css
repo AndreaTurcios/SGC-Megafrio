@@ -7,12 +7,11 @@
 }
 
 body{
-    background: linear-gradient(90deg, #00a5b4, #76E6F0);
+    background: #00a5b4;
     padding: 20px;
 }
 
 #container{
-    width: 100%;
     max-width: 1000px;
     margin: auto;
     margin-top: 100px;
@@ -28,6 +27,7 @@ body{
 
 button{
     width: 75px;
+    font-size: 15px;
     cursor: pointer;
     box-shadow: 0px 0px 2px gray;
     border: none;
@@ -161,7 +161,7 @@ button{
     left: 0px;
     z-index: 10;
     width: 100vw;
-    height: 140vh;
+    height: 165vh;
     position: absolute;
     background-color: rgba(0,0,0,0.8);
 }

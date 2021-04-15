@@ -3,10 +3,10 @@ let clicked = null; /* Igual a un evento*/
 let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : []; /* Array para almecenar los eventos del calendario*/ 
 
 const calendar = document.getElementById('calendar'); /*Referencia del calendario*/
-const newEventModal = document.getElementById('newEventModal'); /**/ 
-const deleteEventModal = document.getElementById('deleteEventModal'); /**/ 
-const backDrop = document.getElementById('modalBackDrop'); /**/ 
-const eventTitleInput = document.getElementById('eventTitleInput'); /**/ 
+const newEventModal = document.getElementById('newEventModal'); /*Referencia al evento modal*/ 
+const deleteEventModal = document.getElementById('deleteEventModal'); /* referencia evento delete*/ 
+const backDrop = document.getElementById('modalBackDrop'); /* Referencia a volver*/ 
+const eventTitleInput = document.getElementById('eventTitleInput'); /* Referencia a la entrada evento*/ 
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];/* Array para almacenar los dias y determinar el numero de dias*/
 
 function openModal(date) {

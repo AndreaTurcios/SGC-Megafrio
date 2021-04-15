@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../resources/css/bootstrap/bootstrap.min.css">
     <!-- Agregamos LibroCSS -->
     <link rel="stylesheet" href="../../resources/css/Estilos/style.css">
+    
     <title>SGC Mega Frio</title>
 </head>
 <body>
