@@ -39,6 +39,7 @@
 }
 
 /* COMIENZA BITACORA*/
+
 #contenedor-bit{
     max-width: 1000px;
     margin: auto;
@@ -76,12 +77,6 @@
     justify-content: space-between;
 }
 
-#header #buttonIng{
-    background-color: white;
-    border: #4BADB6;
-    color: black;
-}
-
 #container{
     width: 700px;
 }
@@ -96,6 +91,7 @@
     border: none;
     box-shadow: 0px 0px 3px gray;
 }
+
 
 /* TERMINA BITACORA*/
 
