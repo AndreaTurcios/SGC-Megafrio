@@ -88,5 +88,31 @@
 
 /* TERMINA BITACORA*/
 
+/* COMIENZA INDEX*/
+
+#Titulo1{
+    background-color: #4BADB6;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
 
 
+#BoxSuperior{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: solid lightblue 1px;
+}
+
+#BoxInferior{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #4BADB6;
+    color: white;
+}
+
+/* TERMINA INDEX*/
