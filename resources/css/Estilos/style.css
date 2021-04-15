@@ -127,3 +127,14 @@ a {
 }
 
 /* TERMINA INDEX*/
+
+/*Gestion de Clientes*/
+
+#MuestraBTN .btn{
+    background-color: #4BADB6;
+    color: white;
+}
+
+#ContainerClientes{
+    min-height: 706px;
+}
