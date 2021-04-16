@@ -82,6 +82,12 @@
                     <a class="nav-link" href="agenda.php">Agenda</a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link" href="Pais.php">Países</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="TipoEntorno.php">Entornos</a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="bitacora.php">Bitácora</a>
                   </li>
                   <li class="nav-item">
@@ -107,7 +113,13 @@
                   <button type="button" class="btn btn-info"> <a href="gestion_proveedores.php">Proveedores</a></button> 
                 </li>
                 <li class="nav-item p-2">
-                  <button type="button" class="btn btn-info"> <a href="bitacora.php">Bitácora </a></button> 
+                  <button type="button" class="btn btn-info"> <a href="TipoEntorno.php">Entornos</a></button> 
+                </li>
+                <li class="nav-item p-2">
+                  <button type="button" class="btn btn-info"> <a href="Pais.php">Países</a></button> 
+                </li>
+                <li class="nav-item p-2">
+                  <button type="button" class="btn btn-info"> <a href="bitacora.php">Bitácora</a></button> 
                 </li>
                 <li class="nav-item p-2">
                   <button type="button" class="btn btn-info"> <a href="agenda.php">Agenda</a></button> 
