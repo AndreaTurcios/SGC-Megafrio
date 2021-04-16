@@ -11,7 +11,7 @@ include("../../app/helpers/plantillaHeader.php");
         <div class="row">
 
             <div class="col-12 text-center" id="Titulo1">
-                <h1>Administracion</h1>
+                <h1>Administración</h1>
 
             </div>
 
@@ -116,7 +116,7 @@ include("../../app/helpers/plantillaHeader.php");
                                     <img src="../../resources/img/materiales/proveedores.png" alt="" class="img-fluid">
                                 </div>
                                 <div class="col-12" id="BoxInferior">
-                                    <h4>Bitacora</h4>
+                                    <h4>Bítacora</h4>
                                 </div>
                             </div>
                         </a>
