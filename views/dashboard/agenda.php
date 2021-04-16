@@ -2,10 +2,18 @@
 //Se incluye la plantilla del encabezado para la página web
 include("../../app/helpers/plantillaHeader.php");
 ?>
-
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center" id="Titulo1">
+            <h1>Vista de Agenda</h1>
+        </div>
+    </div>
+</div>
 
 
 <div id="container">
+
     <div class="box">
         <div id="header">
             <div id="monthDisplay"></div>

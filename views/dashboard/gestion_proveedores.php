@@ -34,10 +34,10 @@ include("../../app/helpers/plantillaHeader.php");
           <!--Aquí en el botón de los filtros creamos un dropdown para poner las respectivas opciones -->
           <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
             <div class="dropdown">
-                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Filtros de búsqueda
-                    </button>
+              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Filtros de búsqueda
+              </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li><a class="dropdown-item" href="#">Representante</a></li>
                 <li><a class="dropdown-item" href="#">Compañía</a></li>
@@ -91,10 +91,10 @@ include("../../app/helpers/plantillaHeader.php");
                           <div class="form-group">
                             <label for="exampleFormControlTextarea1">País:</label>
                             <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuLink1"
+                              <button class="btn dropdown-toggle" type="button" id="dropdownMenuLink1"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 País
-                            </button>
+                              </button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
                                 <a class="dropdown-item" href="#">Chile</a>
                                 <a class="dropdown-item" href="#">Honduras</a>
@@ -122,158 +122,161 @@ include("../../app/helpers/plantillaHeader.php");
       <br>
       <div class="row">
         <div class="col scroll">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Compañía</th>
-                <th scope="col">Representante</th>
-                <th scope="col">Teléfono</th>
-                <th scope="col">Dirección</th>
-                <th scope="col">País</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Compañía 1</td>
-                <td>Enrique</td>
-                <td>7474-7474</td>
-                <td>El Dariode Altagracia</td>
-                <td>Honduras</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Compañía 2</td>
-                <td>Flores</td>
-                <td>7474-7474</td>
-                <td>Valle Marinadel Tuy</td>
-                <td>Costa Rica</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Compañía 3</td>
-                <td>Aguilar</td>
-                <td>7474-7474</td>
-                <td>Benítez del Valle</td>
-                <td>Chile</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>Compañía 4</td>
-                <td>Antonieta</td>
-                <td>7474-7474</td>
-                <td>Santa Elena</td>
-                <td>El Salvador</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>Compañía 5</td>
-                <td>Enrique</td>
-                <td>7474-7474</td>
-                <td>Colonia Maquilishuat</td>
-                <td>El Salvador</td>
-              </tr>
-              <tr>
-                <th scope="row">6</th>
-                <td>Compañía 6</td>
-                <td>Hernández</td>
-                <td>7474-7474</td>
-                <td>Colonia San Benito</td>
-                <td>El Salvador</td>
-              </tr>
-              <tr>
-                <th scope="row">7</th>
-                <td>Compañía 7</td>
-                <td>Alcocer</td>
-                <td>7474-7474</td>
-                <td>Residencial Palmira</td>
-                <td>El Salvador</td>
-              </tr>
-              <tr>
-                <th scope="row">8</th>
-                <td>Compañía 8</td>
-                <td>Alberú</td>
-                <td>7474-7474</td>
-                <td>Colonia Escalón</td>
-                <td>El Salvador</td>
-              </tr>
-              <tr>
-                <th scope="row">9</th>
-                <td>Compañía 9</td>
-                <td>Cruz</td>
-                <td>7474-7474</td>
-                <td>Residencial las Piletas</td>
-                <td>El Salvador</td>
-              </tr>
-              <tr>
-                <th scope="row">10</th>
-                <td>Compañía 10</td>
-                <td>Alcántar</td>
-                <td>7474-7474</td>
-                <td>La Montaña</td>
-                <td>El Salvador</td>
-              </tr>
-              <tr>
-                <th scope="row">11</th>
-                <td>Compañía 11</td>
-                <td>Alonso</td>
-                <td>7474-7474</td>
-                <td>Los Manzanos</td>
-                <td>El Salvador</td>
-              </tr>
-              <tr>
-                <th scope="row">12</th>
-                <td>Compañía 12</td>
-                <td>Calderón</td>
-                <td>7474-7474</td>
-                <td>Lomas de San Francisco</td>
-                <td>El Salvador</td>
-              </tr>
-              <tr>
-                <th scope="row">13</th>
-                <td>Compañía 13</td>
-                <td>Enrique</td>
-                <td>7474-7474</td>
-                <td>Constitución</td>
-                <td>El Salvador</td>
-              </tr>
-              <tr>
-                <th scope="row">14</th>
-                <td>Compañía 14</td>
-                <td>Calleja</td>
-                <td>7474-7474</td>
-                <td>Santa Tecla</td>
-                <td>El Salvador</td>
-              </tr>
-              <tr>
-                <th scope="row">15</th>
-                <td>Compañía 15</td>
-                <td>Briones</td>
-                <td>7474-7474</td>
-                <td>San Jacinto</td>
-                <td>El Salvador</td>
-              </tr>
-              <tr>
-                <th scope="row">16</th>
-                <td>Compañía 16</td>
-                <td>Burgos</td>
-                <td>7474-7474</td>
-                <td>La Libertad</td>
-                <td>El Salvador</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Compañía</th>
+                  <th scope="col">Representante</th>
+                  <th scope="col">Teléfono</th>
+                  <th scope="col">Dirección</th>
+                  <th scope="col">País</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Compañía 1</td>
+                  <td>Enrique</td>
+                  <td>7474-7474</td>
+                  <td>El Dariode Altagracia</td>
+                  <td>Honduras</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Compañía 2</td>
+                  <td>Flores</td>
+                  <td>7474-7474</td>
+                  <td>Valle Marinadel Tuy</td>
+                  <td>Costa Rica</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Compañía 3</td>
+                  <td>Aguilar</td>
+                  <td>7474-7474</td>
+                  <td>Benítez del Valle</td>
+                  <td>Chile</td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>Compañía 4</td>
+                  <td>Antonieta</td>
+                  <td>7474-7474</td>
+                  <td>Santa Elena</td>
+                  <td>El Salvador</td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>Compañía 5</td>
+                  <td>Enrique</td>
+                  <td>7474-7474</td>
+                  <td>Colonia Maquilishuat</td>
+                  <td>El Salvador</td>
+                </tr>
+                <tr>
+                  <th scope="row">6</th>
+                  <td>Compañía 6</td>
+                  <td>Hernández</td>
+                  <td>7474-7474</td>
+                  <td>Colonia San Benito</td>
+                  <td>El Salvador</td>
+                </tr>
+                <tr>
+                  <th scope="row">7</th>
+                  <td>Compañía 7</td>
+                  <td>Alcocer</td>
+                  <td>7474-7474</td>
+                  <td>Residencial Palmira</td>
+                  <td>El Salvador</td>
+                </tr>
+                <tr>
+                  <th scope="row">8</th>
+                  <td>Compañía 8</td>
+                  <td>Alberú</td>
+                  <td>7474-7474</td>
+                  <td>Colonia Escalón</td>
+                  <td>El Salvador</td>
+                </tr>
+                <tr>
+                  <th scope="row">9</th>
+                  <td>Compañía 9</td>
+                  <td>Cruz</td>
+                  <td>7474-7474</td>
+                  <td>Residencial las Piletas</td>
+                  <td>El Salvador</td>
+                </tr>
+                <tr>
+                  <th scope="row">10</th>
+                  <td>Compañía 10</td>
+                  <td>Alcántar</td>
+                  <td>7474-7474</td>
+                  <td>La Montaña</td>
+                  <td>El Salvador</td>
+                </tr>
+                <tr>
+                  <th scope="row">11</th>
+                  <td>Compañía 11</td>
+                  <td>Alonso</td>
+                  <td>7474-7474</td>
+                  <td>Los Manzanos</td>
+                  <td>El Salvador</td>
+                </tr>
+                <tr>
+                  <th scope="row">12</th>
+                  <td>Compañía 12</td>
+                  <td>Calderón</td>
+                  <td>7474-7474</td>
+                  <td>Lomas de San Francisco</td>
+                  <td>El Salvador</td>
+                </tr>
+                <tr>
+                  <th scope="row">13</th>
+                  <td>Compañía 13</td>
+                  <td>Enrique</td>
+                  <td>7474-7474</td>
+                  <td>Constitución</td>
+                  <td>El Salvador</td>
+                </tr>
+                <tr>
+                  <th scope="row">14</th>
+                  <td>Compañía 14</td>
+                  <td>Calleja</td>
+                  <td>7474-7474</td>
+                  <td>Santa Tecla</td>
+                  <td>El Salvador</td>
+                </tr>
+                <tr>
+                  <th scope="row">15</th>
+                  <td>Compañía 15</td>
+                  <td>Briones</td>
+                  <td>7474-7474</td>
+                  <td>San Jacinto</td>
+                  <td>El Salvador</td>
+                </tr>
+                <tr>
+                  <th scope="row">16</th>
+                  <td>Compañía 16</td>
+                  <td>Burgos</td>
+                  <td>7474-7474</td>
+                  <td>La Libertad</td>
+                  <td>El Salvador</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
 </section>
 
-  <br><br>
-  <!--<script src="../../resources/js/bootstrap/bootstrap.min.js"></script>-->
-  <script src="../../resources/css/Estilos/style.css"></script>
-  <script src="https://kit.fontawesome.com/592eb2e9e3.js" crossorigin="anonymous"></script>
+<br><br>
+<!--<script src="../../resources/js/bootstrap/bootstrap.min.js"></script>-->
+<script src="../../resources/css/Estilos/style.css"></script>
+<script src="https://kit.fontawesome.com/592eb2e9e3.js" crossorigin="anonymous"></script>
 
 
 <?php
