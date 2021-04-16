@@ -56,6 +56,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-light SecBarra">
           <div class="container-fluid">
+            <!-- Parte del NAVBAR MOBILE -->
             <a class="navbar-brand d-lg-none" href="#">Navegacion</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,6 +65,7 @@
             <div class="col-12 d-lg-none">
               <div class="collapse navbar-collapse " id="navbarNav">
                 <ul class="navbar-nav  ">
+                  <!-- Opciones -->
                   <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="gestion_proveedores.php">Proveedores</a>
                   </li>
@@ -89,7 +91,7 @@
                 </ul>
               </div>
             </div>
-
+              <!-- Navbar Normal -->
             <div class="col-12 d-none d-lg-block MenuSec">
               <ul class="nav justify-content-center">
                 <li class="nav-item p-2">
