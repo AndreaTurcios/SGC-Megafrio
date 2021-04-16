@@ -5,6 +5,7 @@ include("../../app/helpers/plantillaHeader.php");
 
 <div class="container" id="Perfil">
     <br>
+    <!-- Titulo de Perfil -->
     <div class="row">
         <div class="col-12 text-center" id="Titulo1">
             <h1>Perfil</h1>
@@ -14,6 +15,7 @@ include("../../app/helpers/plantillaHeader.php");
     <br>
     <div class="row">
         <div class="col-12 text-center">
+            <!-- Parte de gestion de datos del perfil -->
             <div class="row">
                 <div class="col-4  ">
                     <h4>Nombres:</h4>
@@ -63,6 +65,7 @@ include("../../app/helpers/plantillaHeader.php");
             </div>
             <br>
             <br>
+            <!-- Boton de guardar cambios -->
             <div class="row">
                 <div class="col-12 text-center">
                     <button class="btn ">

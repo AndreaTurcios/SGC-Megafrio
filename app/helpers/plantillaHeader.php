@@ -82,6 +82,9 @@
                   <li class="nav-item">
                     <a class="nav-link" href="bitacora.php">Bitacora</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="Reportes.php">Reportes</a>
+                  </li>
 
                 </ul>
               </div>
@@ -106,6 +109,9 @@
                 </li>
                 <li class="nav-item p-2">
                   <button type="button" class="btn btn-info"> <a href="agenda.php">Agenda</a></button> 
+                </li>
+                <li class="nav-item p-2">
+                  <button type="button" class="btn btn-info"> <a href="Reportes.php">Reportes</a></button> 
                 </li>
               </ul>
             </div>
