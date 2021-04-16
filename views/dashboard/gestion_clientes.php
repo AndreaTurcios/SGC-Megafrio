@@ -7,12 +7,14 @@ include("../../app/helpers/plantillaHeader.php");
 
     <div class="container" id="ContainerClientes">
         <br>
+        <!-- Titulo -->
         <div class="row">
             <div class="col-12 text-center" id="Titulo1">
                 <h1>Gestion de Clientes</h1>
             </div>
         </div>
         <br>
+        <!-- Navbar para los elementos de filtrado y agregar -->
         <div class="row">
             <nav class="navbar navbar-light bg-light">
                 <div class="container-fluid">
@@ -55,6 +57,7 @@ include("../../app/helpers/plantillaHeader.php");
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
+                                    <!-- Partes del modal para hacer insert -->
                                     <div class="modal-body">
                                         <div class="container">
 
@@ -123,6 +126,7 @@ include("../../app/helpers/plantillaHeader.php");
                                             
                                         </div>
                                     </div>
+                                    <!-- Botones de Control -->
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Cancelar</button>

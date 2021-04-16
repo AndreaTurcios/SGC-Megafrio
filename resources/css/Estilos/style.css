@@ -3,6 +3,11 @@
     background-color: #A4F6FD;
 }
 
+.btn{
+    background-color: #4BADB6;
+    color: white;
+}
+
 
 #SeccionImagen{
     padding-left: 100px;
@@ -19,7 +24,7 @@
     margin-top: 30px;
 }
 
-a{
+.navbar a{
     text-decoration: none;
     color: white;
 }
@@ -154,4 +159,10 @@ a {
 
 #ContainerClientes{
     min-height: 620px;
+}
+
+/*Perfil CSS*/
+
+#Perfil{
+    min-height: 605px;
 }
