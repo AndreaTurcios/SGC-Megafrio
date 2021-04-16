@@ -29,19 +29,20 @@ include("../../app/helpers/plantillaHeader.php");
             </form>
           </div>
           <!--Aquí en el botón de los filtros creamos un dropdown para poner las respectivas opciones -->
-          <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN1">
-            <div class="dropdown">
-              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Filtros de búsqueda
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                <li><a class="dropdown-item" href="#">Representante</a></li>
-                <li><a class="dropdown-item" href="#">Compañía</a></li>
-                <li><a class="dropdown-item" href="#">Teléfono</a></li>
-              </ul>
-            </div>
-          </div>
+          <div class="form-group">
+                          <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuLink3"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Filtros de búsqueda
+                            </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
+                                <a class="dropdown-item" href="#">Nombre</a>
+                                <a class="dropdown-item" href="#">Apellido</a>
+                                <a class="dropdown-item" href="#">Usuario</a>
+                                <a class="dropdown-item" href="#">Tipo empleado</a>
+                              </div>
+                            </div>
+                          </div>
           <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalAgregarEmpleado">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus"
@@ -92,17 +93,20 @@ include("../../app/helpers/plantillaHeader.php");
                         </div>
                         <div class="form-group">
                           <label for="exampleFormControlTextarea1">Tipo empleado:</label>
-                          <div class="dropdown show">
-                            <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink"
-                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Tipo empleado
-                            </a>
-
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                              <a class="dropdown-item" href="#">Auxiliar</a>
-                              <a class="dropdown-item" href="#">Técnico</a>
-                              <a class="dropdown-item" href="#">Supervisor</a>
+                          <div class="form-group">
+                          <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuLink3"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Filtros de búsqueda
+                            </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
+                                <a class="dropdown-item" href="#">Admin</a>
+                                <a class="dropdown-item" href="#">Auxiliar</a>
+                                <a class="dropdown-item" href="#">Técnico</a>
+                                <a class="dropdown-item" href="#">Supervisor</a>
+                              </div>
                             </div>
+                          </div>
                             <br>
                             <br>
                       </form>
@@ -288,7 +292,7 @@ include("../../app/helpers/plantillaHeader.php");
   </div>
   </div>
 
-  <script src="../../resources/js/bootstrap/bootstrap.min.js"></script>
+  
   <script src="https://kit.fontawesome.com/592eb2e9e3.js" crossorigin="anonymous"></script>
 </section>
 

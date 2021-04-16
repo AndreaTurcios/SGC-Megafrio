@@ -34,10 +34,10 @@ include("../../app/helpers/plantillaHeader.php");
           <!--Aquí en el botón de los filtros creamos un dropdown para poner las respectivas opciones -->
           <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
             <div class="dropdown">
-              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Filtros de búsqueda
-              </button>
+                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Filtros de búsqueda
+                    </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li><a class="dropdown-item" href="#">Representante</a></li>
                 <li><a class="dropdown-item" href="#">Compañía</a></li>
@@ -90,13 +90,12 @@ include("../../app/helpers/plantillaHeader.php");
                           </div>
                           <div class="form-group">
                             <label for="exampleFormControlTextarea1">País:</label>
-                            <div class="dropdown show">
-                              <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuLink1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 País
-                              </a>
-
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
                                 <a class="dropdown-item" href="#">Chile</a>
                                 <a class="dropdown-item" href="#">Honduras</a>
                                 <a class="dropdown-item" href="#">Costa Rica</a>
@@ -269,15 +268,13 @@ include("../../app/helpers/plantillaHeader.php");
       </div>
     </div>
   </div>
-  </div>
-
-  </main>
+</section>
 
   <br><br>
   <!--<script src="../../resources/js/bootstrap/bootstrap.min.js"></script>-->
   <script src="../../resources/css/Estilos/style.css"></script>
   <script src="https://kit.fontawesome.com/592eb2e9e3.js" crossorigin="anonymous"></script>
-</section>
+
 
 <?php
 //Se incluye la plantilla del encabezado para la página web
