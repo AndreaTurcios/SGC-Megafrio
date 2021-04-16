@@ -51,7 +51,7 @@
 
     </div>
 
-    <div class="container-fluid ">
+    <div class="container-fluid " id="BarraNav">
       <div class="row">
 
         <nav class="navbar navbar-expand-lg navbar-light SecBarra">
@@ -82,7 +82,7 @@
                     <a class="nav-link" href="agenda.php">Agenda</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="bitacora.php">Bitacora</a>
+                    <a class="nav-link" href="bitacora.php">Bitácora</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="Reportes.php">Reportes</a>
@@ -104,10 +104,10 @@
                   <button type="button" class="btn btn-info"> <a href="GestionEquipo.php">Equipo</a></button> 
                 </li>
                 <li class="nav-item p-2">
-                  <button type="button" class="btn btn-info"> <a href="gestion_proveedores.php">Empleado</a></button> 
+                  <button type="button" class="btn btn-info"> <a href="gestion_proveedores.php">Proveedores</a></button> 
                 </li>
                 <li class="nav-item p-2">
-                  <button type="button" class="btn btn-info"> <a href="bitacora.php">Bitacora</a></button> 
+                  <button type="button" class="btn btn-info"> <a href="bitacora.php">Bitácora </a></button> 
                 </li>
                 <li class="nav-item p-2">
                   <button type="button" class="btn btn-info"> <a href="agenda.php">Agenda</a></button> 

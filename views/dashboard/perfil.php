@@ -70,7 +70,7 @@ include("../../app/helpers/plantillaHeader.php");
                 <div class="col-12 text-center">
                     <button class="btn ">
                         Guardar
-                      </button>
+                    </button>
                 </div>
             </div>
         </div>
