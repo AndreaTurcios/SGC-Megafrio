@@ -51,7 +51,7 @@
 
     </div>
 
-    <div class="container-fluid ">
+    <div class="container-fluid " id="BarraNav">
       <div class="row">
 
         <nav class="navbar navbar-expand-lg navbar-light SecBarra">
