@@ -5,6 +5,7 @@ include("../../app/helpers/plantillaHeader.php");
 <!--Aquí comenzamos abriendo la sección -->
 <section>
   <br>
+
   <div class="container">
     <div class="row">
       <!--Container con su respectivo título de pestaña, en este caso, proveedores -->
@@ -296,7 +297,7 @@ include("../../app/helpers/plantillaHeader.php");
     </div>
   </div>
   </div>
-
+</div>
   
   <script src="https://kit.fontawesome.com/592eb2e9e3.js" crossorigin="anonymous"></script>
 </section>
