@@ -10,7 +10,7 @@ include("../../app/helpers/plantillaHeader.php");
         <!-- Titulo -->
         <div class="row">
             <div class="col-12 text-center" id="Titulo1">
-                <h1>Gestion de Clientes</h1>
+                <h1>Gestión de Clientes</h1>
             </div>
         </div>
         <br>
@@ -31,7 +31,7 @@ include("../../app/helpers/plantillaHeader.php");
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Filtrar Genero
+                                Filtrar Género
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="dropdown-item" href="#">Masculino</a></li>
