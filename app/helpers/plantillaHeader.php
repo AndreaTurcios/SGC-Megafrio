@@ -104,7 +104,7 @@
                   <button type="button" class="btn btn-info"> <a href="GestionEquipo.php">Equipo</a></button> 
                 </li>
                 <li class="nav-item p-2">
-                  <button type="button" class="btn btn-info"> <a href="gestion_proveedores.php">Empleado</a></button> 
+                  <button type="button" class="btn btn-info"> <a href="gestion_proveedores.php">Proveedores</a></button> 
                 </li>
                 <li class="nav-item p-2">
                   <button type="button" class="btn btn-info"> <a href="bitacora.php">Bitacora</a></button> 
