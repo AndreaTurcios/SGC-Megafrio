@@ -4,6 +4,7 @@ include("../../app/helpers/plantillaHeader.php");
 ?>
 <body>
                 <div  class="container">
+                  <br>
                   <div class="row">
                     <div class="col-12 text-center" id="Titulo1">
                         <h1>Gestión de Equipos</h1>
