@@ -94,7 +94,7 @@ include("../../app/helpers/plantillaHeader.php");
                 </div>
             </nav>
 
-            <!-- Creacion de la tabla  -->
+            <!-- Creacion de la tabla -->
                       </div>
                       <br>
                       <div class="row">
