@@ -3,7 +3,6 @@
 include("../../app/helpers/plantillaHeader.php");
 ?>
 
-<body>
     <div id="contenedor-bit">
         <div id="box" class="row">
             <div class="col-12 text-center" id="titlebt">
@@ -326,7 +325,7 @@ include("../../app/helpers/plantillaHeader.php");
           
     </div>
     <script src="../../resources/js/bitacora.js"></script>
-</body>
+
        
 <?php
 //Se incluye la plantilla del encabezado para la página web
