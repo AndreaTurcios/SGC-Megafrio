@@ -346,7 +346,7 @@ include("../../app/helpers/plantillaHeader.php");
 </div>
 
 </div>
-<script src="../../resources/js/bitacora.js"></script>
+<br>
 
 
 <?php
