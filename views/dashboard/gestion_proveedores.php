@@ -54,7 +54,7 @@ include("../../app/helpers/plantillaHeader.php");
               </svg>
               Agregar
             </button>
-
+            <!--Aquí comenzamos agregando un div con el id ModalAgregarProveedor -->
             <div class="modal fade" id="ModalAgregarProveedor" tabindex="-1" aria-labelledby="exampleModalLabel"
               aria-hidden="true">
               <div class="modal-dialog">
@@ -63,7 +63,7 @@ include("../../app/helpers/plantillaHeader.php");
                     <h5 class="modal-title" id="exampleModalLabel">Ingrese los siguientes datos:</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-
+                  <!--Aquí comenzamos con el body del modal -->
                   <div class="modal-body">
                     <div class="container">
                       <div class="row">
@@ -88,6 +88,7 @@ include("../../app/helpers/plantillaHeader.php");
                             <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Dirección"
                               rows="3"></textarea>
                           </div>
+                          <!--Aquí colocamos un dropdown para elegir el pais de procedencia del proveedor -->
                           <div class="form-group">
                             <label for="exampleFormControlTextarea1">País:</label>
                             <div class="dropdown">
@@ -106,6 +107,7 @@ include("../../app/helpers/plantillaHeader.php");
                       </div>
                     </div>
                   </div>
+                  <!--Aquí arrancamos con el footer del modal -->
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button class="btn btn-success">Guardar</button><br>
@@ -120,6 +122,7 @@ include("../../app/helpers/plantillaHeader.php");
           </div>
       </nav>
       <br>
+      <!--Aquí arrancamos con la tabla -->
       <div class="row">
         <div class="col scroll">
           <div class="table-responsive">
@@ -264,6 +267,7 @@ include("../../app/helpers/plantillaHeader.php");
                   <td>El Salvador</td>
                 </tr>
               </tbody>
+              <!--Aquí cerramos la tabla -->
             </table>
           </div>
 
