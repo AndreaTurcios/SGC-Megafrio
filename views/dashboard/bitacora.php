@@ -348,7 +348,7 @@ include("../../app/helpers/plantillaHeader.php");
 </div>
 <br>
 
-
+<br>
 <?php
 //Se incluye la plantilla del encabezado para la página web
 include("../../app/helpers/plantillaFooter.php");
