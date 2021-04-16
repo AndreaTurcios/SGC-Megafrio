@@ -29,13 +29,13 @@ include("../../app/helpers/plantillaHeader.php");
             </form>
           </div>
           <!--Aquí en el botón de los filtros creamos un dropdown para poner las respectivas opciones -->
-          <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
+          <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN1">
             <div class="dropdown">
-              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 Filtros de búsqueda
               </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
                 <li><a class="dropdown-item" href="#">Representante</a></li>
                 <li><a class="dropdown-item" href="#">Compañía</a></li>
                 <li><a class="dropdown-item" href="#">Teléfono</a></li>
