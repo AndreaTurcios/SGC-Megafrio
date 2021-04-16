@@ -8,7 +8,7 @@ include("../../app/helpers/plantillaHeader.php");
                 <br>
                   <div class="row">
                       <div class="col-12 text-center" id="Titulo1">
-                          <h1>Gestion Entornos</h1>
+                          <h1>Gestión Entornos</h1>
                       </div>
                   </div>
                   <br>

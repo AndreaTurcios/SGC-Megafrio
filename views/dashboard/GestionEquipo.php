@@ -7,7 +7,7 @@ include("../../app/helpers/plantillaHeader.php");
                 <br>
                   <div class="row">
                       <div class="col-12 text-center" id="Titulo1">
-                          <h1>Gestion Equipos</h1>
+                          <h1>Gestión Equipos</h1>
                       </div>
                   </div>
                   <br>
@@ -113,7 +113,7 @@ include("../../app/helpers/plantillaHeader.php");
                                             <div class="row">
                                                 <div class="col-3 p-2">
                                                     
-                                                    <h6>Proveedor</h6>
+                                                    <h6>Imagen</h6>
                                                 </div>
                                                 <div class="col-9">
                                                   <input type="image" class="form-control" id="FotoEquipo">
