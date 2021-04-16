@@ -103,6 +103,10 @@ a:hover{
     color: white;
 }
 
+#header #buscar{
+    background-color: green;
+}
+
 #header #buscar:hover{
     background: green;
 }
