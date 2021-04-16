@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../../resources/css/bootstrap/bootstrap.min.css">
   <!-- Agregamos LibroCSS -->
   <link rel="stylesheet" href="../../resources/css/Estilos/style.css">
-
+  <link rel="stylesheet" href="../../resources/css/Estilos/Agenda.css">
   <title>SGC Mega Frio</title>
 </head>
 

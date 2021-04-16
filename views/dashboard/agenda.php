@@ -3,16 +3,8 @@
 include("../../app/helpers/plantillaHeader.php");
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/Estilos/agenda.css">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda de SGC MEGAFRIO</title>
-</head>
-<body>
+
+
     <div id="container">
         <div class="box">
             <div id="header">
@@ -110,9 +102,7 @@ include("../../app/helpers/plantillaHeader.php");
 
     <div id="modalBackDrop"></div>
 
-    <script src="../../resources/js/agenda.js"></script>
-</body>
-</html>
+
 
 <?php
 //Se incluye la plantilla del encabezado para la página web

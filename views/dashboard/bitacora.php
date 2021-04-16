@@ -6,12 +6,22 @@ include("../../app/helpers/plantillaHeader.php");
 <body>
     <div id="contenedor-bit">
         <div id="box" class="row">
-            <div id="header">
+            <div class="col-12 text-center" id="titlebt">
                 <h1 id="titleBt">Gestión de bitácora</h1>
-                
-                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#bitacoraModal" data-bs-whatever="@mdo"><i class="fas fa-plus"></i>Agregar</button>
+            </div>   
+        </div>
+        <div class="row">
+            <nav class="navbar navbar-light bg-light">
+                <div id ="header" class="container-fluid">
+                    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 p-3" >
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                            <button id="buscar" class="btn btn-outline-success" type="submit">Buscar</button>
+                        </form>
+                    </div>
+                    <button id="buttonIng" type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#bitacoraModal" data-bs-whatever="@mdo"><i class="fas fa-plus"></i>Agregar</button>
                 </div>
-            <div class="modal fade" id="bitacoraModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="bitacoraModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -66,8 +76,9 @@ include("../../app/helpers/plantillaHeader.php");
             </div>
             </div>  
         </div>
-        <br>
-        <div class="col-12 p-text-center">
+           
+            </nav>
+            <div class="col-12 p-text-center">
             <div id="tbBitacora" class="table-responsive">
                 <table class="table table-secondary table-striped">
                 <thead>
@@ -311,6 +322,8 @@ include("../../app/helpers/plantillaHeader.php");
                 </table>    
             </div>    
         </div>    
+        </div> 
+          
     </div>
     <script src="../../resources/js/bitacora.js"></script>
 </body>

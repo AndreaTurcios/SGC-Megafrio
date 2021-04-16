@@ -8,6 +8,7 @@
         </div>
     </footer>
 
+<script src="../../resources/js/agenda.js"></script>
 <!-- Script de Bootstrap -->
 <script src="../../resources/js/bootstrap/bootstrap.min.js"></script>
 <!-- Script de Fontawesome -->

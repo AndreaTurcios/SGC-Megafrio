@@ -56,12 +56,18 @@ a:hover{
     border-radius: 20px;
     overflow: hidden;
     background-color: white;
+    width: 70%;
 }
 
 #box{
     background: #4BADB6;
     position: relative;
     margin: auto;
+    height: 100%;
+}
+
+#titleBt{
+    color: white;
 }
 
 #buttonIng{
@@ -87,14 +93,15 @@ a:hover{
 }
 
 #header #buttonIng{
-    background-color: white;
+    background-color: #4BADB6;
     border: #4BADB6;
-    color: black;
+    color: white;
 }
 
-#container{
-    width: 700px;
+#header #buscar:hover{
+    background: green;
 }
+  
 
 #emp-select, #cli-select{
     padding: 10px;
