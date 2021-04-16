@@ -43,6 +43,7 @@ include("../../app/helpers/plantillaHeader.php");
                               </div>
                             </div>
                           </div>
+          <!--Aquí arrancamos con el botón agregar para abrir el modal -->
           <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalAgregarEmpleado">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus"
@@ -52,7 +53,7 @@ include("../../app/helpers/plantillaHeader.php");
               </svg>
               Agregar
             </button>
-
+            <!--Colocamos el div para el modal -->
             <div class="modal fade" id="ModalAgregarEmpleado" tabindex="-1" aria-labelledby="exampleModalLabel"
               aria-hidden="true">
               <div class="modal-dialog">
@@ -91,6 +92,7 @@ include("../../app/helpers/plantillaHeader.php");
                           <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Dirección"
                             rows="3"></textarea>
                         </div>
+                        <!--Colocamos los divs para el dropdown del filtro de búsqueda -->
                         <div class="form-group">
                           <label for="exampleFormControlTextarea1">Tipo empleado:</label>
                           <div class="form-group">
@@ -111,6 +113,7 @@ include("../../app/helpers/plantillaHeader.php");
                             <br>
                       </form>
                     </div>
+                    <!--Colocamos el div del footer -->
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                       <button class="btn btn-success">Guardar</button><br>
@@ -125,6 +128,7 @@ include("../../app/helpers/plantillaHeader.php");
             </div>
       </nav>
       <br>
+      <!--Colocamos la tabla -->
       <div class="row">
         <div class="col scroll">
           <table class="table table-hover">
@@ -286,6 +290,7 @@ include("../../app/helpers/plantillaHeader.php");
               </tr>
             </tbody>
           </table>
+          <!--Cerramos la tabla -->
         </div>
       </div>
     </div>
