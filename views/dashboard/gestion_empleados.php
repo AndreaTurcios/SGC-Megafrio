@@ -2,27 +2,61 @@
 //Se incluye la plantilla del encabezado para la página web
 include("../../app/helpers/plantillaHeader.php");
 ?>
-
-<body>
-<br>
+<!--Aquí comenzamos abriendo la sección -->
+<section>
+  <br>
   <div class="container">
-    <div class="row">
-      <div class="col-12 text-center" id="Titulo1">
-         <h1 class="center">Gestión de empleados
-    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-file-earmark-person" viewBox="0 0 16 16">
-      <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-      <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2v9.255S12 12 8 12s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h5.5v2z"/>
+   <div class="row">
+<!--Container con su respectivo título de pestaña, en este caso, proveedores -->
+   <div class="col-12 text-center" id="Titulo1">
+  <h1 class="center">Gestión de empleados
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+      <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
     </svg>
-    </h1>
-    
-      </div>
-    </div>
+      </h1>
   </div>
+   </div>
+        <br>
+    <div class="row">
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid">
+                    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 p-3" >
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Buscar</button>
+                        </form>
+                    </div>
+<!--Aquí en el botón de los filtros creamos un dropdown para poner las respectivas opciones -->
+                    <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                              Filtros de búsqueda
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                              <li><a class="dropdown-item" href="#">Representante</a></li>
+                              <li><a class="dropdown-item" href="#">Compañía</a></li>
+                              <li><a class="dropdown-item" href="#">Teléfono</a></li>
+                            </ul>
+                          </div>
+                    </div>
+                    <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
+                      <button type="button" class="btn" data-bs-toggle="modal"
+                      data-bs-target="#ModalAgregarEmpleado">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                        </svg>
+                        Agregar
+                      </button>
 
-    <br><br>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-3 form-izquierda">
+      <div class="modal fade" id="ModalAgregarEmpleado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ingrese los siguientes datos:</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"aria-label="Close"></button>
+          </div>
+            <div class="modal-body">
+            <div class="container">
           <form>
             <div class="form-group">
               <label for="formGroupExampleInput">Nombre empleado:</label>
@@ -34,7 +68,7 @@ include("../../app/helpers/plantillaHeader.php");
             </div>
             <div class="form-group">
               <label for="formGroupExampleInput2">Teléfono:</label>
-              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Telefono">
+              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Teléfono">
             </div>
             <div class="form-group">
               <label for="formGroupExampleInput2">Usuario:</label>
@@ -46,7 +80,7 @@ include("../../app/helpers/plantillaHeader.php");
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Dirección:</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Direccion"
+              <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Dirección"
                 rows="3"></textarea>
             </div>
             <div class="form-group">
@@ -62,41 +96,23 @@ include("../../app/helpers/plantillaHeader.php");
                   <a class="dropdown-item" href="#">Técnico</a>
                   <a class="dropdown-item" href="#">Supervisor</a>
                 </div>
-              </div>
-            </div>
             <br>
-
+            <br>
           </form>
         </div>
-        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8 offset-xl-1 form-derecha">
-          <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-9">
-              <form class="form-inline my-2 my-lg-0">
-                <div class="row">
-                  <div class="col-9">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                  </div>
-                  <div class="col-3">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-3">
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Filtro de búsqueda
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">filtro 1</a>
-                  <a class="dropdown-item" href="#">filtro 2</a>
-                  <a class="dropdown-item" href="#">filtro 3</a>
-                </div>
-              </div>
-            </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary"
+                  data-bs-dismiss="modal">Cancelar</button>
+				          <button class="btn btn-success">Guardar</button><br><hr>
+                  <button type="button" class="btn btn-primary">Modificar</button>
+                  <button class="btn btn-danger">Eliminar</button><br><hr>
           </div>
-          <br>
+        </div>
+      </div>
+      </div>
+      </div>
+</nav>
+      <br>
           <div class="row">
             <div class="col scroll">
               <table class="table table-hover">
@@ -105,9 +121,9 @@ include("../../app/helpers/plantillaHeader.php");
                     <th scope="col">#</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
-                    <th scope="col">Telefono</th>
+                    <th scope="col">Teléfono</th>
                     <th scope="col">Usuario</th>
-                    <th scope="col">Direccion</th>
+                    <th scope="col">Dirección</th>
                     <th scope="col">Tipo empleado</th>
                   </tr>
                 </thead>
@@ -266,7 +282,7 @@ include("../../app/helpers/plantillaHeader.php");
 
   <script src="../../resources/js/bootstrap/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/592eb2e9e3.js" crossorigin="anonymous"></script>
-</body>
+</section>
 
 <?php
 //Se incluye la plantilla del encabezado para la página web
