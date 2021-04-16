@@ -81,6 +81,7 @@ include("../../app/helpers/plantillaHeader.php");
             </div>
         </div>
         <br>
+        <!-- Row para titulo de Visualizar -->
         <div class="row">
             
             <div class="col-12 text-center" id="Titulo1">

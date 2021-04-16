@@ -24,7 +24,7 @@
                         
                         <img src="../../resources/img/logos/iconPNG.png" class="img-fluid" alt="">
                     </div>
-
+                <!-- Imagen en Mobile -->
                     <div class="col-12 d-none d-lg-block " id="SeccionImagen">
                         
                         <img src="../../resources/img/logos/iconPNG.png" class="img-fluid" alt="">

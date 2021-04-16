@@ -35,6 +35,7 @@ include("../../app/helpers/plantillaHeaderLogin.php");
                             </div>
 
                             <br>
+                            <!-- Usuario y Su Imput -->
                             <div class="row">
                                 <div class="col-4   p-1 d-flex flex-row">
                                     <h4>Usuario:</h4>
@@ -44,6 +45,8 @@ include("../../app/helpers/plantillaHeaderLogin.php");
                                 </div>
                             </div>
                             <br>
+
+                            <!-- Contraseña y su input -->
                             <div class="row">
                                 <div class="col-4 p-1 d-flex flex-row">
                                     <h4>Contraseña:</h4>
@@ -53,9 +56,11 @@ include("../../app/helpers/plantillaHeaderLogin.php");
                                 </div>
                             </div>
                             <br>
+                            <!-- Espacio en blanco para separar -->
                             <div class="row" id="EspacioBlanco">
 
                             </div>
+                            <!-- Espacio para boton -->
                             <div class="row" id="CajaBoton" >
                                 <div class="col-12 text-center">
                                         <a href="#">Ingresar</a>
@@ -63,13 +68,14 @@ include("../../app/helpers/plantillaHeaderLogin.php");
                             </div>
                             <br>
                             <br>
+                            <!-- Espacio para solicitar nueva contra -->
                             <div class="row">
                                 <div class="col-12" id="SolicitarContra">
                                     <a href="#">Solicitar una nueva contraseña</a>
                                 </div>
                             </div>
                             <br>
-                            
+                            <!-- EspacioBlanco para separar -->
                             <div class="row" id="EspacioBlanco2">
 
                             </div>

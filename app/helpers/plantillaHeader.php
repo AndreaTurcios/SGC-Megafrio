@@ -23,17 +23,19 @@
                         
                         <img src="../../resources/img/logos/iconPNG.png" class="img-fluid" alt="">
                     </div>
-
+  <!-- Columna Logo pero para mobile -->
                     <div class="col-10 d-none d-lg-block " id="SeccionImagen">
                         
                         <img src="../../resources/img/logos/iconPNG.png" class="img-fluid" alt="">
                         
                     </div>
+                    <!-- Columna de Boton usuario pero para Pequeños -->
                     <div class="col-1 col-xs-1 col-sm-1 d-lg-none text-left" id="mnSuperiorMobile">
                         <button class="btn btn-primary ">
                             <i class="far fa-user"></i>
                         </button>
                     </div>
+                    <!-- Columna para perfil pero en usuarios de pantalla grande -->
                     <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-2 col-xxl-2 text-center d-none d-lg-block">
                         <button class="btn btn-primary ">
                             <i class="far fa-user"></i> Perfil
