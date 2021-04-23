@@ -63,7 +63,7 @@ include("../../app/helpers/plantillaHeaderLogin.php");
                     <!-- Espacio para boton -->
                     <div class="row" id="CajaBoton">
                         <div class="col-12 text-center">
-                            <a href="#">Ingresar</a>
+                            <a href="paginaPrincipal.php">Ingresar</a>
                         </div>
                     </div>
                     <br>
