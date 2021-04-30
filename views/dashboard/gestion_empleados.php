@@ -29,18 +29,20 @@ include("../../app/helpers/plantillaHeader.php");
       </div>
       <!--Aquí en el botón de los filtros creamos un dropdown para poner las respectivas opciones -->
       <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
-        <div class="dropdown">
-          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Filtros de búsqueda
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Representante</a></li>
-            <li><a class="dropdown-item" href="#">Compañía</a></li>
-            <li><a class="dropdown-item" href="#">Teléfono</a></li>
-          </ul>
-        </div>
-      </div>
+      <div class="form-group">
+      <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuLink3"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Filtros de búsqueda
+                            </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
+                                <a class="dropdown-item" href="#">Nombre</a>
+                                <a class="dropdown-item" href="#">Apellido</a>
+                                <a class="dropdown-item" href="#">Usuario</a>
+                                <a class="dropdown-item" href="#">Tipo empleado</a>
+                              </div>
+                            </div>
+                          </div>
       <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center">
         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalAgregarProveedor">
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus"
