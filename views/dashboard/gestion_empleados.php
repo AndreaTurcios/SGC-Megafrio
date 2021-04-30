@@ -98,8 +98,6 @@ include("../../app/helpers/plantillaHeader.php");
                         </div>
                         <!--Colocamos los divs para el dropdown del filtro de búsqueda -->
                         <div class="form-group">
-                          <label for="exampleFormControlTextarea1">Tipo empleado:</label>
-                          <div class="form-group">
                           <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" id="dropdownMenuLink3"
                                 data-bs-toggle="dropdown" aria-expanded="false">
