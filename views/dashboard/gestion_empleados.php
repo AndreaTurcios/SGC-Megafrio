@@ -31,11 +31,8 @@ include("../../app/helpers/plantillaHeader.php");
       <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
       <div class="form-group">
       <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuLink3"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Filtros de búsqueda
-                            </button>
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuLink4" data-bs-toggle="dropdown" aria-expanded="false">Filtros de búsqueda</button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink4">
                                 <a class="dropdown-item" href="#">Nombre</a>
                                 <a class="dropdown-item" href="#">Apellido</a>
                                 <a class="dropdown-item" href="#">Usuario</a>
