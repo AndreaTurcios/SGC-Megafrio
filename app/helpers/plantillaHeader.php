@@ -19,7 +19,7 @@
 
     <div class="container-fluid">
       <div class="row ">
-        <nav class="navbar">
+        <nav class="nav">
           <!-- Columna Logo -->
           <div class="col-11 col-xs-11 col-sm-11 d-lg-none text-center">
             <a href="paginaPrincipal.php"><img src="../../resources/img/logos/iconPNG.png" class="img-fluid" alt=""></a>
@@ -57,7 +57,7 @@
         <nav class="navbar navbar-expand-lg navbar-light SecBarra">
           <div class="container-fluid">
             <!-- Parte del NAVBAR MOBILE -->
-            <a class="navbar-brand d-lg-none" href="#">Navegacion</a>
+            <a class="navbar-brand d-lg-none" href="#">Navegación</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -67,31 +67,31 @@
                 <ul class="navbar-nav  ">
                   <!-- Opciones -->
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="gestion_proveedores.php">Proveedores</a>
+                    <a class="nav-link" aria-current="page" href="gestion_proveedores.php">PROVEEDORES</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="GestionEquipo.php">Equipo</a>
+                    <a class="nav-link" href="GestionEquipo.php">EQUIPO</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="gestion_clientes.php">Clientes</a>
+                    <a class="nav-link" href="gestion_clientes.php">CLIENTES</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="gestion_empleados.php">Empleados</a>
+                    <a class="nav-link" href="gestion_empleados.php">EMPLEADOS</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="agenda.php">Agenda</a>
+                    <a class="nav-link" href="agenda.php">AGENDA</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="Pais.php">Países</a>
+                    <a class="nav-link" href="Pais.php">PAÍSES</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="TipoEntorno.php">Entornos</a>
+                    <a class="nav-link" href="TipoEntorno.php">ENTORNOS</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="bitacora.php">Bitácora</a>
+                    <a class="nav-link" href="bitacora.php">BITÁCORA</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="Reportes.php">Reportes</a>
+                    <a class="nav-link" href="Reportes.php">REPORTES</a>
                   </li>
 
                 </ul>
@@ -100,32 +100,32 @@
               <!-- Navbar Normal -->
             <div class="col-12 d-none d-lg-block MenuSec">
               <ul class="nav justify-content-center">
-                <li class="nav-item p-2">
-                  <button type="button" class="btn btn-info"> <a href="gestion_empleados.php">Empleado</a></button> 
+                <li class="nav-item p-1">
+                  <button type="button" class="btn btn-info"> <a href="gestion_empleados.php">EMPLEADOS</a></button> 
                 </li>
-                <li class="nav-item p-2">
-                  <button type="button" class="btn btn-info"> <a href="gestion_clientes.php">Clientes</a></button> 
+                <li class="nav-item p-1">
+                  <button type="button" class="btn btn-info"> <a href="gestion_clientes.php">CLIENTES</a></button> 
                 </li>
-                <li class="nav-item p-2">
-                  <button type="button" class="btn btn-info"> <a href="GestionEquipo.php">Equipo</a></button> 
+                <li class="nav-item p-1">
+                  <button type="button" class="btn btn-info"> <a href="GestionEquipo.php">EQUIPO</a></button> 
                 </li>
-                <li class="nav-item p-2">
-                  <button type="button" class="btn btn-info"> <a href="gestion_proveedores.php">Proveedores</a></button> 
+                <li class="nav-item p-1">
+                  <button type="button" class="btn btn-info"> <a href="gestion_proveedores.php">PROVEEDORES</a></button> 
                 </li>
-                <li class="nav-item p-2">
-                  <button type="button" class="btn btn-info"> <a href="TipoEntorno.php">Entornos</a></button> 
+                <li class="nav-item p-1">
+                  <button type="button" class="btn btn-info"> <a href="TipoEntorno.php">ENTORNOS</a></button> 
                 </li>
-                <li class="nav-item p-2">
-                  <button type="button" class="btn btn-info"> <a href="Pais.php">Países</a></button> 
+                <li class="nav-item p-1">
+                  <button type="button" class="btn btn-info"> <a href="Pais.php">PAÍSES</a></button> 
                 </li>
-                <li class="nav-item p-2">
-                  <button type="button" class="btn btn-info"> <a href="bitacora.php">Bitácora</a></button> 
+                <li class="nav-item p-1">
+                  <button type="button" class="btn btn-info"> <a href="bitacora.php">BITÁCORA</a></button> 
                 </li>
-                <li class="nav-item p-2">
-                  <button type="button" class="btn btn-info"> <a href="agenda.php">Agenda</a></button> 
+                <li class="nav-item p-1">
+                  <button type="button" class="btn btn-info"> <a href="agenda.php">AGENDA</a></button> 
                 </li>
-                <li class="nav-item p-2">
-                  <button type="button" class="btn btn-info"> <a href="Reportes.php">Reportes</a></button> 
+                <li class="nav-item p-1">
+                  <button type="button" class="btn btn-info"> <a href="Reportes.php">REPORTES</a></button> 
                 </li>
               </ul>
             </div>
