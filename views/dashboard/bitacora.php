@@ -116,7 +116,7 @@ include("../../app/helpers/plantillaHeader.php");
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Nueva bitácora</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Editar bitácora</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
@@ -346,9 +346,9 @@ include("../../app/helpers/plantillaHeader.php");
 </div>
 
 </div>
-<script src="../../resources/js/bitacora.js"></script>
+<br>
 
-
+<br>
 <?php
 //Se incluye la plantilla del encabezado para la página web
 include("../../app/helpers/plantillaFooter.php");

@@ -5,6 +5,7 @@ include("../../app/helpers/plantillaHeader.php");
 <!--Aquí comenzamos abriendo la sección -->
 <section>
   <br>
+
   <div class="container">
     <div class="row">
       <!--Container con su respectivo título de pestaña, en este caso, proveedores -->
@@ -20,22 +21,21 @@ include("../../app/helpers/plantillaHeader.php");
     </div>
     <br>
     <div class="row">
-      <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-          <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 p-3">
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
+      <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 p-3">
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
+          </form>
           </div>
           <!--Aquí en el botón de los filtros creamos un dropdown para poner las respectivas opciones -->
-          <div class="form-group">
+          <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN1">
+           <div class="form-group">
                           <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuLink3"
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuLink4"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Filtros de búsqueda
                             </button>
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink4">
                                 <a class="dropdown-item" href="#">Nombre</a>
                                 <a class="dropdown-item" href="#">Apellido</a>
                                 <a class="dropdown-item" href="#">Usuario</a>
@@ -43,16 +43,26 @@ include("../../app/helpers/plantillaHeader.php");
                               </div>
                             </div>
                           </div>
+          </div>
+          
+      <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center">
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalAgregarEmpleado">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus"
+            viewBox="0 0 16 16">
+            <path
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+          </svg>
+          Agregar
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          
+          <!--Aquí arrancamos con el botón agregar para abrir el modal -->
           <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalAgregarEmpleado">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus"
-                viewBox="0 0 16 16">
-                <path
-                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-              </svg>
-              Agregar
-            </button>
-
+            <!--Colocamos el div para el modal -->
             <div class="modal fade" id="ModalAgregarEmpleado" tabindex="-1" aria-labelledby="exampleModalLabel"
               aria-hidden="true">
               <div class="modal-dialog">
@@ -91,9 +101,8 @@ include("../../app/helpers/plantillaHeader.php");
                           <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Dirección"
                             rows="3"></textarea>
                         </div>
+                        <!--Colocamos los divs para el dropdown del filtro de búsqueda -->
                         <div class="form-group">
-                          <label for="exampleFormControlTextarea1">Tipo empleado:</label>
-                          <div class="form-group">
                           <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" id="dropdownMenuLink3"
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -111,6 +120,7 @@ include("../../app/helpers/plantillaHeader.php");
                             <br>
                       </form>
                     </div>
+                    <!--Colocamos el div del footer -->
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                       <button class="btn btn-success">Guardar</button><br>
@@ -125,8 +135,10 @@ include("../../app/helpers/plantillaHeader.php");
             </div>
       </nav>
       <br>
+      <!--Colocamos la tabla -->
       <div class="row">
         <div class="col scroll">
+          <div class="table-responsive">
           <table class="table table-hover">
             <thead>
               <tr>
@@ -286,12 +298,14 @@ include("../../app/helpers/plantillaHeader.php");
               </tr>
             </tbody>
           </table>
+          </div>
+          <!--Cerramos la tabla -->
         </div>
       </div>
     </div>
   </div>
   </div>
-
+</div>
   
   <script src="https://kit.fontawesome.com/592eb2e9e3.js" crossorigin="anonymous"></script>
 </section>

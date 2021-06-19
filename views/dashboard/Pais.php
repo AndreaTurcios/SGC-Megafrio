@@ -99,7 +99,7 @@ include("../../app/helpers/plantillaHeader.php");
                       <br>
                       <div class="row">
                         <div class="col scroll">
-                          <table border="1"  class="table table-bordered">
+                          <table  class="table table-bordered text-center">
                             <thead class="table-info">
                               <tr>
                                 <th scope="col">#</th>
