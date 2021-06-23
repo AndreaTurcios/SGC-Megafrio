@@ -1,6 +1,8 @@
 <?php
-//Se incluye la plantilla del encabezado para la página web
+//Se incluye la clase con las plantillas del documento
 include("../../app/helpers/plantillaHeader.php");
+//Se imprime la plantilla del encabezado y se envía el titulo para la página web
+plantillaHeader::headerTemplate('Perfil');
 ?>
 
 <div class="container" id="Perfil">

@@ -1,7 +1,6 @@
 <?php
 //Se incluye la plantilla del encabezado para la página web
 include("../../app/helpers/plantillaHeaderLogin.php");
-
 ?>
 
 
