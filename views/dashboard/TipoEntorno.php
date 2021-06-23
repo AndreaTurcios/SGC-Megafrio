@@ -46,6 +46,10 @@ plantillaHeader::headerTemplate('Gestión Entornos');
                         <!-- Creacion del modal -->
                         <button type="button" class="btn" data-bs-toggle="modal"
                             data-bs-target="#ModalAgregarCliente">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus"
+                              viewBox="0 0 16 16">
+                              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                            </svg>
                             Agregar
                         </button>
                         <div class="modal fade" id="ModalAgregarCliente" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -147,10 +151,7 @@ plantillaHeader::headerTemplate('Gestión Entornos');
                   </div>
                 </div>
               </body>
-
-
-
 <?php
-//Se incluye la plantilla del encabezado para la página web
-include("../../app/helpers/plantillaFooter.php");
+//Se imprime la plantilla del pie y se envía el nombre del controlador para la página web
+plantillaHeader::footerTemplate('tipo_entorno.js');
 ?>
