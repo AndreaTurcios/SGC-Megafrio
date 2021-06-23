@@ -1,7 +1,8 @@
 <?php
-//Se incluye la plantilla del encabezado para la página web
+//Se incluye la clase con las plantillas del documento
 include("../../app/helpers/plantillaHeader.php");
-
+//Se imprime la plantilla del encabezado y se envía el titulo para la página web
+plantillaHeader::headerTemplate('Dashboard');
 ?>
 
 <Section>
@@ -116,7 +117,7 @@ include("../../app/helpers/plantillaHeader.php");
                                     <img src="../../resources/img/materiales/proveedores.png" alt="" class="img-fluid">
                                 </div>
                                 <div class="col-12" id="BoxInferior">
-                                    <h4>Bítacora</h4>
+                                    <h4>Bitácora</h4>
                                 </div>
                             </div>
                         </a>

@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<?php
+//Clase para definir las plantillas de las páginas web del sitio privado
+class plantillaHeader {
+    //Método para imprimir el encabezado y establecer el titulo del documento
+    public static function headerTemplate($title) {
+        session_start();
+        print('<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -142,4 +148,7 @@
 
   </header>
 
-  <main>
+  <main>');
+    }
+  }
+?>
