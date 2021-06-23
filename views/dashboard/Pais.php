@@ -167,6 +167,6 @@ plantillaHeader::headerTemplate('Gestión País');
                 </section>
 
 <?php
-//Se incluye la plantilla del encabezado para la página web
-include("../../app/helpers/plantillaFooter.php");
+//Se imprime la plantilla del pie y se envía el nombre del controlador para la página web
+plantillaHeader::footerTemplate('paises.js');
 ?>

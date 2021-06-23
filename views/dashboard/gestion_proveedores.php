@@ -122,10 +122,9 @@ plantillaHeader::headerTemplate('Proveedores');
         <br>
         <!--Aquí arrancamos con la tabla -->
         <div class="row">
-          <div class="col scroll">
-            <div class="table-responsive">
-              <table class="table table-hover">
-                <thead>
+        <div class="table-responsive" class="col scroll">
+          <table border="1"  class="table table-bordered" >
+            <thead class="table-info">
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Compañía</th>
@@ -146,15 +145,10 @@ plantillaHeader::headerTemplate('Proveedores');
     </div>
     
 </section>
-<?php
-//Se incluye la plantilla del encabezado para la página web
-include("../../app/helpers/plantillaFooter.php");
-?>
-<!--
-<br><br>
-<script src="../../resources/js/bootstrap/bootstrap.min.js"></script>-->
 
-<script src="../../resources/css/Estilos/style.css"></script>
-<script src="https://kit.fontawesome.com/592eb2e9e3.js" crossorigin="anonymous"></script>
+<?php
+//Se imprime la plantilla del pie y se envía el nombre del controlador para la página web
+plantillaHeader::footerTemplate('proveedor.js');
+?>
 
 

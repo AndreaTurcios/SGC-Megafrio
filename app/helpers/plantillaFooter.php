@@ -16,6 +16,8 @@
 <script src="https://kit.fontawesome.com/592eb2e9e3.js" crossorigin="anonymous"></script>
 <!-- BitacoraJS -->
 <script src="../../resources/js/bitacora.js"></script>
+
+<script src="../../resources/css/Estilos/style.css"></script>
 </body>
 
 </html>

@@ -150,5 +150,39 @@ class plantillaHeader {
 
   <main>');
     }
+    
+    //Método para imprimir el pie y establecer el controlador del documento
+    public static function footerTemplate($controller) {
+      print('</main>
+    
+      <footer>
+          <!-- Derechos Reservados -->
+          <div class="text-center p-3" id="ptDerechos">
+              @2021 Derechos Reservados:
+              <a class="text-white" href="http://www.megafrio.com/">MegaFrio </a>
+          </div>
+      </footer>
+  
+  <!-- Agenda JS -->
+  <script src="../../resources/js/agenda.js"></script>
+  <!-- Script de Bootstrap -->
+  <script src="../../resources/js/bootstrap/bootstrap.min.js"></script>
+  <!-- Script de Fontawesome -->
+  <script src="https://kit.fontawesome.com/592eb2e9e3.js" crossorigin="anonymous"></script>
+  <!-- BitacoraJS -->
+  <script src="../../resources/js/bitacora.js"></script>
+
+  <!--Importación de archivos JavaScript al final del cuerpo para una carga optimizada-->
+  <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script> 
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="../../app/helpers/components.js"></script>                
+  <script type="text/javascript" src="../../resources/js/materialize.min.js"></script>              
+  <script src="../../resources/js/init.js"></script>                
+  <script type="text/javascript" src="../../app/controllers/' . $controller . '"></script>
+  
+  </body>
+  
+  </html>');
   }
+}
 ?>
