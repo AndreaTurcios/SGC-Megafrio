@@ -3,20 +3,27 @@
 class Empleados extends Validator{
     
     private $id = null;
+    private $nombreusuario = null;
     private $nombreempleado = null;
     private $apellidoempleado = null;
     private $telefonoempleado = null;
-    private $direccionempleado = null;
-    private $correoempleado = null;
-    private $estadoempleado = null;
-    private $usuario = null;
-    private $clave = null;
+    private $claveempleado = null;
     private $idtipoempleado = null;
 
     public function setId($value)
     {
         if ($this->validateNaturalNumber($value)) {
             $this->id = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setNombreUsuario($value)
+    {
+        if ($this->validateAlphanumeric($value, 1, 50)) {
+            $this->nombreusuario = $value;
             return true;
         } else {
             return false;
@@ -53,56 +60,16 @@ class Empleados extends Validator{
         }
     }
 
-    public function setDireccionEmpleado($value)
+    public function setClaveEmpleado($value)
     {
-        if ($this->validateAlphanumeric($value, 1, 50)) {
-            $this->direccionempleado = $value;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function setCorreoEmpleado($value)
-    {
-        if ($this->validateEmail($value)) {
-            $this->correoempleado = $value;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function setEstadoEmpleado($value)
-    {
-        if ($this->validateNaturalNumber($value)) {
-            $this->estadoempleado = $value;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function setUsuario($value)
-    {
-        if ($this->validateAlphanumeric($value, 1, 50)) {
-            $this->usuario = $value;
+        if ($this->validatePassword($value, 1, 50)) {
+            $this->claveempleado = $value;
             return true;
         } else {
             return false;
         }
     }
     
-    public function setClave($value)
-    {
-        if ($this->validatePassword($value, 1, 50)) {
-            $this->clave = $value;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public function setIDTipoEmpleado($value)
     {
         if ($this->validateNaturalNumber($value)) {
@@ -116,6 +83,11 @@ class Empleados extends Validator{
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getNombreUsuario()
+    {
+        return $this->nombreusuario;
     }
 
     public function getNombreEmpleado()
@@ -133,29 +105,9 @@ class Empleados extends Validator{
         return $this->telefonoempleado;
     }
 
-    public function getDireccionEmpleado()
+    public function getClaveEmpleado()
     {
-        return $this->direccionempleado;
-    }
-
-    public function getCorreoEmpleado()
-    {
-        return $this->correoempleado;
-    }
-
-    public function getEstadoEmpleado()
-    {
-        return $this->estadoempleado;
-    }
-
-    public function getUsuario()
-    {
-        return $this->usuario;
-    }
-
-    public function getClave()
-    {
-        return $this->clave;
+        return $this->claveempleado;
     }
 
     public function getIDTipoEmpleado()
@@ -165,11 +117,11 @@ class Empleados extends Validator{
 
     public function searchRows($value)
     {
-        $sql = 'SELECT idempleado, nombreempleado,apellidoempleado,telefonoempleado,direccionempleado,correoempleado,estadoempleado,usuario,tipoempleado
+        $sql = 'SELECT id_empleado, nombre_usuario, nombre_emp,apellido_emp,telefono_emp,id_tipo_emp
                 FROM empleado 
                 INNER JOIN tipoempleado USING (idtipoempleado)
-                WHERE nombreempleado ILIKE ? OR apellidoempleado ILIKE ? 
-                ORDER BY nombreempleado';
+                WHERE nombre_emp ILIKE ? OR apellido_emp ILIKE ? 
+                ORDER BY apellido_emp';
         $params = array("%$value%","%$value%");
         return Database::getRows($sql, $params);
     }
@@ -177,28 +129,28 @@ class Empleados extends Validator{
     public function createRow()
     {
         // Se encripta la clave por medio del algoritmo bcrypt que genera un string de 60 caracteres.
-        $hash = password_hash($this->clave, PASSWORD_DEFAULT);
-        $sql = 'INSERT INTO empleado (nombreempleado,apellidoempleado,telefonoempleado,direccionempleado,correoempleado,estadoempleado,usuario,clave,idtipoempleado)
+        $hash = password_hash($this->claveempleado, PASSWORD_DEFAULT);
+        $sql = 'INSERT INTO empleado (nombre_usuario, nombre_emp,apellido_emp,telefono_emp,clave_emp,id_tipo_emp)
         VALUES (? ,?, ?, ?, ?, ?, ?, ?, ?)';
-        $params = array($this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado,$this->direccionempleado,$this->correoempleado,$this->estadoempleado,$this->usuario, $hash,$this->idtipoempleado);
+        $params = array($this->nombreusuario, $this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado,$this->claveempleado,$this->idtipoempleado);
         return Database::executeRow($sql, $params);
     }
 
     public function readAll()
     {
-        $sql = 'SELECT idempleado,nombreempleado,apellidoempleado,telefonoempleado,direccionempleado,correoempleado,estadoempleado,usuario,tipoempleado
-                FROM empleado 
-				INNER JOIN tipoempleado USING (idtipoempleado)
-                ORDER BY idempleado';
+        $sql = 'SELECT id_empleado, nombre_usuario, nombre_emp,apellido_emp,telefono_emp,id_tipo_emp
+                FROM empleado  
+				INNER JOIN tipoempleado USING (id_tipo_emp)
+                ORDER BY id_empleado';
         $params = null;
         return Database::getRows($sql, $params);
     }
 
     public function readOne()
     {
-        $sql = 'SELECT idempleado,nombreempleado,apellidoempleado,telefonoempleado,direccionempleado,correoempleado,estadoempleado,usuario,clave,idtipoempleado
+        $sql = 'SELECT id_empleado, nombre_usuario, nombre_emp,apellido_emp,telefono_emp,id_tipo_emp
                 FROM empleado 
-                WHERE idempleado = ?';
+                WHERE id_empleado = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -206,16 +158,16 @@ class Empleados extends Validator{
     public function updateRow()
     { $hash = password_hash($this->clave, PASSWORD_DEFAULT);
         $sql = 'UPDATE empleado 
-                SET nombreempleado=?,apellidoempleado=?,telefonoempleado=?,direccionempleado=?,correoempleado=?,estadoempleado=?,usuario=?,clave=?,idtipoempleado=?
+                SET nombre_usuario=?,nombre_emp=?,apellido_emp=?,telefono_emp=?,clave_emp=?,id_tipo_emp=?
                 WHERE idempleado = ?';
-        $params = array($this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado,$this->direccionempleado,$this->correoempleado,$this->estadoempleado,$this->usuario,$hash,$this->idtipoempleado, $this->id);
+        $params = array($this->nombreusuario, $this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado, $this->claveempleado,$this->claveempleado,$this->idtipoempleado, $this->id);
         return Database::executeRow($sql, $params);
     }
 
     public function deleteRow()
     {
         $sql = 'DELETE FROM empleado
-                WHERE idempleado = ?';
+                WHERE id_empleado = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
