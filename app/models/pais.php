@@ -4,23 +4,34 @@ class Pais extends Validator{
     
     //Se declaran atributos
     private $id_pais = null;
-    private $tipoentorno = null;
+    private $nombre_pais = null;
+    private $codigo_postal = null;
 
     //Asigna valores a los atributos
     public function setId($value)
     {
         if ($this->validateNaturalNumber($value)) {
-            $this->id_tipo_ent = $value;
+            $this->id_pais = $value;
             return true;
         } else {
             return false;
         }
     }
 
-    public function setTipoEnt($value)
+    public function setNombreP($value)
     {
         if ($this->validateAlphaNumeric($value, 1, 50)) {
-            $this->tipoentorno = $value;
+            $this->nombre_pais = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setCodigo($value)
+    {
+        if ($this->validatAlphaNumeric($value)) {
+            $this->codigo_postal = $value;
             return true;
         } else {
             return false;
@@ -30,65 +41,70 @@ class Pais extends Validator{
     //Se obtiene los valores de los atributos
     public function getId()
     {
-        return $this->id_tipo_ent;
+        return $this->id_pais;
     }
 
-    public function getTipoEnt()
+    public function getNombreP()
     {
-        return $this->tipoentorno;
+        return $this->nombre_pais;
+    }
+
+    public function getCodigo()
+    {
+        return $this->codigo_postal;
     }
 
 
     public function searchRows($value)
     {
-        $sql = 'SELECT id_tipo_ent, tipo_entorno
-                FROM tipoentorno
-                WHERE tipoentorno ILIKE ?
-                ORDER BY marca';
+        $sql = 'SELECT id_pais, nombre_pais,codigo_postal
+                FROM pais
+                WHERE nombre_pais ILIKE ?
+                ORDER BY nombre_pais';
         $params = array("%$value%");
         return Database::getRows($sql, $params);
     }
 
     public function createRow()
     {
-        $sql = 'INSERT INTO tipoentorno(marca)
-                VALUES(?)';
-        $params = array($this->nombre);
+        $sql = 'INSERT INTO pais(nombre_pais,codigo_postal)
+                VALUES(?,?)';
+        $params = array($this->nombre_pais,$this->codigo_postal);
         return Database::executeRow($sql, $params);
     }
 
     public function readAll()
     {
-        $sql = 'SELECT id_proveedor, nombre_compania, telefono_pro, direccion_pro, id_pais
-                FROM proveedor 
-                ORDER BY id_proveedor';
+        $sql = 'SELECT id_pais, nombre_pais, codigo_postal
+                FROM pais
+                ORDER BY nombre_pais';
         $params = null;
         return Database::getRows($sql, $params);
     }
 
     public function readOne()
     {
-        $sql = 'SELECT id_proveedor, nombre_compania, telefono_pro, direccion_pro, id_pais
-                FROM proveedor 
-                WHERE id_proveedor = ?';
-        $params = array($this->id_proveedor);
+        $sql = 'SELECT id_pais, nombre_pais, codigo_postal
+                FROM pais
+                WHERE id_pais = ?';
+        $params = array($this->id_pais);
         return Database::getRow($sql, $params);
     }
 
     public function updateRow()
     {
-        $sql = 'UPDATE proveedor 
-                SET nombre_compania= ?,telefono_pro= ?,direccion_pro= ?,id_pais = ?
-                WHERE idproveedor = ?';
-        $params = array($this->nombre_compania,$this->telefono_pro,$this->direccion_pro,$this->id_pais,$this->id_proveedor);
+        $sql = 'UPDATE pais
+                SET id_pais= ?,nombre_pais= ?,codigo_postal= ?
+                WHERE id_pais = ?';
+        $params = array($this->nombre_pais,$this->codigo_postal,$this->id_pais);
         return Database::executeRow($sql, $params);
     }
 
     public function deleteRow()
     {
-        $sql = 'DELETE FROM proveedor
-                WHERE idproveedor = ?';
-        $params = array($this->id);
+        $sql = 'DELETE FROM pais
+                WHERE id_pais = ?';
+        $params = array($this->id_pais);
         return Database::executeRow($sql, $params);
     }
     
