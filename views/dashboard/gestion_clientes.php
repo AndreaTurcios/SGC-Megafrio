@@ -205,8 +205,6 @@ plantillaHeader::headerTemplate('Clientes');
                             <td>20190068@ricaldone.edu.sv</td>
                             <td><a href="#">Editar</a>/<a href="#">Eliminar</a></td>
                         </tr>
-
-
                     </tbody>
                 </table>
             </div>

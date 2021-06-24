@@ -1,7 +1,7 @@
 <?php
-require_once('../../helpers/database.php');
-require_once('../../helpers/validator.php');
-require_once('../../models/proveedor.php');
+require_once('../helpers/database.php');
+require_once('../helpers/validator.php');
+require_once('../models/proveedor.php');
 
 if (isset($_GET['action'])) {
     // Se crea una sesión o se reanuda la actual para poder utilizar variables de sesión en el script.
@@ -49,9 +49,9 @@ if (isset($_GET['action'])) {
             case 'create':
                 $_POST = $proveedor->validateForm($_POST);
                 if ($proveedor->setNombreCompania($_POST['nombre_compania'])) {
-                    if ($proveedor->setRepresentante($_POST['representante'])) {
-                        if ($proveedor->setTelefonoProveedor($_POST['telefono_proveedor'])) {                                                
-                                if ($proveedor->setDireccionProveedor($_POST['direccion_proveedor'])) {                                                    
+                        if ($proveedor->setTelefonoProveedor($_POST['telefono_pro'])) {                                                
+                                if ($proveedor->setDireccionProveedor($_POST['direccion_pro'])) {  
+                                    if ($proveedor->setIdPais($_POST['id_pais'])) {                                                    
                                                     if ($proveedor->createRow()) {
                                                           $result['status'] = 1;
                                                           $result['message'] = 'Proveedor registrado exitosamente';  
@@ -71,6 +71,7 @@ if (isset($_GET['action'])) {
                 } else {
                     $result['exception'] = 'Carácteres incorrectos en nombre de la compañía';
                 }
+                
                 break;
             case 'readOne':
                 if ($proveedor->setId($_POST['idproveedor'])) {
@@ -88,13 +89,11 @@ if (isset($_GET['action'])) {
                 }
                 break;
                 case 'update':
-                    $_POST = $proveedor->validateForm($_POST);
-                    if ($proveedor->setId($_POST['id'])) {
-                        if ($proveedor->readOne()) {
-                            if ($proveedor->setNombreCompania($_POST['nombre_compania'])) {
-                                if ($proveedor->setRepresentante($_POST['representante'])) {
-                                        if ($proveedor->setTelefonoProveedor($_POST['telefono_proveedor'])) {
-                                            if ($proveedor->setDireccionProveedor($_POST['direccion_proveedor'])) {
+                $_POST = $proveedor->validateForm($_POST);
+                if ($proveedor->setNombreCompania($_POST['nombre_compania'])) {
+                        if ($proveedor->setTelefonoProveedor($_POST['telefono_pro'])) {                                                
+                                if ($proveedor->setDireccionProveedor($_POST['direccion_pro'])) {  
+                                    if ($proveedor->setIdPais($_POST['id_pais'])) { 
                                                 if ($proveedor->updateRow()) {
                                                     $result['status'] = 1;
                                                     $result['message'] = 'Usuario modificado correctamente';
@@ -113,15 +112,9 @@ if (isset($_GET['action'])) {
                                 } else {
                                     $result['exception'] = 'Descripción incorrecta';
                                 }
-                            } else {
-                                $result['exception'] = 'Problema con id';
-                            }
-                        }else {
-                            $result['exception'] = 'Problema con id';
-                        }
                     break;
             case 'delete':
-                if ($proveedor->setId($_POST['idproveedor'])) {
+                if ($proveedor->setId($_POST['id_proveedor'])) {
                     if ($data = $proveedor->readOne()) {
                         if ($proveedor->deleteRow()) {
                             $result['status'] = 1;

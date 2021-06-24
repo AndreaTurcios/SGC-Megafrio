@@ -17,6 +17,7 @@ plantillaHeader::headerTemplate('Proveedores');
     </div>
     <br>
     <div class="row">
+    <nav class="navbar navbar-light bg-light">
       <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 p-3">
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
@@ -45,11 +46,10 @@ plantillaHeader::headerTemplate('Proveedores');
         </button>
       </div>
     </div>
+    </nav>
     <!--Aquí creamos la barra de búsqueda y el botón de los filtros de la misma -->
     <div class="row">
       <div class="container-fluid">
-
-
         <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
 
           <!--Aquí comenzamos agregando un div con el id ModalAgregarProveedor -->
@@ -98,8 +98,6 @@ plantillaHeader::headerTemplate('Proveedores');
                           </div>
                         </div>
                     </div>
-                  </div>
-                  
                 </div>
                 <!--Aquí arrancamos con el footer del modal -->
                 <div class="modal-footer">
@@ -110,11 +108,11 @@ plantillaHeader::headerTemplate('Proveedores');
                   <button class="btn btn-danger">Eliminar</button><br>
                   <hr>
                 </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <br>
+      <br>
         <!--Aquí arrancamos con la tabla -->
         <div class="row">
         <div class="table-responsive" class="col scroll">
@@ -123,17 +121,16 @@ plantillaHeader::headerTemplate('Proveedores');
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Compañía</th>
-                    <th scope="col">Representante</th>
                     <th scope="col">Teléfono</th>
                     <th scope="col">Dirección</th>
                     <th scope="col">País</th>
+                    <th scope="col">Controlador</th>
                   </tr>
                 </thead>
                 <tbody id="tbody-rows">
                 </tbody>
               </table>
             </div>
-
           </div>
         </div>
       </div>

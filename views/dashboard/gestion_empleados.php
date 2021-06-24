@@ -16,17 +16,16 @@ plantillaHeader::headerTemplate('Empleados');
         <h1 class="center">Gestión de empleados</h1>
       </div>
     </div>
-    
     <br>
     
     
     <div class="row">
     <nav class="navbar navbar-light bg-light">
       <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 p-3">
-        <form class="d-flex">
+        <form class="d-flex" method="post" id="search-form">
           <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Buscar</button>
-          </form>
+        </form>
           </div>
           <!--Aquí en el botón de los filtros creamos un dropdown para poner las respectivas opciones -->
           <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN1">
@@ -75,7 +74,7 @@ plantillaHeader::headerTemplate('Empleados');
                   </div>
                   <div class="modal-body">
                     <div class="container">
-                      <form>
+                    <form method="post" id="save-form" enctype="multipart/form-data">
                         <div class="form-group">
                           <label for="formGroupExampleInput">Nombre empleado:</label>
                           <input type="text" class="form-control" id="formGroupExampleInput"
@@ -103,12 +102,13 @@ plantillaHeader::headerTemplate('Empleados');
                           <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Dirección"
                             rows="3"></textarea>
                         </div>
+                        <br>
                         <!--Colocamos los divs para el dropdown del filtro de búsqueda -->
                         <div class="form-group">
                           <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" id="dropdownMenuLink3"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Filtros de búsqueda
+                                Tipo Empleado
                             </button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
                                 <a class="dropdown-item" href="#">Admin</a>
@@ -142,15 +142,14 @@ plantillaHeader::headerTemplate('Empleados');
         <div class="table-responsive" class="col scroll">
           <table border="1"  class="table table-bordered" >
               <thead class="table-info">
-              
               <tr>
                 <th scope="col">#</th>
+                <th scope="col">Usuario</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
                 <th scope="col">Teléfono</th>
-                <th scope="col">Usuario</th>
                 <th scope="col">Dirección</th>
-                <th scope="col">Tipo empleado</th>
+                <th scope="col">Controlador</th>
               </tr>
             </thead>
             <tbody id="tbody-rows">
@@ -161,11 +160,7 @@ plantillaHeader::headerTemplate('Empleados');
         </div>
       </div>
     </div>
-  </div>
-  </div>
-</div>
   
-  <script src="https://kit.fontawesome.com/592eb2e9e3.js" crossorigin="anonymous"></script>
 </section>
 
 <?php

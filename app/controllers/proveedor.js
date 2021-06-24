@@ -1,5 +1,5 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
-const API_PROVEEDOR = '../../app/api/private/proveedor.php?action=';
+const API_PROVEEDOR = '../../app/api/proveedor.php?action=';
 
 document.addEventListener('DOMContentLoaded', function () {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
@@ -14,14 +14,14 @@ function fillTable(dataset) {
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
         content += `
         <tr>
-        <td>${row.idproveedor}</td>            
-        <td>${row.nombrecompania}</td>
-        <td>${row.representante}</td>
-        <td>${row.telefonoproveedor}</td>
-        <td>${row.direccionproveedor}</td>   
+        <td>${row.id_proveedor}</td>            
+        <td>${row.nombre_compania}</td>
+        <td>${row.telefono_pro}</td>
+        <td>${row.direccion_pro}</td>
+        <td>${row.id_pais}</td>   
         <td>
-            <a href="#" onclick="openUpdateDialog(${row.idproveedor})" class="btn waves-effect blue tooltipped" data-tooltip="Actualizar"><i class="material-icons">mode_edit</i></a>
-            <a href="#" onclick="openDeleteDialog(${row.idproveedor})" class="btn waves-effect red tooltipped" data-tooltip="Eliminar"><i class="material-icons">delete</i></a>
+            <a href="#" onclick="openUpdateDialog(${row.id_proveedor})">Editar</a>/
+            <a href="#" onclick="openDeleteDialog(${row.id_proveedor})">Eliminar</a>
         </td>
     </tr>
         `;
@@ -61,7 +61,7 @@ function openUpdateDialog(id) {
 
     // Se define un objeto con los datos del registro seleccionado.
     const data = new FormData();
-    data.append('idproveedor', id);
+    data.append('id_proveedor', id);
 
     fetch(API_PROVEEDOR + 'readOne', {
         method: 'post',
@@ -72,11 +72,11 @@ function openUpdateDialog(id) {
             request.json().then(function (response) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
-                    document.getElementById('id').value = response.dataset.idproveedor;
-                    document.getElementById('nombre_compania').value = response.dataset.nombrecompania;
-                    document.getElementById('representante').value = response.dataset.representante;
-                    document.getElementById('telefono_proveedor').value = response.dataset.telefonoproveedor;
-                    document.getElementById('direccion_proveedor').value = response.dataset.direccionproveedor;
+                    document.getElementById('id_proveedor').value = response.dataset.id_proveedor;
+                    document.getElementById('nombre_compania').value = response.dataset.nombre_compania;
+                    document.getElementById('telefono_pro').value = response.dataset.telefono_pro;
+                    document.getElementById('direccion_pro').value = response.dataset.direccion_pro;
+                    document.getElementById('id_pais').value = response.dataset.id_pais;
                    
                     M.updateTextFields();
                 } else {
@@ -98,7 +98,7 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     // Se define una variable para establecer la acción a realizar en la API.
     let action = '';
     // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
-    if (document.getElementById('id').value) {
+    if (document.getElementById('id_proveedor').value) {
         action = 'update';
     } else {
         action = 'create';
@@ -109,7 +109,7 @@ document.getElementById('save-form').addEventListener('submit', function (event)
 function openDeleteDialog(id) {
     // Se define un objeto con los datos del registro seleccionado.
     const data = new FormData();
-    data.append('idproveedor', id);
+    data.append('id_proveedor', id);
     // Se llama a la función que elimina un registro. Se encuentra en el archivo components.js
     confirmDelete(API_PROVEEDOR, data);
 }

@@ -2,16 +2,16 @@
 
 class Proveedor extends Validator{
     
-    private $id = null;
+    private $id_proveedor = null;
     private $nombre_compania = null;
-    private $telefono_proveedor = null;
-    private $direccion_proveedor = null;
+    private $telefono_pro = null;
+    private $direccion_pro = null;
     private $id_pais = null;
 
     public function setId($value)
     {
         if ($this->validateNaturalNumber($value)) {
-            $this->id = $value;
+            $this->id_proveedor = $value;
             return true;
         } else {
             return false;
@@ -28,20 +28,10 @@ class Proveedor extends Validator{
         }
     }
 
-    public function setRepresentante($value)
-    {
-        if ($this->validateAlphanumeric($value, 1, 50)) {
-            $this->representante = $value;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public function setTelefonoProveedor($value)
     {
         if ($this->validatePhone($value)) {
-            $this->telefono_proveedor = $value;
+            $this->telefono_pro = $value;
             return true;
         } else {
             return false;
@@ -51,7 +41,17 @@ class Proveedor extends Validator{
     public function setDireccionProveedor($value)
     {
         if ($this->validateString($value, 1, 250)) {
-            $this->direccion_proveedor = $value;
+            $this->direccion_pro = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setIdPais($value)
+    {
+        if ($this->validateString($value, 1, 250)) {
+            $this->id_pais = $value;
             return true;
         } else {
             return false;
@@ -60,7 +60,7 @@ class Proveedor extends Validator{
 
     public function getId()
     {
-        return $this->id;
+        return $this->id_proveedor;
     }
 
     public function getNombreCompania()
@@ -68,63 +68,64 @@ class Proveedor extends Validator{
         return $this->nombre_compania;
     }
 
-    public function getRepresentante()
-    {
-        return $this->representante;
-    }
-
     public function getTelefonoProveedor()
     {
-        return $this->telefono_proveedor;
+        return $this->telefono_pro;
     }
 
     public function getDireccionProveedor()
     {
-        return $this->direccion_proveedor;
+        return $this->direccion_pro;
     }
+
+    public function getIdPais()
+    {
+        return $this->id_pais;
+    }
+
 
     public function searchRows($value)
     {
-        $sql = 'SELECT nombrecompania,representante,telefonoproveedor,direccionproveedor
+        $sql = 'SELECT nombre_compania, telefono_pro, direccion_pro, id_pais
                 FROM proveedor 
-                WHERE nombrecompania ILIKE ? OR representante ILIKE ? 
-                ORDER BY nombrecompania'; 
+                WHERE nombre_compania ILIKE ? OR direccion_pro ILIKE ? 
+                ORDER BY nombre_compania'; 
         $params = array("%$value%", "%$value%");
         return Database::getRows($sql, $params);
     }
 
     public function createRow()
     {
-        $sql = 'INSERT INTO proveedor(nombrecompania,representante,telefonoproveedor,direccionproveedor)
+        $sql = 'INSERT INTO proveedor(nombre_compania, telefono_pro, direccion_pro, id_pais)
         VALUES (? ,?, ?, ?)';
-        $params = array($this->nombre_compania, $this->representante, $this->telefono_proveedor,$this->direccion_proveedor);
+        $params = array($this->nombre_compania,$this->telefono_pro,$this->direccion_pro,$this->id_pais);
         return Database::executeRow($sql, $params);
     }
 
     public function readAll()
     {
-        $sql = 'SELECT idproveedor,nombrecompania,representante,telefonoproveedor,direccionproveedor
+        $sql = 'SELECT id_proveedor, nombre_compania, telefono_pro, direccion_pro, id_pais
                 FROM proveedor 
-                ORDER BY idproveedor';
+                ORDER BY id_proveedor';
         $params = null;
         return Database::getRows($sql, $params);
     }
 
     public function readOne()
     {
-        $sql = 'SELECT idproveedor,nombrecompania,representante,telefonoproveedor,direccionproveedor
+        $sql = 'SELECT id_proveedor, nombre_compania, telefono_pro, direccion_pro, id_pais
                 FROM proveedor 
-                WHERE idproveedor = ?';
-        $params = array($this->id);
+                WHERE id_proveedor = ?';
+        $params = array($this->id_proveedor);
         return Database::getRow($sql, $params);
     }
 
     public function updateRow()
     {
         $sql = 'UPDATE proveedor 
-                SET nombrecompania= ?,representante= ?,telefonoproveedor= ?,direccionproveedor = ?
+                SET nombre_compania= ?,telefono_pro= ?,direccion_pro= ?,id_pais = ?
                 WHERE idproveedor = ?';
-        $params = array($this->nombre_compania, $this->representante, $this->telefono_proveedor, $this->direccion_proveedor, $this->id);
+        $params = array($this->nombre_compania,$this->telefono_pro,$this->direccion_pro,$this->id_pais,$this->id_proveedor);
         return Database::executeRow($sql, $params);
     }
 
