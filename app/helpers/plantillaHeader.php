@@ -165,8 +165,7 @@ class plantillaHeader {
                 <!--Importación de archivos JavaScript al final del cuerpo para una carga optimizada-->
                 <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script> 
                 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-                <script type="text/javascript" src="../../app/helpers/components.js"></script>                    
-                <script src="../../resources/js/init.js"></script>                
+                <script type="text/javascript" src="../../app/helpers/components.js"></script>           
                 <script type="text/javascript" src="../../app/controllers/' . $controller . '"></script>
             </body>
             </html>

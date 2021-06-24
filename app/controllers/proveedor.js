@@ -28,7 +28,7 @@ function fillTable(dataset) {
     });
     // Se agregan las filas al cuerpo de la tabla mediante su id para mostrar los registros.
     document.getElementById('tbody-rows').innerHTML = content;
-    M.Tooltip.init(document.querySelectorAll('.tooltipped'));
+    //M.Tooltip.init(document.querySelectorAll('.tooltipped'));
 }
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de buscar.
 document.getElementById('search-form').addEventListener('submit', function (event) {
