@@ -94,7 +94,7 @@ class Pais extends Validator{
     public function updateRow()
     {
         $sql = 'UPDATE pais
-                SET id_pais= ?,nombre_pais= ?,codigo_postal= ?
+                SET nombre_pais= ?,codigo_postal= ?
                 WHERE id_pais = ?';
         $params = array($this->nombre_pais,$this->codigo_postal,$this->id_pais);
         return Database::executeRow($sql, $params);
