@@ -3,7 +3,7 @@
 include("../../app/helpers/plantillaHeader.php");
 //Se imprime la plantilla del encabezado y se envía el titulo para la página web
 plantillaHeader::headerTemplate('Proveedores');
-?>
+?> 
 
 <!--Aquí comenzamos abriendo la sección -->
 <section>
