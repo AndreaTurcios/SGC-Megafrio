@@ -104,8 +104,7 @@ plantillaHeader::headerTemplate('Proveedores');
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                   <button class="btn btn-success">Guardar</button><br>
                   <hr>
-                  <button type="button" class="btn btn-primary">Modificar</button>
-                  <button class="btn btn-danger">Eliminar</button><br>
+                 <br>
                   <hr>
                 </div>
                   </div>

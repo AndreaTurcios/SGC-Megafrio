@@ -64,26 +64,31 @@ plantillaHeader::headerTemplate('Empleados');
           <!--Aquí arrancamos con el botón agregar para abrir el modal -->
           <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
             <!--Colocamos el div para el modal -->
-            <div class="modal fade" id="ModalAgregarEmpleado" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div id="ModalAgregarEmpleado" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel"
               aria-hidden="true">
               <div class="modal-dialog">
+              <input class="hide" type="number" id="id" name="id" />
                 <div class="modal-content">
                   <div class="modal-header">
+                  
                     <h5 class="modal-title" id="exampleModalLabel">Ingrese los siguientes datos:</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                     <div class="container">
                     <form method="post" id="save-form" enctype="multipart/form-data">
+                      
                         <div class="form-group">
                           <label for="formGroupExampleInput">Nombre empleado:</label>
                           <input type="text" class="form-control" id="formGroupExampleInput"
                             placeholder="Nombre empleado">
                         </div>
                         <div class="form-group">
-                          <label for="formGroupExampleInput2">Apellido empleado:</label>
-                          <input type="text" class="form-control" id="formGroupExampleInput2"
-                            placeholder="Apellido empleado">
+                        <div class="input-field col s12 m6">
+                        <i class="bi bi-plus-lg"></i>
+                        <input id="apellido_emp" type="text" name="apellido_emp" class="validate" required />
+                        <label for="apellido_emp">Apellido empleado</label>
+                          </div>
                         </div>
                         <div class="form-group">
                           <label for="formGroupExampleInput2">Teléfono:</label>
@@ -126,10 +131,6 @@ plantillaHeader::headerTemplate('Empleados');
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                       <button class="btn btn-success">Guardar</button><br>
-                      <hr>
-                      <button type="button" class="btn btn-primary">Modificar</button>
-                      <button class="btn btn-danger">Eliminar</button><br>
-                      <hr>
                     </div>
                   </div>
                 </div>
