@@ -1,4 +1,3 @@
-
 #CajaDatos{
     background: linear-gradient(120deg, #4BADB6, #2cafbb);
     color: white;
@@ -23,25 +22,11 @@
     padding-bottom: 30px;
 }
 
-#CajaBoton a{
-    padding: 10px;
-    text-decoration: none;
-    border: solid white 1px;
-    color: white;
-    border-radius: 10px;
-}
-
 #CajaBoton2 a{
     padding: 10px;
     text-decoration: none;
     color: white;
 
-}
-
-
-#CajaBoton a:hover{
-    background-color: white;
-    color: #4BADB6;
 }
 
 #EspacioBlanco2{
@@ -51,4 +36,18 @@
 #SolicitarContra a{
     color: white;
     text-decoration: underline;
+}
+
+#login{
+    padding: 10px;
+    text-decoration: none;
+    border: solid white 1px;
+    color: white;
+    border-radius: 10px;
+    background-color: #4BADB6;
+}
+
+#login:hover{
+    background-color: white;
+    color: #4BADB6;;
 }
