@@ -78,7 +78,7 @@ function openUpdateDialog(id) {
         if (request.ok) {
             request.json().then(function (response) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-                if (response.status) {
+                if (response.status) {        
                 document.getElementById('id_empleado').value = response.dataset.id_empleado;
                 document.getElementById('nombre_usuario').value = response.dataset.nombre_usuario;
                 document.getElementById('nombre_emp').value = response.dataset.nombre_emp;
