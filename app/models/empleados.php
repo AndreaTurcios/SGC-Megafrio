@@ -171,4 +171,29 @@ class Empleados extends Validator{
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
+
+    public function checkUser($nombreusuario)
+    {
+        $sql = 'SELECT id_empleado, id_tipo_emp FROM empleado WHERE nombre_usuario = ?';
+        $params = array($nombreusuario);
+        if ($data = Database::getRow($sql, $params)) {
+            $this->id = $data['id_empleado'];
+            $this->alias = $alias;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function checkPassword($claveempleado)
+    {
+        $sql = 'SELECT clave FROM empleado WHERE id_empleado = ?';
+        $params = array($this->id_cliente_user);
+        $data = Database::getRow($sql, $params);
+        if (password_verify($password, $data['clave_emp'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

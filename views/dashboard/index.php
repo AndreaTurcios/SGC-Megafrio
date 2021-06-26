@@ -1,6 +1,8 @@
 <?php
-//Se incluye la plantilla del encabezado para la página web
-include("../../app/helpers/plantillaHeaderLogin.php");
+// Se incluye la clase con las plantillas del documento.
+require_once('../../app/helpers/dashboard_page.php');
+// Se imprime la plantilla del encabezado enviando el título de la página web.
+Dashboard_Page::headerTemplate('Iniciar sesión');
 ?>
 
 
@@ -25,7 +27,7 @@ include("../../app/helpers/plantillaHeaderLogin.php");
                 <div class="container">
 
                     <br>
-
+                    <form method="post" id="session-form">
                     <!-- Titulo de iniciar Sesion -->
                     <div class="row" id="RowTitulo">
                         <div class="col-12" id="TituloLogin">
@@ -40,7 +42,7 @@ include("../../app/helpers/plantillaHeaderLogin.php");
                             <h4>Usuario:</h4>
                         </div>
                         <div class="col-8">
-                            <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario">
+                            <input class="form-control me-2" type="text" placeholder="Ingrese su nombre de usuario" aria-label="Usuario" name="username" class="validate" required>
                         </div>
                     </div>
                     <br>
@@ -51,7 +53,7 @@ include("../../app/helpers/plantillaHeaderLogin.php");
                             <h4>Contraseña:</h4>
                         </div>
                         <div class="col-8">
-                            <input class="form-control me-2" type="password" placeholder="" aria-label="Usuario">
+                            <input class="form-control me-2" type="password" placeholder="Ingresa tu contraseña" aria-label="Usuario" name="clave" class="validate" required>
                         </div>
                     </div>
                     <br>
@@ -60,9 +62,9 @@ include("../../app/helpers/plantillaHeaderLogin.php");
 
                     </div>
                     <!-- Espacio para boton -->
-                    <div class="row" id="CajaBoton">
+                    <div class="row">
                         <div class="col-12 text-center">
-                            <a href="paginaPrincipal.php">Ingresar</a>
+                            <button type="submit" class="tooltipped" data-tooltip="Ingresar" id='login'>Ingresar</button>
                         </div>
                     </div>
                     <br>
@@ -78,7 +80,7 @@ include("../../app/helpers/plantillaHeaderLogin.php");
                     <div class="row" id="EspacioBlanco2">
 
                     </div>
-
+                    </form>
                 </div>
             </div>
         </div>
@@ -92,6 +94,6 @@ include("../../app/helpers/plantillaHeaderLogin.php");
 
 
 <?php
-    //Se incluye la plantilla del encabezado para la página web
-    include("../../app/helpers/plantillaFooter.php");
-    ?>
+// Se imprime la plantilla del encabezado enviando el título de la página web.
+Dashboard_Page::footerTemplate('login.js');
+?>
