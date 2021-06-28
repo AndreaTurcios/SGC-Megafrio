@@ -21,7 +21,7 @@ function fillTable(dataset) {
         <td>${row.nombre_pais}</td>   
         <td>${row.codigo_postal}</td>   
         <td>
-            <a href="#" onclick="openUpdateDialog(${row.id_proveedor})"class="btn">Editar</a>/
+            <a href="#" onclick="openUpdateDialog(${row.id_proveedor})"class="btn"  data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</a> /
             <a href="#" onclick="openDeleteDialog(${row.id_proveedor})"class="btn">Eliminar</a>
         </td>
     </tr>
@@ -38,17 +38,15 @@ document.getElementById('search-form').addEventListener('submit', function (even
     // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
     searchRows(API_PROVEEDOR, 'search-form');
 });
-// Función para preparar el formulario al momento de insertar un registro.
-function openCreateDialog() {
-    // Se restauran los elementos del formulario.
-    document.getElementById('save-form').reset();
-    // Se abre la caja de dialogo (modal) que contiene el formulario.
-    let instance = M.Modal.getInstance(document.getElementById('save-modal'));
-    instance.open();
-    // Se asigna el título para la caja de dialogo (modal).
-    document.getElementById('modal-title').textContent = 'Crear empleado';
-    // Se establece el campo de archivo como obligatorio.
-}
+
+
+// Método manejador de eventos que se ejecuta cuando se envía el formulario de guardar.
+document.getElementById('save-form').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    
+    saveRow(API_EMPLEADOS, 'create', 'save-form', null);
+});
 
 // Función para preparar el formulario al momento de modificar un registro.
 function openUpdateDialog(id) {
@@ -104,7 +102,13 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     } else {
         action = 'create';
     }
-    saveRow(API_PROVEEDOR, action, 'save-form', 'save-modal');
+    saveRow(API_CLIENTES, action, 'save-form', 'save-modal');
+}); 
+
+document.getElementById('update-form').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    updateRow(API_EMPLEADOS, 'update', 'update-form', 'update-modal');
 });
 
 function openDeleteDialog(id) {

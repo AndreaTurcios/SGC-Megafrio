@@ -40,6 +40,14 @@ function fillTable(dataset) {
 
 }
 
+// Método manejador de eventos que se ejecuta cuando se envía el formulario de buscar.
+document.getElementById('search-form').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
+    searchRows(API_EMPLEADOS, 'search-form');
+});
+
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de guardar.
 document.getElementById('save-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.
@@ -82,10 +90,23 @@ function openUpdateDialog(id) {
 }
 
 
+document.getElementById('save-form').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Se define una variable para establecer la acción a realizar en la API.
+    let action = '';
+    // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
+    if (document.getElementById('id_empleado2').value) {
+        action = 'update';
+    } else {
+        action = 'create';
+    }
+    saveRow(API_CLIENTES, action, 'save-form', 'save-modal');
+}); 
+
 document.getElementById('update-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
-    
     updateRow(API_EMPLEADOS, 'update', 'update-form', 'update-modal');
 });
 

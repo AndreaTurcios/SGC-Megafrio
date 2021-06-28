@@ -46,20 +46,45 @@ plantillaHeader::headerTemplate('Proveedores');
       </div>
     </div>
     </nav>
+    <br>
+    <div class="row">
+        <div class="table-responsive" class="col scroll">
+          <table border="1"  class="table table-bordered" >
+            <thead class="table-info">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Compañía</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">País</th>
+                    <th scope="col">Código postal</th>
+                    <th scope="col">Controlador</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-rows">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!--Aquí creamos la barra de búsqueda y el botón de los filtros de la misma -->
     <div class="row">
-      <div class="container-fluid">
         <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
 
           <!--Aquí comenzamos agregando un div con el id ModalAgregarProveedor -->
-          <div class="modal fade" id="ModalAgregarProveedor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <input class="hide" type="number" id="id_proveedor" name="id_proveedor" />
-            <div class="modal-dialog">
-              <div class="modal-content">
+           <div id="ModalAgregarProveedor" class="modal fade">
+            <div class="container-fluid">
+            <form method="post" id="save-form">
+              <div class="modal-dialog">
+                <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Ingrese los siguientes datos:</h5>
+
+                  <h5 class="modal-title" id="exampleModalLabel">Agregar proveedores</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+
                 <!--Aquí comenzamos con el body del modal -->
                 <div class="modal-body">
                   <div class="container">
@@ -82,23 +107,14 @@ plantillaHeader::headerTemplate('Proveedores');
                           <textarea class="form-control" id="direccion_pro" name="direccion_pro" placeholder="Dirección" rows="3"></textarea>
                         </div>
                         <!--Aquí colocamos un dropdown para elegir el pais de procedencia del proveedor -->
-                        <div class="form-group">
-                          <label for="exampleFormControlTextarea1">País:</label>
-                          <div class="dropdown">
-                          <button class="btn dropdown-toggle" type="button" id="dropdownMenuPais"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              País
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuPais">
-                              <a class="dropdown-item" href="#">Chile</a>
-                              <a class="dropdown-item" href="#">Honduras</a>
-                              <a class="dropdown-item" href="#">Costa Rica</a>
-                              <a class="dropdown-item" href="#">El Salvador</a>
-                            </div>
-                          </div>
+                        <div class="input-field col s12 m6">
+                        <label>País </label>
+                            <select id="tipoemp" name="tipoemp">
+                              <option selected></option>
+                            </select>
                         </div>
-                    </div>
-                </div>
+                      <br>
+
                 <!--Aquí arrancamos con el footer del modal -->
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -106,35 +122,76 @@ plantillaHeader::headerTemplate('Proveedores');
                   <hr>
                  <br>
                   <hr>
+                  
+                  </div>
+                    </div>
                 </div>
+                </div>
+                </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+      <br>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+
+                  <h5 class="modal-title" id="exampleModalLabel">Actualizar proveedores</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!--Aquí comenzamos con el body del modal -->
+                <div class="modal-body">
+                  <div class="container">
+                    <div class="row">
+                      <form>
+                        <div class="form-group ">
+                          <label for="nombre_compania">Nombre compañía:</label>
+                          <input type="text" class="form-control" id="nombre_compania" name="nombre_compania" placeholder="Nombre compañía">
+                        </div>
+                        <div class="form-group">
+                          <label for="formGroupExampleInput2">Representante de la compañía:</label>
+                          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Representante de la compañía">
+                        </div>
+                        <div class="form-group">
+                          <label for="formGroupExampleInput2">Teléfono proveedor:</label>
+                          <input type="text" class="form-control" id="telefono_pro" name="telefono_pro" placeholder="0000-0000">
+                        </div>
+                        <div class="form-group">
+                          <label for="direccion_pro">Dirección:</label>
+                          <textarea class="form-control" id="direccion_pro" name="direccion_pro" placeholder="Dirección" rows="3"></textarea>
+                        </div>
+                        <!--Aquí colocamos un dropdown para elegir el pais de procedencia del proveedor -->
+                        <div class="input-field col s12 m6">
+                        <label>País </label>
+                            <select id="tipoemp" name="tipoemp">
+                              <option selected></option>
+                            </select>
+                        </div>
+                      <br>
+                <!--Aquí arrancamos con el footer del modal -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type ="submit" class="btn btn-success">Guardar</button><br>
+                  <hr>
+                 <br>
+                  <hr>
+                  
+                  </div>
+                    </div>
+                </div>
+                </div>
+                </form>
                   </div>
                 </div>
               </div>
             </div>
       <br>
         <!--Aquí arrancamos con la tabla -->
-        <div class="row">
-        <div class="table-responsive" class="col scroll">
-          <table border="1"  class="table table-bordered" >
-            <thead class="table-info">
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Compañía</th>
-                    <th scope="col">Teléfono</th>
-                    <th scope="col">Dirección</th>
-                    <th scope="col">País</th>
-                    <th scope="col">Código postal</th>
-                    <th scope="col">Controlador</th>
-                  </tr>
-                </thead>
-                <tbody id="tbody-rows">
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        
     
 </section>
 
