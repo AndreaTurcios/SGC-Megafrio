@@ -147,7 +147,7 @@ class Empleados extends Validator{
         $hash = password_hash($this->claveempleado, PASSWORD_DEFAULT);
         $sql = 'INSERT INTO empleado (nombre_usuario, nombre_emp,apellido_emp,telefono_emp,clave_emp,estado,id_tipo_emp)
         VALUES (? ,?, ?, ?, ?, ?, ?)';
-        $params = array($this->nombreusuario, $this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado,$this->claveempleado,$this->estado,$this->idtipoempleado);
+        $params = array($this->nombreusuario, $this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado,$hash,$this->estado,$this->idtipoempleado);
         return Database::executeRow($sql, $params);
     }
 

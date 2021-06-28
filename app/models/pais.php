@@ -30,7 +30,7 @@ class Pais extends Validator{
 
     public function setCodigo($value)
     {
-        if ($this->validatAlphaNumeric($value)) {
+        if ($this->validateNaturalNumber($value)) {
             $this->codigo_postal = $value;
             return true;
         } else {
