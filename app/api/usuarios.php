@@ -45,10 +45,21 @@ if(isset($_GET['action'])) {
                 $_POST = $usuario->validateForm($_POST);
                 if ($usuario->checkUser($_POST['username'])) {
                     if ($usuario->checkPassword($_POST['clave'])) {
-                        $result['status'] = 1;
-                        $result['message'] = 'Autenticación correcta';
-                        $_SESSION['id_empleado'] = $usuario->getId();
-                        $_SESSION['nombre_usuario'] = $usuario->getNombreUsuario();
+                        if($usuario->getEstado() == true){
+                            $result['status'] = 1;
+                            $result['message'] = 'Autenticación correcta';
+                            $_SESSION['id_empleado'] = $usuario->getId();
+                            $_SESSION['nombre_usuario'] = $usuario->getNombreUsuario();  
+                            $_SESSION['estado'] = $usuario->getEstado();
+
+                        }else{
+                            if (Database::getException()) {
+                                $result['exception'] = Database::getException();
+                            } else {
+                                $result['exception'] = 'Lamentablemente su usuario ha sido suspendido, para más información contactar con el administrador';
+                            }
+                        }
+                        
                     } else {
                         if (Database::getException()) {
                             $result['exception'] = Database::getException();
