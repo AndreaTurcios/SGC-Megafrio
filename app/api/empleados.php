@@ -97,6 +97,7 @@ if (isset($_GET['action'])) {
                 break;
                 case 'update':
                     $_POST = $empleados->validateForm($_POST);
+                    if ($empleados->setId($_POST['id_empleado2'])) {
                     if ($empleados->setNombreUsuario($_POST['nombre_usuario2'])) {
                         if ($empleados->setNombreEmpleado($_POST['nombre_emp2'])) {
                             if ($empleados->setApellidoEmpleado($_POST['apellido_emp2'])) {
@@ -106,7 +107,7 @@ if (isset($_GET['action'])) {
                                         if ($empleados->setIDTipoEmpleado($_POST['tipoemp2'])) {
                                             if ($empleados->createRow()) {
                                                 $result['status'] = 1;
-                                                $result['message'] = 'Empleado registrado exitosamente';                                                        
+                                                $result['message'] = 'Empleado modificado exitosamente';                                                        
                                             } else {
                                                 $result['exception'] = Database::getException();                                                        
                                                     }  
@@ -131,7 +132,10 @@ if (isset($_GET['action'])) {
                               }
                     }else {
                         $result['exception'] ='Estado incorrecto';
-                          }
+                          } 
+                        }else {
+                            $result['exception'] ='Empleado incorrecto';
+                              }
                 break;
             case 'delete':
                 if ($empleados->setId($_POST['id_empleado'])) {
