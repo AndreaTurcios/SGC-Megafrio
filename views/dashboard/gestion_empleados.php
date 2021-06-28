@@ -116,12 +116,13 @@ plantillaHeader::headerTemplate('Empleados');
                           <input type="password" class="form-control" id="clave_emp" name="clave_emp" placeholder="Clave" required/>
                         </div>
                         <br>
+                        
                         <div class="input-field col s12 m6">
                         <label>Estado: </label>
                             <select id="estado" name="estado">
                               <option selected></option>
-                              <option value="1">TRUE</option>
-                              <option value="0">FALSE</option>
+                              <option value="1">Activo</option>
+                              <option value="0">Bloqueado</option>
                             </select>
                             
                          </div>
@@ -151,8 +152,7 @@ plantillaHeader::headerTemplate('Empleados');
             </div>
       </nav>
       <br>
-      <!--Colocamos la tabla -->
-     
+      <!--Modal fade -->
       </div>
 
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -191,16 +191,16 @@ plantillaHeader::headerTemplate('Empleados');
                           <input type="password" class="form-control" id="clave_emp2" name="clave_emp2" placeholder="Clave" required/>
                         </div>
                         <br>
+                        <div class="form-group">
                         <div class="input-field col s12 m6">
                         <label>Estado: </label>
                             <select id="estado2" name="estado2">
                               <option selected></option>
-                              <option value="1">TRUE</option>
-                              <option value="0">FALSE</option>
+                              <option value="1">Activo</option>
+                              <option value="0">Bloqueado</option>
                             </select>
-                            
                          </div>
-                    
+                    </div>
                     <br>
 
                         <!--Colocamos los divs para el dropdown del filtro de búsqueda -->
