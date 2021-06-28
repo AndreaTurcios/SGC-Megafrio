@@ -200,12 +200,12 @@ class Empleados extends Validator{
         }
     }
 
-    public function checkPassword($claveempleado)
+    public function checkPassword($password)
     {
-        $sql = 'SELECT clave FROM empleado WHERE id_empleado = ?';
-        $params = array($this->id_cliente_user);
+        $sql = 'SELECT clave_emp FROM empleado WHERE id_empleado = ?';
+        $params = array($this->id);
         $data = Database::getRow($sql, $params);
-        if (password_verify($claveempleado, $data['clave_emp'])) {
+        if (password_verify($password, $data['clave_emp'])) {
             return true;
         } else {
             return false;
