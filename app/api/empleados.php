@@ -48,15 +48,19 @@ if (isset($_GET['action'])) {
                         if ($empleados->setApellidoEmpleado($_POST['apellido_emp'])) {
                             if ($empleados->setTelefonoEmpleado($_POST['telefono_emp'])) {
                                 if ($empleados->setClaveEmpleado($_POST['clave_emp'])) {
-                                    if ($empleados->setIDTipoEmpleado($_POST['id_tipo_emp'])) {
+                                    if ($empleados->setEstado($_POST['estado'])) {
+                                    if ($empleados->setIDTipoEmpleado($_POST['tipoemp'])) {
                                         if ($empleados->createRow()) {
                                             $result['status'] = 1;
                                             $result['message'] = 'Empleado registrado exitosamente';                                                        
                                         } else {
                                             $result['exception'] = Database::getException();                                                        
                                                 }  
+                                            }else {
+                                                $result['exception'] ='Tipo empleado incorrecto';
+                                                  }
                                     }else {
-                                        $result['exception'] ='Tipo empleado incorrecto';
+                                        $result['exception'] ='Estado empleado incorrecto';
                                           }
                                 }else {
                                     $result['exception'] ='Claves diferentes';
@@ -77,7 +81,7 @@ if (isset($_GET['action'])) {
             break;
 
                 case 'readOne':
-                if ($empleados->setId($_POST['idempleado'])) {
+                if ($empleados->setId($_POST['id_empleado'])) {
                     if ($result['dataset'] = $empleados->readOne()) {
                         $result['status'] = 1;
                     } else {
@@ -92,41 +96,45 @@ if (isset($_GET['action'])) {
                 }
                 break;
                 case 'update':
-                $_POST = $empleados->validateForm($_POST);
-                if ($empleados->setNombreUsuario($_POST['nombre_usuario'])) {
-                    if ($empleados->setNombreEmpleado($_POST['nombre_emp'])) {
-                        if ($empleados->setApellidoEmpleado($_POST['apellido_emp'])) {
-                            if ($empleados->setTelefonoEmpleado($_POST['telefono_emp'])) {
-                                if ($empleados->setClaveEmpleado($_POST['clave_emp'])) {
-                                    if ($empleados->setIDTipoEmpleado($_POST['id_tipo_emp'])) {
-                                        if ($empleados->updateRow()) {
-                                            $result['status'] = 1;
-                                            $result['message'] = 'Usuario modificado correctamente';
-                                        } else {
-                                            $result['exception'] = Database::getException();
-                                               }  
+                    $_POST = $empleados->validateForm($_POST);
+                    if ($empleados->setNombreUsuario($_POST['nombre_usuario2'])) {
+                        if ($empleados->setNombreEmpleado($_POST['nombre_emp2'])) {
+                            if ($empleados->setApellidoEmpleado($_POST['apellido_emp2'])) {
+                                if ($empleados->setTelefonoEmpleado($_POST['telefono_emp2'])) {
+                                    if ($empleados->setClaveEmpleado($_POST['clave_emp2'])) {
+                                        if ($empleados->setEstado($_POST['estado2'])) {
+                                        if ($empleados->setIDTipoEmpleado($_POST['tipoemp2'])) {
+                                            if ($empleados->createRow()) {
+                                                $result['status'] = 1;
+                                                $result['message'] = 'Empleado registrado exitosamente';                                                        
+                                            } else {
+                                                $result['exception'] = Database::getException();                                                        
+                                                    }  
+                                                }else {
+                                                    $result['exception'] ='Tipo empleado incorrecto';
+                                                      }
+                                        }else {
+                                            $result['exception'] ='Estado empleado incorrecto';
+                                              }
                                     }else {
-                                            $result['exception'] ='tipo incorrecto';
-                                          }
-                                }else {
-                                  $result['exception'] ='Seleccione un tipo empleado';
-                                      }
+                                        $result['exception'] ='Claves diferentes';
+                                           }
+                                } else {
+                                    $result['exception'] = $empleados->getPasswordError();
+                                    $result['exception'] = 'Claves inválida';
+                                        }
                             } else {
-                                $result['exception'] = $empleados->getPasswordError();
                                 $result['exception'] = 'Claves diferentes';
-                            }
-                        } else {
-                             $result['exception'] = 'Claves diferentes';
-                               }
+                                    }
+                        }else {
+                            $result['exception'] ='Nombre de usuario incorrecto';
+                              }
                     }else {
-                        $result['exception'] ='usuario incorrecto';
+                        $result['exception'] ='Estado incorrecto';
                           }
-                }else {
-                    $result['exception'] ='estado incorrecto';
-                      }
-                    break;
+                break;
             case 'delete':
-                if ($empleados->setId($_POST['id_tipo_emp'])) {
+                if ($empleados->setId($_POST['id_empleado'])) {
                     if ($data = $empleados->readOne()) {
                         if ($empleados->deleteRow()) {
                             $result['status'] = 1;

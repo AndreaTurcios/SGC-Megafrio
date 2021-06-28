@@ -74,7 +74,7 @@ if (isset($_GET['action'])) {
                 
                 break;
             case 'readOne':
-                if ($proveedor->setId($_POST['idproveedor'])) {
+                if ($proveedor->setId($_POST['id_proveedor'])) {
                     if ($result['dataset'] = $proveedor->readOne()) {
                         $result['status'] = 1;
                     } else {

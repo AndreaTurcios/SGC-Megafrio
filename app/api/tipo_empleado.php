@@ -21,7 +21,7 @@ if (isset($_GET['action'])) {
                     if (Database::getException()) {
                         $result['exception'] = Database::getException();
                     } else {
-                        $result['exception'] = 'No hay ningún empleado ingresado en la base de datos';
+                        $result['exception'] = 'No hay ningún tipo de empleado ingresado en la base de datos';
                     }
                 }
                 break;

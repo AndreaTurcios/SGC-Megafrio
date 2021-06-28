@@ -86,11 +86,12 @@ class Proveedor extends Validator{
 
     public function searchRows($value)
     {
-        $sql = 'SELECT nombre_compania, telefono_pro, direccion_pro, id_pais
-                FROM proveedor 
-                WHERE nombre_compania ILIKE ? OR direccion_pro ILIKE ? 
-                ORDER BY nombre_compania'; 
-        $params = array("%$value%", "%$value%");
+        $sql = 'SELECT pro.id_proveedor, pro.nombre_compania, pro.telefono_pro, pro.direccion_pro, pa.nombre_pais, pa.codigo_postal 
+        FROM proveedor pro
+        INNER JOIN pais pa on pro.id_pais = pa.id_pais
+        WHERE nombre_compania ILIKE ?
+        ORDER BY nombre_compania'; 
+        $params = array("%$value%");
         return Database::getRows($sql, $params);
     }
 
@@ -104,9 +105,10 @@ class Proveedor extends Validator{
 
     public function readAll()
     {
-        $sql = 'SELECT id_proveedor, nombre_compania, telefono_pro, direccion_pro, id_pais
-                FROM proveedor 
-                ORDER BY id_proveedor';
+        $sql = 'SELECT pro.id_proveedor, pro.nombre_compania, pro.telefono_pro, pro.direccion_pro, pa.nombre_pais, pa.codigo_postal 
+        FROM proveedor pro
+        INNER JOIN pais pa on pro.id_pais = pa.id_pais
+        ORDER BY id_proveedor';
         $params = null;
         return Database::getRows($sql, $params);
     }
@@ -124,7 +126,7 @@ class Proveedor extends Validator{
     {
         $sql = 'UPDATE proveedor 
                 SET nombre_compania= ?,telefono_pro= ?,direccion_pro= ?,id_pais = ?
-                WHERE idproveedor = ?';
+                WHERE id_proveedor = ?';
         $params = array($this->nombre_compania,$this->telefono_pro,$this->direccion_pro,$this->id_pais,$this->id_proveedor);
         return Database::executeRow($sql, $params);
     }
@@ -132,8 +134,8 @@ class Proveedor extends Validator{
     public function deleteRow()
     {
         $sql = 'DELETE FROM proveedor
-                WHERE idproveedor = ?';
-        $params = array($this->id);
+                WHERE id_proveedor = ?';
+        $params = array($this->id_proveedor);
         return Database::executeRow($sql, $params);
     }
     

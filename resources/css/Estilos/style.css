@@ -5,6 +5,19 @@
   text-align: center;
 }
 
+.visible {
+  visibility: visible;
+}
+.invisible {
+  visibility: hidden;
+}
+.element {
+  @include invisible(visible);
+}
+.element {
+  @include invisible(hidden);
+}
+
 .navbar {
     background-color: #f5fafa;
 }

@@ -156,6 +156,7 @@ class plantillaHeader {
                 <!-- Agenda JS -->
                 <script src="../../resources/js/agenda.js"></script>
                 <!-- Script de Bootstrap -->
+                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
                 <script src="../../resources/js/bootstrap/bootstrap.min.js"></script>
                 <!-- Script de Fontawesome -->
                 <script src="https://kit.fontawesome.com/592eb2e9e3.js" crossorigin="anonymous"></script>
