@@ -4,7 +4,6 @@ include("../../app/helpers/plantillaHeader.php");
 //Se imprime la plantilla del encabezado y se envía el titulo para la página web
 plantillaHeader::headerTemplate('Proveedores');
 ?> 
-
 <!--Aquí comenzamos abriendo la sección -->
 <section>
   <br>
@@ -19,8 +18,8 @@ plantillaHeader::headerTemplate('Proveedores');
     <div class="row">
     <nav class="navbar navbar-light bg-light">
       <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 p-3">
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+      <form class="d-flex" method="post" id="search-form">
+          <input id = "search" class="form-control me-2" type="text" name ="search" required/>
           <button class="btn btn-outline-success" type="submit">Buscar</button>
         </form>
       </div>
@@ -54,6 +53,7 @@ plantillaHeader::headerTemplate('Proveedores');
 
           <!--Aquí comenzamos agregando un div con el id ModalAgregarProveedor -->
           <div class="modal fade" id="ModalAgregarProveedor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <input class="hide" type="number" id="id_proveedor" name="id_proveedor" />
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -66,8 +66,8 @@ plantillaHeader::headerTemplate('Proveedores');
                     <div class="row">
                       <form>
                         <div class="form-group ">
-                          <label for="formGroupExampleInput">Nombre compañía:</label>
-                          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre compañía">
+                          <label for="nombre_compania">Nombre compañía:</label>
+                          <input type="text" class="form-control" id="nombre_compania" name="nombre_compania" placeholder="Nombre compañía">
                         </div>
                         <div class="form-group">
                           <label for="formGroupExampleInput2">Representante de la compañía:</label>
@@ -75,11 +75,11 @@ plantillaHeader::headerTemplate('Proveedores');
                         </div>
                         <div class="form-group">
                           <label for="formGroupExampleInput2">Teléfono proveedor:</label>
-                          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Teléfono proveedor">
+                          <input type="text" class="form-control" id="telefono_pro" name="telefono_pro" placeholder="0000-0000">
                         </div>
                         <div class="form-group">
-                          <label for="exampleFormControlTextarea1">Dirección:</label>
-                          <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Dirección" rows="3"></textarea>
+                          <label for="direccion_pro">Dirección:</label>
+                          <textarea class="form-control" id="direccion_pro" name="direccion_pro" placeholder="Dirección" rows="3"></textarea>
                         </div>
                         <!--Aquí colocamos un dropdown para elegir el pais de procedencia del proveedor -->
                         <div class="form-group">
@@ -102,7 +102,7 @@ plantillaHeader::headerTemplate('Proveedores');
                 <!--Aquí arrancamos con el footer del modal -->
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                  <button class="btn btn-success">Guardar</button><br>
+                  <button type ="submit" class="btn btn-success">Guardar</button><br>
                   <hr>
                  <br>
                   <hr>
@@ -123,6 +123,7 @@ plantillaHeader::headerTemplate('Proveedores');
                     <th scope="col">Teléfono</th>
                     <th scope="col">Dirección</th>
                     <th scope="col">País</th>
+                    <th scope="col">Código postal</th>
                     <th scope="col">Controlador</th>
                   </tr>
                 </thead>

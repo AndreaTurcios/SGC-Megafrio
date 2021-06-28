@@ -5,9 +5,9 @@
 /*
 *   Función para obtener todos los registros disponibles en los mantenimientos de tablas (operación read).
 *
-*   Parámetros: api (ruta del servidor para obtener los datos).  
+*   Parámetros: api (ruta del servidor para obtener los datos).
 *
-*   Retorno: ninguno. 
+*   Retorno: ninguno.
 */
 function readRows(api) {
     fetch(api + 'readAll', {
@@ -33,33 +33,6 @@ function readRows(api) {
         console.log(error);
     });
 }
-
-function readRows2(api) {
-    fetch(api + 'readAllRevision', {
-        method: 'get'
-    }).then(function (request) {
-        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
-        if (request.ok) {
-            request.json().then(function (response) {
-                let data = [];
-                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-                if (response.status) {
-                    data = response.dataset;
-                } else {
-                    sweetAlert(4, response.exception, null);
-                }
-                // Se envían los datos a la función del controlador para que llene la tabla en la vista.
-                fillTable(data);
-            });
-        } else {
-            console.log(request.status + ' ' + request.statusText);
-        }
-    }).catch(function (error) {
-        console.log(error);
-    });
-}
-
-
 
 /*
 *   Función para obtener los resultados de una búsqueda en los mantenimientos de tablas (operación search).
@@ -93,86 +66,6 @@ function searchRows(api, form) {
     });
 }
 
-function searchRows44(api, form) {
-    fetch(api + 'searchProductosCategoria', {
-        method: 'post',
-        body: new FormData(document.getElementById(form))
-    }).then(function (request) {
-        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
-        if (request.ok) {
-            request.json().then(function (response) {
-                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-                if (response.status) {
-                    // Se envían los datos a la función del controlador para que llene la tabla en la vista.
-                    fillTable(response.dataset);
-                    sweetAlert(1, response.message, null);
-                } else {
-                    sweetAlert(2, response.exception, null);
-                }
-            });
-        } else {
-            console.log(request.status + ' ' + request.statusText);
-        }
-    }).catch(function (error) {
-        console.log(error);
-    });
-}
-
-
-function searchRows1(api, form) {
-    fetch(api + 'search1', {
-        method: 'post',
-        body: new FormData(document.getElementById(form))
-    }).then(function (request) {
-        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
-        if (request.ok) {
-            request.json().then(function (response) {
-                let data = [];
-                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-                if (response.status) {
-                    data = response.dataset;                                        
-                    sweetAlert(1, response.message, null);
-                } else {
-                    sweetAlert(2, response.exception, null);
-                }
-                fillTables(data);
-            });
-        } else {
-            console.log(request.status + ' ' + request.statusText);
-        }
-    }).catch(function (error) {
-        console.log(error);
-    });
-}
-
-function searchRows2(api, form) {
-    fetch(api + 'searchOneShipper', {
-        method: 'post',
-        body: new FormData(document.getElementById(form))
-    }).then(function (request) {
-        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
-        if (request.ok) {
-            request.json().then(function (response) {
-                let data = [];
-                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-                if (response.status) {
-                    data = response.dataset;                                        
-                    sweetAlert(1, response.message, null);
-                } else {
-                    sweetAlert(2, response.exception, null);
-                }
-                fillTables(data);
-            });
-        } else {
-            console.log(request.status + ' ' + request.statusText);
-        }
-    }).catch(function (error) {
-        console.log(error);
-    });
-}
-
-
-
 /*
 *   Función para crear o actualizar un registro en los mantenimientos de tablas (operación create y update).
 *
@@ -191,8 +84,8 @@ function saveRow(api, action, form, modal) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     // Se cierra la caja de dialogo (modal) del formulario.
-                    let instance = M.Modal.getInstance(document.getElementById(modal));
-                    instance.close();
+                  
+                    // instance.close();
                     // Se cargan nuevamente las filas en la tabla de la vista después de agregar o modificar un registro.
                     readRows(api);
                     sweetAlert(1, response.message, null);
@@ -204,36 +97,14 @@ function saveRow(api, action, form, modal) {
             console.log(request.status + ' ' + request.statusText);
         }
     }).catch(function (error) {
-        console.log(error);     
+        console.log(error);
     });
+
+    
 }
 
 
-function saveRow25(api, action, form) {
-    fetch(api + action, {
-        method: 'post',
-        body: new FormData(document.getElementById(form))
-    }).then(function (request) {
-        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
-        if (request.ok) {
-            request.json().then(function (response) {
-                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-                if (response.status) {
-                    // Se cierra la caja de dialogo (modal) del formulario.                   
-                    sweetAlert(1, response.message, null);
-                } else {
-                    sweetAlert(2, response.exception, null);
-                }
-            });
-        } else {
-            console.log(request.status + ' ' + request.statusText);
-        }
-    }).catch(function (error) {
-        console.log(error);     
-    });
-}
-
-function saveRow34(api, action, form, modal) {
+function updateRow(api, action, form, modal) {
     fetch(api + action, {
         method: 'post',
         body: new FormData(document.getElementById(form))
@@ -244,61 +115,9 @@ function saveRow34(api, action, form, modal) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     // Se cierra la caja de dialogo (modal) del formulario.
-                    let instance = M.Modal.getInstance(document.getElementById(modal));
-                    instance.close();
-                    // Se cargan nuevamente las filas en la tabla de la vista después de agregar o modificar un registro.
                     
-                    sweetAlert(1, response.message, null);
-                } else {
-                    sweetAlert(2, response.exception, null);
-                }
-            });
-        } else {
-            console.log(request.status + ' ' + request.statusText);
-        }
-    }).catch(function (error) {
-        console.log(error);     
-    });
-}
-
-function saveRow4(api, action, form) {
-    fetch(api + action, {
-        method: 'post',
-        body: new FormData(document.getElementById(form))
-    }).then(function (request) {
-        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
-        if (request.ok) {
-            request.json().then(function (response) {
-                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-                if (response.status) {
-                    sweetAlert(1, response.message, null);
-                } else {
-                    sweetAlert(2, response.exception, null);
-                }
-            });
-        } else {
-            console.log(request.status + ' ' + request.statusText);
-        }
-    }).catch(function (error) {
-        console.log(error);     
-    });
-}
-
-function saveRowShip(api, action, form, modal) {
-    fetch(api + action, {
-        method: 'post',
-        body: new FormData(document.getElementById(form))
-    }).then(function (request) {
-        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
-        if (request.ok) {
-            request.json().then(function (response) {
-                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-                if (response.status) {
-                    // Se cierra la caja de dialogo (modal) del formulario.
-                    let instance = M.Modal.getInstance(document.getElementById(modal));
-                    instance.close();
                     // Se cargan nuevamente las filas en la tabla de la vista después de agregar o modificar un registro.
-                    searchOneShipper(api);
+                    readRows(api);
                     sweetAlert(1, response.message, null);
                 } else {
                     sweetAlert(2, response.exception, null);
@@ -308,37 +127,12 @@ function saveRowShip(api, action, form, modal) {
             console.log(request.status + ' ' + request.statusText);
         }
     }).catch(function (error) {
-        console.log(error);     
+        console.log(error);
     });
+
+    
 }
 
-function saveRow1(api, action, form, modal) {
-    fetch(api + action, {
-        method: 'post',
-        body: new FormData(document.getElementById(form))
-    }).then(function (request) {
-        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
-        if (request.ok) {
-            request.json().then(function (response) {
-                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-                if (response.status) {
-                    // Se cierra la caja de dialogo (modal) del formulario.
-                    let instance = M.Modal.getInstance(document.getElementById(modal));
-                    instance.close();
-                    // Se cargan nuevamente las filas en la tabla de la vista después de agregar o modificar un registro.
-                    readRows2(api);
-                    sweetAlert(1, response.message, null);
-                } else {
-                    sweetAlert(2, response.exception, null);
-                }
-            });
-        } else {
-            console.log(request.status + ' ' + request.statusText);
-        }
-    }).catch(function (error) {
-        console.log(error);     
-    });
-}
 
 
 /*
@@ -475,7 +269,7 @@ function fillSelect(endpoint, select, selected) {
                 // Se agregan las opciones a la etiqueta select mediante su id.
                 document.getElementById(select).innerHTML = content;
                 // Se inicializa el componente Select del formulario para que muestre las opciones.
-                M.FormSelect.init(document.querySelectorAll('select'));
+                // M.FormSelect.init(document.querySelectorAll('select'));
             });
         } else {
             console.log(request.status + ' ' + request.statusText);

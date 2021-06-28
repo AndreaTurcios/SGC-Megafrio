@@ -18,10 +18,11 @@ function fillTable(dataset) {
         <td>${row.nombre_compania}</td>
         <td>${row.telefono_pro}</td>
         <td>${row.direccion_pro}</td>
-        <td>${row.id_pais}</td>   
+        <td>${row.nombre_pais}</td>   
+        <td>${row.codigo_postal}</td>   
         <td>
-            <a href="#" onclick="openUpdateDialog(${row.id_proveedor})">Editar</a>/
-            <a href="#" onclick="openDeleteDialog(${row.id_proveedor})">Eliminar</a>
+            <a href="#" onclick="openUpdateDialog(${row.id_proveedor})"class="btn">Editar</a>/
+            <a href="#" onclick="openDeleteDialog(${row.id_proveedor})"class="btn">Eliminar</a>
         </td>
     </tr>
         `;
