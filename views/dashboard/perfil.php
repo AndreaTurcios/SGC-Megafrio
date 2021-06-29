@@ -1,8 +1,8 @@
 <?php
-//Se incluye la clase con las plantillas del documento
-include("../../app/helpers/plantillaHeader.php");
-//Se imprime la plantilla del encabezado y se envía el titulo para la página web
-plantillaHeader::headerTemplate('Perfil');
+// Se incluye la clase con las plantillas del documento.
+require_once('../../app/helpers/dashboard_page.php');
+// Se imprime la plantilla del encabezado enviando el título de la página web.
+Dashboard_Page::headerTemplate('Perfil');
 ?>
 
 <div class="container" id="Perfil">
@@ -18,16 +18,15 @@ plantillaHeader::headerTemplate('Perfil');
     <div class="row">
         <div class="col-12 text-center">
             <!-- Parte de gestion de datos del perfil -->
+            <form method="post" id="session-form">
             <div class="row">
                 <div class="col-4  ">
                     <h4>Nombres:</h4>
                 </div>
                 <div class="col-6">
-                    <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario">
+                    <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" name="nombres" class="validate" required>
                 </div>
-                <div class="col-2 p-1">
-                    <i class="fas fa-edit"></i>
-                </div>
+                
             </div>
             <br>
             <div class="row">
@@ -35,11 +34,9 @@ plantillaHeader::headerTemplate('Perfil');
                     <h4>Apellidos:</h4>
                 </div>
                 <div class="col-6">
-                    <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario">
+                    <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" name="apellidos" class="validate" required>
                 </div>
-                <div class="col-2 p-1">
-                    <i class="fas fa-edit"></i>
-                </div>
+                
             </div>
             <br>
             <div class="row">
@@ -47,23 +44,19 @@ plantillaHeader::headerTemplate('Perfil');
                     <h4>Telefono:</h4>
                 </div>
                 <div class="col-6">
-                    <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario">
+                    <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" name="telefono" class="validate" required>
                 </div>
-                <div class="col-2 p-1">
-                    <i class="fas fa-edit"></i>
-                </div>
+                
             </div>
             <br>
             <div class="row">
                 <div class="col-4  ">
-                    <h4>Direccion:</h4>
+                    <h4>Nombre de usuario:</h4>
                 </div>
                 <div class="col-6">
-                    <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario">
+                    <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" name="username" class="validate" required>
                 </div>
-                <div class="col-2 p-1">
-                    <i class="fas fa-edit"></i>
-                </div>
+                
             </div>
             <br>
             <br>
@@ -71,15 +64,16 @@ plantillaHeader::headerTemplate('Perfil');
             <div class="row">
                 <div class="col-12 text-center">
                     <button class="btn ">
-                        Guardar
+                        <i class="fas fa-edit"> Editar</i>
                     </button>
                 </div>
             </div>
+            </form>
         </div>
     </div>
 </div>
 
 <?php
-//Se imprime la plantilla del pie y se envía el nombre del controlador para la página web
-plantillaHeader::footerTemplate('perfil.js');
+// Se imprime la plantilla del encabezado enviando el título de la página web.
+Dashboard_Page::footerTemplate('account.js');
 ?>
