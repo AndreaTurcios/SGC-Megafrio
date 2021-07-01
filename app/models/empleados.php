@@ -212,4 +212,22 @@ class Empleados extends Validator{
             return false;
         }
     }
+
+    public function readProfile()
+    {
+        $sql = 'SELECT id_empleado, nombre_usuario, nombre_emp, apellido_emp, telefono_emp
+                FROM empleado
+                WHERE id_empleado = ?';
+        $params = array($_SESSION['id_empleado']);
+        return Database::getRow($sql, $params);
+    }
+
+    public function editProfile()
+    { 
+        $sql = 'UPDATE empleado 
+                SET nombre_usuario=?,nombre_emp=?,apellido_emp=?,telefono_emp=?
+                WHERE id_empleado = ?';
+        $params = array($this->nombreusuario, $this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado, $_SESSION['id_empleado']);
+        return Database::executeRow($sql, $params);
+    }
 }

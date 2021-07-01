@@ -64,11 +64,9 @@ class Dashboard_Page
               </div>
               <!-- Columna para perfil pero en usuarios de pantalla grande -->
               <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-2 col-xxl-2 text-center d-none d-lg-block">
-              <a href="perfil.php">
-                <button class="btn ">
-                  <i class="far fa-user"></i> Perfil
-                </button>
-              </a>
+              <button class="btn">
+                <a href="#" onclick="openProfileDialog()" class="btn waves-effect blue tooltipped" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile"><i class="far fa-user"></i> Perfil</a>
+              </button>
               <button class="btn" id="cerrar">
                   <i href="#" onclick="logOut()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</i>
                 </button>
@@ -162,7 +160,61 @@ class Dashboard_Page
         </div>
         </div>
       </header>
-      <main>');
+      <main>
+      <div class="modal fade" id="profile" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modal-title">Perfil</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="profile-form" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                <div class="">
+                                    <h4>Nombres:</h4>
+                                </div>
+                                <div class="">
+                                    <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="nombres" name="nombres" class="validate" required>
+                                </div>
+                                </div>
+                                <div class="form-group">
+                                <div class="">
+                                    <h4>Apellidos:</h4>
+                                </div>
+                                <div class="">
+                                    <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="apellidos" name="apellidos" class="validate" required>
+                                </div>
+                                </div>
+                                <div class="form-group">
+                                <div class="">
+                                  <h4>Telefono:</h4>
+                                </div>
+                                <div class="">
+                                    <input class="form-control me-2" type="text" placeholder="" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" aria-label="Usuario" id="telefono" name="telefono" class="validate" required>
+                                </div>
+                                </div>
+                                <div class="form-group">
+                                <div class="">
+                                    <h4>Nombre de usuario:</h4>
+                                </div>
+                                <div class="">
+                                    <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="username" name="username" class="validate" required>
+                                </div>
+                                </div>
+                        </div>
+                        
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" data-tooltip="Actualizar" class="btn btn-primary" >Guardar Cambios</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>');
                 
             } else {
                 header('location: paginaPrincipal.php');
