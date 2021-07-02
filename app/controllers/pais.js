@@ -45,3 +45,11 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     document.getElementById('save-form').reset();
 });
 
+function openDeleteDialog(id) {
+    // Se define un objeto con los datos del registro seleccionado.
+    const data = new FormData();
+    data.append('id_pais', id);
+    // Se llama a la función que elimina un registro. Se encuentra en el archivo components.js
+    confirmDelete(API_PAIS, data);
+}
+
