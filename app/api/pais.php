@@ -74,10 +74,10 @@ if (isset($_GET['action'])) {
                                 $result['exception'] = Database::getException();
                             }
                         }else{
-                            $result['message'] = 'Pais Incorrecto';
+                            $result['message'] = 'Codigo postal incorrecto';
                         }   
                     }else{
-                        $result['message'] = 'Codigo postal Incorrecto';
+                        $result['message'] = 'Pais Incorrecto';
                     }
                     break;
 

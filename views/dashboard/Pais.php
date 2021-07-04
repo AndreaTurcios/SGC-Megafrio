@@ -33,10 +33,8 @@ plantillaHeader::headerTemplate('Gestión País');
                                 Filtros de búsqueda
                             </button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink4">
-                                <a class="dropdown-item" href="#">Nombre</a>
-                                <a class="dropdown-item" href="#">Apellido</a>
-                                <a class="dropdown-item" href="#">Usuario</a>
-                                <a class="dropdown-item" href="#">Tipo empleado</a>
+                                <a class="dropdown-item" href="#">Pais</a>
+                                <a class="dropdown-item" href="#">Codigo Postal</a>
                               </div>
                             </div>
                           </div>
