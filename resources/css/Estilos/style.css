@@ -192,3 +192,7 @@ a {
     min-height: 605px;
 }
 
+#searchBarEmp, #buscar{
+    width: 50%;
+}
+
