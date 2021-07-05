@@ -24,6 +24,10 @@ Dashboard_Page::headerTemplate('Agenda');
                                         <input type="date" class="form-control" placeholder="YYYY-MM-DD"
                                             aria-describedby="basic-addon1" id="fecha_nac_cli"
                                             name="fecha_nac_cli" class="validate" required>
+
+                                        <input type="date" class="form-control" placeholder="YYYY-MM-DD"
+                                            aria-describedby="basic-addon1" id="fecha_actual"
+                                            name="fecha_actual" class="validate" required>    
                                         <button class="btn btn-outline-success" type="submit">Buscar</button>
                                     </form>
                                     </div>
@@ -48,6 +52,7 @@ Dashboard_Page::headerTemplate('Agenda');
             
                                             <tr>
                                                 <th scope="col">Nombre de cliente</th>
+                                                <th scope="col">Nombre de empleado</th>
                                                 <th scope="col">Fecha de programación</th>
                                                 <th scope="col">Hora de programación</th>
                                                 <th scope="col">Fecha provisional</th>

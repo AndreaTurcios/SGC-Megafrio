@@ -217,7 +217,7 @@ class Dashboard_Page
             </div>');
                 
             } else {
-                header('location: paginaPrincipal.php');
+                header('location: main.php');
             }
         } else {
             // 
