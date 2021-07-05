@@ -144,8 +144,8 @@ class Clientes extends Validator
 
     public function updateRow()
     {
-        $sql = 'UPDATE clientes SET 
-        nombre_cli = ?, telefono_cli = ?, dui_cli = ?, nit_cli = ?, 
+        $sql = 'UPDATE clientes 
+        SET nombre_cli = ?, telefono_cli = ?, dui_cli = ?, nit_cli = ?, 
         direccion_cli = ?, correo_cli = ?, id_estado_pago = ? WHERE id_cliente = ?';
         $params = array($this->nombre_cli,$this->telefono_cli, $this->dui_cli, $this->nit_cli, $this->direccion_cli, $this->correo_cli, $this->id_estado_pago, $this->id_cliente);
         return Database::executeRow($sql, $params);
@@ -170,7 +170,8 @@ class Clientes extends Validator
     public function readOne()
     {
         $sql = 'SELECT id_cliente, nombre_cli, telefono_cli, dui_cli, nit_cli, direccion_cli, correo_cli, id_estado_pago  
-        FROM clientes WHERE id_cliente = ?';
+        FROM clientes 
+        WHERE id_cliente = ?';
         $params = array($this->id_cliente);
         return Database::executeRow($sql, $params);
     }
