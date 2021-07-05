@@ -107,6 +107,7 @@ Dashboard_Page::headerTemplate('Proveedores');
                           <label for="info_tributaria">Informacion tributaria:</label>
                           <textarea class="form-control" id="info_tributaria" name="info_tributaria" placeholder="Informacion tributaria"></textarea>
                         </div>
+                        <br>
                         <!--Aquí colocamos un dropdown para elegir el pais de procedencia del proveedor -->
                         <div class="input-field col s12 m6">
                         <label>País </label>
@@ -170,6 +171,7 @@ Dashboard_Page::headerTemplate('Proveedores');
                           <label for="info_tributaria2">Informacion tributaria:</label>
                           <textarea class="form-control" id="info_tributaria2" name="info_tributaria2" placeholder="Informacion tributaria"></textarea>
                         </div>
+                        <br>
                         <!--Aquí colocamos un dropdown para elegir el pais de procedencia del proveedor -->
                         <div class="input-field col s12 m6">
                         <label>País </label>
