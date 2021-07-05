@@ -46,13 +46,13 @@ class Dashboard_Page
             <nav class="nav">
               <!-- Columna Logo -->
               <div class="col-11 col-xs-11 col-sm-11 d-lg-none text-center">
-                <a href="paginaPrincipal.php"><img src="../../resources/img/logos/iconPNG.png" class="img-fluid" alt=""></a>
+                <a href="main.php"><img src="../../resources/img/logos/iconPNG.png" class="img-fluid" alt=""></a>
                 
               </div>
               <!-- Columna Logo pero para mobile -->
               <div class="col-10 d-none d-lg-block " id="SeccionImagen">
 
-                <a href="paginaPrincipal.php"><img src="../../resources/img/logos/iconPNG.png" class="img-fluid" alt=""></a>
+                <a href="main.php"><img src="../../resources/img/logos/iconPNG.png" class="img-fluid" alt=""></a>
 
               </div>
               <!-- Columna de Boton usuario pero para Pequeños -->
