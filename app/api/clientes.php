@@ -37,7 +37,7 @@ if (isset($_GET['action'])) {
                 break; 
 
                 case 'readOne':
-                    if ($clientes->setId($_POST['id_cliente'])) {   
+                    if ($clientes->setId($_POST['id_cliente2'])) {   
                         if ($result['dataset'] = $clientes->readOne()) {
                             $result['status'] = 1;
                         } else {
@@ -124,7 +124,7 @@ if (isset($_GET['action'])) {
             
             case 'update':
                 $_POST = $clientes->validateForm($_POST);
-                if ($clientes->setId($_POST['id_cliente'])) {
+                if ($clientes->setId($_POST['id_cliente2'])) {
                     if ($data = $clientes->readOne()) {
                         if($clientes->setNombre($_POST['nombre_cli2'])){
                             if(isset($_POST['estado_pago2'])){
