@@ -10,73 +10,6 @@ Dashboard_Page::headerTemplate('Agenda');
 
             <div class="container">
                 <div class="row">
-
-                    <div class="modal fade" id="ModalCreate" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modal-title">Actualizar Empleados</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="update-form" method="post" enctype="multipart/form-data">
-                                <div class="form-group d-none">
-                                    <label for="formGroupExampleInput">ID:</label>
-                                    <input type="text" class="form-control " placeholder="Ej: MalteHC..."
-                                        aria-label="Buscar" aria-describedby="basic-addon1" id="id_empleado" type="text"
-                                        name="id_empleado" class="validate" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="formGroupExampleInput">Nombres:</label>
-                                    <input type="text" class="form-control" placeholder="Ej: MalteHC..."
-                                        aria-label="Buscar" aria-describedby="basic-addon1" id="nombres_emp2" type="text"
-                                        name="nombres_emp2" class="validate" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="formGroupExampleInput2">Apellidos:</label>
-                                    <input type="text" class="form-control"
-                                        placeholder="Ej: MalteHC..." aria-label="Buscar"
-                                        aria-describedby="basic-addon1" id="apellidos_emp2" type="text"
-                                        name="apellidos_emp2" class="validate" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="formGroupExampleInput2">correo:</label>
-                                    <input type="text" class="form-control"
-                                        placeholder="Ej: fulanito@gmail.com..." aria-label="Buscar"
-                                        aria-describedby="basic-addon1" id="correo_emp2" type="text"
-                                        name="correo_emp2" class="validate" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="formGroupExampleInput3">Alias:</label>
-                                    <input type="text" class="form-control" placeholder="Ej: MalteHC..."
-                                        aria-label="Buscar" aria-describedby="basic-addon1" id="alias_emp2" type="text"
-                                        name="alias_emp2" class="validate" required>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="tipo_empleado2">Tipo empleado:</label>
-                                    <select class="form-select" aria-label="Select" id="tipo_empleado2" name="tipo_empleado2">
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="estado_emp2">estado empleado:</label>
-                                    <select class="form-select" aria-label="Select" id="estado_emp2" name="estado_emp2">
-                                    </select>
-                                </div>
-                        </div>
-                        
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="submit" data-tooltip="Actualizar" class="btn btn-primary" >Guardar Cambios</button>
-                        </div>
-                    </form>
-                    </div>
-                </div>
-            </div>
-
-
-
             
                     <div class="col-12 text-center">
             
@@ -114,12 +47,14 @@ Dashboard_Page::headerTemplate('Agenda');
                                         <thead>
             
                                             <tr>
-                                                <th scope="col">Nombre</th>
-                                                <th scope="col">Apellidos</th>
-                                                <th scope="col">Correo</th>
-                                                <th scope="col">Alias</th>
-                                                <th scope="col">Tipo emp</th>
-                                                <th scope="col">Estado_emp</th>
+                                                <th scope="col">Nombre de cliente</th>
+                                                <th scope="col">Fecha de programación</th>
+                                                <th scope="col">Hora de programación</th>
+                                                <th scope="col">Fecha provisional</th>
+                                                <th scope="col">Hora provisional</th>
+                                                <th scope="col">Tarea</th>
+                                                <th scope="col">Estado</th>
+                                                <th scope="col">Observaciones</th>
                                                 <th class="actions-column">Acciones</th>
                                             </tr>
                                         </thead>
@@ -129,10 +64,72 @@ Dashboard_Page::headerTemplate('Agenda');
                                     </table>
                                 </div>
             
-            
+
                             </div>
                         </div>
             
+                    </div>
+                    <div class="modal fade" id="Modalcreate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Nueva bitácora</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="message-text" class="col-form-label">Selecciona un cliente:</label>
+                                            <select class="form-select" aria-label="Select" id="cli-select" name="cli-select">
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="message-text" class="col-form-label">Fecha de programación:</label>
+                                            <!-- Campo de entrada de fecha -->
+
+                                            <input type="date" id="fecha_pro" name="fecha_pro" class="form-control" min="2000-01-01"
+                                                max="2023-12-31" step="2" />
+                                        </div>
+                                        <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Hora de programación:</label>
+
+                                        <input type="time" id="hora_pro" name="hora_pro" class="form-control" min="18:00" max="21:00"
+                                            step="3600" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="message-text" class="col-form-label">Fecha de provisional:</label>
+                                            <!-- Campo de entrada de fecha -->
+
+                                            <input type="date" id="fecha_nal" name="fecha_nal" class="form-control" min="2000-01-01"
+                                                max="2023-12-31" step="2" />
+                                        </div>
+                                        <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Hora de provisional:</label>
+
+                                        <input type="time" id="hora_nal" name="hora_nal" class="form-control" min="18:00" max="21:00"
+                                            step="3600" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">Tarea:</label>
+                                            <input type="text" class="form-control" id="tarea" name="tarea">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="message-text" class="col-form-label">Selecciona el estado de la tarea:</label>
+                                            <select class="form-select" aria-label="Select" id="tarea-select" name="tarea-select">
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="message-text" class="col-form-label">Observaciones:</label>
+                                            <p><textarea type="text" name="comentario" rows="5" cols="60":></textarea></p>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                    <button type="button" class="btn btn-primary">Guardar cambios</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
