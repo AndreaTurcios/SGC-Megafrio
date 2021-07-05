@@ -42,8 +42,6 @@ document.getElementById('search-form').addEventListener('submit', function (even
     searchRows(API_PROVEEDOR, 'search-form');
 });
 
-
-
 // Función para preparar el formulario al momento de modificar un registro.
 function openUpdateDialog(id) {
     const data = new FormData();
