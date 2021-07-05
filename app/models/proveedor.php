@@ -105,9 +105,9 @@ class Proveedor extends Validator{
         $sql = 'SELECT pro.id_proveedor, pro.nombre_compania, pro.telefono_pro, pro.direccion_pro, pa.nombre_pais, pa.codigo_postal, pro.info_tributaria 
         FROM proveedor pro
         INNER JOIN pais pa on pro.id_pais = pa.id_pais
-        WHERE nombre_compania ILIKE ?
+        WHERE pro.nombre_compania ILIKE ? OR pa.nombre_pais ILIKE ? OR pro.telefono_pro ILIKE ?
         ORDER BY nombre_compania'; 
-        $params = array("%$value%");
+        $params = array("%$value%","%$value%","%$value%");
         return Database::getRows($sql, $params);
     }
 
