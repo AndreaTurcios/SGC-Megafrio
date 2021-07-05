@@ -43,7 +43,7 @@ document.getElementById('profile-form').addEventListener('submit', function (eve
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     // Se muestra un mensaje y se direcciona a la página web de bienvenida para actualizar el nombre del usuario en el menú.
-                    sweetAlert(1, response.message, 'paginaPrincipal.php');
+                    sweetAlert(1, response.message, 'main.php');
                 } else {
                     sweetAlert(2, response.exception, null);
                 }
