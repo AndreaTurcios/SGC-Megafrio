@@ -7,6 +7,7 @@ class Proveedor extends Validator{
     private $telefono_pro = null;
     private $direccion_pro = null;
     private $id_pais = null;
+    private $info_tributaria = null;
 
     public function setId($value)
     {
@@ -58,6 +59,16 @@ class Proveedor extends Validator{
         }
     }
 
+    public function setInfoTributaria($value)
+    {
+        if ($this->validateAlphanumeric($value, 1, 50)) {
+            $this->info_tributaria = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function getId()
     {
         return $this->id_proveedor;
@@ -83,10 +94,15 @@ class Proveedor extends Validator{
         return $this->id_pais;
     }
 
+    public function getInfoTributaria()
+    {
+        return $this->info_tributaria;
+    }
+
 
     public function searchRows($value)
     {
-        $sql = 'SELECT pro.id_proveedor, pro.nombre_compania, pro.telefono_pro, pro.direccion_pro, pa.nombre_pais, pa.codigo_postal 
+        $sql = 'SELECT pro.id_proveedor, pro.nombre_compania, pro.telefono_pro, pro.direccion_pro, pa.nombre_pais, pa.codigo_postal, pro.info_tributaria 
         FROM proveedor pro
         INNER JOIN pais pa on pro.id_pais = pa.id_pais
         WHERE nombre_compania ILIKE ?
@@ -97,15 +113,15 @@ class Proveedor extends Validator{
 
     public function createRow()
     {
-        $sql = 'INSERT INTO proveedor(nombre_compania, telefono_pro, direccion_pro, id_pais)
-        VALUES (? ,?, ?, ?)';
-        $params = array($this->nombre_compania,$this->telefono_pro,$this->direccion_pro,$this->id_pais);
+        $sql = 'INSERT INTO proveedor(nombre_compania, telefono_pro, direccion_pro, id_pais,info_tributaria)
+        VALUES (? ,?, ?, ?, ?)';
+        $params = array($this->nombre_compania,$this->telefono_pro,$this->direccion_pro,$this->id_pais,$this->info_tributaria);
         return Database::executeRow($sql, $params);
     }
 
     public function readAll()
     {
-        $sql = 'SELECT pro.id_proveedor, pro.nombre_compania, pro.telefono_pro, pro.direccion_pro, pa.nombre_pais, pa.codigo_postal 
+        $sql = 'SELECT pro.id_proveedor, pro.nombre_compania, pro.telefono_pro, pro.direccion_pro, pa.nombre_pais, pa.codigo_postal, pro.info_tributaria 
         FROM proveedor pro
         INNER JOIN pais pa on pro.id_pais = pa.id_pais
         ORDER BY id_proveedor';
@@ -115,7 +131,7 @@ class Proveedor extends Validator{
 
     public function readOne()
     {
-        $sql = 'SELECT id_proveedor, nombre_compania, telefono_pro, direccion_pro, id_pais
+        $sql = 'SELECT id_proveedor, nombre_compania, telefono_pro, direccion_pro, id_pais, info_tributaria
                 FROM proveedor 
                 WHERE id_proveedor = ?';
         $params = array($this->id_proveedor);
@@ -125,9 +141,9 @@ class Proveedor extends Validator{
     public function updateRow()
     {
         $sql = 'UPDATE proveedor 
-                SET nombre_compania= ?,telefono_pro= ?,direccion_pro= ?,id_pais = ?
+                SET nombre_compania= ?,telefono_pro= ?,direccion_pro= ?,id_pais = ?, info_tributaria = ? 
                 WHERE id_proveedor = ?';
-        $params = array($this->nombre_compania,$this->telefono_pro,$this->direccion_pro,$this->id_pais,$this->id_proveedor);
+        $params = array($this->nombre_compania,$this->telefono_pro,$this->direccion_pro,$this->id_pais,$this->info_tributaria,$this->id_proveedor);
         return Database::executeRow($sql, $params);
     }
 
