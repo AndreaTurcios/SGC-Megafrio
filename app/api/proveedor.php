@@ -51,7 +51,8 @@ if (isset($_GET['action'])) {
                 if ($proveedor->setNombreCompania($_POST['nombre_compania'])) {
                         if ($proveedor->setTelefonoProveedor($_POST['telefono_pro'])) {                                                
                                 if ($proveedor->setDireccionProveedor($_POST['direccion_pro'])) {  
-                                    if ($proveedor->setIdPais($_POST['id_pais'])) {                                                    
+                                    if ($proveedor->setIdPais($_POST['id_pais'])) { 
+                                        if ($proveedor->setInfoTributaria($_POST['info_tributaria'])) {                                                   
                                                     if ($proveedor->createRow()) {
                                                           $result['status'] = 1;
                                                           $result['message'] = 'Proveedor registrado exitosamente';  
@@ -60,8 +61,11 @@ if (isset($_GET['action'])) {
                                                           $result['exception'] = Database::getException();                                                        
                                                       }   
                                 } else {
-                                    $result['exception'] = 'Carácteres incorrectos en dirección';
+                                    $result['exception'] = 'Carácteres incorrectos en informacion tributaria';
                                 }
+                            } else {
+                                $result['exception'] = 'Carácteres incorrectos en dirección';
+                            }
                         } else {
                             $result['exception'] = 'El teléfono debe tener el formato 0000-0000 e iniciar con 2, 6 o 7';
                         }
@@ -89,29 +93,34 @@ if (isset($_GET['action'])) {
                 }
                 break;
                 case 'update':
-                $_POST = $proveedor->validateForm($_POST);
-                if ($proveedor->setNombreCompania($_POST['nombre_compania'])) {
-                        if ($proveedor->setTelefonoProveedor($_POST['telefono_pro'])) {                                                
-                                if ($proveedor->setDireccionProveedor($_POST['direccion_pro'])) {  
-                                    if ($proveedor->setIdPais($_POST['id_pais'])) { 
-                                                if ($proveedor->updateRow()) {
-                                                    $result['status'] = 1;
-                                                    $result['message'] = 'Usuario modificado correctamente';
-                                                } else {
-                                                    $result['exception'] = Database::getException();
-                                                }
-                                            } else {
-                                                $result['message'] = 'No se guardó el teléfono';
-                                            }
-                                        } else {
-                                            $result['message'] = 'No se guardó el representante';
-                                        }
+                    $_POST = $proveedor->validateForm($_POST);
+                    if ($proveedor->setNombreCompania($_POST['nombre_compania'])) {
+                            if ($proveedor->setTelefonoProveedor($_POST['telefono_pro'])) {                                                
+                                    if ($proveedor->setDireccionProveedor($_POST['direccion_pro'])) {  
+                                        if ($proveedor->setIdPais($_POST['id_pais'])) { 
+                                            if ($proveedor->setInfoTributaria($_POST['info_tributaria'])) {                                                   
+                                                        if ($proveedor->createRow()) {
+                                                              $result['status'] = 1;
+                                                              $result['message'] = 'Proveedor registrado exitosamente';  
+    
+                                                          } else {
+                                                              $result['exception'] = Database::getException();                                                        
+                                                          }   
                                     } else {
-                                        $result['message'] = 'No se guardó el nombre de la compañía';
+                                        $result['exception'] = 'Carácteres incorrectos en informacion tributaria';
                                     }
                                 } else {
-                                    $result['exception'] = 'Descripción incorrecta';
+                                    $result['exception'] = 'Carácteres incorrectos en dirección';
                                 }
+                            } else {
+                                $result['exception'] = 'El teléfono debe tener el formato 0000-0000 e iniciar con 2, 6 o 7';
+                            }
+                        } else {
+                            $result['exception'] = 'Carácteres incorrectos en representante';
+                        }
+                    } else {
+                        $result['exception'] = 'Carácteres incorrectos en nombre de la compañía';
+                    }
                     break;
             case 'delete':
                 if ($proveedor->setId($_POST['id_proveedor'])) {

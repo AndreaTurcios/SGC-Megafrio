@@ -1,9 +1,9 @@
 <?php
 //Se incluye la clase con las plantillas del documento
-include("../../app/helpers/plantillaHeader.php");
+require_once("../../app/helpers/dashboard_page.php");
 //Se imprime la plantilla del encabezado y se envía el titulo para la página web
-plantillaHeader::headerTemplate('Proveedores');
-?>   
+Dashboard_Page::headerTemplate('Proveedores');
+?>
 <!--Aquí comenzamos abriendo la sección -->
 <section>
   <br>
@@ -58,6 +58,7 @@ plantillaHeader::headerTemplate('Proveedores');
                     <th scope="col">Dirección</th>
                     <th scope="col">País</th>
                     <th scope="col">Código postal</th>
+                    <th scope="col">Info. Tributaria</th>
                     <th scope="col">Controlador</th>
                   </tr>
                 </thead>
@@ -95,21 +96,21 @@ plantillaHeader::headerTemplate('Proveedores');
                           <input type="text" class="form-control" id="nombre_compania" name="nombre_compania" placeholder="Nombre compañía">
                         </div>
                         <div class="form-group">
-                          <label for="formGroupExampleInput2">Representante de la compañía:</label>
-                          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Representante de la compañía">
-                        </div>
-                        <div class="form-group">
-                          <label for="formGroupExampleInput2">Teléfono proveedor:</label>
+                          <label for="telefono_pro">Teléfono proveedor:</label>
                           <input type="text" class="form-control" id="telefono_pro" name="telefono_pro" placeholder="0000-0000">
                         </div>
                         <div class="form-group">
                           <label for="direccion_pro">Dirección:</label>
                           <textarea class="form-control" id="direccion_pro" name="direccion_pro" placeholder="Dirección" rows="3"></textarea>
                         </div>
+                        <div class="form-group">
+                          <label for="info_tributaria">Informacion tributaria:</label>
+                          <textarea class="form-control" id="info_tributaria" name="info_tributaria" placeholder="Informacion tributaria"></textarea>
+                        </div>
                         <!--Aquí colocamos un dropdown para elegir el pais de procedencia del proveedor -->
                         <div class="input-field col s12 m6">
                         <label>País </label>
-                            <select id="tipoemp" name="tipoemp">
+                            <select id="id_pais" name="id_pais">
                               <option selected></option>
                             </select>
                         </div>
@@ -144,30 +145,35 @@ plantillaHeader::headerTemplate('Proveedores');
                 </div>
 
                 <!--Aquí comenzamos con el body del modal -->
+                <form id="update-form" method="post" enctype="multipart/form-data">
+                        <div class="form-group d-none">
+                          <label for="formGroupExampleInput">ID:</label>
+                          <input type="text" class="form-control " placeholder="" aria-label="Buscar" aria-describedby="basic-addon1" id="id_proveedor2" type="text" name="id_proveedor2" class="validate" required>
+                        </div>
                 <div class="modal-body">
                   <div class="container">
                     <div class="row">
                       <form>
                         <div class="form-group ">
-                          <label for="nombre_compania">Nombre compañía:</label>
-                          <input type="text" class="form-control" id="nombre_compania" name="nombre_compania" placeholder="Nombre compañía">
-                        </div>
-                        <div class="form-group">
-                          <label for="formGroupExampleInput2">Representante de la compañía:</label>
-                          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Representante de la compañía">
+                          <label for="nombre_compania2">Nombre compañía:</label>
+                          <input type="text" class="form-control" id="nombre_compania2" name="nombre_compania2" placeholder="Nombre compañía">
                         </div>
                         <div class="form-group">
                           <label for="formGroupExampleInput2">Teléfono proveedor:</label>
-                          <input type="text" class="form-control" id="telefono_pro" name="telefono_pro" placeholder="0000-0000">
+                          <input type="text" class="form-control" id="telefono_pro2" name="telefono_pro2" placeholder="0000-0000">
                         </div>
                         <div class="form-group">
-                          <label for="direccion_pro">Dirección:</label>
-                          <textarea class="form-control" id="direccion_pro" name="direccion_pro" placeholder="Dirección" rows="3"></textarea>
+                          <label for="direccion_pro2">Dirección:</label>
+                          <textarea class="form-control" id="direccion_pro2" name="direccion_pro2" placeholder="Dirección" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                          <label for="info_tributaria2">Informacion tributaria:</label>
+                          <textarea class="form-control" id="info_tributaria2" name="info_tributaria2" placeholder="Informacion tributaria"></textarea>
                         </div>
                         <!--Aquí colocamos un dropdown para elegir el pais de procedencia del proveedor -->
                         <div class="input-field col s12 m6">
                         <label>País </label>
-                            <select id="tipoemp" name="tipoemp">
+                            <select id="id_pais2" name="id_pais2">
                               <option selected></option>
                             </select>
                         </div>
@@ -197,7 +203,7 @@ plantillaHeader::headerTemplate('Proveedores');
 
 <?php
 //Se imprime la plantilla del pie y se envía el nombre del controlador para la página web
-plantillaHeader::footerTemplate('proveedor.js');
+Dashboard_Page::footerTemplate('proveedor.js');
 ?>
 
 
