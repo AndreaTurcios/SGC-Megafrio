@@ -35,6 +35,22 @@ if (isset($_GET['action'])) {
                         }
                     }
                 break; 
+
+                case 'readOne':
+                    if ($clientes->setId($_POST['id_cliente'])) {   
+                        if ($result['dataset'] = $clientes->readOne()) {
+                            $result['status'] = 1;
+                        } else {
+                            if (Database::getException()) {
+                                $result['exception'] = Database::getException();
+                            } else {
+                                $result['exception'] = 'Cliente inexistente';
+                            }
+                        }
+                    } else {
+                        $result['exception'] = 'Cliente incorrecto';
+                    }
+                break;    
                 
              case 'search':
                 $_POST = $clientes->validateForm($_POST);
@@ -104,34 +120,20 @@ if (isset($_GET['action'])) {
                 }
                 break;
 
-             case 'readOne':
-                    if ($clientes->setId($_POST['id_cliente'])) {
-                        if ($result['dataset'] = $clientes->readOne()) {
-                            $result['status'] = 1;
-                        } else {
-                            if (Database::getException()) {
-                                $result['exception'] = Database::getException();
-                            } else {
-                                $result['exception'] = 'Cliente inexistente';
-                            }
-                        }
-                    } else {
-                        $result['exception'] = 'Cliente incorrecto';
-                    }
-                break;    
+            
             
             case 'update':
                 $_POST = $clientes->validateForm($_POST);
                 if ($clientes->setId($_POST['id_cliente'])) {
                     if ($data = $clientes->readOne()) {
-                        if($clientes->setNombre($_POST['nombre_cli'])){
-                            if(isset($_POST['estado_pago'])){
-                                if($clientes->setEstado($_POST['estado_pago'])){
-                                        if($clientes->setTelefono($_POST['telefono_cli'])){
-                                            if($clientes->setDui($_POST['dui_cli'])){
-                                                if($clientes->setNIT($_POST['nit_cli'])){
-                                                    if($clientes->setDireccion($_POST['direccion_cli'])){
-                                                        if($clientes->setCorreo($_POST['correo_cli'])){
+                        if($clientes->setNombre($_POST['nombre_cli2'])){
+                            if(isset($_POST['estado_pago2'])){
+                                if($clientes->setEstado($_POST['estado_pago2'])){
+                                        if($clientes->setTelefono($_POST['telefono_cli2'])){
+                                            if($clientes->setDui($_POST['dui_cli2'])){
+                                                if($clientes->setNIT($_POST['nit_cli2'])){
+                                                    if($clientes->setDireccion($_POST['direccion_cli2'])){
+                                                        if($clientes->setCorreo($_POST['correo_cli2'])){
                                                             if ($clientes->updateRow()) {
                                                                 $result['status'] = 1;
                                                                 $result['message'] = 'Cliente actualizado correctamente';

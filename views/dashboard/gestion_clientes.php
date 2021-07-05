@@ -52,13 +52,15 @@ Dashboard_Page::headerTemplate('Clientes');
                   
 
                         <!-- Modal -->
+                        
                         <form method="post" id="save-form" enctype="multipart/form-data">
-                        <div class="modal fade" id="ModalAgregarCliente" tabindex="-1"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="ModalAgregarCliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="modal-title"></h5>
+                                      
+                                        <h5 class="modal-title" id="modal-title">Agregar Cliente</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
@@ -187,7 +189,145 @@ Dashboard_Page::headerTemplate('Clientes');
                             </div>
                         </div>
                         </form>
+
+
+                    
+                        <div class="modal fade" id="ModalActualizarCliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modal-title">Agregar cliente</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <!-- Partes del modal para hacer insert -->
+                                    <div class="modal-body">
+                                        <div class="container">
+
+                                        <div class="row">
+                                                <div class="col-3 p-2 ">
+                                                <form id="update-form" method="post" enctype="multipart/form-data">
+                                                    <label for="formGroupExampleInput">ID</h6>
+                                                </div>
+                                                <div class="col-9">
+                                                    <form class="d-flex">
+                                                        <input class="form-control me-2" type="text" placeholder="" id="id_cliente" name="id_cliente"
+                                                            aria-label="Search" class="validate" readonly>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-3 p-2">
+
+                                                    <h6>Nombre</h6>
+                                                </div>
+                                                <div class="col-9">
+                                                    <form class="d-flex">
+                                                        <input class="form-control me-2" type="text" placeholder="" id="nombre_cli2" name="nombre_cli2"
+                                                            aria-label="Search" class="validate" required>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-3 p-2">
+
+                                                    <h6>Telefono</h6>
+                                                </div>
+                                                <div class="col-9">
+                                                    <form class="d-flex">
+                                                        <input class="form-control me-2" type="text" placeholder="" id="telefono_cli2" name="telefono_cli2"
+                                                            aria-label="Search" class="validate" required>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row">
+                                                <div class="col-3 p-2">
+
+                                                    <h6>NIT</h6>
+                                                </div>
+                                                <div class="col-9">
+                                                    <form class="d-flex">
+                                                        <input class="form-control me-2" type="text" placeholder="" id="nit_cli2" name="nit_cli2"
+                                                            aria-label="Search" class="validate" required>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-3 p-2">
+
+                                                    <h6>Dui</h6>
+                                                </div>
+                                                <div class="col-9">
+                                                    <form class="d-flex">
+                                                        <input class="form-control me-2" type="text" placeholder=""  id="dui_cli2" name="dui_cli2"
+                                                            aria-label="Search" class="validate" required>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            
+
+                                            <div class="row">
+                                                <div class="col-3 p-2">
+
+                                                    <h6>Direccion</h6>
+                                                </div>
+                                                <div class="col-9">
+                                                    <form class="d-flex">
+                                                        <input class="form-control me-2" type="text" placeholder="" id="direccion_cli2" name="direccion_cli2"
+                                                            aria-label="Search" class="validate" required>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-3 p-2">
+
+                                                    <h6>Correo</h6>
+                                                </div>
+                                                <div class="col-9">
+                                                    <form class="d-flex">
+                                                        <input class="form-control me-2" type="text" placeholder="" id="correo_cli2" name="correo_cli2"
+                                                            aria-label="Search" class="validate" required>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-3 p-2">
+
+                                                    <h6>Estado Pago</h6>
+                                                </div>
+                                                <div class="col-9">
+                                                    <form class="d-flex">
+                                                    <select id="estado_pago2" name="estado_pago2">
+                                                    
+                                                    </select>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                                    <!-- Botones de Control -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cancelar</button>
+                                            <button type ="submit" class="btn waves-effect blue tooltipped"data-tooltip="Guardar" >Guardar</button><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+
+
                     </div>
+                    
 
                 </div>
             </nav>
