@@ -95,7 +95,7 @@ class Dashboard_Page
                         <a class="nav-link" aria-current="page" href="gestion_proveedores.php">PROVEEDORES</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="GestionEquipo.php">EQUIPO</a>
+                        <a class="nav-link" href="gestion_equipo.php">EQUIPO</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="gestion_clientes.php">CLIENTES</a>
@@ -108,9 +108,6 @@ class Dashboard_Page
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="Pais.php">PAÍSES</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="TipoEntorno.php">ENTORNOS</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="bitacora.php">BITÁCORA</a>
@@ -132,13 +129,10 @@ class Dashboard_Page
                       <button type="button" class="btn btn-info"> <a href="gestion_clientes.php">CLIENTES</a></button> 
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn btn-info"> <a href="GestionEquipo.php">EQUIPO</a></button> 
+                      <button type="button" class="btn btn-info"> <a href="gestion_equipo.php">EQUIPO</a></button> 
                     </li>
                     <li class="nav-item p-1">
                       <button type="button" class="btn btn-info"> <a href="gestion_proveedores.php">PROVEEDORES</a></button> 
-                    </li>
-                    <li class="nav-item p-1">
-                      <button type="button" class="btn btn-info"> <a href="TipoEntorno.php">ENTORNOS</a></button> 
                     </li>
                     <li class="nav-item p-1">
                       <button type="button" class="btn btn-info"> <a href="Pais.php">PAÍSES</a></button> 
