@@ -145,7 +145,6 @@ Dashboard_Page::headerTemplate('Empleados');
                       <button type ="submit" class="btn waves-effect blue tooltipped"data-tooltip="Guardar" >Guardar</button><br>
                     </div>
                     </form>
-                    </form>
                   </div>
                 </div>
               </div>
@@ -169,7 +168,7 @@ Dashboard_Page::headerTemplate('Empleados');
                           <input type="text" class="form-control " placeholder="" aria-label="Buscar" aria-describedby="basic-addon1" id="id_empleado2" type="text" name="id_empleado2" class="validate" required>
                         </div>
                         <div class="modal-body">
-                            <form id="update-form" method="post" enctype="multipart/form-data">
+                            
                             <div class="form-group">
                           <label for="nombre_emp2">Nombre empleado:</label>
                           <input type="text" class="form-control" id="nombre_emp2"name="nombre_emp2"placeholder="Nombre empleado" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required minlength="3" maxlength="50"/>
@@ -218,7 +217,7 @@ Dashboard_Page::headerTemplate('Empleados');
                             <button type="submit" data-tooltip="Actualizar" class="btn btn-primary" >Guardar Cambios</button>
                         </div>
                     </form>
-                    </form>
+                   
                     </div>
                 </div>
             </div>
