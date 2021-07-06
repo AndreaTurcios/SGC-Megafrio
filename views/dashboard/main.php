@@ -6,7 +6,7 @@ Dashboard_Page::headerTemplate('Página principal');
 ?>
 
 <Section>
-
+<div class="animated bounceInRight">
     <div class="container">
         <br>
         <div class="row">
@@ -126,7 +126,7 @@ Dashboard_Page::headerTemplate('Página principal');
                 </div>
             </div>
         </div>
-
+        </div>
         <br>
     </div>
 
