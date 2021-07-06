@@ -176,7 +176,7 @@ class Empleados extends Validator{
                 SET nombre_usuario=?,nombre_emp=?,apellido_emp=?,telefono_emp=?,clave_emp=?,estado=?,id_tipo_emp=?
                 WHERE idempleado = ?';
        $params = array($this->nombreusuario, $this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado,$this->claveempleado,$this->estado,$this->idtipoempleado);
-        return Database::executeRow($sql, $params);
+        return Database::getRow($sql, $params);
     }
 
     public function deleteRow()
