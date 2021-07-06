@@ -5,7 +5,7 @@ require_once('../../app/helpers/dashboard_page.php');
 Dashboard_Page::headerTemplate('Iniciar sesión');
 ?>
 
-
+<div class="animated bounceInUp">
 <div class="container">
 
     <br>
@@ -23,6 +23,7 @@ Dashboard_Page::headerTemplate('Iniciar sesión');
             </div>
 
             <!-- Caja de los Datos -->
+        
             <div class="col-12 col-lg-6" id="CajaDatos">
                 <div class="container">
 
@@ -84,6 +85,7 @@ Dashboard_Page::headerTemplate('Iniciar sesión');
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 
