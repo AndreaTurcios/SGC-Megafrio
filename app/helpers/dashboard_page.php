@@ -96,7 +96,7 @@ class Dashboard_Page
                         <a class="nav-link" href="gestion_equipo.php">EQUIPO</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="gestion_clientes.php"><button class="btn fifth">CLIENTES</button></a>
+                        <a class="nav-link" href="gestion_clientes.php">CLIENTES</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="gestion_empleados.php">EMPLEADOS</a>
@@ -121,28 +121,28 @@ class Dashboard_Page
                 <div class="col-12 d-none d-lg-block MenuSec">
                   <ul class="nav justify-content-center">
                     <li class="nav-item p-1">
-                      <button type="button" class="btn botonAnim"> <a href="gestion_empleados.php">EMPLEADOS</a></button> 
+                      <button type="button" class="btn botonAnim"><i class="fas fa-user"></i><a href="gestion_empleados.php"> EMPLEADOS</a></button> 
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn botonAnim"> <a href="gestion_clientes.php">CLIENTES</a></button> 
+                      <button type="button" class="btn botonAnim"><i class="fas fa-shopping-basket"></i><a href="gestion_clientes.php"> CLIENTES</a></button> 
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn botonAnim"> <a href="gestion_equipo.php">EQUIPO</a></button>
+                      <button type="button" class="btn botonAnim"><img src="../../resources/img/logos/aire.svg" class="text-center" style="max-width:20%;width:20px;height:auto;"><a href="gestion_equipo.php"> EQUIPO</a></button>
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn botonAnim"> <a href="gestion_proveedores.php">PROVEEDORES</a></button>
+                      <button type="button" class="btn botonAnim"><i class="fas fa-truck-moving"></i><a href="gestion_proveedores.php"> PROVEEDORES</a></button>
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn botonAnim"> <a href="Pais.php">PAÍSES</a></button> 
+                      <button type="button" class="btn botonAnim"><i class="far fa-flag"></i><a href="Pais.php"> PAÍSES</a></button> 
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn botonAnim"> <a href="bitacora.php">BITÁCORA</a></button> 
+                      <button type="button" class="btn botonAnim"><i class="far fa-clipboard"></i><a href="bitacora.php"> BITÁCORA</a></button> 
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn botonAnim"> <a href="agenda.php">AGENDA</a></button> 
+                      <button type="button" class="btn botonAnim"><i class="far fa-calendar-alt"></i><a href="agenda.php"> AGENDA</a></button> 
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn botonAnim"> <a href="Reportes.php">REPORTES</a></button> 
+                      <button type="button" class="btn botonAnim"><img src="../../resources/img/logos/reportes.svg" class="text-center" style="max-width:20%;width:13px;height:auto;"><a href="Reportes.php"> REPORTES</a></button> 
                     </li>
                   </ul>
                 </div>
