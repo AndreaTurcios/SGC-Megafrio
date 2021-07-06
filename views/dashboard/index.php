@@ -32,7 +32,7 @@ Dashboard_Page::headerTemplate('Iniciar sesión');
                     <!-- Titulo de iniciar Sesion -->
                     <div class="row" id="RowTitulo">
                         <div class="col-12" id="TituloLogin">
-                            <h3>Iniciar Sesion</h3>
+                            <h3>- Iniciar sesión -</h3>
                         </div>
                     </div>
 
@@ -54,7 +54,7 @@ Dashboard_Page::headerTemplate('Iniciar sesión');
                             <h4>Contraseña:</h4>
                         </div>
                         <div class="col-8">
-                            <input class="form-control me-2" type="password" placeholder="Ingresa tu contraseña" aria-label="Usuario" name="clave" class="validate" required>
+                            <input class="form-control me-2" type="password" placeholder="Ingrese su contraseña" aria-label="Usuario" name="clave" class="validate" required>
                         </div>
                     </div>
                     <br>
@@ -65,15 +65,14 @@ Dashboard_Page::headerTemplate('Iniciar sesión');
                     <!-- Espacio para boton -->
                     <div class="row">
                         <div class="col-12 text-center">
-                            <button type="submit" class="tooltipped" data-tooltip="Ingresar" id='login'>Ingresar</button>
+                            <button class="btn btniniciar" class="tooltipped" data-tooltip="Ingresar" id='login'>Ingresar</button>
                         </div>
                     </div>
-                    <br>
                     <br>
                     <!-- Espacio para solicitar nueva contra -->
                     <div class="row">
                         <div class="col-12" id="SolicitarContra">
-                            <a href="#">Solicitar una nueva contraseña</a>
+                            <a href="#">He olvidado mi contraseña</a>
                         </div>
                     </div>
                     <br>

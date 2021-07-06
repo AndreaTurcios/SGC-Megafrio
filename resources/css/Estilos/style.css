@@ -75,6 +75,20 @@
   .btnperfill:hover {
     background-position: 0;
   }
+
+  .btniniciar {
+    border-color: #08b186;
+    color: #fff;
+    background-image: -webkit-linear-gradient(45deg, #cccccc 50%, transparent 50%);
+    background-image: linear-gradient(45deg, #397c85 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+  }
+  .btniniciar:hover {
+    background-position: 0;
+  }
   
   .btncerrar {
     border-color: #e23030;
