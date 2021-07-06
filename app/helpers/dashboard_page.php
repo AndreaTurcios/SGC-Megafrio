@@ -64,10 +64,8 @@ class Dashboard_Page
               </div>
               <!-- Columna para perfil pero en usuarios de pantalla grande -->
               <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-2 col-xxl-2 text-center d-none d-lg-block">
-              <button class="btn">
-                <a href="#" onclick="openProfileDialog()" class="btn waves-effect blue tooltipped" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile"><i class="far fa-user"></i> Perfil</a>
-              </button>
-              <button class="btn" id="cerrar">
+                <button class="btn btnperfill"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white"><i class="far fa-user"></i> Perfil</a></button>
+                <button class="btn btncerrar" id="cerrar">
                   <i href="#" onclick="logOut()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</i>
                 </button>
               </div>
@@ -98,7 +96,7 @@ class Dashboard_Page
                         <a class="nav-link" href="gestion_equipo.php">EQUIPO</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="gestion_clientes.php">CLIENTES</a>
+                        <a class="nav-link" href="gestion_clientes.php"><button class="btn fifth">CLIENTES</button></a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="gestion_empleados.php">EMPLEADOS</a>
@@ -123,28 +121,28 @@ class Dashboard_Page
                 <div class="col-12 d-none d-lg-block MenuSec">
                   <ul class="nav justify-content-center">
                     <li class="nav-item p-1">
-                      <button type="button" class="btn btn-info"> <a href="gestion_empleados.php">EMPLEADOS</a></button> 
+                      <button type="button" class="btn botonAnim"> <a href="gestion_empleados.php">EMPLEADOS</a></button> 
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn btn-info"> <a href="gestion_clientes.php">CLIENTES</a></button> 
+                      <button type="button" class="btn botonAnim"> <a href="gestion_clientes.php">CLIENTES</a></button> 
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn btn-info"> <a href="gestion_equipo.php">EQUIPO</a></button> 
+                      <button type="button" class="btn botonAnim"> <a href="gestion_equipo.php">EQUIPO</a></button>
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn btn-info"> <a href="gestion_proveedores.php">PROVEEDORES</a></button> 
+                      <button type="button" class="btn botonAnim"> <a href="gestion_proveedores.php">PROVEEDORES</a></button>
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn btn-info"> <a href="Pais.php">PAÍSES</a></button> 
+                      <button type="button" class="btn botonAnim"> <a href="Pais.php">PAÍSES</a></button> 
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn btn-info"> <a href="bitacora.php">BITÁCORA</a></button> 
+                      <button type="button" class="btn botonAnim"> <a href="bitacora.php">BITÁCORA</a></button> 
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn btn-info"> <a href="agenda.php">AGENDA</a></button> 
+                      <button type="button" class="btn botonAnim"> <a href="agenda.php">AGENDA</a></button> 
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn btn-info"> <a href="Reportes.php">REPORTES</a></button> 
+                      <button type="button" class="btn botonAnim"> <a href="Reportes.php">REPORTES</a></button> 
                     </li>
                   </ul>
                 </div>
@@ -288,8 +286,8 @@ class Dashboard_Page
         <footer>
             <!-- Derechos Reservados -->
             <div class="text-center p-3" id="ptDerechos">
-                @2021 Derechos Reservados:
-                <a class="text-white" href="http://www.megafrio.com/">MegaFrio </a>
+            © 2021 <b>Derechos reservados |</b>
+                <a class="text-blue" href="http://www.megafrio.com/"><u>MegaFrío </u></a>
             </div>
         </footer>
         <!-- Agregamos SCRIPTS -->
