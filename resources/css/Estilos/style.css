@@ -5,6 +5,8 @@
   text-align: center;
 }
 
+
+
 .visible {
   visibility: visible;
 }
@@ -22,11 +24,68 @@
     background-color: #f5fafa;
 }
 
+
 .btn{
     background-color: #4BADB6;
     color: white;
 }
 
+.botonAnim {
+    border-color: #1f6ab1;
+    border-radius: 0;
+    color: #5285a3;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    -webkit-transition: color 150ms ease-in-out;
+    transition: color 150ms ease-in-out;
+  }
+  .botonAnim:after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: 0;
+    height: 100%;
+    background: rgb(175, 218, 219);
+    z-index: -1;
+    -webkit-transition: width 150ms ease-in-out;
+    transition: width 150ms ease-in-out;
+  }
+  .botonAnim:hover {
+    color: rgb(15, 87, 204);
+  }
+  .botonAnim:hover:after {
+    width: 110%;
+  }
+
+  .btnperfill {
+    border-color: #08b186;
+    color: #fff;
+    background-image: -webkit-linear-gradient(45deg, #4974b9 50%, transparent 50%);
+    background-image: linear-gradient(45deg, #465bb6 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+  }
+  .btnperfill:hover {
+    background-position: 0;
+  }
+  
+  .btncerrar {
+    border-color: #e23030;
+    color: #fff;
+    box-shadow: 0 0 40px 40px #d86556 inset, 0 0 0 0 #c5c7c9;
+    -webkit-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+  }
+  .btncerrar:hover {
+    box-shadow: 0 0 10px 0 #db554c inset, 0 0 10px 4px #c93a30;
+  }
 
 #SeccionImagen{
     padding-left: 100px;
@@ -35,13 +94,15 @@
 
 #ptFooter{
     background-color: #091e2b;
-    color: white;
+    color: rgb(83, 146, 219);
 }
 
 #ptDerechos{
-    color: white;
-    background-color: #4BADB6; 
+    background-color: #ecfcfc;
+    border: 0.1px solid rgb(185, 215, 216);
+    text-align: center;
     margin-top: 30px;
+    text-shadow: #091e2b;
 }
 
 #BarraNav a{
@@ -67,7 +128,7 @@ a:hover{
 .MenuSec .btn{
     background-color: rgb(236, 245, 245);
     border: #4BADB6;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .btn-secondary:hover{
