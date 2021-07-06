@@ -20,7 +20,7 @@ if (isset($_GET['action'])) {
                     if (Database::getException()) {
                         $result['exception'] = Database::getException();
                     } else {
-                        $result['exception'] = 'No hay ningún pais ingresado en la base de datos';
+                        $result['exception'] = 'No existe ningun pais registrado';
                     }
                 }
                 break;
