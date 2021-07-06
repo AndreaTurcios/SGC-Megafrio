@@ -64,7 +64,7 @@ class Agenda extends Validator
 
     public function setHoraProgramacion($value)
     {
-        if ($this->validateString($value, 1, 5)) {
+        if ($this->validateString($value, 1, 6)) {
             $this->hora_programacion = $value;
             return true;
         } else {
@@ -84,7 +84,7 @@ class Agenda extends Validator
 
     public function setHoraProvisional($value)
     {
-        if ($this->validateString($value, 1, 5)) {
+        if ($this->validateString($value, 1, 6)) {
             $this->hora_provisional = $value;
             return true;
         } else {
@@ -220,6 +220,13 @@ class Agenda extends Validator
                 INNER JOIN clientes USING(id_cliente)
                 WHERE fecha_provisional = ?';
         $params = array($this->fechaActual);
+        return Database::getRows($sql, $params);
+    }
+
+    public function readClientes()
+    {
+        $sql = 'SELECT id_cliente, nombre_cli FROM clientes';
+        $params = null;
         return Database::getRows($sql, $params);
     }
 
