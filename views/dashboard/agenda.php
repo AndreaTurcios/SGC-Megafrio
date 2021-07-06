@@ -78,61 +78,64 @@ Dashboard_Page::headerTemplate('Agenda');
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Nueva bitácora</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Nueva tarea</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form>
+                                    <form method="post" id="save-form" enctype="multipart/form-data">
                                         <div class="mb-3">
                                             <label for="message-text" class="col-form-label">Selecciona un cliente:</label>
-                                            <select class="form-select" aria-label="Select" id="cli-select" name="cli-select">
+                                            <select class="form-select" aria-label="Select" id="cli-select" name="cli-select" class="validate" required>
                                             </select>
                                         </div>
                                         <div class="mb-3">
                                             <label for="message-text" class="col-form-label">Fecha de programación:</label>
                                             <!-- Campo de entrada de fecha -->
 
-                                            <input type="date" id="fecha_pro" name="fecha_pro" class="form-control" min="2000-01-01"
-                                                max="2023-12-31" step="2" />
+                                            <input type="date" id="fecha_pro" name="fecha_pro" class="form-control" 
+                                                 step="2" class="validate" required/>
                                         </div>
                                         <div class="mb-3">
                                         <label for="message-text" class="col-form-label">Hora de programación:</label>
 
-                                        <input type="time" id="hora_pro" name="hora_pro" class="form-control" min="18:00" max="21:00"
-                                            step="3600" />
+                                        <input type="time" id="hora_pro" name="hora_pro" class="form-control" min="07:00" max="18:00"
+                                            step="3600" class="validate" required/>
                                         </div>
                                         <div class="mb-3">
                                             <label for="message-text" class="col-form-label">Fecha de provisional:</label>
                                             <!-- Campo de entrada de fecha -->
 
-                                            <input type="date" id="fecha_nal" name="fecha_nal" class="form-control" min="2000-01-01"
-                                                max="2023-12-31" step="2" />
+                                            <input type="date" id="fecha_nal" name="fecha_nal" class="form-control"  step="2" class="validate" required/>
                                         </div>
                                         <div class="mb-3">
                                         <label for="message-text" class="col-form-label">Hora de provisional:</label>
 
-                                        <input type="time" id="hora_nal" name="hora_nal" class="form-control" min="18:00" max="21:00"
-                                            step="3600" />
+                                        <input type="time" id="hora_nal" name="hora_nal" class="form-control" min="07:00" max="18:00"
+                                            step="3600" class="validate" required/>
                                         </div>
                                         <div class="mb-3">
                                             <label for="recipient-name" class="col-form-label">Tarea:</label>
-                                            <input type="text" class="form-control" id="tarea" name="tarea">
+                                            <input type="text" class="form-control" id="tarea" name="tarea" class="validate" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="message-text" class="col-form-label">Selecciona el estado de la tarea:</label>
-                                            <select class="form-select" aria-label="Select" id="tarea-select" name="tarea-select">
+                                            <select class="form-select" aria-label="Select" id="tarea-select" name="tarea-select" class="validate" required>
+                                            <option disabled selected>Seleccione una opción</option>
+                                            <option value="true">Finalizado</option>
+                                            <option value="false">En proceso</option>
                                             </select>
                                         </div>
                                         <div class="mb-3">
                                             <label for="message-text" class="col-form-label">Observaciones:</label>
-                                            <p><textarea type="text" name="comentario" rows="5" cols="60":></textarea></p>
+                                            <p><textarea type="text" name="comentario" rows="5" cols="65": class="validate" required></textarea></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                            <button type="submit" class="btn btn-primary">Guardar</button>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                    <button type="button" class="btn btn-primary">Guardar cambios</button>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
