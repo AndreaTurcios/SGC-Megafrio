@@ -15,154 +15,139 @@ plantillaHeader::headerTemplate('Gestión Equipos');
                   </div>
                   <br>
 
-                  <!-- Creacion del buscador -->
-                  <div class="mx-auto" class="col-sm-12 col-md-12 col-lg-12 col-xl-8 offset-xl-1">
-                      <div class="row">
-                      <nav class="navbar navbar-light bg-light">
-                <div class="container-fluid">
-                    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 p-3" >
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Buscar</button>
-                        </form>
-                    </div>
 
-                    <!-- Creacion del filtro -->
-                    <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
-                        <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                              Filtrar
+
+
+
+                  <div class="row">
+                  <nav class="navbar navbar-light bg-light">
+      <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 p-3">
+        <form class="d-flex" method="post" id="search-form">
+          <input id = "search" class="form-control me-2" type="text" name ="search" required/>
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+          </div>
+          
+          <!--Aquí en el botón de los filtros creamos un dropdown para poner las respectivas opciones -->
+          <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN1">
+           <div class="form-group">
+                          <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuLink4"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Filtros de búsqueda
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                              <li><a class="dropdown-item" href="#">Entorno</a></li>
-                              
-                            </ul>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink4">
+                                <a class="dropdown-item" href="#">Pais</a>
+                                <a class="dropdown-item" href="#">Codigo Postal</a>
+                              </div>
+                            </div>
                           </div>
-                    </div>
-
+          </div>
+      <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center">
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalAgregarEquipo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus"
+            viewBox="0 0 16 16">
+            <path
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+          </svg>
+          Agregar
+        </button>
+      </div>
+    </div>
+    </nav>
+                    
+                    <!-- Creacion del buscador -->
+                    <div class="mx-auto" class="col-sm-12 col-md-12 col-lg-12 col-xl-8 offset-xl-1">
+                      <div class="row">
+                    
+                          <div class="container-fluid">
+                    
 
                     <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
-                        
-                        <!-- Creacion del modal -->
-                        <button type="button" class="btn" data-bs-toggle="modal"
-                            data-bs-target="#ModalAgregarCliente">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus"
-                            viewBox="0 0 16 16">
-                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                        </svg>
-                            Agregar
-                        </button>
-                        <div class="modal fade" id="ModalAgregarCliente" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Agregar Equipo</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="container">
+                    
+                    <div id="ModalAgregarEquipo" class="modal fade">
+            <div class="container-fluid">
+            <form method="post" id="save-form">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
 
-                                            <div class="row">
-                                                <div class="col-3 p-2">
-                                                    
-                                                    <h6>Nombre Equipo</h6>
-                                                </div>
-                                                <div class="col-9">
-                                                    <form class="d-flex">
-                                                        <input class="form-control me-2" type="text" placeholder="" aria-label="Search">
-                                                    </form>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-3 p-2">
-                                                    
-                                                    <h6>Tipo Entorno</h6>
-                                                </div>
-                                                <div class="col-9">
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected></option>
-                                                    <option value="1">Campo</option>
-                                                    <option value="2">Residencial</option>
-                                                    <option value="3">Centro Comercial</option>
-                                                </select>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-3 p-2">
-                                                    
-                                                    <h6>Estado Equipo</h6>
-                                                </div>
-                                                <div class="col-9">
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected></option>
-                                                    <option value="1">Dañado</option>
-                                                    <option value="2">Funcional</option>
-                                                    <option value="3">En reparacion</option>
-                                                </select>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-3 p-2">
-                                                    
-                                                    <h6>Proveedor</h6>
-                                                </div>
-                                                <div class="col-9">
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected></option>
-                                                    <option value="1">AIREAIRE</option>
-                                                    <option value="2">COLDAIR</option>
-                                                    <option value="3">AIR FRESH</option>
-                                                </select>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-3 p-2">
-                                                    
-                                                    <h6>Imagen</h6>
-                                                </div>
-                                                <div class="col-9">
-                                                  <input type="image" class="form-control" id="FotoEquipo">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-3 p-2">
-                                                    
-                                                    <h6>Descripcion Equipo</h6>
-                                                </div>
-                                                <div class="col-9">
-                                                    <form class="d-flex">
-                                                        <input class="form-control me-2" type="text" placeholder="" aria-label="Search">
-                                                    </form>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-3 p-2">
-                                                    
-                                                    <h6>Precio Equipo</h6>
-                                                </div>
-                                                <div class="col-9">
-                                                    <form class="d-flex">
-                                                        <input class="form-control me-2" type="number" placeholder="" aria-label="Search">
-                                                    </form>
-                                                </div>
-                                            </div>
+                  <h5 class="modal-title" id="exampleModalLabel">Agregar pais</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
 
-                                            </div>
-                                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">Guardar</button>
-                              </div>           
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <!--Aquí comenzamos con el body del modal -->
+                <div class="modal-body">
+                  <div class="container">
+                    <div class="row">
+                      <form>
+                        <div class="form-group ">
+                          <label for="nombre_equipo">Nombre equipo:</label>
+                          <input type="text" class="form-control" id="nombre_equipo" name="nombre_equipo" placeholder="Equipo">
                         </div>
+                        <div class="form-group">
+                          <label for="descripcion_equipo">Descripcion:</label>
+                          <input type="text" class="form-control" id="descripcion_equipo" name="descripcion_equipo" placeholder="Descripcion">
+                        </div>
+                        <div class="form-group">
+                          <label for="precio_equipo">Precio:</label>
+                          <input type="number" class="form-control" id="precio_equipo" name="precio_equipo" max="999.99" min="0.01">
+                        </div>
+                        <div class="form-group">
+                          <label for="modelo">Modelo:</label>
+                          <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Modelo">
+                        </div>
+                        <div class="form-group">
+                          <label for="voltaje">Voltaje:</label>
+                          <input type="text" class="form-control" id="voltaje" name="voltaje" placeholder="voltaje">
+                        </div>
+                        <div class="form-group">
+                          <label for="serie">Serie:</label>
+                          <input type="text" class="form-control" id="serie" name="serie" placeholder="Serie">
+                        </div>
+                        <div class="input-field col s12 m6">
+                        <label>Proveedor: </label>
+                            <select id="nombre_compania" name="nombre_compania" class="form-control">
+                              <option selected></option>
+                            </select>
+                        </div>
+                        <div class="input-field col s12 m6">
+                        <label>Tipo equipo: </label>
+                            <select id="tipo_equipo" name="tipo_equipo" class="form-control">
+                              <option selected></option>
+                            </select>
+                        </div>
+                        <div class="input-field col s12 m6">
+                        <label>Capacidad: </label>
+                            <select id="capacidad" name="capacidad" class="form-control">
+                              <option selected></option>
+                            </select>
+                        </div>
+                        
+                      <br>
+
+                <!--Aquí arrancamos con el footer del modal -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type ="submit" class="btn waves-effect blue tooltipped"data-tooltip="Guardar" >Guardar</button><br>
+                  <hr>
+                 <br>
+                  <hr>
+                  
+                  </div>
+                    </div>
+                </div>
+                </div>
+                </form>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>        
                     </div>
 
                 </div>
             </nav>
-                      <br>
 
                       <!-- Creacion de la tabla -->
                       <div class="row">
@@ -181,78 +166,7 @@ plantillaHeader::headerTemplate('Gestión Equipos');
                                 <th scope="col">Controladores</th>
                               </tr>
                             </thead>
-                            <tbody>
-                              <tr>
-                               <th>1</th>
-                                <td>SAAS-44</td>
-                                <td>Residencial</td>
-                                <td>Funcional</td>
-                                <td>Cleanair</td>
-                                <td><img src="../../resources/img/Aire.jpg" class="img-fluid" alt=""></td>
-                                <td>Aire Frio</td>
-                                <td>75</td>
-                                <td>
-                                  <button class="btn info">Editar</button>
-                                  <button class="btn danger">Eliminar</button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <th>2</th>
-                                <td>SAAS-72</td>
-                                <td>Oficinas</td>
-                                <td>Funcional</td>
-                                <td>COLDAIR</td>
-                                <td><img src="../../resources/img/Aire.jpg" class="img-fluid" alt=""></td>
-                                <td>Aire Frio</td>
-                                <td>45</td>
-                                <td>
-                                  <button class="btn info">Editar</button>
-                                  <button class="btn danger">Eliminar</button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <th scope="row">3</th>
-                                <td>SAAS-12</td>
-                                <td>Residencial</td>
-                                <td>Funcional</td>
-                                <td>AIR&AIR</td>
-                                <td><img src="../../resources/img/Aire.jpg" class="img-fluid" alt=""></td>
-                                <td>Aire Frio</td>
-                                <td>67</td>
-                                <td>
-                                  <button class="btn info">Editar</button>
-                                  <button class="btn danger">Eliminar</button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <th scope="row">4</th>
-                                <td>SAAS-52</td>
-                                <td>Oficinas</td>
-                                <td>En Reparacion</td>
-                                <td>AIR&AIR</td>
-                                <td><img src="../../resources/img/Aire.jpg" class="img-fluid" alt=""></td>
-                                <td>Aire Frio</td>
-                                <td>90</td>
-                                <td>
-                                  <button class="btn info">Editar</button>
-                                  <button class="btn danger">Eliminar</button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <th scope="row">5</th>
-                                <td>SAAS-09</td>
-                                <td>Centro Comercial</td>
-                                <td>Dañado</td>
-                                <td>Cleanair</td>
-                                <td><img src="../../resources/img/Aire.jpg" class="img-fluid" alt=""></td>
-                                <td>Aire Frio</td>
-                                <td>57</td>
-                                <td>
-                                  <button class="btn info">Editar</button>
-                                  <button class="btn danger">Eliminar</button>
-                                </td>
-                              </tr>
-                            
+                            <tbody id="tbody-rows">                          
                           </table>
                         </div>
                       </div>

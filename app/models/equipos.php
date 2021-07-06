@@ -2,7 +2,7 @@
 /*
 *	Clase para manejar la tabla productos de la base de datos. Es clase hija de Validator.
 */
-class Productos extends Validator
+class Equipos extends Validator
 {
     // Declaración de atributos (propiedades).
     private $id_equipo = null;
@@ -31,7 +31,7 @@ class Productos extends Validator
         }
     }
 
-    public function IdProveedor($value)
+    public function setIdProveedor($value)
     {
         if ($this->validateNaturalNumber($value)) {
             $this->id_proveedor = $value;
@@ -41,7 +41,7 @@ class Productos extends Validator
         }
     }
 
-    public function IdTipoEqui($value)
+    public function setIdTipoEqui($value)
     {
         if ($this->validateNaturalNumber($value)) {
             $this->id_tipo_equipo = $value;
@@ -51,7 +51,7 @@ class Productos extends Validator
         }
     }
 
-    public function IdCapacidad($value)
+    public function setIdCapacidad($value)
     {
         if ($this->validateNaturalNumber($value)) {
             $this->id_capacidad = $value;
@@ -255,4 +255,25 @@ class Productos extends Validator
                 WHERE id_equipo = ?';
         $params = array($this->id_equipo);
         return Database::executeRow($sql, $params);
+    }
+
+    public function readProveedor()
+    {
+        $sql = 'SELECT id_proveedor, nombre_compania FROM proveedor';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+
+    public function readTipoEquipo()
+    {
+        $sql = 'SELECT id_tipo_equipo, tipo_equipo FROM tipoequipo';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+
+    public function readCapacidad()
+    {
+        $sql = 'SELECT id_capacidad, capacidad FROM capacidad';
+        $params = null;
+        return Database::getRows($sql, $params);
     }
