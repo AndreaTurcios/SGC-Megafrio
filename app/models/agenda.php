@@ -64,7 +64,7 @@ class Agenda extends Validator
 
     public function setHoraProgramacion($value)
     {
-        if ($this->validateString($value, 1, 6)) {
+        if ($this->validateAlphanumeric($value, 1, 6)) {
             $this->hora_programacion = $value;
             return true;
         } else {
@@ -84,7 +84,7 @@ class Agenda extends Validator
 
     public function setHoraProvisional($value)
     {
-        if ($this->validateString($value, 1, 6)) {
+        if ($this->validateAlphanumeric($value, 1, 6)) {
             $this->hora_provisional = $value;
             return true;
         } else {
@@ -207,9 +207,9 @@ class Agenda extends Validator
 
     public function createRow()
     {
-        $sql = 'INSERT INTO productos(nombre_producto, descripcion_producto, precio_producto, imagen_producto, estado_producto, id_categoria, id_usuario)
-                VALUES(?, ?, ?, ?, ?, ?, ?)';
-        $params = array($this->nombre, $this->descripcion, $this->precio, $this->imagen, $this->estado, $this->categoria, $_SESSION['id_usuario']);
+        $sql = 'INSERT INTO agenda(id_cliente, id_empleado, fecha_programacion, hora_programacion, fecha_provisional, hora_provisional, tarea, estado_tarea, observaciones)
+                VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        $params = array($this->id_cliente, $this->id_empleado, $this->fecha_programacion, $this->hora_programacion, $this->fecha_provisional, $this->hora_provisional, $this->tarea, $this->estado_tarea, $this->observaciones);
         return Database::executeRow($sql, $params);
     }
 
