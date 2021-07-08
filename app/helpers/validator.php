@@ -151,7 +151,7 @@ class Validator
     public function validateString($value, $minimum, $maximum)
     {
         // Se verifica el contenido y la longitud de acuerdo con la base de datos.
-        if (preg_match('/^[a-zA-Z0-9ñÑáÁéÉíÍóÓúÚ\s\,\;\.]{'.$minimum.','.$maximum.'}$/', $value)) {
+        if (preg_match('/^[a-zA-Z0-9ñÑáÁéÉíÍóÓúÚ\s\,\;\.\:]{'.$minimum.','.$maximum.'}$/', $value)) {
             return true;
         } else {
             return false;
