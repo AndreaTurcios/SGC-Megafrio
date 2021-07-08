@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Se declara e inicializa una variable para establecer el formato de la fecha.
     let date = `${year}-${month}-${day}`;
 
-    document.getElementById('fecha_actual').setAttribute('min', date);
     document.getElementById('fecha_pro').setAttribute('min', date);
     document.getElementById('fecha_nal').setAttribute('min', date);
     fillSelect(ENDPOINT_CLIENTES, 'cli-select', null);
@@ -36,15 +35,14 @@ function fillTable(dataset) {
                 <td>${row.nombre_usuario}</td>
                 <td>${row.fecha_programacion}</td>
                 <td>${row.hora_programacion}</td>
-                <td>${row.fecha_provisicional}</td>
-                <td>${row.hora_provisicional}</td>
+                <td>${row.fecha_provisional}</td>
+                <td>${row.hora_provisional}</td>
                 <td>${row.tarea}</td>
                 <td>${row.estado_tarea}</td>
                 <td>${row.observaciones}</td>
-                <td><i class="material-icons">${icon}</i></td>
                 <td>
-                    <a href="#" onclick="openUpdateDialog(${row.id_agenda})" class="btn waves-effect blue tooltipped" data-tooltip="Actualizar"><i class="material-icons">mode_edit</i></a>
-                    <a href="#" onclick="openDeleteDialog(${row.id_agenda})" class="btn waves-effect red tooltipped" data-tooltip="Eliminar"><i class="material-icons">delete</i></a>
+                    <a href="#" onclick="openUpdateDialog(${row.id_agenda})" class="btn waves-effect blue tooltipped" data-tooltip="Actualizar"><i class="material-icons">Editar</i></a>
+                    <a href="#" onclick="openDeleteDialog(${row.id_agenda})" class="btn waves-effect red tooltipped" data-tooltip="Eliminar"><i class="material-icons">Eliminar</i></a>
                 </td>
             </tr>
         `;

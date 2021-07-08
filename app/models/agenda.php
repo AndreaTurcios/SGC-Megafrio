@@ -64,7 +64,7 @@ class Agenda extends Validator
 
     public function setHoraProgramacion($value)
     {
-        if ($this->validateAlphanumeric($value, 1, 6)) {
+        if ($this->validateString($value, 1, 6)) {
             $this->hora_programacion = $value;
             return true;
         } else {
@@ -84,7 +84,7 @@ class Agenda extends Validator
 
     public function setHoraProvisional($value)
     {
-        if ($this->validateAlphanumeric($value, 1, 6)) {
+        if ($this->validateString($value, 1, 6)) {
             $this->hora_provisional = $value;
             return true;
         } else {
@@ -94,7 +94,7 @@ class Agenda extends Validator
 
     public function setTarea($value)
     {
-        if ($this->validateAlphanumeric($value, 1, 10)) {
+        if ($this->validateAlphanumeric($value, 1, 50)) {
             $this->tarea = $value;
             return true;
         } else {
@@ -116,16 +116,6 @@ class Agenda extends Validator
     {
         if ($this->validateAlphanumeric($value, 1, 1000)) {
             $this->observaciones = $value;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function setFechaActual($value)
-    {
-        if ($this->validateDate($value)) {
-            $this->fechaActual = $value;
             return true;
         } else {
             return false;
@@ -186,11 +176,6 @@ class Agenda extends Validator
         return $this->observaciones;
     }
 
-    public function getFechaActual()
-    {
-        return $this->fechaActual;
-    }
-
     /*
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
     */
@@ -217,9 +202,8 @@ class Agenda extends Validator
     {
         $sql = 'SELECT id_agenda, nombre_cli, nombre_usuario, fecha_programacion, hora_programacion, fecha_provisional, hora_provisional, tarea, estado_tarea, observaciones
                 FROM agenda INNER JOIN empleado USING(id_empleado) 
-                INNER JOIN clientes USING(id_cliente)
-                WHERE fecha_provisional = ?';
-        $params = array($this->fechaActual);
+                INNER JOIN clientes USING(id_cliente)';
+        $params = null;
         return Database::getRows($sql, $params);
     }
 
