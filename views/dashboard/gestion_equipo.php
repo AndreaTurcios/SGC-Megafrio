@@ -15,10 +15,6 @@ plantillaHeader::headerTemplate('Gestión Equipos');
                   </div>
                   <br>
 
-
-
-
-
                   <div class="row">
                   <nav class="navbar navbar-light bg-light">
       <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 p-3">
@@ -72,7 +68,7 @@ plantillaHeader::headerTemplate('Gestión Equipos');
                 <div class="modal-content">
                 <div class="modal-header">
 
-                  <h5 class="modal-title" id="exampleModalLabel">Agregar pais</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Agregar equipos</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -123,7 +119,11 @@ plantillaHeader::headerTemplate('Gestión Equipos');
                               <option selected></option>
                             </select>
                         </div>
-                        
+                        <div class="file-field input-field col s12 m6">
+                          <div data-tooltip="Seleccione una imagen de al menos 500x500">
+                            <input id="archivo_producto" type="file" name="archivo_producto" accept=".gif, .jpg, .png"/>
+                          </div>
+                        </div> 
                       <br>
 
                 <!--Aquí arrancamos con el footer del modal -->
@@ -152,17 +152,19 @@ plantillaHeader::headerTemplate('Gestión Equipos');
                       <!-- Creacion de la tabla -->
                       <div class="row">
                         <div class="table-responsive" class="col scroll">
-                          <table border="1"  class="table table-bordered" >
+                          <table class="table table-bordered text-center" >
                             <thead class="table-info">
                               <tr>
-                                <th scope="col">#</th>
                                 <th scope="col">Nombre Equipo</th>
-                                <th scope="col">Entorno</th>
-                                <th scope="col">Estado Equipo</th>
-                                <th scope="col">Proveedor</th>
-                                <th scope="col">Foto equipo</th>
                                 <th scope="col">Descripcion</th>
                                 <th scope="col">Precio</th>
+                                <th scope="col">Modelo</th>
+                                <th scope="col">Voltaje</th>
+                                <th scope="col">Serie</th>
+                                <th scope="col">Proveedor</th>
+                                <th scope="col">Tipo equipo</th>
+                                <th scope="col">Capacidad</th>
+                                <th scope="col">Foto</th>
                                 <th scope="col">Controladores</th>
                               </tr>
                             </thead>
@@ -173,6 +175,77 @@ plantillaHeader::headerTemplate('Gestión Equipos');
                     </div>
                   </div>
                 </div>
+
+                <!--Modal fade -->
+      </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="modal-title">Actualizar Empleados</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <form id="update-form" method="post" enctype="multipart/form-data">
+                  <div class="form-group d-none">
+                    <label for="formGroupExampleInput">ID:</label>
+                    <input type="text" class="form-control " placeholder="" aria-label="Buscar" aria-describedby="basic-addon1" id="id_empleado2" type="text" name="id_empleado2" class="validate" required>
+                  </div>
+                  <div class="modal-body">
+                      
+                      <div class="form-group">
+                    <label for="nombre_emp2">Nombre empleado:</label>
+                    <input type="text" class="form-control" id="nombre_emp2"name="nombre_emp2"placeholder="Nombre empleado" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required minlength="3" maxlength="50"/>
+                  </div>
+                  <div class="form-group">
+                  <label for="apellido_emp2">Apellido empleado</label>
+                  <input class="form-control" id="apellido_emp2" type="text" name="apellido_emp2" placeholder="Apellido empleado" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required minlength="3" maxlength="50"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="telefono_emp2">Teléfono:</label>
+                    <input type="text" class="form-control" id="telefono_emp2" name="telefono_emp2" placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required minlength="9" maxlength="9"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="nombre_usuario2">Usuario:</label>
+                    <input type="text" class="form-control" id="nombre_usuario2"name="nombre_usuario2" placeholder="Usuario" required/>
+                  </div>
+                  <div class="form-group">
+                    <label for="clave_emp2">Clave:</label>
+                    <input type="password" class="form-control" id="clave_emp2" name="clave_emp2" placeholder="Clave" required/>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                  <div class="input-field col s12 m6">
+                  <label>Estado: </label>
+                      <select id="estado2" name="estado2">
+                        <option selected></option>
+                        <option value="1">Activo</option>
+                        <option value="0">Bloqueado</option>
+                      </select>
+                   </div>
+              </div>
+              <br>
+
+                  <!--Colocamos los divs para el dropdown del filtro de búsqueda -->
+                  <div class="input-field col s12 m6">
+                  <label>Tipo empleado: </label>
+                      <select id="tipoemp2" name="tipoemp2">
+                        <option selected></option>
+                      </select>
+                      
+                  </div>
+                  </div>
+                      <br>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                      <button type="submit" data-tooltip="Actualizar" class="btn btn-primary" >Guardar Cambios</button>
+                  </div>
+              </form>
+             
+              </div>
+          </div>
+      </div>
               </body>
 
 <?php

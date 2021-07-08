@@ -45,6 +45,60 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     document.getElementById('save-form').reset();
 });
 
+
+// Función para preparar el formulario al momento de modificar un registro.
+function openUpdateDialog(id) {
+    const data = new FormData();
+    data.append('id_pais', id);
+    fetch(API_PAIS + 'readOne', {
+        method: 'post',
+        body: data
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+        if (request.ok) {
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {        
+                document.getElementById('id_pais2').value = response.dataset.id_pais;
+                document.getElementById('nombre_pais2').value = response.dataset.nombre_pais;
+                document.getElementById('codigo_postal2').value = response.dataset.codigo_postal;
+            } else {
+                sweetAlert(2, response.exception, null);
+            }
+        });
+    } else {
+        console.log(request.status + ' ' + request.statusText);
+    }
+}).catch(function (error) {
+    console.log(error);
+});
+}
+
+document.getElementById('save-form').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Se define una variable para establecer la acción a realizar en la API.
+    let action = '';
+    // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
+    if (document.getElementById('id_pais2').value) {
+        action = 'update';
+    } else {
+        action = 'create';
+    }
+    saveRow(API_PAIS, action, 'save-form', 'save-modal');
+});
+
+document.getElementById('update-form').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    updateRow(API_PAIS, 'update', 'update-form', 'update-modal');
+});
+
+
+
+
+
+
 function openDeleteDialog(id) {
     // Se define un objeto con los datos del registro seleccionado.
     const data = new FormData();
