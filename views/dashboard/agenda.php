@@ -24,10 +24,7 @@ Dashboard_Page::headerTemplate('Agenda');
                                         <input type="date" class="form-control" placeholder="YYYY-MM-DD"
                                             aria-describedby="basic-addon1" id="fecha_nac_cli"
                                             name="fecha_nac_cli" class="validate" required>
-
-                                        <input type="date" class="form-control" placeholder="YYYY-MM-DD"
-                                            aria-describedby="basic-addon1" id="fecha_actual"
-                                            name="fecha_actual" class="validate" required>    
+    
                                         <button class="btn btn-outline-success" type="submit">Buscar</button>
                                     </form>
                                     </div>
@@ -99,7 +96,7 @@ Dashboard_Page::headerTemplate('Agenda');
                                         <label for="message-text" class="col-form-label">Hora de programación:</label>
 
                                         <input type="time" id="hora_pro" name="hora_pro" class="form-control" min="07:00" max="18:00"
-                                            step="3600" class="validate" required/>
+                                             class="validate" required/>
                                         </div>
                                         <div class="mb-3">
                                             <label for="message-text" class="col-form-label">Fecha de provisional:</label>
@@ -111,7 +108,7 @@ Dashboard_Page::headerTemplate('Agenda');
                                         <label for="message-text" class="col-form-label">Hora de provisional:</label>
 
                                         <input type="time" id="hora_nal" name="hora_nal" class="form-control" min="07:00" max="18:00"
-                                            step="3600" class="validate" required/>
+                                         class="validate" required/>
                                         </div>
                                         <div class="mb-3">
                                             <label for="recipient-name" class="col-form-label">Tarea:</label>
@@ -127,7 +124,7 @@ Dashboard_Page::headerTemplate('Agenda');
                                         </div>
                                         <div class="mb-3">
                                             <label for="message-text" class="col-form-label">Observaciones:</label>
-                                            <p><textarea type="text" name="comentario" rows="5" cols="65": class="validate" required></textarea></p>
+                                            <p><textarea type="text" name="comentario" rows="5" cols="60": class="validate" required></textarea></p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

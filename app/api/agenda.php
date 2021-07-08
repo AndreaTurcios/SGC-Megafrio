@@ -42,47 +42,51 @@ if (isset($_GET['action'])) {
                 break;
             case 'create':
                 $_POST = $agenda->validateForm($_POST);
-                if($agenda->setIdCliente($_POST['cli-select'])){
-                    if($agenda->setIdEmpleado($_SESSION['id_empleado'])){
-                        if($agenda->setFechaProgramacion($_POST['fecha_pro'])){
-                            if($agenda->setHoraProgramacion($_POST['hora_pro'])){
-                                if($agenda->setFechaProvisional($_POST['fecha_nal'])){
-                                    if($agenda->setHoraProvisional($_POST['hora_nal'])){
-                                        if($agenda->setTarea($_POST['tarea'])){
-                                            if($agenda->setEstado($_POST['tarea-select'])){
-                                                if($agenda->setObservaciones($_POST['comentario'])){
-                                                    if ($agenda->createRow()){
-                                                        $result['status'] = 1;
-                                                        $result['message'] = 'Tarea ingresada correctamente';
-                                                    } else {
-                                                        $result['exception'] = Database::getException();
+                if (isset($_POST['cli-select'])) {
+                    if($agenda->setIdCliente($_POST['cli-select'])){
+                        if($agenda->setIdEmpleado($_SESSION['id_empleado'])){
+                            if($agenda->setFechaProgramacion($_POST['fecha_pro'])){
+                                if($agenda->setHoraProgramacion($_POST['hora_pro'])){
+                                    if($agenda->setFechaProvisional($_POST['fecha_nal'])){
+                                        if($agenda->setHoraProvisional($_POST['hora_nal'])){
+                                            if($agenda->setTarea($_POST['tarea'])){
+                                                if($agenda->setEstado($_POST['tarea-select'])){
+                                                    if($agenda->setObservaciones($_POST['comentario'])){
+                                                        if ($agenda->createRow()){
+                                                            $result['status'] = 1;
+                                                            $result['message'] = 'Tarea ingresada correctamente';
+                                                        } else {
+                                                            $result['exception'] = Database::getException();
+                                                        }
+                                                    } else{
+                                                        $result['exception'] = 'Observaciones incorrectas';
                                                     }
                                                 } else{
-                                                    $result['exception'] = 'Observaciones incorrectas';
+                                                    $result['exception'] = 'Estado incorrecto';
                                                 }
                                             } else{
-                                                $result['exception'] = 'Estado incorrecto';
+                                                $result['exception'] = 'Tarea incorrecta';
                                             }
                                         } else{
-                                            $result['exception'] = 'Tarea incorrecta';
+                                            $result['exception'] = 'Hora de provisional incorrecta';
                                         }
                                     } else{
-                                        $result['exception'] = 'Hora de provisional incorrecta';
+                                        $result['exception'] = 'Fecha de provisional incorrecta';
                                     }
                                 } else{
-                                    $result['exception'] = 'Fecha de provisional incorrecta';
+                                    $result['exception'] = 'Hora de programación incorrecta';
                                 }
                             } else{
-                                $result['exception'] = 'Hora de programación incorrecta';
+                                $result['exception'] = 'Fecha de programación incorrecta';
                             }
                         } else{
-                            $result['exception'] = 'Fecha de programación incorrecta';
+                            $result['exception'] = 'Empleado incorrecto';
                         }
                     } else{
-                        $result['exception'] = 'Empleado incorrecto';
+                        $result['exception'] = 'Cliente incorrecto';
                     }
-                } else{
-                    $result['exception'] = 'Cliente incorrecto';
+                } else {
+                    $result['exception'] = 'Seleccione un cliente';
                 }
                 break;
             case 'readOne':
