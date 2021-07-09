@@ -1,6 +1,10 @@
 <?php
+/*
+*	Clase para manejar la tabla productos de la base de datos. Es clase hija de Validator.
+*/
 class Empleados extends Validator{
     
+    // Declaración de atributos (propiedades).
     private $id = null;
     private $nombreusuario = null;
     private $nombreempleado = null;
@@ -10,6 +14,9 @@ class Empleados extends Validator{
     private $idtipoempleado = null;
     private $estado = null;
 
+    /*
+    *   Métodos para asignar valores a los atributos.
+    */
     public function setId($value)
     {
         if ($this->validateNaturalNumber($value)) {
@@ -129,6 +136,10 @@ class Empleados extends Validator{
     {
         return $this->estado;
     }
+
+    /*
+    *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
+    */
 
     public function searchRows($value)
     {
