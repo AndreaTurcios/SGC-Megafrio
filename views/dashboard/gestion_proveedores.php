@@ -131,7 +131,7 @@ Dashboard_Page::headerTemplate('Proveedores');
                 <div class="modal-content">
                 <div class="modal-header">
 
-                  <h5 class="modal-title" id="exampleModalLabel">Actualizar proveedores</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Actualizar proveedores22</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -141,56 +141,49 @@ Dashboard_Page::headerTemplate('Proveedores');
                           <label for="formGroupExampleInput">ID:</label>
                           <input type="text" class="form-control " placeholder="" aria-label="Buscar" aria-describedby="basic-addon1" id="id_proveedor2" type="text" name="id_proveedor2" class="validate" required>
                         </div>
-                <div class="modal-body">
-                  <div class="container">
-                    <div class="row">
-                      <form>
-                        <div class="form-group ">
-                          <label for="nombre_compania2">Nombre compañía:</label>
-                          <input type="text" class="form-control" id="nombre_compania2" name="nombre_compania2" placeholder="Nombre compañía">
+                        <div class="modal-body">
+                          <div class="container">
+                            <div class="row">
+                              <div class="form-group ">
+                                <label for="nombre_compania2">Nombre compañía:</label>
+                                <input type="text" class="form-control" id="nombre_compania2" name="nombre_compania2" placeholder="Nombre compañía">
+                              </div>
+                              <div class="form-group">
+                                <label for="formGroupExampleInput2">Teléfono proveedor:</label>
+                                <input type="text" class="form-control" id="telefono_pro2" name="telefono_pro2" placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required minlength="9" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                              </div>
+                              <div class="form-group">
+                                <label for="direccion_pro2">Dirección:</label>
+                                <textarea class="form-control" id="direccion_pro2" name="direccion_pro2" placeholder="Dirección" rows="3"></textarea>
+                              </div>
+                              <div class="form-group">
+                                <label for="info_tributaria2">Informacion tributaria:</label>
+                                <textarea class="form-control" id="info_tributaria2" name="info_tributaria2" placeholder="Informacion tributaria"></textarea>
+                              </div>
+                              <br>
+                              <!--Aquí colocamos un dropdown para elegir el pais de procedencia del proveedor -->
+                              <div class="input-field col s12 m6">
+                                <label>País </label>
+                                  <select id="id_pais2" name="id_pais2">
+                                    <option selected></option>
+                                  </select>
+                              </div>
+                              <br>
+                              <!--Aquí arrancamos con el footer del modal -->
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type ="submit" class="btn btn-success">Guardar</button><br>
+                                <hr>
+                                <br>
+                                <hr>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <div class="form-group">
-                          <label for="formGroupExampleInput2">Teléfono proveedor:</label>
-                          <input type="text" class="form-control" id="telefono_pro2" name="telefono_pro2" placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required minlength="9" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
-                        </div>
-                        <div class="form-group">
-                          <label for="direccion_pro2">Dirección:</label>
-                          <textarea class="form-control" id="direccion_pro2" name="direccion_pro2" placeholder="Dirección" rows="3"></textarea>
-                        </div>
-                        <div class="form-group">
-                          <label for="info_tributaria2">Informacion tributaria:</label>
-                          <textarea class="form-control" id="info_tributaria2" name="info_tributaria2" placeholder="Informacion tributaria"></textarea>
-                        </div>
-                        <br>
-                        <!--Aquí colocamos un dropdown para elegir el pais de procedencia del proveedor -->
-                        <div class="input-field col s12 m6">
-                        <label>País </label>
-                            <select id="id_pais2" name="id_pais2">
-                              <option selected></option>
-                            </select>
-                        </div>
-                      <br>
-                <!--Aquí arrancamos con el footer del modal -->
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                  <button type ="submit" class="btn btn-success">Guardar</button><br>
-                  <hr>
-                 <br>
-                  <hr>
-                  
-                  </div>
-                    </div>
-                </div>
-                </div>
                 </form>
-                  </div>
                 </div>
-              </div>
-            </div>
-      <br>
-        <!--Aquí arrancamos con la tabla -->
-        
-    
+                </div>
+      </div>
 </section>
 
 <?php
