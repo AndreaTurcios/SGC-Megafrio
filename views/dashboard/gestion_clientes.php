@@ -142,8 +142,8 @@ Dashboard_Page::headerTemplate('Clientes');
                                     <!-- Partes del modal para hacer insert -->
                                     <form id="update-form" method="post" enctype="multipart/form-data">
                                     <div class="form-group ">
-                                    <label for="formGroupExampleInput">ID</label>
-                                        <input type="text" class="form-control " placeholder="" aria-describedby="basic-addon1" id="id_cliente2" type="text" name="id_cliente2" />
+                                    <label for="formGroupExampleInput" class="d-none">ID</label>
+                                        <input type="text" class="form-control d-none" placeholder="" aria-describedby="basic-addon1" id="id_cliente2" type="text" name="id_cliente2" />
                                     </div>
                                     <div class="modal-body">
                                     <form id="update-form" method="post" enctype="multipart/form-data">
