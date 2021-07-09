@@ -24,23 +24,9 @@ Dashboard_Page::headerTemplate('Empleados');
         </form>
           </div>
           
-          <!--Aquí en el botón de los filtros creamos un dropdown para poner las respectivas opciones -->
-          <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN1">
-           <div class="form-group">
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuLink4"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Filtros de búsqueda
-                            </button>
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink4">
-                                <a class="dropdown-item" href="#">Nombre</a>
-                                <a class="dropdown-item" href="#">Apellido</a>
-                                <a class="dropdown-item" href="#">Usuario</a>
-                                <a class="dropdown-item" href="#">Tipo empleado</a>
-                              </div>
-                            </div>
-                          </div>
-          </div>
+         <!--Aquí en el botón de los filtros creamos un dropdown para poner las respectivas opciones -->
+      <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
+      </div>
       <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center">
         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalAgregarEmpleado">
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus"
@@ -58,6 +44,7 @@ Dashboard_Page::headerTemplate('Empleados');
         <div class="table-responsive" class="col scroll">
           <table border="1"  class="table table-bordered" >
               <thead class="table-info">
+              <div id="bordes">
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Usuario</th>
@@ -67,6 +54,7 @@ Dashboard_Page::headerTemplate('Empleados');
                 <th scope="col">Estado</th>
                 <th scope="col">Tipo empleado</th>
                 <th scope="col">Controlador</th>
+                </div>
               </tr>
             </thead>
             <tbody id="tbody-rows">
@@ -105,7 +93,8 @@ Dashboard_Page::headerTemplate('Empleados');
                         </div>
                         <div class="form-group">
                           <label for="telefono_emp">Teléfono:</label>
-                          <input type="text" class="form-control" id="telefono_emp" name="telefono_emp" placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required minlength="9" maxlength="9"/>
+                          <input type="text" class="form-control" id="telefono_emp" name="telefono_emp" placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required minlength="9" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                          
                         </div>
                         <div class="form-group">
                           <label for="nombre_usuario">Usuario:</label>
@@ -114,9 +103,14 @@ Dashboard_Page::headerTemplate('Empleados');
                         <div class="form-group">
                           <label for="clave_emp">Clave:</label>
                           <input type="password" class="form-control" id="clave_emp" name="clave_emp" placeholder="Clave" required/>
+                            <div class="campo">
+                              <div class="form-group d-none">
+                                <input type="password" name="password" id="clave_emp">
+                              </div>
+                                  <span>MOSTRAR</span>
+                            </div>
                         </div>
                         <br>
-                        
                         <div class="input-field col s12 m6">
                         <label>Estado: </label>
                             <select id="estado" name="estado">
@@ -162,62 +156,55 @@ Dashboard_Page::headerTemplate('Empleados');
                             <h5 class="modal-title" id="modal-title">Actualizar Empleados</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form id="update-form" method="post" enctype="multipart/form-data">
+                      <form id="update-form" method="post" enctype="multipart/form-data">
                         <div class="form-group d-none">
                           <label for="formGroupExampleInput">ID:</label>
                           <input type="text" class="form-control " placeholder="" aria-label="Buscar" aria-describedby="basic-addon1" id="id_empleado2" type="text" name="id_empleado2" class="validate" required>
                         </div>
                         <div class="modal-body">
-                            
-                            <div class="form-group">
-                          <label for="nombre_emp2">Nombre empleado:</label>
-                          <input type="text" class="form-control" id="nombre_emp2"name="nombre_emp2"placeholder="Nombre empleado" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required minlength="3" maxlength="50"/>
-                        </div>
-                        <div class="form-group">
-                        <label for="apellido_emp2">Apellido empleado</label>
-                        <input class="form-control" id="apellido_emp2" type="text" name="apellido_emp2" placeholder="Apellido empleado" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required minlength="3" maxlength="50"/>
-                        </div>
-                        <div class="form-group">
-                          <label for="telefono_emp2">Teléfono:</label>
-                          <input type="text" class="form-control" id="telefono_emp2" name="telefono_emp2" placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required minlength="9" maxlength="9"/>
-                        </div>
-                        <div class="form-group">
-                          <label for="nombre_usuario2">Usuario:</label>
-                          <input type="text" class="form-control" id="nombre_usuario2"name="nombre_usuario2" placeholder="Usuario" required/>
-                        </div>
-                        <div class="form-group">
-                          <label for="clave_emp2">Clave:</label>
-                          <input type="password" class="form-control" id="clave_emp2" name="clave_emp2" placeholder="Clave" required/>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                        <div class="input-field col s12 m6">
-                        <label>Estado: </label>
-                            <select id="estado2" name="estado2">
-                              <option selected></option>
-                              <option value="1">Activo</option>
-                              <option value="0">Bloqueado</option>
-                            </select>
-                         </div>
-                    </div>
-                    <br>
+                          <div class="form-group">
+                            <label for="nombre_emp2">Nombre empleado:</label>
+                            <input type="text" class="form-control" id="nombre_emp2"name="nombre_emp2"placeholder="Nombre empleado" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required minlength="3" maxlength="50"/>
+                          </div>
+                          <div class="form-group">
+                            <label for="apellido_emp2">Apellido empleado</label>
+                            <input class="form-control" id="apellido_emp2" type="text" name="apellido_emp2" placeholder="Apellido empleado" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required minlength="3" maxlength="50"/>
+                          </div>
+                          <div class="form-group">
+                            <label for="telefono_emp2">Teléfono:</label>
+                            <input type="text" class="form-control" id="telefono_emp2" name="telefono_emp2" placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required minlength="9" maxlength="9" onkeyup="this.value = mascara(this.value)" required minlength="9" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                          </div>
+                          <div class="form-group">
+                            <label for="nombre_usuario2">Usuario:</label>
+                            <input type="text" class="form-control" id="nombre_usuario2"name="nombre_usuario2" placeholder="Usuario" required/>
+                          </div>
+                          <br>
+                          <div class="form-group">
+                            <div class="input-field col s12 m6">
+                              <label>Estado: </label>
+                              <select id="estado2" name="estado2">
+                                <option selected></option>
+                                <option value="1">Activo</option>
+                                <option value="0">Bloqueado</option>
+                              </select>
+                            </div>
+                          </div>
+                          <br>
 
-                        <!--Colocamos los divs para el dropdown del filtro de búsqueda -->
-                        <div class="input-field col s12 m6">
-                        <label>Tipo empleado: </label>
+                          <!--Colocamos los divs para el dropdown del filtro de búsqueda -->
+                          <div class="input-field col s12 m6">
+                            <label>Tipo empleado: </label>
                             <select id="tipoemp2" name="tipoemp2">
                               <option selected></option>
                             </select>
-                            
+                          </div>
                         </div>
-                        </div>
-                            <br>
+                        <br>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                             <button type="submit" data-tooltip="Actualizar" class="btn btn-primary" >Guardar Cambios</button>
                         </div>
-                    </form>
-                   
+                      </form>
                     </div>
                 </div>
             </div>

@@ -61,7 +61,6 @@ function openUpdateDialog(id) {
                     document.getElementById('direccion_pro2').value = response.dataset.direccion_pro;
                     document.getElementById('info_tributaria2').value = response.dataset.info_tributaria;
                     fillSelect(ENDPOINT_PAIS,'id_pais2',value = response.dataset.id_pais);
-                    
                 } else {
                     sweetAlert(2, response.exception, null);
                 }
@@ -73,6 +72,15 @@ function openUpdateDialog(id) {
         console.log(error);
     });
 }
+
+function mascara(valor) {
+    if (valor.match(/^\d{4}$/) !== null) {
+      return valor + '-';
+    } else if (valor.match(/^\d{4}\-$/) !== null) {
+      return valor + '-';
+    }
+    return cadena;
+  }
 
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de guardar.
 document.getElementById('save-form').addEventListener('submit', function (event) {
@@ -98,3 +106,18 @@ function openDeleteDialog(id) {
     // Se llama a la función que elimina un registro. Se encuentra en el archivo components.js
     confirmDelete(API_PROVEEDOR, data);
 }
+
+
+document.getElementById('save-form').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Se define una variable para establecer la acción a realizar en la API.
+    let action = '';
+    // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
+    if (document.getElementById('id_proveedor').value) {
+        action = 'update';
+    } else {
+        action = 'create';
+    }
+    saveRow(API_PROVEEDOR, action, 'save-form', 'save-modal');
+}); 

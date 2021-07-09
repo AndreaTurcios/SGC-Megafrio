@@ -25,16 +25,6 @@ Dashboard_Page::headerTemplate('Proveedores');
       </div>
       <!--Aquí en el botón de los filtros creamos un dropdown para poner las respectivas opciones -->
       <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
-        <div class="dropdown">
-          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            Filtros de búsqueda
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Representate</a></li>
-            <li><a class="dropdown-item" href="#">Compañía</a></li>
-            <li><a class="dropdown-item" href="#">Teléfono</a></li>
-          </ul>
-        </div>
       </div>
       <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center">
         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalAgregarProveedor">
@@ -97,7 +87,7 @@ Dashboard_Page::headerTemplate('Proveedores');
                         </div>
                         <div class="form-group">
                           <label for="telefono_pro">Teléfono proveedor:</label>
-                          <input type="text" class="form-control" id="telefono_pro" name="telefono_pro" placeholder="0000-0000">
+                          <input type="text" class="form-control" id="telefono_pro" name="telefono_pro" placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" onkeyup="this.value = mascara(this.value)" required minlength="9" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
                         </div>
                         <div class="form-group">
                           <label for="direccion_pro">Dirección:</label>
@@ -161,7 +151,7 @@ Dashboard_Page::headerTemplate('Proveedores');
                         </div>
                         <div class="form-group">
                           <label for="formGroupExampleInput2">Teléfono proveedor:</label>
-                          <input type="text" class="form-control" id="telefono_pro2" name="telefono_pro2" placeholder="0000-0000">
+                          <input type="text" class="form-control" id="telefono_pro2" name="telefono_pro2" placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required minlength="9" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
                         </div>
                         <div class="form-group">
                           <label for="direccion_pro2">Dirección:</label>

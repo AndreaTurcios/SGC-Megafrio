@@ -135,9 +135,9 @@ class Empleados extends Validator{
         $sql = 'SELECT em.id_empleado, em.nombre_usuario, em.nombre_emp,em.apellido_emp,em.telefono_emp,em.estado,od.tipoemp 
                 FROM empleado em
                 INNER JOIN tipoempleado od on em.id_tipo_emp = od.id_tipo_emp
-                WHERE em.nombre_emp ILIKE ? OR em.apellido_emp ILIKE ? OR od.tipoemp ILIKE ? OR em.nombre_usuario ILIKE ?
+                WHERE em.nombre_emp ILIKE ? OR em.apellido_emp ILIKE ? OR od.tipoemp ILIKE ? OR em.nombre_usuario ILIKE ? OR em.telefono_emp ILIKE ?
                 ORDER BY apellido_emp';
-        $params = array("%$value%","%$value%","%$value%","%$value%");
+        $params = array("%$value%","%$value%","%$value%","%$value%","%$value%");
         return Database::getRows($sql, $params);
     }
 
@@ -171,12 +171,15 @@ class Empleados extends Validator{
     }
 
     public function updateRow()
-    { $hash = password_hash($this->clave, PASSWORD_DEFAULT);
+    { 
+        // Se encripta la clave por medio del algoritmo bcrypt que genera un string de 60 caracteres.
+        $hash = password_hash($this->claveempleado, PASSWORD_DEFAULT);
         $sql = 'UPDATE empleado 
-                SET nombre_usuario=?,nombre_emp=?,apellido_emp=?,telefono_emp=?,clave_emp=?,estado=?,id_tipo_emp=?
-                WHERE idempleado = ?';
-       $params = array($this->nombreusuario, $this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado,$this->claveempleado,$this->estado,$this->idtipoempleado);
-        return Database::getRow($sql, $params);
+                SET nombre_usuario=?,nombre_emp=?,apellido_emp=?,telefono_emp=?,estado=?,id_tipo_emp=?
+                WHERE id_empleado = ?';
+       //$params = array($this->nombreusuario, $this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado,$this->claveempleado,$this->estado,$this->idtipoempleado);
+       $params = array($this->nombreusuario, $this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado,$this->estado,$this->idtipoempleado, $this->id);
+        return Database::executeRow($sql, $params);
     }
 
     public function deleteRow()
