@@ -128,7 +128,7 @@ Dashboard_Page::headerTemplate('Bitacora');
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="id_bitacora">ID</label>
-                                        <input type="text" class="form-control " placeholder=""
+                                        <input type="text" class="form-control d-none" placeholder=""
                                             aria-describedby="basic-addon1" id="id_bitacora" name="id_bitacora"/>
                                     </div>
                                     <div class="form-group">
