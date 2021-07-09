@@ -15,13 +15,13 @@ Dashboard_Page::headerTemplate('Agenda');
             
                         <div class="row">
                             <div class="col-12 text-center" id="Titulo1">
-                                <h1>Agenda para este dia</h1>
+                                <h1>Gestión agenda</h1>
                             </div>
                             <nav class="navbar navbar-light bg-light">
                                 <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 p-3">
                                     <form class="d-flex" method="post" id="search-form">
                                         <input id = "search" placeholder="Ingrese el nombre del cliente" class="form-control me-2" type="text" name ="search" />
-                                        <input type="date" class="form-control me-2" placeholder="YYYY-MM-DD"
+                                        <input type="date" class="form-control me-2 d-none" placeholder="YYYY-MM-DD"
                                             aria-describedby="basic-addon1" id="fecha_search"
                                             name="fecha_search" >
     
