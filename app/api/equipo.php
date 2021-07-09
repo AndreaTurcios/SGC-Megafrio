@@ -159,7 +159,7 @@ if (isset($_GET['action'])) {
 
                                     case 'update':
                                         $_POST = $equipo->validateForm($_POST);
-                                        if ($equipo->setId($_POST['id_equipo'])) {
+                                        if ($equipo->setId($_POST['id_equipo2'])) {
                                             if ($data = $equipo->readOne()) {
                                                 if($equipo->setNombre($_POST['nombre_equipo2'])){
                                                     if($equipo->setDescripcion($_POST['descripcion_equipo2'])){
