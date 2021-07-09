@@ -191,58 +191,53 @@ plantillaHeader::headerTemplate('Gestión Equipos');
                   <form id="update-form" method="post" enctype="multipart/form-data">
                   <div class="form-group d-none">
                     <label for="formGroupExampleInput">ID:</label>
-                    <input type="text" class="form-control " placeholder="" aria-label="Buscar" aria-describedby="basic-addon1" id="id_empleado2" type="text" name="id_empleado2" class="validate" required>
+                    <input type="text" class="form-control " placeholder="" aria-label="Buscar" aria-describedby="basic-addon1" id="id_equipo" type="text" name="id_equipo" class="validate" required>
                   </div>
                   <div class="modal-body">
                       
                       <div class="form-group">
-                    <label for="nombre_emp2">Nombre equipo:</label>
-                    <input type="text" class="form-control" id="nombre_emp2"name="nombre_emp2"placeholder="Nombre empleado" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required minlength="3" maxlength="50"/>
+                    <label for="nombre_equipo2">Nombre equipo:</label>
+                    <input type="text" class="form-control" id="nombre_equipo2"name="nombre_equipo2"placeholder="Nombre equipo" required minlength="3" maxlength="50"/>
                   </div>
                   <div class="form-group">
-                  <label for="apellido_emp2">Descripcion:</label>
-                  <input class="form-control" id="apellido_emp2" type="text" name="apellido_emp2" placeholder="Apellido empleado" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required minlength="3" maxlength="50"/>
+                  <label for="descripcion_equipo2">Descripcion:</label>
+                  <input class="form-control" id="descripcion_equipo2" type="text" name="descripcion_equipo2" placeholder="Descripcion"  required minlength="3" maxlength="50"/>
                   </div>
                   <div class="form-group">
-                    <label for="precio_equipo">Precio:</label>
-                    <input type="number" class="form-control" id="precio_equipo" name="precio_equipo" max="999.99" min="0.01">
+                    <label for="precio_equipo2">Precio:</label>
+                    <input type="number" class="form-control" id="precio_equipo2" name="precio_equipo2" max="999.99" min="0.01">
                   </div>
                   <div class="form-group">
-                    <label for="modelo">Modelo:</label>
-                    <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Modelo">
+                    <label for="modelo2">Modelo:</label>
+                    <input type="text" class="form-control" id="modelo2" name="modelo2" placeholder="Modelo">
                   </div>
                   <div class="form-group">
-                    <label for="voltaje">Voltaje:</label>
-                    <input type="text" class="form-control" id="voltaje" name="voltaje" placeholder="voltaje">
+                    <label for="voltaje2">Voltaje:</label>
+                    <input type="text" class="form-control" id="voltaje2" name="voltaje2" placeholder="voltaje">
                   </div>
                   <div class="form-group">
-                    <label for="serie">Serie:</label>
-                    <input type="text" class="form-control" id="serie" name="serie" placeholder="Serie">
+                    <label for="serie2">Serie:</label>
+                    <input type="text" class="form-control" id="serie2" name="serie2" placeholder="Serie">
                   </div>
                   <div class="input-field col s12 m6">
                         <label>Proveedor: </label>
-                            <select id="nombre_compania" name="nombre_compania" class="form-control">
+                            <select id="nombre_compania2" name="nombre_compania2" class="form-control">
                               <option selected></option>
                             </select>
                         </div>
                         <div class="input-field col s12 m6">
                         <label>Tipo equipo: </label>
-                            <select id="tipo_equipo" name="tipo_equipo" class="form-control">
+                            <select id="tipo_equipo2" name="tipo_equipo2" class="form-control">
                               <option selected></option>
                             </select>
                         </div>
                         <div class="input-field col s12 m6">
                         <label>Capacidad: </label>
-                            <select id="capacidad" name="capacidad" class="form-control">
+                            <select id="capacidad2" name="capacidad2" class="form-control">
                               <option selected></option>
                             </select>
                         </div>
-                        <br>
-                        <div class="file-field input-field col s12 m6">
-                          <div data-tooltip="Seleccione una imagen de al menos 500x500">
-                            <input id="archivo_producto" type="file" name="archivo_producto" accept=".gif, .jpg, .png"/>
-                          </div>
-                        </div> 
+                        <br> 
                   <div class="form-group">
                   <div class="input-field col s12 m6">
                   
