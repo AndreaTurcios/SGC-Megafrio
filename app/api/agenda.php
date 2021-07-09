@@ -38,7 +38,26 @@ if (isset($_GET['action'])) {
                     }
                 break; 
             case 'search':
-                
+                $_POST = $agenda->validateForm($_POST);
+                if ($_POST['search'] != '') {
+                    if ($result['dataset'] = $agenda->searchRows($_POST['search']) or $agenda->setFechaProvisional($_POST['fecha_search'])) {
+                        $result['status'] = 1;
+                        $rows = count($result['dataset']);
+                        if ($rows > 1) {
+                            $result['message'] = 'Se encontraron ' . $rows . ' coincidencias';
+                        } else {
+                            $result['message'] = 'Solo existe una coincidencia';
+                        }
+                    } else {
+                        if (Database::getException()) {
+                            $result['exception'] = Database::getException();
+                        } else {
+                            $result['exception'] = 'No hay coincidencias';
+                        }
+                    }
+                } else {
+                    $result['exception'] = 'Ingrese un valor para buscar';
+                }
                 break;
             case 'create':
                 $_POST = $agenda->validateForm($_POST);
@@ -90,13 +109,93 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'readOne':
-                
+                if ($agenda->setId($_POST['id_agenda'])) {
+                    if ($result['dataset'] = $agenda->readOne()) {
+                        $result['status'] = 1;
+                    } else {
+                        if (Database::getException()) {
+                            $result['exception'] = Database::getException();
+                        } else {
+                            $result['exception'] = 'Tarea inexistente';
+                        }
+                    }
+                } else {
+                    $result['exception'] = 'Tareaincorrecto';
+                }
                 break;
             case 'update':
-                
+                $_POST = $agenda->validateForm($_POST);
+                if ($agenda->setId($_POST['id_agenda'])) {
+                    if ($data = $agenda->readOne()) {
+                        if (isset($_POST['cli-select2'])) {
+                            if($agenda->setIdCliente($_POST['cli-select2'])){
+                                if($agenda->setIdEmpleado($_SESSION['id_empleado'])){
+                                    if($agenda->setFechaProgramacion($_POST['fecha_pro2'])){
+                                        if($agenda->setHoraProgramacion($_POST['hora_pro2'])){
+                                            if($agenda->setFechaProvisional($_POST['fecha_nal2'])){
+                                                if($agenda->setHoraProvisional($_POST['hora_nal2'])){
+                                                    if($agenda->setTarea($_POST['tarea2'])){
+                                                        if($agenda->setEstado($_POST['tarea-select2'])){
+                                                            if($agenda->setObservaciones($_POST['comentario'])){
+                                                                if ($agenda->updateRow()){
+                                                                    $result['status'] = 1;
+                                                                    $result['message'] = 'Tarea modificada correctamente';
+                                                                } else {
+                                                                    $result['exception'] = Database::getException();
+                                                                }
+                                                            } else{
+                                                                $result['exception'] = 'Observaciones incorrectas';
+                                                            }
+                                                        } else{
+                                                            $result['exception'] = 'Estado incorrecto';
+                                                        }
+                                                    } else{
+                                                        $result['exception'] = 'Tarea incorrecta';
+                                                    }
+                                                } else{
+                                                    $result['exception'] = 'Hora de provisional incorrecta';
+                                                }
+                                            } else{
+                                                $result['exception'] = 'Fecha de provisional incorrecta';
+                                            }
+                                        } else{
+                                            $result['exception'] = 'Hora de programación incorrecta';
+                                        }
+                                    } else{
+                                        $result['exception'] = 'Fecha de programación incorrecta';
+                                    }
+                                } else{
+                                    $result['exception'] = 'Empleado incorrecto';
+                                }
+                            } else{
+                                $result['exception'] = 'Cliente incorrecto';
+                            }
+                        } else {
+                            $result['exception'] = 'Seleccione un cliente';
+                        }
+                    } else {
+                        $result['exception'] = 'Tarea inexistente';
+                    }
+                } else {
+                    $result['exception'] = 'Tarea incorrecta';
+                }        
                 break;
             case 'delete':
-                
+                if ($agenda->setId($_POST['id_agenda'])) {
+                    if ($data = $agenda->readOne()) {
+                        if ($agenda->deleteRow()) {
+                            $result['status'] = 1;
+                            $result['message'] = 'Tarea eliminada correctamente';
+
+                        } else {
+                            $result['exception'] = Database::getException();
+                        }
+                    } else {
+                        $result['exception'] = 'Tarea inexistente';
+                    }
+                } else {
+                    $result['exception'] = 'Tarea incorrecto';
+                }
                 break;
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';

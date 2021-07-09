@@ -8,7 +8,21 @@ class Validator
     // Propiedades para manejar algunas validaciones.
     private $passwordError = null;
     private $imageError = null;
+    private $fileName = null;
+    private $fileError = null;
     private $imageName = null;
+
+    public function getFileName()
+    {
+        return $this->fileName;
+    }
+
+    public function getFileError()
+    {
+        return $this->fileError;
+    }
+
+    
 
     /*
     *   Método para obtener el error al validar una contraseña.
@@ -48,6 +62,28 @@ class Validator
             $fields[$index] = $value;
         }
         return $fields;
+    }
+
+    public function validatePDFFile($file)
+    {
+        if($file) {
+            if($file['size'] <= 2097152){
+                if(mime_content_type($file['tmp_name']) == 'application/pdf'){
+                    $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+                    $this->fileName = uniqid() . '.' . $extension;
+                    return true;
+                } else {
+                    $this->fileError = 'El archivo debe ser PDF';
+                    return false;
+                }
+            } else {
+                $this->fileError = 'El tamaño tiene que ser menor a 2MB';
+                return false;
+            }
+        } else {
+            $this->fileError = 'archivo no existe';
+            return false;
+        }
     }
 
     /*
@@ -339,5 +375,9 @@ class Validator
             return false;
         }
     }
+
+
+    
+
 }
 ?>
