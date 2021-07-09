@@ -11,10 +11,12 @@ Dashboard_Page::headerTemplate('Empleados');
     <div class="row">
       <!--Container con su respectivo título de pestaña, en este caso, proveedores -->
       <div class="col-12 text-center" id="Titulo1">
+        <!-- Colocamos el h1 con su respectivo título, este caso la estión de empleados -->
         <h1 class="center">Gestión de empleados</h1>
       </div>
     </div>
     <br>
+    <!-- Aquí colocamos la sección para buscar y agregar -->
     <div class="row">
       <nav class="navbar navbar-light bg-light">
         <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 p-3">
@@ -24,7 +26,8 @@ Dashboard_Page::headerTemplate('Empleados');
           </form>
         </div>
 
-        <!--Aquí en el botón de los filtros creamos un dropdown para poner las respectivas opciones -->
+        <!--Aquí en el botón para agregar los datos al modal con el respectivo ícono -->
+        <!--El div es por cuestión de estética, antes iba el dropdown con los filtros, pero como el buscador lo hace demanera automática se eleminó -->
         <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
         </div>
         <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center">
@@ -40,6 +43,7 @@ Dashboard_Page::headerTemplate('Empleados');
     </div>
     </nav>
     <br>
+    <!-- Aquí agregamos la tabla la cual será responsive donde se mostrarán los respectivos datos -->
     <div class="row">
       <div class="table-responsive" class="col scroll">
         <table class="table table-bordered">
@@ -65,7 +69,6 @@ Dashboard_Page::headerTemplate('Empleados');
     </div>
     <div class="row">
       <nav>
-
         <!--Aquí arrancamos con el botón agregar para abrir el modal -->
         <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
           <!--Colocamos el div para el modal -->
@@ -74,13 +77,13 @@ Dashboard_Page::headerTemplate('Empleados');
               <form method="post" id="save-form">
                 <div class="modal-dialog">
                   <div class="modal-content">
-
-
                     <div class="modal-header">
+                      <!-- Aquí va el título del modal -->
                       <h4 id="modal-title" class="center-align">Agregar empleados</h4>
+                      <!-- Quí va el botón para cerrar el modal -->
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-
+                    <!-- Aquí va el div para colocar el cuerpo del modal -->
                     <div class="modal-body">
                       <div class="container">
                         <div class="form-group">
@@ -97,11 +100,12 @@ Dashboard_Page::headerTemplate('Empleados');
                         </div>
                         <div class="form-group">
                           <label for="telefono_emp">Teléfono:</label>
+                          <!-- Aquí colocamos el input, pero el onkeypress es para no ingresar letras en el 
+                          input ya que es del teléfono-->
                           <input type="text" class="form-control" id="telefono_emp" name="telefono_emp"
                             placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required minlength="9"
                             maxlength="9"
                             onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
-
                         </div>
                         <div class="form-group">
                           <label for="nombre_usuario">Usuario:</label>

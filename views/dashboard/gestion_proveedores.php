@@ -7,6 +7,7 @@ Dashboard_Page::headerTemplate('Proveedores');
 <!--Aquí comenzamos abriendo la sección -->
 <section>
   <br>
+  <!-- Aquí abrimos el div para el container -->
   <div class="container">
     <div class="row">
       <!--Container con su respectivo título de pestaña, en este caso, proveedores -->
