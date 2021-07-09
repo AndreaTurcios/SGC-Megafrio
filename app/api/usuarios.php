@@ -89,7 +89,7 @@ if(isset($_GET['action'])) {
                             $result['status'] = 1;
                             $result['message'] = 'Autenticación correcta';
                             $_SESSION['id_empleado'] = $usuario->getId();
-                            $_SESSION['nombre_usuario'] = $usuario->getNombreUsuario();  
+                            $_SESSION['id_tipo_emp'] = $usuario->getIDTipoEmpleado();  
                             $_SESSION['estado'] = $usuario->getEstado();
 
                         }else{

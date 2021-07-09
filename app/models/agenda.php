@@ -202,8 +202,8 @@ class Agenda extends Validator
     {
         $sql = 'SELECT id_agenda, nombre_cli, nombre_usuario, fecha_programacion, hora_programacion, fecha_provisional, hora_provisional, tarea, estado_tarea, observaciones
                 FROM agenda INNER JOIN empleado USING(id_empleado) 
-                INNER JOIN clientes USING(id_cliente)';
-        $params = null;
+                INNER JOIN clientes USING(id_cliente) WHERE id_empleado = ?';
+        $params = array(($_SESSION['id_empleado']));
         return Database::getRows($sql, $params);
     }
 
