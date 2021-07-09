@@ -24,14 +24,7 @@ Dashboard_Page::headerTemplate('Clientes');
 
         <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
             <div class="form-group">          
-                        <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Filtrar Género
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            </ul>
-                        </div>
+                        
             </div>
         </div>
         
