@@ -314,9 +314,9 @@ if (isset($_GET['action'])) {
             
                                                                                     if (is_uploaded_file($_FILES['archivo2']['tmp_name'])) {
                                                                                         if ($bitacora->setArchivo($_FILES['archivo2'])) {
-                                                                                            if ($bitacora->updateRow($data['archivo'])) {
+                                                                                            if ($bitacora->updateRow($data['archivo2'])) {
                                                                                                 $result['status'] = 1;
-                                                                                                if ($bitacora->saveFile($_FILES['archivo'], $bitacora->getDireccion(), $bitacora->getArchivo())) {
+                                                                                                if ($bitacora->saveFile($_FILES['archivo2'], $bitacora->getDireccion(), $bitacora->getArchivo())) {
                                                                                                     $result['message'] = 'Bitacora actualizada correctamente';
                                                                                                 } else {
                                                                                                     $result['message'] = 'Bitacora actualizada pero no se guardó el archivo';
