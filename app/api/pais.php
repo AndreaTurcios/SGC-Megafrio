@@ -81,6 +81,9 @@ if (isset($_GET['action'])) {
                     }
                     break;
 
+
+
+                    
                     case 'update':
                         $_POST = $pais->validateForm($_POST);
                         if ($pais->setId($_POST['id_pais2'])) {
