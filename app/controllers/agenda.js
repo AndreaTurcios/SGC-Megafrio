@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('fecha_pro').setAttribute('min', date);
     document.getElementById('fecha_nal').setAttribute('min', date);
+    document.getElementById('fecha_pro2').setAttribute('min', date);
+    document.getElementById('fecha_nal2').setAttribute('min', date);
     fillSelect(ENDPOINT_CLIENTES, 'cli-select', null);
 });
 
@@ -41,8 +43,8 @@ function fillTable(dataset) {
                 <td>${row.estado_tarea}</td>
                 <td>${row.observaciones}</td>
                 <td>
-                    <a href="#" onclick="openUpdateDialog(${row.id_agenda})" class="btn waves-effect blue tooltipped" data-tooltip="Actualizar"><i class="material-icons">Editar</i></a>
-                    <a href="#" onclick="openDeleteDialog(${row.id_agenda})" class="btn waves-effect red tooltipped" data-tooltip="Eliminar"><i class="material-icons">Eliminar</i></a>
+                <a href="#" onclick="openUpdateDialog(${row.id_agenda})" class="btn"  data-bs-toggle="modal" data-bs-target="#UpdateModal">Editar</a>  /
+                <a href="#" onclick="openDeleteDialog(${row.id_agenda})"class="btn">Eliminar</a>
                 </td>
             </tr>
         `;
@@ -58,4 +60,66 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     
     saveRow(API_AGENDA, 'create', 'save-form', null);
     document.getElementById('save-form').reset();
+});
+
+// Función para preparar el formulario al momento de modificar un registro.
+function openUpdateDialog(id) {
+
+    // Se define un objeto con los datos del registro seleccionado.
+    const data = new FormData();
+    data.append('id_agenda', id);
+
+    fetch(API_AGENDA + 'readOne', {
+        method: 'post',
+        body: data
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+        if (request.ok) {
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    // Se inicializan los campos del formulario con los datos del registro seleccionado.
+                    document.getElementById('id_agenda').value = response.dataset.id_agenda;
+                    document.getElementById('fecha_pro2').value = response.dataset.fecha_programacion;
+                    document.getElementById('hora_pro2').value = response.dataset.hora_programacion;
+                    document.getElementById('fecha_nal2').value = response.dataset.fecha_provisional;
+                    document.getElementById('hora_nal2').value = response.dataset.hora_provisional;
+                    document.getElementById('tarea2').value = response.dataset.tarea;
+                    document.getElementById('comentario').value = response.dataset.observaciones;
+                    fillSelect(ENDPOINT_CLIENTES,'cli-select2',value = response.dataset.id_cliente);
+                    document.getElementById('tarea-select2').value = response.dataset.estado_tarea;
+                } else {
+                    sweetAlert(2, response.exception, null);
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    }).catch(function (error) {
+        console.log(error);
+    });
+
+    // Método manejador de eventos que se ejecuta cuando se envía el formulario de actualizar.
+    document.getElementById('update-form').addEventListener('submit', function (event) {
+        // Se evita recargar la página web después de enviar el formulario.
+        event.preventDefault();
+        
+        updateRow(API_AGENDA, 'update', 'update-form', 'UpdateModal');
+    });
+}
+
+function openDeleteDialog(id) {
+    // Se define un objeto con los datos del registro seleccionado.
+    const data = new FormData();
+    data.append('id_agenda', id);
+    // Se llama a la función que elimina un registro. Se encuentra en el archivo components.js
+    confirmDelete(API_AGENDA, data);
+}
+
+// Método manejador de eventos que se ejecuta cuando se envía el formulario de buscar.
+document.getElementById('search-form').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
+    searchRows(API_AGENDA, 'search-form');
 });
