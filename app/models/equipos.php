@@ -199,10 +199,8 @@ class Equipos extends Validator
     */
     public function searchRows($value)
     {
-        $sql = 'SELECT id_equipo, foto_equipo, nombre_equipo, descripcion_equipo, precio_equipo, modelo, voltaje, serie,nombre_compania, tipo_equipo, capacidad
-                FROM equipo INNER JOIN proveedor USING(id_proveedor)
-                INNER JOIN tipo_equipo USING(id_tipo_equipo)
-                INNER JOIN capacidad USING(id_capacidad)
+        $sql = 'SELECT id_equipo, nombre_equipo, descripcion_equipo, precio_equipo, modelo, voltaje, serie,id_proveedor, id_tipo_equipo, id_capacidad
+                FROM equipo
                 WHERE nombre_equipo ILIKE ? OR descripcion_equipo ILIKE ?
                 ORDER BY nombre_equipo';
         $params = array("%$value%", "%$value%");
@@ -212,17 +210,15 @@ class Equipos extends Validator
     public function createRow()
     {
         $sql = 'INSERT INTO equipo(nombre_equipo, descripcion_equipo, precio_equipo, modelo, voltaje, serie, foto_equipo, id_proveedor, id_tipo_equipo, id_capacidad)
-                VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+                VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
         $params = array($this->nombre_equipo, $this->descripcion_equipo, $this->precio_equipo, $this->modelo, $this->voltaje, $this->serie, $this->foto_equipo, $this->id_proveedor, $this->id_tipo_equipo, $this->id_capacidad);
         return Database::executeRow($sql, $params);
     }
 
     public function readAll()
     {
-        $sql = 'SELECT id_equipo, foto_equipo, nombre_equipo, descripcion_equipo, precio_equipo, modelo, voltaje, serie,nombre_compania, tipo_equipo, capacidad
-                FROM equipo INNER JOIN proveedor USING(id_proveedor)
-                INNER JOIN tipo_equipo USING(id_tipo_equipo)
-                INNER JOIN capacidad USING(id_capacidad)
+        $sql = 'SELECT id_equipo, foto_equipo, nombre_equipo, descripcion_equipo, precio_equipo, modelo, voltaje, serie,id_proveedor, id_tipo_equipo, id_capacidad
+                FROM equipo 
                 ORDER BY nombre_equipo';
         $params = null;
         return Database::getRows($sql, $params);
@@ -277,3 +273,4 @@ class Equipos extends Validator
         $params = null;
         return Database::getRows($sql, $params);
     }
+}

@@ -133,6 +133,43 @@ plantillaHeader::headerTemplate('Gestión País');
                     </div>
                   </div>
                 </div>
+
+                      <!--Modal fade -->
+      </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="modal-title">Actualizar Pais</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <form id="update-form" method="post" enctype="multipart/form-data">
+                  <div class="form-group d-none">
+                    <label for="formGroupExampleInput">ID:</label>
+                    <input type="text" class="form-control " placeholder="" aria-label="Buscar" aria-describedby="basic-addon1" id="id_pais2" type="text" name="id_pais2" class="validate" required>
+                  </div>
+                  <div class="modal-body">
+                      
+                      <div class="form-group">
+                    <label for="nombre_pais2">Nombre pais:</label>
+                    <input type="text" class="form-control" id="nombre_pais2"name="nombre_pais2"placeholder="Nombre pais" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required minlength="3" maxlength="50"/>
+                  </div>
+                  <div class="form-group">
+                  <label for="codigo_postal2">Codigo Postal:</label>
+                  <input class="form-control" id="codigo_postal2" type="text" name="codigo_postal2" placeholder="Codigo postal" required minlength="3" maxlength="50"/>
+                  </div>
+              </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                      <button type="submit" data-tooltip="Actualizar" class="btn btn-primary" >Guardar Cambios</button>
+                  </div>
+              </form>
+             
+              </div>
+          </div>
+      </div>
                 
                 </section>
 
