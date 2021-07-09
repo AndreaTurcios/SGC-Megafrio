@@ -49,7 +49,7 @@ function openUpdateDialog(id) {
 
     // Se define un objeto con los datos del registro seleccionado.
     const data = new FormData();
-    data.append('id_cliente', id);
+    data.append('id_cliente2', id);
     fetch(API_CLIENTE + 'readOne', {
         method: 'post',
         body: data
