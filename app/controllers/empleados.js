@@ -76,7 +76,7 @@ function openUpdateDialog(id) {
                 document.getElementById('apellido_emp2').value = response.dataset.apellido_emp;
                 document.getElementById('telefono_emp2').value = response.dataset.telefono_emp;
                 document.getElementById('estado2').value = response.dataset.estado;
-                fillSelect(ENDPOINT_TIPO,'tipoemp2',value = response.dataset.id_tipo_empleado);
+                fillSelect(ENDPOINT_TIPO,'tipoemp2',value = response.dataset.id_tipo_emp);
             } else {
                 sweetAlert(2, response.exception, null);
             }
@@ -89,6 +89,18 @@ function openUpdateDialog(id) {
 });
 }
 
+  document.querySelector('.campo span').addEventListener('click', e => {
+    const passwordInput = document.querySelector('#clave_emp');
+    if (e.target.classList.contains('show')) {
+        e.target.classList.remove('show');
+        e.target.textContent = 'Ocultar';
+        passwordInput.type = 'text';
+    } else {
+        e.target.classList.add('show');
+        e.target.textContent = 'Mostrar';
+        passwordInput.type = 'password';
+    }
+});
 
 document.getElementById('save-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.
@@ -96,7 +108,7 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     // Se define una variable para establecer la acción a realizar en la API.
     let action = '';
     // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
-    if (document.getElementById('id_empleado2').value) {
+    if (document.getElementById('id_empleado').value) {
         action = 'update';
     } else {
         action = 'create';

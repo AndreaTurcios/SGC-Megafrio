@@ -94,15 +94,14 @@ if (isset($_GET['action'])) {
                 break;
                 case 'update':
                     $_POST = $proveedor->validateForm($_POST);
-                if ($proveedor->setNombreCompania($_POST['nombre_compania'])) {
-                        if ($proveedor->setTelefonoProveedor($_POST['telefono_pro'])) {                                                
-                                if ($proveedor->setDireccionProveedor($_POST['direccion_pro'])) {  
-                                    if ($proveedor->setIdPais($_POST['id_pais'])) { 
-                                        if ($proveedor->setInfoTributaria($_POST['info_tributaria'])) {                                                   
-                                                    if ($proveedor->createRow()) {
+                if ($proveedor->setNombreCompania($_POST['nombre_compania2'])) {
+                        if ($proveedor->setTelefonoProveedor($_POST['telefono_pro2'])) {                                                
+                                if ($proveedor->setDireccionProveedor($_POST['direccion_pro2'])) {  
+                                    if ($proveedor->setIdPais($_POST['id_pais2'])) { 
+                                        if ($proveedor->setInfoTributaria($_POST['info_tributaria2'])) {                                                   
+                                                    if ($proveedor->updateRow()) {
                                                           $result['status'] = 1;
-                                                          $result['message'] = 'Proveedor registrado exitosamente';  
-
+                                                          $result['message'] = 'Proveedor modificado exitosamente';  
                                                       } else {
                                                           $result['exception'] = Database::getException();                                                        
                                                       }   
@@ -110,13 +109,13 @@ if (isset($_GET['action'])) {
                                     $result['exception'] = 'Carácteres incorrectos en informacion tributaria';
                                 }
                             } else {
-                                $result['exception'] = 'Carácteres incorrectos en dirección';
+                                $result['exception'] = 'Problema con id pais';
                             }
                         } else {
-                            $result['exception'] = 'El teléfono debe tener el formato 0000-0000 e iniciar con 2, 6 o 7';
+                            $result['exception'] = 'Problema con la direcion del proveedor';
                         }
                     } else {
-                        $result['exception'] = 'Carácteres incorrectos en representante';
+                        $result['exception'] = 'Formato del teléfono incorrecto';
                     }
                 } else {
                     $result['exception'] = 'Carácteres incorrectos en nombre de la compañía';

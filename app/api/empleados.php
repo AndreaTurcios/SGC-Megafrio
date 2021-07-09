@@ -63,7 +63,7 @@ if (isset($_GET['action'])) {
                                         $result['exception'] ='Estado empleado incorrecto';
                                           }
                                 }else {
-                                    $result['exception'] ='Claves diferentes';
+                                    $result['exception'] ='Clave demasiado corta';
                                        }
                             } else {
                                 $result['exception'] = $empleados->getPasswordError();
@@ -102,10 +102,9 @@ if (isset($_GET['action'])) {
                         if ($empleados->setNombreEmpleado($_POST['nombre_emp2'])) {
                             if ($empleados->setApellidoEmpleado($_POST['apellido_emp2'])) {
                                 if ($empleados->setTelefonoEmpleado($_POST['telefono_emp2'])) {
-                                    if ($empleados->setClaveEmpleado($_POST['clave_emp2'])) {
                                         if ($empleados->setEstado($_POST['estado2'])) {
                                         if ($empleados->setIDTipoEmpleado($_POST['tipoemp2'])) {
-                                            if ($empleados->createRow()) {
+                                            if ($empleados->updateRow()) {
                                                 $result['status'] = 1;
                                                 $result['message'] = 'Empleado modificado exitosamente';                                                        
                                             } else {
@@ -117,12 +116,8 @@ if (isset($_GET['action'])) {
                                         }else {
                                             $result['exception'] ='Estado empleado incorrecto';
                                               }
-                                    }else {
-                                        $result['exception'] ='Claves diferentes';
-                                           }
                                 } else {
-                                    $result['exception'] = $empleados->getPasswordError();
-                                    $result['exception'] = 'Claves inválida';
+                                    $result['exception'] = 'Teléfono incorrecto';
                                         }
                             } else {
                                 $result['exception'] = 'Claves diferentes';
