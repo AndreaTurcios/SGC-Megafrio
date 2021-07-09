@@ -87,9 +87,7 @@ class plantillaHeader {
                       <li class="nav-item">
                         <a class="nav-link" href="Pais.php">PAÍSES</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="TipoEntorno.php">ENTORNOS</a>
-                      </li>
+                      
                       <li class="nav-item">
                         <a class="nav-link" href="bitacora.php">BITÁCORA</a>
                       </li>
@@ -115,9 +113,7 @@ class plantillaHeader {
                     <li class="nav-item p-1">
                       <button type="button" class="btn btn-info"> <a href="gestion_proveedores.php">PROVEEDORES</a></button> 
                     </li>
-                    <li class="nav-item p-1">
-                      <button type="button" class="btn btn-info"> <a href="TipoEntorno.php">ENTORNOS</a></button> 
-                    </li>
+                    
                     <li class="nav-item p-1">
                       <button type="button" class="btn btn-info"> <a href="Pais.php">PAÍSES</a></button> 
                     </li>
