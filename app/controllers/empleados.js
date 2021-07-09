@@ -54,11 +54,14 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     event.preventDefault();
     
     saveRow(API_EMPLEADOS, 'create', 'save-form', null);
+    document.getElementById('save-form').reset();
 });
 
 
 // Función para preparar el formulario al momento de modificar un registro.
 function openUpdateDialog(id) {
+    // Se restauran los elementos del formulario.
+    document.getElementById('update-form').reset();
     const data = new FormData();
     data.append('id_empleado', id);
     fetch(API_EMPLEADOS + 'readOne', {
@@ -102,7 +105,7 @@ function openUpdateDialog(id) {
     }
 });
 
-document.getElementById('save-form').addEventListener('submit', function (event) {
+document.getElementById('save-form').addEventListener('submit', function (event) {  
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Se define una variable para establecer la acción a realizar en la API.
