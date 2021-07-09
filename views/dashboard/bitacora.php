@@ -2,14 +2,14 @@
 //Se incluye la clase con las plantillas del documento
 require_once('../../app/helpers/dashboard_page.php');
 //Se imprime la plantilla del encabezado y se envía el titulo para la página web
-Dashboard_Page::headerTemplate('Bitacora');
+Dashboard_Page::headerTemplate('Bitácora');
 ?>
 
 
 <div class="container">
     <div class="row">
         <div class="col-12 text-center" id="Titulo1">
-            <h1>Bitacora</h1>
+            <h1>Bitácora</h1>
         </div>
     </div>
 
@@ -49,7 +49,7 @@ Dashboard_Page::headerTemplate('Bitacora');
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Agregar bitacora</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Agregar bitácora</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -121,7 +121,7 @@ Dashboard_Page::headerTemplate('Bitacora');
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Actualizar Bitacora</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Actualizar Bitácora</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
