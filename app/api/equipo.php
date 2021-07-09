@@ -156,9 +156,10 @@ if (isset($_GET['action'])) {
                                         $result['exception'] = 'Nombre incorrecto';
                                     }
                                     break;
+
                                     case 'update':
                                         $_POST = $equipo->validateForm($_POST);
-                                        if ($equipo->setId($_POST['id_equipo2'])) {
+                                        if ($equipo->setId($_POST['id_equipo'])) {
                                             if ($data = $equipo->readOne()) {
                                                 if($equipo->setNombre($_POST['nombre_equipo2'])){
                                                     if($equipo->setDescripcion($_POST['descripcion_equipo2'])){
@@ -166,25 +167,52 @@ if (isset($_GET['action'])) {
                                                             if($equipo->setModelo($_POST['modelo2'])){
                                                                 if($equipo->setVoltaje($_POST['voltaje2'])){
                                                                     if($equipo->setSerie($_POST['serie2'])){
-                                                                        if ($equipo->setIdProveedor($_POST['nombre_compania2'])) {
-                                                                            if ($equipo->setIdTipoEqui($_POST['tipo_equipo2'])) {
-                                                                                if ($equipo->setIdCapacidad($_POST['capacidad2'])) {
-                                                                                    if ($equipo->updateRow()) {
-                                                                                        $result['status'] = 1;
-                                                                                        $result['message'] = 'Equipo modificado exitosamente';                                                        
-                                                                                    } else {
-                                                                                        $result['exception'] = Database::getException();                                                        
-                                                                                    }  
-                                                                                        }else {
-                                                                                            $result['exception'] ='capacidad incorrecto';
+                                                                        if(isset($_POST['nombre_compania2'])){
+                                                                            if($equipo->setIdProveedor($_POST['nombre_compania2'])){
+                                                                                if(isset($_POST['tipo_equipo2'])){
+                                                                                    if($equipo->setIdTipoEqui($_POST['tipo_equipo2'])){
+                                                                                        if(isset($_POST['capacidad2'])){
+                                                                                            if($equipo->setIdCapacidad($_POST['capacidad2'])){
+                                                                                                if (is_uploaded_file($_FILES['archivo_producto']['tmp_name'])) {
+                                                                                                    if ($equipo->setFoto($_FILES['archivo_producto'])) {
+                                                                                                        if ($equipo->updateRow($data['foto_equipo'])) {
+                                                                                                            $result['status'] = 1;
+                                                                                                            if ($equipo->saveFile($_FILES['archivo_producto'], $equipo->getRuta(), $equipo->getFoto())) {
+                                                                                                                $result['message'] = 'Equipo modificado correctamente';
+                                                                                                            } else {
+                                                                                                                $result['message'] = 'Equipo modificado pero no se guardó la imagen';
+                                                                                                            }
+                                                                                                        } else {
+                                                                                                            $result['exception'] = Database::getException();
+                                                                                                        }
+                                                                                                    } else {
+                                                                                                        $result['exception'] = $equipo->getImageError();
+                                                                                                    }
+                                                                                                } else {
+                                                                                                    if ($equipo->updateRow($data['foto_equipo'])) {
+                                                                                                        $result['status'] = 1;
+                                                                                                        $result['message'] = 'equipo modificado correctamente';
+                                                                                                    } else {
+                                                                                                        $result['exception'] = Database::getException();
+                                                                                                    }
+                                                                                                }   
+                                                                                            }else {
+                                                                                                $result['exception'] = 'Capacidad incorrecta';
+                                                                                                }
+                                                                                            }else {
+                                                                                                $result['exception'] = 'Seleccione una capacidad';
+                                                                                                }
+                                                                                    }else {
+                                                                                        $result['exception'] = 'Tipo equipo incorrecta';
                                                                                         }
+                                                                                    }else {
+                                                                                        $result['exception'] = 'Seleccione un tipo de equipo';
+                                                                                        }
+                                                                            }else {
+                                                                                $result['exception'] = 'Proveedor incorrecta';
                                                                                 }
-                                                                                else {
-                                                                                    $result['exception'] ='Tipo equipo incorrecto';
-                                                                                    }
-                                                                            }
-                                                                            else {
-                                                                                $result['exception'] ='Proveedor incorrecto';
+                                                                            }else {
+                                                                                $result['exception'] = 'Seleccione un proveedor';
                                                                                 }
                                                                         }
                                                                     }else{
