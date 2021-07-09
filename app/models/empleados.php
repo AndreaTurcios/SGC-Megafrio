@@ -32,7 +32,7 @@ class Empleados extends Validator{
 
     public function setNombreEmpleado($value)
     {
-        if ($this->validateAlphanumeric($value, 1, 50)) {
+        if ($this->validateAlphabetic($value, 1, 50)) {
             $this->nombreempleado = $value;
             return true;
         } else {
@@ -42,7 +42,7 @@ class Empleados extends Validator{
 
     public function setApellidoEmpleado($value)
     {
-        if ($this->validateAlphanumeric($value, 1, 50)) {
+        if ($this->validateAlphabetic($value, 1, 50)) {
             $this->apellidoempleado = $value;
             return true;
         } else {
