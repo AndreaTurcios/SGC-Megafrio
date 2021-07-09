@@ -57,10 +57,12 @@ class Dashboard_Page
                       </div>
                       <!-- Columna de Boton usuario pero para Pequeños -->
                       <div class="col-1 col-xs-1 col-sm-1 d-lg-none text-left" id="mnSuperiorMobile">
-                        <a href="perfil.php"><button class="btn btn-primary ">
+                          <a href="#" onclick="openProfileDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white"><button class="btn btn-primary ">
                           <i class="far fa-user"></i>
-                        </button></a>
-                        
+                          </button></a>
+                          <a href="#" onclick="logOut()">
+                            <i class="fas fa-sign-out-alt"></i>
+                          </button></a
                       </div>
                       <!-- Columna para perfil pero en usuarios de pantalla grande -->
                       <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-2 col-xxl-2 text-center d-none d-lg-block">
@@ -231,8 +233,11 @@ class Dashboard_Page
               </div>
               <!-- Columna de Boton usuario pero para Pequeños -->
               <div class="col-1 col-xs-1 col-sm-1 d-lg-none text-left" id="mnSuperiorMobile">
-                <a href="perfil.php"><button class="btn btn-primary ">
+                <a href="#" onclick="openProfileDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white"><button class="btn btn-primary ">
                   <i class="far fa-user"></i>
+                </button></a>
+                <a href="#" onclick="logOut()">
+                  <i class="fas fa-sign-out-alt"></i>
                 </button></a>
                 
               </div>
