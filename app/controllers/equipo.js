@@ -60,26 +60,11 @@ document.getElementById('save-form').addEventListener('submit', function (event)
 
 });
 
-
-
-
 // Función para preparar el formulario al momento de modificar un registro.
 function openUpdateDialog(id) {
-    // Se restauran los elementos del formulario.
-    document.getElementById('save-form').reset();
-    // Se abre la caja de dialogo (modal) que contiene el formulario.
-    let instance = M.Modal.getInstance(document.getElementById('save-modal'));
-    instance.open();
-    // Se asigna el título para la caja de dialogo (modal).
-    document.getElementById('modal-title').textContent = 'Actualizar producto';
-    // Se establece el campo de archivo como opcional.
-    document.getElementById('archivo_producto').required = false;
-
-    // Se define un objeto con los datos del registro seleccionado.
     const data = new FormData();
-    data.append('id_producto', id);
-
-    fetch(API_PRODUCTOS + 'readOne', {
+    data.append('id_equipo', id);
+    fetch(API_EQUIPO + 'readOne', {
         method: 'post',
         body: data
     }).then(function (request) {
@@ -87,31 +72,49 @@ function openUpdateDialog(id) {
         if (request.ok) {
             request.json().then(function (response) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-                if (response.status) {
-                    // Se inicializan los campos del formulario con los datos del registro seleccionado.
-                    document.getElementById('id_producto').value = response.dataset.id_producto;
-                    document.getElementById('nombre_producto').value = response.dataset.nombre_producto;
-                    document.getElementById('precio_producto').value = response.dataset.precio_producto;
-                    document.getElementById('descripcion_producto').value = response.dataset.descripcion_producto;
-                    fillSelect(ENDPOINT_CATEGORIAS, 'categoria_producto', response.dataset.id_categoria);
-                    if (response.dataset.estado_producto) {
-                        document.getElementById('estado_producto').checked = true;
-                    } else {
-                        document.getElementById('estado_producto').checked = false;
-                    }
-                    // Se actualizan los campos para que las etiquetas (labels) no queden sobre los datos.
-                    M.updateTextFields();
-                } else {
-                    sweetAlert(2, response.exception, null);
-                }
-            });
-        } else {
-            console.log(request.status + ' ' + request.statusText);
-        }
-    }).catch(function (error) {
-        console.log(error);
-    });
+                if (response.status) {        
+                document.getElementById('id_equipo2').value = response.dataset.id_equipo;
+                document.getElementById('nombre_equipo2').value = response.dataset.nombre_equipo;
+                document.getElementById('descripcion_equipo2').value = response.dataset.descripcion_equipo;
+                document.getElementById('precio_equipo2').value = response.dataset.precio_equipo;
+                document.getElementById('modelo2').value = response.dataset.modelo;
+                document.getElementById('voltaje2').value = response.dataset.voltaje;
+                document.getElementById('serie2').value = response.dataset.serie;
+                fillSelect(ENDPOINT_PROVEEDOR,'nombre_compania2',value = response.dataset.id_proveedor);
+                fillSelect(ENDPOINT_TIPOEQUIPO,'tipo_equipo2',value = response.dataset.id_tipo_equipo);
+                fillSelect(ENDPOINT_CAPACIDAD,'capacidad2',value = response.dataset.id_capacidad);
+            } else {
+                sweetAlert(2, response.exception, null);
+            }
+        });
+    } else {
+        console.log(request.status + ' ' + request.statusText);
+    }
+}).catch(function (error) {
+    console.log(error);
+});
 }
+
+document.getElementById('save-form').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Se define una variable para establecer la acción a realizar en la API.
+    let action = '';
+    // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
+    if (document.getElementById('id_equipo2').value) {
+        action = 'update';
+    } else {
+        action = 'create';
+    }
+    saveRow(API_EQUIPO, action, 'save-form', 'save-modal');
+});
+
+document.getElementById('update-form').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    updateRow(API_EQUIPO, 'update', 'update-form', 'update-modal');
+});
+
 
 // Función para establecer el registro a eliminar y abrir una caja de dialogo de confirmación.
 function openDeleteDialog(id) {

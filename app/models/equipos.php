@@ -235,11 +235,9 @@ class Equipos extends Validator
 
     public function updateRow($current_image)
     {
-        // Se verifica si existe una nueva imagen para borrar la actual, de lo contrario se mantiene la actual.
-        ($this->foto_equipo) ? $this->deleteFile($this->getRuta(), $current_image) : $this->foto_equipo = $current_image;
 
         $sql = 'UPDATE equipo
-                SET foto_equipo = ?, nombre_equipo = ?, descripcion_equipo = ?, precio_equipo = ?, modelo = ?, voltaje = ?, serie = ?, id_proveedor = ?, id_tipo_equipo = ?, id_capacidad = ?,
+                SET nombre_equipo = ?, descripcion_equipo = ?, precio_equipo = ?, modelo = ?, voltaje = ?, serie = ?, id_proveedor = ?, id_tipo_equipo = ?, id_capacidad = ?,
                 WHERE id_producto = ?';
         $params = array($this->foto_equipo, $this->nombre_equipo, $this->descripcion_equipo, $this->precio_equipo, $this->modelo, $this->voltaje, $this->serie, $this->id_proveedor, $this->id_tipo_equipo, $this->id_capacidad, $this->id_equipo);
         return Database::executeRow($sql, $params);
