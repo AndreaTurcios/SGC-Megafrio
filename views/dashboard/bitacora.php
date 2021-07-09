@@ -31,7 +31,7 @@ Dashboard_Page::headerTemplate('Bitacora');
                 </div>
 
 
-                <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center"
+                <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 "
                     id="MuestraBTN">
                     <!-- Button trigger modal -->
                     <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AgregarBitacora">
@@ -146,6 +146,7 @@ Dashboard_Page::headerTemplate('Bitacora');
                                         <input class="form-control " placeholder=""
                                             aria-describedby="basic-addon1" id="ubicacion2" name="ubicacion2" type="text"/>
                                     </div>
+                                    <br>
                                     <div class="form-group">
                                         <label for="formGroupExampleInput">Cliente</label>
                                         <select id="cliente2" name="cliente2"></select>
