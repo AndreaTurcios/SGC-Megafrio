@@ -97,12 +97,12 @@ if (isset($_GET['action'])) {
                     if ($proveedor->setId($_POST['id_proveedor2'])) {
                         if ($proveedor->setNombreCompania($_POST['nombre_compania2'])) {
                                 if ($proveedor->setTelefonoProveedor($_POST['telefono_pro2'])) {                                                
-                                        if ($proveedor->setDireccionProveedor($_POST['direccion_pro2'])) {  
+                                        if ($proveedor->setDireccionProveedor($_POST['direccion_pro2'])) {      
                                             if ($proveedor->setIdPais($_POST['id_pais2'])) { 
                                                 if ($proveedor->setInfoTributaria($_POST['info_tributaria2'])) {                                                   
                                                             if ($proveedor->updateRow()) {
                                                                 $result['status'] = 1;
-                                                                $result['message'] = 'Proveedor modificado exitosamentemmm';  
+                                                                $result['message'] = 'Proveedor modificado exitosamente';  
                                                             } else {
                                                                 $result['exception'] = Database::getException();                                                        
                                                             }   
