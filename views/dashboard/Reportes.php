@@ -1,8 +1,8 @@
 <?php
-//Se incluye la clase con las plantillas del documento
-include("../../app/helpers/plantillaHeader.php");
-//Se imprime la plantilla del encabezado y se envía el titulo para la página web
-plantillaHeader::headerTemplate('Reportes');
+// Se incluye la clase con las plantillas del documento.
+require_once('../../app/helpers/dashboard_page.php');
+// Se imprime la plantilla del encabezado enviando el título de la página web.
+Dashboard_Page::headerTemplate('Reportes');
 ?>
 
 <div class="container">
@@ -82,6 +82,6 @@ plantillaHeader::headerTemplate('Reportes');
 
 
 <?php
-//Se incluye la plantilla del encabezado para la página web
-include("../../app/helpers/plantillaFooter.php");
-?>
+// Se imprime la plantilla del encabezado enviando el título de la página web.
+Dashboard_Page::footerTemplate('reportes.js');
+?>>
