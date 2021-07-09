@@ -101,7 +101,7 @@ if (isset($_GET['action'])) {
                                         if ($proveedor->setInfoTributaria($_POST['info_tributaria2'])) {                                                   
                                                     if ($proveedor->updateRow()) {
                                                           $result['status'] = 1;
-                                                          $result['message'] = 'Proveedor modificado exitosamente';  
+                                                          $result['message'] = 'Proveedor modificado exitosamentemmm';  
                                                       } else {
                                                           $result['exception'] = Database::getException();                                                        
                                                       }   

@@ -44,6 +44,8 @@ document.getElementById('search-form').addEventListener('submit', function (even
 
 // Función para preparar el formulario al momento de modificar un registro.
 function openUpdateDialog(id) {
+    // Se restauran los elementos del formulario.
+    document.getElementById('update-form').reset();
     const data = new FormData();
     data.append('id_proveedor', id);
     fetch(API_PROVEEDOR + 'readOne', {
@@ -91,6 +93,7 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
    
     saveRow(API_PROVEEDOR, "create", 'save-form', null);
+    document.getElementById('save-form').reset();
 }); 
 
 document.getElementById('update-form').addEventListener('submit', function (event) {
@@ -98,6 +101,7 @@ document.getElementById('update-form').addEventListener('submit', function (even
     event.preventDefault();
     updateRow(API_PROVEEDOR, 'update', 'update-form', 'update-modal');
 });
+
 
 function openDeleteDialog(id) {
     // Se define un objeto con los datos del registro seleccionado.
@@ -107,17 +111,3 @@ function openDeleteDialog(id) {
     confirmDelete(API_PROVEEDOR, data);
 }
 
-
-document.getElementById('save-form').addEventListener('submit', function (event) {
-    // Se evita recargar la página web después de enviar el formulario.
-    event.preventDefault();
-    // Se define una variable para establecer la acción a realizar en la API.
-    let action = '';
-    // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
-    if (document.getElementById('id_proveedor').value) {
-        action = 'update';
-    } else {
-        action = 'create';
-    }
-    saveRow(API_PROVEEDOR, action, 'save-form', 'save-modal');
-}); 
