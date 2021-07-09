@@ -156,11 +156,60 @@ if (isset($_GET['action'])) {
                                         $result['exception'] = 'Nombre incorrecto';
                                     }
                                     break;
-
-        
-
-                    
-
+                                    case 'update':
+                                        $_POST = $equipo->validateForm($_POST);
+                                        if ($equipo->setId($_POST['id_equipo2'])) {
+                                            if ($data = $equipo->readOne()) {
+                                                if($equipo->setNombre($_POST['nombre_equipo2'])){
+                                                    if($equipo->setDescripcion($_POST['descripcion_equipo2'])){
+                                                        if($equipo->setPrecio($_POST['precio_equipo2'])){
+                                                            if($equipo->setModelo($_POST['modelo2'])){
+                                                                if($equipo->setVoltaje($_POST['voltaje2'])){
+                                                                    if($equipo->setSerie($_POST['serie2'])){
+                                                                        if ($equipo->setIdProveedor($_POST['nombre_compania2'])) {
+                                                                            if ($equipo->setIdTipoEqui($_POST['tipo_equipo2'])) {
+                                                                                if ($equipo->setIdCapacidad($_POST['capacidad2'])) {
+                                                                                    if ($equipo->updateRow()) {
+                                                                                        $result['status'] = 1;
+                                                                                        $result['message'] = 'Equipo modificado exitosamente';                                                        
+                                                                                    } else {
+                                                                                        $result['exception'] = Database::getException();                                                        
+                                                                                    }  
+                                                                                        }else {
+                                                                                            $result['exception'] ='capacidad incorrecto';
+                                                                                        }
+                                                                                }
+                                                                                else {
+                                                                                    $result['exception'] ='Tipo equipo incorrecto';
+                                                                                    }
+                                                                            }
+                                                                            else {
+                                                                                $result['exception'] ='Proveedor incorrecto';
+                                                                                }
+                                                                        }
+                                                                    }else{
+                                                                        $result['message'] = 'Serie incorrecto';
+                                                                    }
+                                                                }else{
+                                                                    $result['message'] = 'Voltaje incorrecto';
+                                                                }
+                                                            }else{
+                                                                $result['message'] = 'Modelo incorrecto';
+                                                            }
+                                                        }else{
+                                                            $result['message'] = 'Precio equipo incorrecto';
+                                                        }    
+                                                    }else{
+                                                        $result['message'] = 'Descripcion incorrecta';
+                                                    }   
+                                                }else{
+                                                    $result['message'] = 'Nombre de equipo incorrecto';
+                                                }
+                                            
+                                        }else {
+                                            $result['exception'] ='Equipo incorrecto';
+                                              }   
+                                        break;
             case 'delete':
                 if ($equipo->setId($_POST['id_equipo'])) {
                     if ($data = $equipo->readOne()) {
