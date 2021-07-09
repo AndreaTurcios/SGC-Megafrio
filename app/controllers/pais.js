@@ -74,19 +74,8 @@ function openUpdateDialog(id) {
 });
 }
 
-document.getElementById('save-form').addEventListener('submit', function (event) {
-    // Se evita recargar la página web después de enviar el formulario.
-    event.preventDefault();
-    // Se define una variable para establecer la acción a realizar en la API.
-    let action = '';
-    // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
-    if (document.getElementById('id_pais2').value) {
-        action = 'update';
-    } else {
-        action = 'create';
-    }
-    saveRow(API_PAIS, action, 'save-form', 'save-modal');
-});
+
+
 
 document.getElementById('update-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.

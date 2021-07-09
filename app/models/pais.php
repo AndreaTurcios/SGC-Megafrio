@@ -100,6 +100,10 @@ class Pais extends Validator{
         return Database::executeRow($sql, $params);
     }
 
+
+
+
+    
     public function deleteRow()
     {
         $sql = 'DELETE FROM pais
