@@ -76,7 +76,7 @@ Dashboard_Page::headerTemplate('Equipo');
                 <div class="modal-body">
                   <div class="container">
                     <div class="row">
-                      <form>
+                      <form id="save-form" method="post" enctype="multipart/form-data">
                         <div class="form-group ">
                           <label for="nombre_equipo">Nombre equipo:</label>
                           <input type="text" class="form-control" id="nombre_equipo" name="nombre_equipo" placeholder="Equipo">
@@ -87,7 +87,7 @@ Dashboard_Page::headerTemplate('Equipo');
                         </div>
                         <div class="form-group">
                           <label for="precio_equipo">Precio:</label>
-                          <input type="number" class="form-control" id="precio_equipo" name="precio_equipo" max="999.99" min="0.01">
+                          <input type="number" class="form-control" id="precio_equipo" name="precio_equipo" max="999.99">
                         </div>
                         <div class="form-group">
                           <label for="modelo">Modelo:</label>
@@ -205,7 +205,7 @@ Dashboard_Page::headerTemplate('Equipo');
                   </div>
                   <div class="form-group">
                     <label for="precio_equipo2">Precio:</label>
-                    <input type="number" class="form-control" id="precio_equipo2" name="precio_equipo2" max="999.99" min="0.01">
+                    <input type="number" class="form-control" id="precio_equipo2" name="precio_equipo2">
                   </div>
                   <div class="form-group">
                     <label for="modelo2">Modelo:</label>
