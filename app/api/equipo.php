@@ -157,29 +157,9 @@ if (isset($_GET['action'])) {
                                     }
                                     break;
 
-                
+        
 
-                    case 'update':
-                        $_POST = $pais->validateForm($_POST);
-                        if ($pais->setId($_POST['id_pais'])) {
-                            if ($data = $pais->readOne()) {
-                                if($pais->setNombreP($_POST['categoria2'])){
-                                    if($pais->setCodigo($_POST['categoria2'])){
-                                        if ($pais->updateRow()) {
-                                            $result['status'] = 1;
-                                            $result['message'] = 'Pais actualizadao correctamente';
-                                        } else {
-                                            $result['exception'] = Database::getException();
-                                        }
-                                    }else{
-                                        $result['message'] = 'Codigo postal incorrecto';
-                                    }   
-                                }else{
-                                    $result['message'] = 'Nombre de pais incorrecto';
-                                }
-                            }
-                        }   
-                        break;
+                    
 
             case 'delete':
                 if ($equipo->setId($_POST['id_equipo'])) {
@@ -205,6 +185,7 @@ if (isset($_GET['action'])) {
         header('content-type: application/json; charset=utf-8');
         // Se imprime el resultado en formato JSON y se retorna al controlador.
         print(json_encode($result));
+    
 } else {
     print(json_encode('Recurso no disponible'));
 }
