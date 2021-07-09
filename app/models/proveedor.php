@@ -1,7 +1,9 @@
 <?php
-
+/*
+*	Clase para manejar la tabla productos de la base de datos. Es clase hija de Validator.
+*/
 class Proveedor extends Validator{
-    
+    // Declaración de atributos (propiedades).
     private $id_proveedor = null;
     private $nombre_compania = null;
     private $telefono_pro = null;
@@ -9,6 +11,9 @@ class Proveedor extends Validator{
     private $id_pais = null;
     private $info_tributaria = null;
 
+    /*
+    *   Métodos para asignar valores a los atributos.
+    */
     public function setId($value)
     {
         if ($this->validateNaturalNumber($value)) {
@@ -99,6 +104,9 @@ class Proveedor extends Validator{
         return $this->info_tributaria;
     }
 
+    /*
+    *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
+    */
 
     public function searchRows($value)
     {

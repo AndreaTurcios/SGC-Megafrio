@@ -10,10 +10,8 @@ if (isset($_GET['action'])) {
     $tipoEmpleado = new tipoEmpleado;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
     $result = array('status' => 0, 'message' => null, 'exception' => null);
-    // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
-//if (isset($_SESSION['id_usuario'])) {
-        // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
+             // Esto se ejecuta en el caso del readall, ya sea al visualizar la tabla o en la accion que se indique que se quieren leer todos los datos de la tabla
             case 'readAll':
                 if ($result['dataset'] = $tipoEmpleado->readAll()) {
                     $result['status'] = 1;
@@ -21,6 +19,7 @@ if (isset($_GET['action'])) {
                     if (Database::getException()) {
                         $result['exception'] = Database::getException();
                     } else {
+                        // En caso de que no haya ningún empleado registrado en la base de datos, nos tira este mensaje
                         $result['exception'] = 'No hay ningún tipo de empleado ingresado en la base de datos';
                     }
                 }

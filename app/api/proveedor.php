@@ -13,6 +13,7 @@ if (isset($_GET['action'])) {
     // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
+             // Esto se ejecuta en el caso del readall, ya sea al visualizar la tabla o en la accion que se indique que se quieren leer todos los datos de la tabla
             case 'readAll':
                 if ($result['dataset'] = $proveedor->readAll()) {
                     $result['status'] = 1;
@@ -20,10 +21,12 @@ if (isset($_GET['action'])) {
                     if (Database::getException()) {
                         $result['exception'] = Database::getException();
                     } else {
+                        // En caso de que no haya ningún empleado registrado en la base de datos, nos tira este mensaje
                         $result['exception'] = 'No hay ningún proveedor ingresado en la base de datos';
                     }
                 }
                 break;
+                // En el caso de que la variable action nos detecte que se quiera buscar, se ejecutará lo siguiente
                 case 'search':
                     $_POST = $proveedor->validateForm($_POST);
                     if ($_POST['search'] != '') {
@@ -35,6 +38,7 @@ if (isset($_GET['action'])) {
                             } else {
                                 $result['message'] = 'Solo existe una coincidencia';
                             }
+                        // Esto ocurrirá en el caso de que no existan coincidencias de la busqueda realizada
                         } else {
                             if (Database::getException()) {
                                 $result['exception'] = Database::getException();
@@ -42,10 +46,12 @@ if (isset($_GET['action'])) {
                                 $result['exception'] = 'No hay coincidencias';
                             }
                         }
+                    // En el caso de que esté vacío
                     } else {
                         $result['exception'] = 'Ingrese un valor para buscar';
                     }
                     break;
+            // En el caso de que el action detecte que se desea crear o insertar, se ejecutará lo siguiente
             case 'create':
                 $_POST = $proveedor->validateForm($_POST);
                 if ($proveedor->setNombreCompania($_POST['nombre_compania'])) {
@@ -55,6 +61,7 @@ if (isset($_GET['action'])) {
                                         if ($proveedor->setInfoTributaria($_POST['info_tributaria'])) {                                                   
                                                     if ($proveedor->createRow()) {
                                                           $result['status'] = 1;
+                                                          // Se indica que el proveedor se registró existosamente en el caso de que los if se ejecuten automáticamente, caso contrario nos manda los siguientes mensajes
                                                           $result['message'] = 'Proveedor registrado exitosamente';  
 
                                                       } else {
@@ -77,6 +84,9 @@ if (isset($_GET['action'])) {
                 }
                 
                 break;
+            // En el caso de que el action detecte que se desea únicamente leer un id en específico nos 
+            //ejecuta la siguiente acción, en caso contrario nos indica que el empleado que se intenta 
+            //seleccionar no existe
             case 'readOne':
                 if ($proveedor->setId($_POST['id_proveedor'])) {
                     if ($result['dataset'] = $proveedor->readOne()) {
@@ -92,6 +102,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Proveedor erróneo';
                 }
                 break;
+                // Si el action detecta que se desea realizar un update se ejecuta lo siguiente
                 case 'update':
                     $_POST = $proveedor->validateForm($_POST);
                     if ($proveedor->setId($_POST['id_proveedor2'])) {
@@ -125,6 +136,7 @@ if (isset($_GET['action'])) {
                         $result['exception'] = 'Proveedor incorrecto';
                     }    
                 break;   
+            // Si el action detecta que se desea realizar un delete a un dato se ejecuta lo siguiente
             case 'delete':
                 if ($proveedor->setId($_POST['id_proveedor'])) {
                     if ($data = $proveedor->readOne()) {
@@ -135,6 +147,7 @@ if (isset($_GET['action'])) {
                         } else {
                             $result['exception'] = Database::getException();
                         }
+                    // En caso el proveedor no exista manda el mensaje correspondiente
                     } else {
                         $result['exception'] = 'Proveedor inexistente';
                     }
