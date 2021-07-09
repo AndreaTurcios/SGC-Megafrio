@@ -145,7 +145,6 @@ class Proveedor extends Validator{
                 WHERE id_proveedor = ?';
        
         $params = array($this->nombre_compania,$this->telefono_pro,$this->direccion_pro,$this->id_pais,$this->info_tributaria,$this->id_proveedor);
-        echo "$params";
         return Database::executeRow($sql, $params);
     }
 
