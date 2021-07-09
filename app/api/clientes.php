@@ -9,7 +9,7 @@ if (isset($_GET['action'])) {
     $clientes = new Clientes;
     $result = array('status' => 0, 'message' => null, 'exception' => null);
 
-    if (isset($_SESSION['id_empleado']) || false) {
+    if (isset($_SESSION['id_empleado'])) {
         switch ($_GET['action']) {
 
             case 'readAll':
