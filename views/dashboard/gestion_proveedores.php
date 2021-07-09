@@ -39,7 +39,7 @@ Dashboard_Page::headerTemplate('Proveedores');
     <br>
     <div class="row">
         <div class="table-responsive" class="col scroll">
-          <table border="1"  class="table table-bordered" >
+          <table class="table table-bordered" >
             <thead class="table-info">
                   <tr>
                     <th scope="col">#</th>
@@ -80,14 +80,14 @@ Dashboard_Page::headerTemplate('Proveedores');
                 <div class="modal-body">
                   <div class="container">
                     <div class="row">
-                      <form>
+                      <form id="save-form" method="post" enctype="multipart/form-data">
                         <div class="form-group ">
                           <label for="nombre_compania">Nombre compañía:</label>
                           <input type="text" class="form-control" id="nombre_compania" name="nombre_compania" placeholder="Nombre compañía">
                         </div>
                         <div class="form-group">
                           <label for="telefono_pro">Teléfono proveedor:</label>
-                          <input type="text" class="form-control" id="telefono_pro" name="telefono_pro" placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" onkeyup="this.value = mascara(this.value)" required minlength="9" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                          <input type="text" class="form-control" id="telefono_pro" name="telefono_pro" placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required minlength="9" maxlength="9" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
                         </div>
                         <div class="form-group">
                           <label for="direccion_pro">Dirección:</label>

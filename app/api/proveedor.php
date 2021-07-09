@@ -94,32 +94,36 @@ if (isset($_GET['action'])) {
                 break;
                 case 'update':
                     $_POST = $proveedor->validateForm($_POST);
-                if ($proveedor->setNombreCompania($_POST['nombre_compania2'])) {
-                        if ($proveedor->setTelefonoProveedor($_POST['telefono_pro2'])) {                                                
-                                if ($proveedor->setDireccionProveedor($_POST['direccion_pro2'])) {  
-                                    if ($proveedor->setIdPais($_POST['id_pais2'])) { 
-                                        if ($proveedor->setInfoTributaria($_POST['info_tributaria2'])) {                                                   
-                                                    if ($proveedor->updateRow()) {
-                                                          $result['status'] = 1;
-                                                          $result['message'] = 'Proveedor modificado exitosamentemmm';  
-                                                      } else {
-                                                          $result['exception'] = Database::getException();                                                        
-                                                      }   
+                    if ($proveedor->setId($_POST['id_proveedor2'])) {
+                        if ($proveedor->setNombreCompania($_POST['nombre_compania2'])) {
+                                if ($proveedor->setTelefonoProveedor($_POST['telefono_pro2'])) {                                                
+                                        if ($proveedor->setDireccionProveedor($_POST['direccion_pro2'])) {  
+                                            if ($proveedor->setIdPais($_POST['id_pais2'])) { 
+                                                if ($proveedor->setInfoTributaria($_POST['info_tributaria2'])) {                                                   
+                                                            if ($proveedor->updateRow()) {
+                                                                $result['status'] = 1;
+                                                                $result['message'] = 'Proveedor modificado exitosamentemmm';  
+                                                            } else {
+                                                                $result['exception'] = Database::getException();                                                        
+                                                            }   
+                                        } else {
+                                            $result['exception'] = 'Carácteres incorrectos en informacion tributaria';
+                                        }
+                                    } else {
+                                        $result['exception'] = 'Problema con id pais';
+                                    }
                                 } else {
-                                    $result['exception'] = 'Carácteres incorrectos en informacion tributaria';
+                                    $result['exception'] = 'Problema con la direcion del proveedor';
                                 }
                             } else {
-                                $result['exception'] = 'Problema con id pais';
+                                $result['exception'] = 'Formato del teléfono incorrecto';
                             }
                         } else {
-                            $result['exception'] = 'Problema con la direcion del proveedor';
+                            $result['exception'] = 'Carácteres incorrectos en nombre de la compañía';
                         }
                     } else {
-                        $result['exception'] = 'Formato del teléfono incorrecto';
-                    }
-                } else {
-                    $result['exception'] = 'Carácteres incorrectos en nombre de la compañía';
-                }
+                        $result['exception'] = 'Proveedor incorrecto';
+                    }    
                 break;   
             case 'delete':
                 if ($proveedor->setId($_POST['id_proveedor'])) {

@@ -42,7 +42,7 @@ Dashboard_Page::headerTemplate('Empleados');
     <br>
     <div class="row">
         <div class="table-responsive" class="col scroll">
-          <table border="1"  class="table table-bordered" >
+          <table class="table table-bordered" >
               <thead class="table-info">
               <div id="bordes">
               <tr>
