@@ -43,7 +43,7 @@ function fillTable(dataset) {
                 
                 <td>
                 
-                <a href="#" onclick="openUpdateDialog(${row.id_bitacora})" class="btn"  data-bs-toggle="modal" data-bs-target="#exampleModal">Actualizar /</a>
+                <a href="#" onclick="openUpdateDialog(${row.id_bitacora})" class="btn"  data-bs-toggle="modal" data-bs-target="#ActualizarBitacora">Actualizar /</a>
                 <a href="#" onclick="openDeleteDialog(${row.id_bitacora})" class="btn waves-effect red tooltipped" data-tooltip="Eliminar">Eliminar</a>
                 </td>
             </tr>
@@ -59,4 +59,73 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     event.preventDefault();
     //
     saveRow(API_BITACORA, 'create', 'save-form', 'save-modal');
+    document.getElementById('save-form').reset();
+});
+
+function openDeleteDialog(id) {
+    // Se define un objeto con los datos del registro seleccionado.
+    const data = new FormData();
+    data.append('id_bitacora', id);
+    // Se llama a la función que elimina un registro. Se encuentra en el archivo components.js
+    confirmDelete(API_BITACORA, data);
+}
+
+document.getElementById('search-form').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
+    searchRows(API_BITACORA, 'search-form');
+});
+
+function openUpdateDialog(id) {
+    // Se restauran los elementos del formulario.
+    document.getElementById('update-form').reset();
+    // Se abre la caja de dialogo (modal) que contiene el formulario.
+
+    document.getElementById('archivo').required = false;
+
+    // Se define un objeto con los datos del registro seleccionado.
+    const data = new FormData();
+    data.append('id_bitacora', id);
+
+    fetch(API_BITACORA + 'readOne', {
+        method: 'post',
+        body: data
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+        if (request.ok) {
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    // Se inicializan los campos del formulario con los datos del registro seleccionado.
+                    document.getElementById('id_bitacora').value = response.dataset.id_bitacora;
+                    document.getElementById('fecha2').value = response.dataset.fecha;
+                    document.getElementById('hora2').value = response.dataset.hora;
+                    document.getElementById('ubicacion2').value = response.dataset.ubicacion;
+                    
+                    fillSelect(LLENAR_ESTADO,'estado_equipo2', response.dataset.id_estado_equipo);
+                    fillSelect(LLENAR_SERVICIO,'tipo_servicio2', response.dataset.id_tipo_servicio);               
+                    fillSelect(LLENAR_PAGO,'tipo_pago2', response.dataset.id_tipo_pago);
+                    fillSelect(LLENAR_CLIENTE,'cliente2', response.dataset.id_cliente);
+                    fillSelect(LLENAR_EMPLEADO,'empleado2', response.dataset.id_empleado);
+                    fillSelect(LLENAR_EQUIPO,'equipo2', response.dataset.id_equipo);
+                    
+                } else {
+                    sweetAlert(2, response.exception, null);
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    }).catch(function (error) {
+        console.log(error);
+    });
+}
+
+
+document.getElementById('update-form').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
+    updateRow(API_BITACORA, 'update','update-form','update-modal');
 });

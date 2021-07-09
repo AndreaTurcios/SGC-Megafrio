@@ -15,10 +15,11 @@ Dashboard_Page::headerTemplate('Bitacora');
 
     <div class="row">
         <nav class="navbar navbar-light bg-light">
+
             <div class="container-fluid">
                 <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 p-3">
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <form class="d-flex" method="post" id="search-form">
+                        <input class="form-control me-2" type="date" placeholder="Buscar" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
@@ -171,14 +172,14 @@ Dashboard_Page::headerTemplate('Bitacora');
                                     </div>
                                     <div class="form-group">
                                         <label for="formGroupExampleInput">Archivo</label>
-                                            <input id="archivo2"type="file"name="archivo2"accept=".pdf"/>
+                                            <input id="archivo2"type="file"name="archivo2"accept=".pdf" required />
                                     </div>
                                     
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                        <button type ="submit" class="btn waves-effect blue tooltipped"data-tooltip="Guardar" >Guardar</button>
                                 </div>
                             </div>
                         </div>
