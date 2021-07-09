@@ -119,6 +119,7 @@ plantillaHeader::headerTemplate('Gestión Equipos');
                               <option selected></option>
                             </select>
                         </div>
+            
                         <div class="file-field input-field col s12 m6">
                           <div data-tooltip="Seleccione una imagen de al menos 500x500">
                             <input id="archivo_producto" type="file" name="archivo_producto" accept=".gif, .jpg, .png"/>
@@ -184,7 +185,7 @@ plantillaHeader::headerTemplate('Gestión Equipos');
           <div class="modal-dialog">
               <div class="modal-content">
                   <div class="modal-header">
-                      <h5 class="modal-title" id="modal-title">Actualizar Empleados</h5>
+                      <h5 class="modal-title" id="modal-title">Actualizar Equipo</h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <form id="update-form" method="post" enctype="multipart/form-data">
@@ -195,48 +196,59 @@ plantillaHeader::headerTemplate('Gestión Equipos');
                   <div class="modal-body">
                       
                       <div class="form-group">
-                    <label for="nombre_emp2">Nombre empleado:</label>
+                    <label for="nombre_emp2">Nombre equipo:</label>
                     <input type="text" class="form-control" id="nombre_emp2"name="nombre_emp2"placeholder="Nombre empleado" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required minlength="3" maxlength="50"/>
                   </div>
                   <div class="form-group">
-                  <label for="apellido_emp2">Apellido empleado</label>
+                  <label for="apellido_emp2">Descripcion:</label>
                   <input class="form-control" id="apellido_emp2" type="text" name="apellido_emp2" placeholder="Apellido empleado" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required minlength="3" maxlength="50"/>
                   </div>
                   <div class="form-group">
-                    <label for="telefono_emp2">Teléfono:</label>
-                    <input type="text" class="form-control" id="telefono_emp2" name="telefono_emp2" placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required minlength="9" maxlength="9"/>
+                    <label for="precio_equipo">Precio:</label>
+                    <input type="number" class="form-control" id="precio_equipo" name="precio_equipo" max="999.99" min="0.01">
                   </div>
                   <div class="form-group">
-                    <label for="nombre_usuario2">Usuario:</label>
-                    <input type="text" class="form-control" id="nombre_usuario2"name="nombre_usuario2" placeholder="Usuario" required/>
+                    <label for="modelo">Modelo:</label>
+                    <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Modelo">
                   </div>
                   <div class="form-group">
-                    <label for="clave_emp2">Clave:</label>
-                    <input type="password" class="form-control" id="clave_emp2" name="clave_emp2" placeholder="Clave" required/>
+                    <label for="voltaje">Voltaje:</label>
+                    <input type="text" class="form-control" id="voltaje" name="voltaje" placeholder="voltaje">
                   </div>
-                  <br>
+                  <div class="form-group">
+                    <label for="serie">Serie:</label>
+                    <input type="text" class="form-control" id="serie" name="serie" placeholder="Serie">
+                  </div>
+                  <div class="input-field col s12 m6">
+                        <label>Proveedor: </label>
+                            <select id="nombre_compania" name="nombre_compania" class="form-control">
+                              <option selected></option>
+                            </select>
+                        </div>
+                        <div class="input-field col s12 m6">
+                        <label>Tipo equipo: </label>
+                            <select id="tipo_equipo" name="tipo_equipo" class="form-control">
+                              <option selected></option>
+                            </select>
+                        </div>
+                        <div class="input-field col s12 m6">
+                        <label>Capacidad: </label>
+                            <select id="capacidad" name="capacidad" class="form-control">
+                              <option selected></option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="file-field input-field col s12 m6">
+                          <div data-tooltip="Seleccione una imagen de al menos 500x500">
+                            <input id="archivo_producto" type="file" name="archivo_producto" accept=".gif, .jpg, .png"/>
+                          </div>
+                        </div> 
                   <div class="form-group">
                   <div class="input-field col s12 m6">
-                  <label>Estado: </label>
-                      <select id="estado2" name="estado2">
-                        <option selected></option>
-                        <option value="1">Activo</option>
-                        <option value="0">Bloqueado</option>
-                      </select>
+                  
                    </div>
               </div>
-              <br>
-
-                  <!--Colocamos los divs para el dropdown del filtro de búsqueda -->
-                  <div class="input-field col s12 m6">
-                  <label>Tipo empleado: </label>
-                      <select id="tipoemp2" name="tipoemp2">
-                        <option selected></option>
-                      </select>
-                      
                   </div>
-                  </div>
-                      <br>
                   <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                       <button type="submit" data-tooltip="Actualizar" class="btn btn-primary" >Guardar Cambios</button>
