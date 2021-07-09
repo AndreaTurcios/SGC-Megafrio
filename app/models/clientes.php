@@ -173,7 +173,7 @@ class Clientes extends Validator
         FROM clientes 
         WHERE id_cliente = ?';
         $params = array($this->id_cliente);
-        return Database::executeRow($sql, $params);
+        return Database::getRow($sql, $params);
     }
 
 
