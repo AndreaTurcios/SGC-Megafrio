@@ -366,7 +366,7 @@ class Validator
         // Se verifica que la ruta exista.
         if (file_exists($path)) {
             // Se comprueba que el archivo sea borrado del servidor.
-            if (@unlink($path.$name)) {
+            if (@unlink($path . $name)) {
                 return true;
             } else {
                 return false;
