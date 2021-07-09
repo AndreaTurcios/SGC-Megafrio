@@ -37,7 +37,7 @@ Dashboard_Page::headerTemplate('Página principal');
                     </div>
                     <!-- Equipo -->
                     <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-3 col-xxl-3 text-center">
-                        <a href="GestionEquipo.php">
+                        <a href="gestion_equipo.php"> 
                             <div class="row">
                                 <div class="col-12" id="BoxSuperior">
                                     <img src="../../resources/img/materiales/proveedores.png" alt="" class="img-fluid">

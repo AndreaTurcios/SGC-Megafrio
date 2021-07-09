@@ -62,6 +62,10 @@ document.getElementById('save-form').addEventListener('submit', function (event)
 
 // Función para preparar el formulario al momento de modificar un registro.
 function openUpdateDialog(id) {
+    // Se restauran los elementos del formulario.
+    document.getElementById('update-form').reset();
+    // Se establece el campo de archivo como opcional.
+    document.getElementById('archivo_producto').required = false;
     const data = new FormData();
     data.append('id_equipo', id);
     fetch(API_EQUIPO + 'readOne', {
