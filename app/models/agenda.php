@@ -186,7 +186,7 @@ class Agenda extends Validator
                 FROM agenda INNER JOIN empleado USING(id_empleado) 
                 INNER JOIN clientes USING(id_cliente)
                 WHERE nombre_cli ILIKE ? OR fecha_provisional = ?';
-        $params = array("%$value%", "%$value%");
+        $params = array("%$value%", $this->fecha_provisional);
         return Database::getRows($sql, $params);
     }
 
@@ -223,13 +223,13 @@ class Agenda extends Validator
         return Database::getRow($sql, $params);
     }
 
-    public function updateRow($current_image)
+    public function updateRow()
     {
 
         $sql = 'UPDATE agenda
                 SET id_cliente = ?, id_empleado = ?, fecha_programacion = ?, hora_programacion = ?, fecha_provisional = ?, hora_provisional = ?, tarea = ?, estado_tarea = ?, observaciones = ?
                 WHERE id_agenda = ?';
-        $params = array($this->id_cliente, $this->id_cliente, $this->fecha_programacion, $this->hora_programacion, $this->fecha_provisional, $this->fecha_provisional, $this->tarea, $this->estado_tarea, $this->observaciones);
+        $params = array($this->id_cliente, $this->id_empleado, $this->fecha_programacion, $this->hora_programacion, $this->fecha_provisional, $this->hora_provisional, $this->tarea, $this->estado_tarea, $this->observaciones, $this->id);
         return Database::executeRow($sql, $params);
     }
 
