@@ -63,9 +63,9 @@ Dashboard_Page::headerTemplate('Empleados');
           </thead>
           <tbody id="tbody-rows">
           </tbody>
+          <!--Cerramos la tabla -->
         </table>
       </div>
-      <!--Cerramos la tabla -->
     </div>
     <div class="row">
       <nav>

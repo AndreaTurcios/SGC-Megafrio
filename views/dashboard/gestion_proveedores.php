@@ -16,6 +16,7 @@ Dashboard_Page::headerTemplate('Proveedores');
       </div>
     </div>
     <br>
+    <!-- Aquí colocamos la sección para buscar y agregar -->
     <div class="row">
       <nav class="navbar navbar-light bg-light">
         <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 p-3">
@@ -40,6 +41,7 @@ Dashboard_Page::headerTemplate('Proveedores');
     </div>
     </nav>
     <br>
+    <!-- Aquí agregamos la tabla la cual será responsive donde se mostrarán los respectivos datos -->
     <div class="row">
       <div class="table-responsive" class="col scroll">
         <table class="table table-bordered">
@@ -57,16 +59,14 @@ Dashboard_Page::headerTemplate('Proveedores');
           </thead>
           <tbody id="tbody-rows">
           </tbody>
+          <!--Cerramos la tabla -->
         </table>
       </div>
     </div>
   </div>
-  </div>
-  </div>
   <!--Aquí creamos la barra de búsqueda y el botón de los filtros de la misma -->
   <div class="row">
     <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
-
       <!--Aquí comenzamos agregando un div con el id ModalAgregarProveedor -->
       <div id="ModalAgregarProveedor" class="modal fade">
         <div class="container-fluid">
@@ -74,11 +74,10 @@ Dashboard_Page::headerTemplate('Proveedores');
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-
+                  <!--Aquí agregamos el título del modal -->
                   <h5 class="modal-title" id="exampleModalLabel">Agregar proveedores</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
                 <!--Aquí comenzamos con el body del modal -->
                 <div class="modal-body">
                   <div class="container">
@@ -91,6 +90,8 @@ Dashboard_Page::headerTemplate('Proveedores');
                         </div>
                         <div class="form-group">
                           <label for="telefono_pro">Teléfono proveedor:</label>
+                          <!-- Aquí colocamos el input, pero el onkeypress es para no ingresar letras en el 
+                          input ya que es del teléfono-->
                           <input type="text" class="form-control" id="telefono_pro" name="telefono_pro"
                             placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required minlength="9"
                             maxlength="9"
@@ -115,7 +116,6 @@ Dashboard_Page::headerTemplate('Proveedores');
                           </select>
                         </div>
                         <br>
-
                         <!--Aquí arrancamos con el footer del modal -->
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -123,7 +123,6 @@ Dashboard_Page::headerTemplate('Proveedores');
                           <hr>
                           <br>
                           <hr>
-
                         </div>
                     </div>
                   </div>
@@ -160,6 +159,8 @@ Dashboard_Page::headerTemplate('Proveedores');
                 </div>
                 <div class="form-group">
                   <label for="formGroupExampleInput2">Teléfono proveedor:</label>
+                  <!-- Aquí colocamos el input, pero el onkeypress es para no ingresar letras en el 
+                  input ya que es del teléfono-->
                   <input type="text" class="form-control" id="telefono_pro2" name="telefono_pro2"
                     placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required minlength="9" maxlength="9"
                     onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
