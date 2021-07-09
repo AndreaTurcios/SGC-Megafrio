@@ -1,8 +1,8 @@
 <?php
 //Se incluye la clase con las plantillas del documento
-include("../../app/helpers/plantillaHeader.php");
+include("../../app/helpers/dashboard_page.php");
 //Se imprime la plantilla del encabezado y se envía el titulo para la página web
-plantillaHeader::headerTemplate('Gestión País');
+Dashboard_Page::headerTemplate('Gestión País');
 ?>
 
               <section>
@@ -175,5 +175,5 @@ plantillaHeader::headerTemplate('Gestión País');
 
 <?php
 //Se imprime la plantilla del pie y se envía el nombre del controlador para la página web
-plantillaHeader::footerTemplate('pais.js');
+Dashboard_Page::footerTemplate('pais.js');
 ?>
