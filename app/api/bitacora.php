@@ -314,7 +314,7 @@ if (isset($_GET['action'])) {
             
                                                                                     if (is_uploaded_file($_FILES['archivo2']['tmp_name'])) {
                                                                                         if ($bitacora->setArchivo($_FILES['archivo2'])) {
-                                                                                            if ($bitacora->updateRow($data['archivo2'])) {
+                                                                                            if ($bitacora->updateRow($data['archivo'])) {
                                                                                                 $result['status'] = 1;
                                                                                                 if ($bitacora->saveFile($_FILES['archivo2'], $bitacora->getDireccion(), $bitacora->getArchivo())) {
                                                                                                     $result['message'] = 'Bitacora actualizada correctamente';
@@ -328,7 +328,12 @@ if (isset($_GET['action'])) {
                                                                                             $result['exception'] = $bitacora->getFileError();
                                                                                         }
                                                                                     } else {
-                                                                                        $result['exception'] = 'Seleccione una imagen';
+                                                                                        if ($bitacora->updateRow($data['archivo2'])) {
+                                                                                            $result['status'] = 1;
+                                                                                            $result['message'] = 'Producto modificado correctamente';
+                                                                                        } else {
+                                                                                            $result['exception'] = Database::getException();
+                                                                                        }
                                                                                     }
             
                                                                                 }else{
