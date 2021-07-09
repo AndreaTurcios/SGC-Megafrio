@@ -75,14 +75,6 @@ function openUpdateDialog(id) {
     });
 }
 
-function mascara(valor) {
-    if (valor.match(/^\d{4}$/) !== null) {
-      return valor + '-';
-    } else if (valor.match(/^\d{4}\-$/) !== null) {
-      return valor + '-';
-    }
-    return cadena;
-  }
 
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de guardar.
 document.getElementById('save-form').addEventListener('submit', function (event) {
