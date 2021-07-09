@@ -191,7 +191,7 @@ plantillaHeader::headerTemplate('Gestión Equipos');
                   <form id="update-form" method="post" enctype="multipart/form-data">
                   <div class="form-group d-none">
                     <label for="formGroupExampleInput">ID:</label>
-                    <input type="text" class="form-control " placeholder="" aria-label="Buscar" aria-describedby="basic-addon1" id="id_equipo" type="text" name="id_equipo" class="validate" required>
+                    <input type="text" class="form-control " placeholder="" aria-label="Buscar" aria-describedby="basic-addon1" id="id_equipo2" type="text" name="id_equipo2" class="validate" required>
                   </div>
                   <div class="modal-body">
                       
