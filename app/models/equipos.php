@@ -16,7 +16,7 @@ class Equipos extends Validator
     private $voltaje = null;
     private $serie = null;
     private $foto_equipo = null;
-    private $ruta = '../../../resources/img/productos/';
+    private $ruta = '../../resources/img/productos/';
 
     /*
     *   Métodos para asignar valores a los atributos.
@@ -226,7 +226,7 @@ class Equipos extends Validator
 
     public function readOne()
     {
-        $sql = 'SELECT id_equipo, foto_equipo, nombre_equipo, descripcion_equipo, precio_equipo, modelo, voltaje, serie,nombre_compania, tipo_equipo, capacidad
+        $sql = 'SELECT id_equipo, foto_equipo, nombre_equipo, descripcion_equipo, precio_equipo, modelo, voltaje, serie,id_proveedor, id_tipo_equipo, id_capacidad
                 FROM equipo
                 WHERE id_equipo = ?';
         $params = array($this->id_equipo);
