@@ -83,13 +83,13 @@ if (isset($_GET['action'])) {
 
                     case 'update':
                         $_POST = $pais->validateForm($_POST);
-                        if ($pais->setId($_POST['id_pais'])) {
+                        if ($pais->setId($_POST['id_pais2'])) {
                             if ($data = $pais->readOne()) {
-                                if($pais->setNombreP($_POST['categoria2'])){
-                                    if($pais->setCodigo($_POST['categoria2'])){
+                                if($pais->setNombreP($_POST['nombre_pais2'])){
+                                    if($pais->setCodigo($_POST['codigo_postal2'])){
                                         if ($pais->updateRow()) {
                                             $result['status'] = 1;
-                                            $result['message'] = 'Pais actualizadao correctamente';
+                                            $result['message'] = 'Pais actualizado correctamente';
                                         } else {
                                             $result['exception'] = Database::getException();
                                         }
