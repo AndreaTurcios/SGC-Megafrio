@@ -19,7 +19,7 @@ Dashboard_Page::headerTemplate('Bitacora');
             <div class="container-fluid">
                 <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 p-3">
                     <form class="d-flex" method="post" id="search-form">
-                        <input class="form-control me-2" type="date" placeholder="Buscar" aria-label="Search">
+                        <input class="form-control me-2" id="search" name="search" type="date" placeholder="Buscar" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
@@ -129,15 +129,7 @@ Dashboard_Page::headerTemplate('Bitacora');
                                     <div class="form-group">
                                         <label for="id_bitacora">ID</label>
                                         <input type="text" class="form-control " placeholder=""
-                                            aria-describedby="basic-addon1" id="id_bitacora" name="id_bitacora" type="text"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="formGroupExampleInput">Cliente</label>
-                                        <select id="cliente2" name="cliente2"></select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="formGroupExampleInput">Empleado</label>
-                                        <select id="empleado2" name="empleado2"></select>
+                                            aria-describedby="basic-addon1" id="id_bitacora" name="id_bitacora"/>
                                     </div>
                                     <div class="form-group">
                                         <label for="formGroupExampleInput">Fecha</label>
@@ -150,29 +142,43 @@ Dashboard_Page::headerTemplate('Bitacora');
                                             aria-describedby="basic-addon1" id="hora2" name="hora2" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="formGroupExampleInput">Tipo de Servicio</label>
-                                        <select id="tipo_servicio2" name="tipo_servicio2"></select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="formGroupExampleInput">Equipo</label>
-                                        <select id="equipo2" name="equipo2"></select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="formGroupExampleInput">Estado del Equipo</label>
-                                        <select id="estado_equipo2" name="estado_equipo2"></select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="formGroupExampleInput">Tipo de Pago</label>
-                                        <select id="tipo_pago2" name="tipo_pago2"></select>
-                                    </div>
-                                    <div class="form-group">
                                         <label for="formGroupExampleInput">Ubicacion</label>
                                         <input class="form-control " placeholder=""
                                             aria-describedby="basic-addon1" id="ubicacion2" name="ubicacion2" type="text"/>
                                     </div>
                                     <div class="form-group">
+                                        <label for="formGroupExampleInput">Cliente</label>
+                                        <select id="cliente2" name="cliente2"></select>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput">Empleado</label>
+                                        <select id="empleado2" name="empleado2"></select>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput">Tipo de Servicio</label>
+                                        <select id="tipo_servicio2" name="tipo_servicio2"></select>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput">Equipo</label>
+                                        <select id="equipo2" name="equipo2"></select>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput">Estado del Equipo</label>
+                                        <select id="estado_equipo2" name="estado_equipo2"></select>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput">Tipo de Pago</label>
+                                        <select id="tipo_pago2" name="tipo_pago2"></select>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
                                         <label for="formGroupExampleInput">Archivo</label>
-                                            <input id="archivo2"type="file"name="archivo2"accept=".pdf" required />
+                                            <input id="archivo2"type="file"name="archivo2"accept=".pdf" />
                                     </div>
                                     
                                 </div>

@@ -254,7 +254,7 @@ class Bitacora extends Validator
         $sql = 'UPDATE bitacora 
         SET id_cliente = ?, id_empleado = ?, id_equipo = ?, fecha = ?, 
         hora = ?, id_tipo_servicio = ?, id_tipo_pago = ?, id_estado_equipo = ?, archivo = ?, ubicacion = ? WHERE id_bitacora = ?';
-        $params = array($this->id_cliente,$this->id_empleado,$this->id_equipo,$this->fecha,$this->hora, $this->id_tipo_servicio,$this->id_tipo_pago,$this->id_tipo_estado_equipo,$this->archivo,$this->ubicacion,$this->id_bitacora);
+        $params = array($this->id_cliente,$this->id_empleado,$this->id_equipo,$this->fecha,$this->hora, $this->id_tipo_servicio,$this->id_tipo_pago,$this->id_estado_equipo,$this->archivo,$this->ubicacion,$this->id_bitacora);
         return Database::executeRow($sql, $params);
     }
 
