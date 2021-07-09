@@ -13,7 +13,7 @@ class Bitacora extends Validator
     private $id_tipo_pago = null;
     private $archivo = null;
     private $ubicacion = null;
-    private $direccion = '../../../resources/docs/bitacora/';
+    private $direccion = '../../resources/docs/bitacora/';
 
     public function setId($value){
         if ($this->validateNaturalNumber($value)) {
@@ -242,7 +242,7 @@ class Bitacora extends Validator
     {
         $sql = 'INSERT INTO bitacora(id_cliente, id_empleado, id_equipo, fecha, 
         hora, id_tipo_servicio, id_tipo_pago, id_estado_equipo, archivo, ubicacion) VALUES (?,?,?,?,?,?,?,?,?,?)';
-        $params = array($this->id_cliente,$this->id_empleado,$this->id_equipo,$this->fecha,$this->hora, $this->id_tipo_servicio,$this->id_tipo_pago,$this->id_tipo_estado_equipo,$this->archivo,$this->ubicacion);
+        $params = array($this->id_cliente,$this->id_empleado,$this->id_equipo,$this->fecha,$this->hora, $this->id_tipo_servicio,$this->id_tipo_pago,$this->id_estado_equipo,$this->archivo,$this->ubicacion);
         return Database::executeRow($sql, $params);
     }
 
