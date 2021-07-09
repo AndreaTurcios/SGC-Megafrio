@@ -54,11 +54,14 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     event.preventDefault();
     
     saveRow(API_EMPLEADOS, 'create', 'save-form', null);
+    document.getElementById('save-form').reset();
 });
 
 
 // Función para preparar el formulario al momento de modificar un registro.
 function openUpdateDialog(id) {
+    // Se restauran los elementos del formulario.
+    document.getElementById('update-form').reset();
     const data = new FormData();
     data.append('id_empleado', id);
     fetch(API_EMPLEADOS + 'readOne', {

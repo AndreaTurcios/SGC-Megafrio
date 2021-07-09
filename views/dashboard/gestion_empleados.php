@@ -105,7 +105,7 @@ Dashboard_Page::headerTemplate('Empleados');
                           <input type="password" class="form-control" id="clave_emp" name="clave_emp" placeholder="Clave" required/>
                             <div class="campo">
                               <div class="form-group d-none">
-                                <input type="password" name="password" id="clave_emp">
+                                <input type="password" name="password" id="clave">
                               </div>
                                   <span>MOSTRAR</span>
                             </div>
