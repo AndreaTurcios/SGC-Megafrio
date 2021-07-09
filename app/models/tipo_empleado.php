@@ -1,9 +1,15 @@
 <?php
-
+/*
+*	Clase para manejar la tabla productos de la base de datos. Es clase hija de Validator.
+*/
 class tipoEmpleado extends Validator{
+    // Declaración de atributos (propiedades).
     private $id=null;
     private $tipoempleado = null;
 
+    /*
+    *   Métodos para asignar valores a los atributos.
+    */
     public function setId($value)
     {
         if ($this->validateNaturalNumber($value)) {
@@ -37,6 +43,10 @@ class tipoEmpleado extends Validator{
         $params = null;
      return Database::getRows($sql, $params); 
     }
+
+     /*
+    *   Método para realizar la operación readall
+    */
 
     public function readAll()
     {

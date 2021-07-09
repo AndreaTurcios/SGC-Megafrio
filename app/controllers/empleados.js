@@ -92,6 +92,7 @@ function openUpdateDialog(id) {
 });
 }
 
+// Esto es para poder visualizar la contraseña y facilitar al usuario el ingreso de la misma
   document.querySelector('.campo span').addEventListener('click', e => {
     const passwordInput = document.querySelector('#clave_emp');
     if (e.target.classList.contains('show')) {
@@ -105,6 +106,7 @@ function openUpdateDialog(id) {
     }
 });
 
+// Se verifica el id correspondiente y en base a ello se determina si es update o create
 document.getElementById('save-form').addEventListener('submit', function (event) {  
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
@@ -119,6 +121,7 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     saveRow(API_CLIENTES, action, 'save-form', 'save-modal');
 }); 
 
+// Se agarra el elemento en base al id y se realiza un update, en el proceso se coloca el event.preventdefault para evitar que recargue la página
 document.getElementById('update-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
@@ -129,7 +132,7 @@ function openDeleteDialog(id) {
     // Se define un objeto con los datos del registro seleccionado.
     const data = new FormData();
     data.append('id_empleado', id);
-    // Se llama a la función que elimina un registro. Se encuentra en el archivo components.js
+    // Se confirma que se quiere eliminar un empleado en especifico en base al id
     confirmDelete(API_EMPLEADOS, data);
 }
 
