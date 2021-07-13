@@ -13,8 +13,7 @@ function fillTable(dataset) {
     dataset.map(function (row) {       
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
         content += `
-        <tr>
-        <td>${row.id_pais}</td>            
+        <tr>            
         <td>${row.nombre_pais}</td>
         <td>${row.codigo_postal}</td>   
         <td>

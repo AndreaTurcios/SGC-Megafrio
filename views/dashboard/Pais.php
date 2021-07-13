@@ -112,7 +112,6 @@ Dashboard_Page::headerTemplate('Gestión País');
       <table class="table table-bordered text-center">
         <thead class="table-info">
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Nombre_pais</th>
             <th scope="col">Codigo_postal</th>
             <th scope="col">Controladores</th>
