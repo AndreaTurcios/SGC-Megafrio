@@ -199,7 +199,7 @@ class Equipos extends Validator
     */
     public function searchRows($value)
     {
-        $sql = 'SELECT id_equipo, nombre_equipo, descripcion_equipo, precio_equipo, modelo, voltaje, serie,id_proveedor, id_tipo_equipo, id_capacidad
+        $sql = 'SELECT id_equipo, nombre_equipo, descripcion_equipo, precio_equipo, modelo, voltaje, serie,id_proveedor, id_tipo_equipo, id_capacidad,foto_equipo
                 FROM equipo
                 WHERE nombre_equipo ILIKE ? OR descripcion_equipo ILIKE ?
                 ORDER BY nombre_equipo';
