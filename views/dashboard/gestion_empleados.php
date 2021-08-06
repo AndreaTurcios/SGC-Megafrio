@@ -27,7 +27,7 @@ Dashboard_Page::headerTemplate('Empleados');
         </div>
 
         <!--Aquí en el botón para agregar los datos al modal con el respectivo ícono -->
-        <!--El div es por cuestión de estética, antes iba el dropdown con los filtros, pero como el buscador lo hace demanera automática se eleminó -->
+        <!--El div es por cuestión de estética, antes iba el dropdown con los filtros, pero como el buscador lo hace de manera automática se eliminó -->
         <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" id="MuestraBTN">
         </div>
         <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center">
