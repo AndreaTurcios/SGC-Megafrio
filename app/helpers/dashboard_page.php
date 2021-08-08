@@ -443,14 +443,19 @@ class Dashboard_Page
         // Se comprueba si existe una sesión de administrador para imprimir el pie respectivo del documento.
         if (isset($_SESSION['id_empleado'])) {
             $scripts = '
+           
+
             <!-- Script de Fontawesome -->
             <script src="https://kit.fontawesome.com/592eb2e9e3.js" crossorigin="anonymous"></script>
             <!-- Script de Bootstrap -->
-            <script src="../../resources/js/bootstrap/bootstrap.min.js"></script>
+            
             <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
             <script type="text/javascript" src="../../app/helpers/components.js"></script>
             <script type="text/javascript" src="../../app/controllers/account.js"></script>
             <script type="text/javascript" src="../../app/controllers/' . $controller . '"></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+            <script src="../../resources/js/bootstrap/bootstrap.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.js"></script>
             ';
         } else {
             $scripts = '
@@ -476,6 +481,19 @@ class Dashboard_Page
 
 
                     ' . $scripts . '
+
+                   
+                    <script>
+                    $(document).ready(function() {
+                      $("#example").DataTable({ 
+                          "language": {
+                             "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
+                          }
+                          
+                          });
+                  });
+                  </script>
+                    
             </body>
         </html>
         ');
