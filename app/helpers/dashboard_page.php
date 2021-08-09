@@ -24,6 +24,7 @@ class Dashboard_Page
                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <!-- Agregamos Bootstrap -->
+                <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.css"/>
                 <link rel="stylesheet" href="../../resources/css/bootstrap/bootstrap.min.css">
                 <!-- Agregamos LibroCSS -->
                 <link rel="stylesheet" href="../../resources/css/Estilos/style.css">
