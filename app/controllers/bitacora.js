@@ -7,21 +7,135 @@ const LLENAR_EMPLEADO = '../../app/api/bitacora.php?action=readEmpleados';
 const LLENAR_EQUIPO = '../../app/api/bitacora.php?action=readEquipo';
 
 document.addEventListener('DOMContentLoaded', function () {
-    fillSelect(LLENAR_ESTADO,'estado_equipo',null);
-    fillSelect(LLENAR_ESTADO,'estado_equipo2',null);
-    fillSelect(LLENAR_SERVICIO,'tipo_servicio',null);
-    fillSelect(LLENAR_SERVICIO,'tipo_servicio2',null);
-    fillSelect(LLENAR_PAGO,'tipo_pago',null);
-    fillSelect(LLENAR_PAGO,'tipo_pago2',null);
-    fillSelect(LLENAR_CLIENTE,'cliente',null);
-    fillSelect(LLENAR_CLIENTE,'cliente2',null);
-    fillSelect(LLENAR_EMPLEADO,'empleado',null);
-    fillSelect(LLENAR_EMPLEADO,'empleado2',null);
-    fillSelect(LLENAR_EQUIPO,'equipo',null);
-    fillSelect(LLENAR_EQUIPO,'equipo2',null);
-    readRows(API_BITACORA);
-}); 
 
+    readRows(API_BITACORA);
+
+});
+
+function openCreateDialog() {
+    // Se restauran los elementos del formulario.
+    document.getElementById('save-form').reset();
+    fillSelect(LLENAR_ESTADO, 'estado_equipo', null);
+    fillSelect(LLENAR_SERVICIO, 'tipo_servicio', null);
+    fillSelect(LLENAR_PAGO, 'tipo_pago', null);
+
+    let formElement = document.getElementById('save-form');
+    formData = new FormData(formElement);
+
+    //LLENAR CLIENTE
+    fetch(LLENAR_CLIENTE, {
+        method: 'get'
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+        if (request.ok) {
+            request.json().then(function (response) {
+                let data = [];
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    const field = document.getElementById('cliente');
+                    const ac = new Autocomplete(field, {
+                        maximumItems: 5,
+                        treshold: 1,
+                        onSelectItem: ({ label, value }) => {
+                            console.log("user selected:", label, value);
+                            formData.append('id_cliente', value);
+                        }
+                    });
+                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+                    response.dataset.map(function (row) {  
+                        data.push({'label':row.nombre_cli,'value':row.id_cliente});
+                    });
+                    
+                    ac.setData(data);
+
+                } else {
+                    document.getElementById('cliente').placeholder = 'No hay clientes registrados...';
+                }
+              
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    }).catch(function (error) {
+        console.log(error);
+    });
+
+    //LLENAR EMPLEADO
+    fetch(LLENAR_EMPLEADO, {
+        method: 'get'
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+        if (request.ok) {
+            request.json().then(function (response) {
+                let data = [];
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    const field = document.getElementById('empleado');
+                    const ac = new Autocomplete(field, {
+                        maximumItems: 5,
+                        treshold: 1,
+                        onSelectItem: ({ label, value }) => {
+                            console.log("user selected:", label, value);
+                            formData.append('id_empleado', value);
+                        }
+                    });
+                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+                    response.dataset.map(function (row) {  
+                        data.push({'label':row.nombre_emp,'value':row.id_empleado});
+                    });
+                    
+                    ac.setData(data);
+
+                } else {
+                    document.getElementById('cliente').placeholder = 'No hay empleado registrados...';
+                }
+              
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    }).catch(function (error) {
+        console.log(error);
+    });
+
+    //LENAR EQUIPOS
+    fetch(LLENAR_EQUIPO, {
+        method: 'get'
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+        if (request.ok) {
+            request.json().then(function (response) {
+                let data = [];
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    const field = document.getElementById('equipo');
+                    const ac = new Autocomplete(field, {
+                        maximumItems: 5,
+                        treshold: 1,
+                        onSelectItem: ({ label, value }) => {
+                            console.log("selected:", label, value);
+                            formData.append('id_equipo', value);
+                        }
+                    });
+                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+                    response.dataset.map(function (row) {  
+                        data.push({'label':row.nombre_equipo,'value':row.id_equipo});
+                    });
+                    
+                    ac.setData(data);
+
+                } else {
+                    document.getElementById('cliente').placeholder = 'No hay clientes registrados...';
+                }
+              
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    }).catch(function (error) {
+        console.log(error);
+    });
+}
 
 function fillTable(dataset) {
     let content = '';
@@ -49,8 +163,8 @@ function fillTable(dataset) {
             </tr>
         `;
     });
- // Se agregan las filas al cuerpo de la tabla mediante su id para mostrar los registros.
- document.getElementById('tbody-rows').innerHTML = content;
+    // Se agregan las filas al cuerpo de la tabla mediante su id para mostrar los registros.
+    document.getElementById('tbody-rows').innerHTML = content;
 }
 
 
@@ -102,17 +216,131 @@ function openUpdateDialog(id) {
                     document.getElementById('fecha2').value = response.dataset.fecha;
                     document.getElementById('hora2').value = response.dataset.hora;
                     document.getElementById('ubicacion2').value = response.dataset.ubicacion;
-                    
-                    fillSelect(LLENAR_ESTADO,'estado_equipo2', response.dataset.id_estado_equipo);
-                    fillSelect(LLENAR_SERVICIO,'tipo_servicio2', response.dataset.id_tipo_servicio);               
-                    fillSelect(LLENAR_PAGO,'tipo_pago2', response.dataset.id_tipo_pago);
-                    fillSelect(LLENAR_CLIENTE,'cliente2', response.dataset.id_cliente);
-                    fillSelect(LLENAR_EMPLEADO,'empleado2', response.dataset.id_empleado);
-                    fillSelect(LLENAR_EQUIPO,'equipo2', response.dataset.id_equipo);
-                    
+
+                    fillSelect(LLENAR_ESTADO, 'estado_equipo2', response.dataset.id_estado_equipo);
+                    fillSelect(LLENAR_SERVICIO, 'tipo_servicio2', response.dataset.id_tipo_servicio);
+                    fillSelect(LLENAR_PAGO, 'tipo_pago2', response.dataset.id_tipo_pago);
+
                 } else {
                     sweetAlert(2, response.exception, null);
                 }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    }).catch(function (error) {
+        console.log(error);
+    });
+
+    let formElement = document.getElementById('save-form');
+    formData = new FormData(formElement);
+
+    //LLENAR CLIENTE
+    fetch(LLENAR_CLIENTE, {
+        method: 'get'
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+        if (request.ok) {
+            request.json().then(function (response) {
+                let data = [];
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    const field = document.getElementById('cliente2');
+                    const ac = new Autocomplete(field, {
+                        maximumItems: 5,
+                        treshold: 1,
+                        onSelectItem: ({ label, value }) => {
+                            console.log("user selected:", label, value);
+                            formData.append('id_cliente', value);
+                        }
+                    });
+                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+                    response.dataset.map(function (row) {  
+                        data.push({'label':row.nombre_cli,'value':row.id_cliente});
+                    });
+                    
+                    ac.setData(data);
+
+                } else {
+                    document.getElementById('cliente2').placeholder = 'No hay clientes registrados...';
+                }
+              
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    }).catch(function (error) {
+        console.log(error);
+    });
+
+    //LLENAR EMPLEADO
+    fetch(LLENAR_EMPLEADO, {
+        method: 'get'
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+        if (request.ok) {
+            request.json().then(function (response) {
+                let data = [];
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    const field = document.getElementById('empleado2');
+                    const ac = new Autocomplete(field, {
+                        maximumItems: 5,
+                        treshold: 1,
+                        onSelectItem: ({ label, value }) => {
+                            console.log("user selected:", label, value);
+                            formData.append('id_empleado', value);
+                        }
+                    });
+                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+                    response.dataset.map(function (row) {  
+                        data.push({'label':row.nombre_emp,'value':row.id_empleado});
+                    });
+                    
+                    ac.setData(data);
+
+                } else {
+                    document.getElementById('empleado2').placeholder = 'No hay empleado registrados...';
+                }
+              
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    }).catch(function (error) {
+        console.log(error);
+    });
+
+    //LENAR EQUIPOS
+    fetch(LLENAR_EQUIPO, {
+        method: 'get'
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+        if (request.ok) {
+            request.json().then(function (response) {
+                let data = [];
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    const field = document.getElementById('equipo2');
+                    const ac = new Autocomplete(field, {
+                        maximumItems: 5,
+                        treshold: 1,
+                        onSelectItem: ({ label, value }) => {
+                            console.log("selected:", label, value);
+                            formData.append('id_equipo', value);
+                        }
+                    });
+                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+                    response.dataset.map(function (row) {  
+                        data.push({'label':row.nombre_equipo,'value':row.id_equipo});
+                    });
+                    
+                    ac.setData(data);
+
+                } else {
+                    document.getElementById('equipo2').placeholder = 'No hay clientes registrados...';
+                }
+              
             });
         } else {
             console.log(request.status + ' ' + request.statusText);
@@ -127,5 +355,5 @@ document.getElementById('update-form').addEventListener('submit', function (even
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
-    updateRow(API_BITACORA, 'update','update-form','update-modal');
+    updateRow(API_BITACORA, 'update', 'update-form', 'update-modal');
 });

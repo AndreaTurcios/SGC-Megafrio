@@ -34,7 +34,7 @@ Dashboard_Page::headerTemplate('Bitácora');
 
                 <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 " id="MuestraBTN">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AgregarBitacora">
+                    <button type="button" class="btn" data-bs-toggle="modal" onclick="openCreateDialog()" data-bs-target="#AgregarBitacora">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                             class="bi bi-plus" viewBox="0 0 16 16">
                             <path
@@ -76,23 +76,24 @@ Dashboard_Page::headerTemplate('Bitácora');
                                         <br>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Cliente</label>
-                                            <select id="cliente" name="cliente"></select>
+                                            <input type="text" id="cliente" name="cliente" autocomplete="off" class="form-control" placeholder="Comience a escribir">
                                         </div>
                                         <br>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Empleado</label>
-                                            <select id="empleado" name="empleado"></select>
+                                            <input type="text" id="empleado" name="empleado" autocomplete="off" class="form-control" placeholder="Comience a escribir">
+                                        </div>
+                                        <br>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput">Equipo</label>
+                                            <input type="text" id="equipo" name="equipo" autocomplete="off" class="form-control" placeholder="Comience a escribir">
                                         </div>
                                         <br>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Tipo de Servicio</label>
                                             <select id="tipo_servicio" name="tipo_servicio"></select>
                                         </div>
-                                        <br>
-                                        <div class="form-group">
-                                            <label for="formGroupExampleInput">Equipo</label>
-                                            <select id="equipo" name="equipo"></select>
-                                        </div>
+                                        
                                         <br>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Estado del Equipo</label>
@@ -157,22 +158,22 @@ Dashboard_Page::headerTemplate('Bitácora');
                                         <br>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Cliente</label>
-                                            <select id="cliente2" name="cliente2"></select>
+                                            <input type="text" id="cliente2" name="cliente2" autocomplete="off" class="form-control" placeholder="Comience a escribir">
                                         </div>
                                         <br>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Empleado</label>
-                                            <select id="empleado2" name="empleado2"></select>
+                                            <input type="text" id="empleado2" name="empleado2" autocomplete="off" class="form-control" placeholder="Comience a escribir">
+                                        </div>
+                                        <br>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput">Equipo</label>
+                                            <input type="text" id="equipo2" name="equipo2" autocomplete="off" class="form-control" placeholder="Comience a escribir">
                                         </div>
                                         <br>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Tipo de Servicio</label>
                                             <select id="tipo_servicio2" name="tipo_servicio2"></select>
-                                        </div>
-                                        <br>
-                                        <div class="form-group">
-                                            <label for="formGroupExampleInput">Equipo</label>
-                                            <select id="equipo2" name="equipo2"></select>
                                         </div>
                                         <br>
                                         <div class="form-group">
