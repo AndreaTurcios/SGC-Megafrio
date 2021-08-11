@@ -24,11 +24,13 @@ class Dashboard_Page
                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <!-- Agregamos Bootstrap -->
-                <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.css"/>
+                
                 <link rel="stylesheet" href="../../resources/css/bootstrap/bootstrap.min.css">
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
                 <!-- Agregamos LibroCSS -->
                 <link rel="stylesheet" href="../../resources/css/Estilos/style.css">
                 <link rel="stylesheet" href="../../resources/css/Estilos/login.css">
+                <link rel="stylesheet" href="../../resources/css/vanilla-dataTables.min.css">
                 
                 <title>SGC Mega Frio</title>
             </head>
@@ -449,24 +451,33 @@ class Dashboard_Page
             <!-- Script de Fontawesome -->
             <script src="https://kit.fontawesome.com/592eb2e9e3.js" crossorigin="anonymous"></script>
             <!-- Script de Bootstrap -->
+            <script type="text/javascript" src="../../resources/js/autocomplete.js"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
             
+            <script type="text/javascript" src="../../resources/js/vanilla-dataTables.min.js"></script>
             <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
             <script type="text/javascript" src="../../app/helpers/components.js"></script>
             <script type="text/javascript" src="../../app/controllers/account.js"></script>
             <script type="text/javascript" src="../../app/controllers/' . $controller . '"></script>
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-            <script src="../../resources/js/bootstrap/bootstrap.min.js"></script>
-            <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.js"></script>
+
+            
             ';
         } else {
             $scripts = '
             <!-- Script de Fontawesome -->
             <script src="https://kit.fontawesome.com/592eb2e9e3.js" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="../../resources/js/vanilla-dataTables.min.js"></script>
+            <script type="text/javascript" src="../../resources/js/autocomplete.js"></script>
             <!-- Script de Bootstrap -->
-            <script src="../../resources/js/bootstrap/bootstrap.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
             <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
             <script type="text/javascript" src="../../app/helpers/components.js"></script>
             <script type="text/javascript" src="../../app/controllers/' . $controller . '"></script>
+
             ';
         }
         print('
@@ -483,17 +494,6 @@ class Dashboard_Page
 
                     ' . $scripts . '
 
-                   
-                    <script>
-                    $(document).ready(function() {
-                      $("#example").DataTable({ 
-                          "language": {
-                             "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
-                          }
-                          
-                          });
-                  });
-                  </script>
                     
             </body>
         </html>
