@@ -43,7 +43,7 @@ Dashboard_Page::headerTemplate('Clientes');
         <br>
         <div class="row">
             <div class="table-responsive" class="col scroll">
-                <table id="example" class="table table-bordered">
+                <table id="data-table" class="table table-bordered">
                     <thead class="table-info">
                         <tr>
                             <th scope="col">Nombre</th>

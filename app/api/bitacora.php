@@ -163,8 +163,13 @@ if (isset($_GET['action'])) {
                         if ($data = $bitacora->readOne()) {
                             if ($bitacora->deleteRow()) {
                                 $result['status'] = 1;
-                                $result['message'] = 'Cliente eliminado correctamente';
-    
+                               
+                                if ($bitacora->deleteFile($bitacora->getDireccion(), $data['archivo'])) {
+                                    $result['message'] = 'Bitácora eliminado correctamente';
+                                } else {
+                                    $result['message'] = 'Bitácora eliminado pero no se borró el archivo';
+                                }
+
                             } else {
                                 $result['exception'] = Database::getException();
                             }
@@ -181,20 +186,15 @@ if (isset($_GET['action'])) {
                 if($bitacora->setFecha($_POST['fecha'])){
                     if($bitacora->setUbicacion($_POST['ubicacion'])){
                         if($bitacora->setHora($_POST['hora'])){
-                            if (isset($_POST['cliente'])) {
-                                if ($bitacora->setCliente($_POST['cliente'])) {
-                                    if (isset($_POST['empleado'])) {
-                                        if ($bitacora->setEmpleado($_POST['empleado'])) {
+                                if ($bitacora->setCliente($_POST['id_cliente'])) {
+                                        if ($bitacora->setEmpleado($_POST['id_empleado'])) {
                                             if (isset($_POST['estado_equipo'])) {
                                                 if ($bitacora->setEstadoEquipo($_POST['estado_equipo'])) {
                                                     if (isset($_POST['tipo_servicio'])) {
                                                         if ($bitacora->setTipoServicio($_POST['tipo_servicio'])) {
                                                             if (isset($_POST['tipo_pago'])) {
                                                                 if ($bitacora->setTipoPago($_POST['tipo_pago'])) {
-                                                                    
-                                                                   if(isset($_POST['equipo'])){
-                                                                    if ($bitacora->setEquipo($_POST['equipo'])) {
-
+                                                                    if ($bitacora->setEquipo($_POST['id_equipo'])) {
                                                                         if (is_uploaded_file($_FILES['archivo']['tmp_name'])) {
                                                                             if ($bitacora->setArchivo($_FILES['archivo'])) {
                                                                                 if ($bitacora->createRow()) {
@@ -218,9 +218,7 @@ if (isset($_GET['action'])) {
                                                                             $result['exception'] = 'Equipo Incorrecto';
                                                                         }
                                                                     
-                                                                   }else{
-                                                                    $result['exception'] = 'Seleccione un equipo';
-                                                                   }
+                                                                   
 
 
                                                                 } else {
@@ -244,15 +242,10 @@ if (isset($_GET['action'])) {
                                         } else {
                                             $result['exception'] = 'Empleado incorrecta';
                                         }
-                                    }else {
-                                            $result['exception'] = 'Seleccione un empleado';
-                                        } 
                                 } else {
                                     $result['exception'] = 'Cliente incorrecta';
                                 }
-                            }else {
-                                    $result['exception'] = 'Seleccione un Cliente';
-                                } 
+                            
                             
                         }else {
                             $result['exception'] = 'Hora Incorrecta';
@@ -328,7 +321,7 @@ if (isset($_GET['action'])) {
                                                                                             $result['exception'] = $bitacora->getFileError();
                                                                                         }
                                                                                     } else {
-                                                                                        if ($bitacora->updateRow($data['archivo2'])) {
+                                                                                        if ($bitacora->updateRow($data['archivo'])) {
                                                                                             $result['status'] = 1;
                                                                                             $result['message'] = 'Producto modificado correctamente';
                                                                                         } else {
