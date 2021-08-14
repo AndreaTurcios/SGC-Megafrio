@@ -203,12 +203,13 @@ class Empleados extends Validator{
 
     public function checkUser($nombreusuario)
     {
-        $sql = 'SELECT id_empleado, id_tipo_emp, estado FROM empleado WHERE nombre_usuario = ?';
+        $sql = 'SELECT id_empleado, id_tipo_emp, estado, nombre_usuario FROM empleado WHERE nombre_usuario = ?';
         $params = array($nombreusuario);
         if ($data = Database::getRow($sql, $params)) {
             $this->id = $data['id_empleado'];
             $this->idtipoempleado = $data['id_tipo_emp'];
             $this->estado = $data['estado'];
+            $this->nombreusuario = $data['nombre_usuario'];
             return true;
         } else {
             return false;
@@ -243,5 +244,25 @@ class Empleados extends Validator{
                 WHERE id_empleado = ?';
         $params = array($this->nombreusuario, $this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado, $_SESSION['id_empleado']);
         return Database::executeRow($sql, $params);
+    }
+
+    public function estadoEmpleadoR()
+    {
+        $sql ='SELECT estado, COUNT(nombre_emp) as cantidad
+        From empleado 
+        Group by estado';
+        $params = null;
+        return Database::getRows($sql, $params);
+
+    }
+
+    public function readReport()
+    {
+        $sql = 'SELECT em.nombre_emp,em.apellido_emp,em.nombre_usuario, em.telefono_emp,te.tipoemp
+        FROM empleado em  
+        INNER JOIN tipoempleado te USING(id_tipo_emp)
+        WHERE id_empleado = ?';
+         $params = array($this->id);
+         return Database::getRows($sql, $params);
     }
 }

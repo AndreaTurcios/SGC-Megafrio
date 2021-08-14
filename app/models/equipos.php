@@ -273,4 +273,15 @@ class Equipos extends Validator
         $params = null;
         return Database::getRows($sql, $params);
     }
+
+    public function readReport()
+    {
+        $sql = 'SELECT eq.nombre_equipo,teq.tipo_equipo,eq.descripcion_equipo, eq.precio_equipo,eq.modelo,eq.voltaje,eq.serie,pro.nombre_compania
+        FROM equipo eq 
+        INNER JOIN tipoequipo teq USING(id_tipo_equipo)
+        INNER JOIN proveedor pro USING(id_proveedor)
+        WHERE id_equipo = ?';
+         $params = array($this->id_equipo);
+         return Database::getRows($sql, $params);
+    }
 }

@@ -276,7 +276,20 @@ class Bitacora extends Validator
         return Database::getRow($sql, $params);
     }
 
-
+    public function readReport()
+    {
+        $sql = 'SELECT nombre_cli, nombre_emp, fecha, hora, tiposervicio,
+        nombre_equipo, estado_equipo, tipo_pago, archivo, ubicacion from bitacora
+        INNER JOIN equipo using(id_equipo) 
+        INNER JOIN estado_equipo using(id_estado_equipo)
+        INNER JOIN clientes using(id_cliente)
+        INNER JOIN empleado using(id_empleado)
+        INNER JOIN tiposervicio using(id_tipo_servicio)
+        INNER JOIN tipo_pago using(id_tipo_pago)  
+        WHERE id_bitacora = ?';
+         $params = array($this->id_bitacora);
+         return Database::getRows($sql, $params);
+    }
     
     
 }
