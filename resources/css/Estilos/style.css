@@ -1,5 +1,15 @@
+#fontmen {
+  font-family: "Oswald", sans-serif;
+}
+
+#fontmain {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  color: rgb(107, 177, 209);
+}
+
 .nav {
-    background-color: #f5fafa;
+  background-color: #f5fafa;
   border: 0.1px solid rgb(185, 215, 216);
   /* IMPORTANTE */
   text-align: center;
@@ -243,6 +253,14 @@ a:hover{
     padding: 10px;
     border-radius: 10px;
     color: white;
+}
+
+
+#Titulo2{
+  background-color: #c5e6e9;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
 }
 
 a {

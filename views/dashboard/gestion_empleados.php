@@ -50,7 +50,6 @@ Dashboard_Page::headerTemplate('Empleados');
           <thead class="table-info">
             <div id="bordes">
               <tr>
-                <th scope="col">#</th>
                 <th scope="col">Usuario</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
@@ -90,31 +89,31 @@ Dashboard_Page::headerTemplate('Empleados');
                           <label for="nombre_emp">Nombre empleado:</label>
                           <input type="text" class="form-control" id="nombre_emp" name="nombre_emp"
                             placeholder="Nombre empleado" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required minlength="3"
-                            maxlength="50" />
+                            maxlength="50" autocomplete="off"/>
                         </div>
                         <div class="form-group">
                           <label for="apellido_emp">Apellido empleado</label>
                           <input class="form-control" id="apellido_emp" type="text" name="apellido_emp"
                             placeholder="Apellido empleado" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required
-                            minlength="3" maxlength="50" />
+                            minlength="3" maxlength="50" autocomplete="off"/>
                         </div>
                         <div class="form-group">
                           <label for="telefono_emp">Teléfono:</label>
                           <!-- Aquí colocamos el input, pero el onkeypress es para no ingresar letras en el 
                           input ya que es del teléfono-->
-                          <input type="text" class="form-control" id="telefono_emp" name="telefono_emp"
+                          <input type="text" class="form-control" id="telefono_emp" name="telefono_emp" autocomplete="off"
                             placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required minlength="9"
                             maxlength="9"
                             onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
                         </div>
                         <div class="form-group">
                           <label for="nombre_usuario">Usuario:</label>
-                          <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario"
+                          <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario" autocomplete="off"
                             placeholder="Usuario" required />
                         </div>
                         <div class="form-group">
                           <label for="clave_emp">Clave:</label>
-                          <input type="password" class="form-control" id="clave_emp" name="clave_emp"
+                          <input type="password" class="form-control" id="clave_emp" name="clave_emp" autocomplete="off"
                             placeholder="Clave" required />
                           <div class="campo">
                             <div class="form-group d-none">

@@ -286,7 +286,71 @@ function fillSelect(endpoint, select, selected) {
 *
 *   Retorno: ninguno.
 */
-function barGraph(canvas, xAxis, yAxis, legend, title) {
+function barGraph(canvas, xAxis, values, legend, title) {
+    // Se declara un arreglo para guardar códigos de colores en formato hexadecimal.
+    let colors = [];
+    // Se declara e inicializa una variable para sumar los valores a graficar.
+    let total = 0;
+    // Se generan códigos hexadecimales de 6 cifras de acuerdo con el número de datos a mostrar y se van acumulando los valores.
+    for (i = 0; i < values.length; i++) {
+        colors.push('#' + (Math.random().toString(16)).substring(2, 8));
+        total += values[i];
+    }
+    // Se establece el contexto donde se mostrará el gráfico, es decir, se define la etiqueta canvas a utilizar.
+    const context = document.getElementById(canvas).getContext('2d');
+    // Se crea una instancia para generar la gráfica con los datos recibidos.
+    const chart = new Chart(context, {
+        type: 'line',
+        data: {
+            labels: xAxis,
+            datasets: [{
+                label: legend,
+                data: values,
+                borderColor: '#0B486B',
+                borderWidth: 1,
+                backgroundColor: colors,
+                fill: false,
+                lineTension: 0,
+            }]
+        },
+        options: {
+            responsive: true,
+            legend: {
+                display: false
+            },
+            title: {
+                display: true,
+                text: title
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        precision: 0
+                    }
+                }]
+            }
+        }
+    });
+}
+
+/*
+*   Función para generar una gráfica de barras verticales. Requiere el archivo chart.js para funcionar.
+*
+*   Parámetros: canvas (identificador de la etiqueta canvas), xAxis (datos para el eje X), yAxis (datos para el eje Y), legend (etiqueta para los datos) y title (título de la gráfica).
+*
+*   Retorno: ninguno.
+*/
+function lineGraph(canvas, xAxis, values, legend, title) {
+    // Se declara un arreglo para guardar códigos de colores en formato hexadecimal.
+    let colors = [];
+    // Se declara e inicializa una variable para sumar los valores a graficar.
+    let total = 0;
+    // Se generan códigos hexadecimales de 6 cifras de acuerdo con el número de datos a mostrar y se van acumulando los valores.
+    for (i = 0; i < values.length; i++) {
+        colors.push('#' + (Math.random().toString(16)).substring(2, 8));
+        total += values[i];
+    }
     // Se establece el contexto donde se mostrará el gráfico, es decir, se define la etiqueta canvas a utilizar.
     const context = document.getElementById(canvas).getContext('2d');
     // Se crea una instancia para generar la gráfica con los datos recibidos.
@@ -296,9 +360,12 @@ function barGraph(canvas, xAxis, yAxis, legend, title) {
             labels: xAxis,
             datasets: [{
                 label: legend,
-                data: yAxis,
-                borderColor: '#000000',
-                borderWidth: 1
+                data: values,
+                borderColor: '#0B486B',
+                borderWidth: 1,
+                backgroundColor: colors,
+                fill: false,
+                lineTension: 0,
             }]
         },
         options: {
@@ -350,6 +417,51 @@ function pieGraph(canvas, legends, values, title) {
     // Se crea una instancia para generar la gráfica con los datos recibidos.
     const chart = new Chart(context, {
         type: 'pie',
+        data: {
+            labels: legends,
+            datasets: [{
+                data: percentages,
+                backgroundColor: colors
+            }]
+        },
+        options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: title
+            }
+        }
+    });
+}
+
+/*
+*   Función para generar una gráfica de dona con porcentajes. Requiere el archivo chart.js para funcionar.
+*
+*   Parámetros: canvas (identificador de la etiqueta canvas), legends (valores para las etiquetas), values (valores de los datos) y title (título de la gráfica).
+*
+*   Retorno: ninguno.
+*/
+function donutGraph(canvas, legends, values, title) {
+    // Se declara un arreglo para guardar códigos de colores en formato hexadecimal.
+    let colors = [];
+    // Se declara e inicializa una variable para sumar los valores a graficar.
+    let total = 0;
+    // Se generan códigos hexadecimales de 6 cifras de acuerdo con el número de datos a mostrar y se van acumulando los valores.
+    for (i = 0; i < values.length; i++) {
+        colors.push('#' + (Math.random().toString(16)).substring(2, 8));
+        total += values[i];
+    }
+    // Se declara un arreglo para guardar los porcentajes de cada cantidad.
+    let percentages = [];
+    // Se calcula el porcetaje que corresponde a cada valor.
+    for (i = 0; i < values.length; i++) {
+        percentages.push((values[i] * 100 / total).toFixed(2));
+    }
+    // Se establece el contexto donde se mostrará el gráfico, es decir, se define la etiqueta canvas a utilizar.
+    const context = document.getElementById(canvas).getContext('2d');
+    // Se crea una instancia para generar la gráfica con los datos recibidos.
+    const chart = new Chart(context, {
+        type: 'doughnut',
         data: {
             labels: legends,
             datasets: [{
