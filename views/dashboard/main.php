@@ -5,136 +5,31 @@ require_once('../../app/helpers/dashboard_page.php');
 Dashboard_Page::headerTemplate('Página principal');
 ?>
 
+<div class="col-12 text-center" id="Titulo2">
+    <a id="fontmain">BIENVENID@</a>    
+</div>
+
 <Section>
+<div class="row">   
 <div class="animated bounceInRight">
-    <div class="container">
-        <br>
-        <div class="row">
-
-            <div class="col-12 text-center" id="Titulo1">
-                <h1>Administración</h1>
-
-            </div>
-
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-12">
-                <!-- Agregamos los cuadritos -->
-                <div class="row">
-                    <!-- Proveedores -->
-                    <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-3 col-xxl-3 text-center">
-                        <a href="gestion_proveedores.php">
-                            <div class="row">
-                                <div class="col-12" id="BoxSuperior">
-                                    <img src="../../resources/img/materiales/proveedores.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-12" id="BoxInferior">
-                                    <h4>Proveedores</h4>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Equipo -->
-                    <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-3 col-xxl-3 text-center">
-                        <a href="gestion_equipo.php"> 
-                            <div class="row">
-                                <div class="col-12" id="BoxSuperior">
-                                    <img src="../../resources/img/materiales/proveedores.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-12" id="BoxInferior">
-                                    <h4>Equipo</h4>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Clientes -->
-                    <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-3 col-xxl-3 text-center">
-                        <a href="gestion_clientes.php">
-                            <div class="row">
-                                <div class="col-12" id="BoxSuperior">
-                                    <img src="../../resources/img/materiales/proveedores.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-12" id="BoxInferior">
-                                    <h4>Clientes</h4>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Empleados -->
-                    <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 p-3 col-xxl-3 text-center">
-                        <a href="gestion_empleados.php">
-                            <div class="row">
-                                <div class="col-12" id="BoxSuperior">
-                                    <img src="../../resources/img/materiales/proveedores.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-12" id="BoxInferior">
-                                    <h4>Empleados</h4>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-
-                </div>
-
-
-            </div>
-        </div>
-        <br>
-        <!-- Row para titulo de Visualizar -->
-        <div class="row">
-
-            <div class="col-12 text-center" id="Titulo1">
-                <h1>Visualizar</h1>
-
-            </div>
-
-        </div>
-
-        <div class="row">
-            <div class="col-12">
-                <!-- Agregamos los cuadritos -->
-                <div class="row">
-                    <!-- Agenda -->
-                    <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-3 p-3 col-xxl-6 text-center">
-                        <a href="agenda.php">
-                            <div class="row">
-                                <div class="col-12" id="BoxSuperior">
-                                    <img src="../../resources/img/materiales/proveedores.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-12" id="BoxInferior">
-                                    <h4>Agenda</h4>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Bitacora -->
-                    <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-3 p-3 col-xxl-6 text-center">
-                        <a href="bitacora.php">
-                            <div class="row">
-                                <div class="col-12" id="BoxSuperior">
-                                    <img src="../../resources/img/materiales/proveedores.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="col-12" id="BoxInferior">
-                                    <h4>Bitácora</h4>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        </div>
-        <br>
+    <div class="col-6 col-xs-6 col-xxl-2 p-3 text-center">
+            <!-- Se muestra una gráfica de pastel con el porcentaje de usuarios activos e inactivos -->
+            <canvas id="empleadosR"></canvas>
+            <div class="col-20 col-xs-6 col-xxl-2 p-3 text-right">
+            <!-- Se muestra una gráfica de líneas con la cantidad de proveedores por país -->
+            <canvas id="ProveedoreG"></canvas>
     </div>
-
-
-
+    </div>
+    
+    
+</div>
+</div>
 </Section>
 
-
+<!-- Importación del archivo para generar gráficas en tiempo real. Para más información https://www.chartjs.org/ -->
+<script type="text/javascript" src="../../resources/js/chart.js"></script>
+<script type="text/javascript" src="../../app/controllers/index.js"></script>
+    
 <?php
 // Se imprime la plantilla del encabezado enviando el título de la página web.
 Dashboard_Page::footerTemplate('account.js');

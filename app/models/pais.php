@@ -99,10 +99,6 @@ class Pais extends Validator{
         $params = array($this->nombre_pais,$this->codigo_postal,$this->id_pais);
         return Database::executeRow($sql, $params);
     }
-
-
-
-
     
     public function deleteRow()
     {
@@ -111,5 +107,13 @@ class Pais extends Validator{
         $params = array($this->id_pais);
         return Database::executeRow($sql, $params);
     }
-    
+
+    public function readReport()
+    {
+        $sql = 'SELECT nombre_pais, codigo_postal
+        FROM pais
+        WHERE id_pais = ?';
+        $params = array($this->id_pais);
+        return Database::getRows($sql, $params);
+    }
 }

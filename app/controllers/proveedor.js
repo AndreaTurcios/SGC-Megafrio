@@ -15,8 +15,7 @@ function fillTable(dataset) {
     dataset.map(function (row) {
     // Se crean y concatenan las filas de la tabla con los datos de cada registro.
     content += `
-    <tr>
-        <td>${row.id_proveedor}</td>       
+    <tr>  
         <td>${row.nombre_compania}</td>
         <td>${row.telefono_pro}</td>
         <td>${row.direccion_pro}</td>
@@ -24,6 +23,7 @@ function fillTable(dataset) {
         <td>${row.codigo_postal}</td>
         <td>${row.info_tributaria}</td>
         <td>
+            <a href="../../app/reports/proveedor.php?id=${row.id_proveedor}"class="btn" data-tooltip="Reporte">Reporte</a> /
             <a href="#" onclick="openUpdateDialog(${row.id_proveedor})" class="btn" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">Editar</a> /
             <a href="#" onclick="openDeleteDialog(${row.id_proveedor})" class="btn">Eliminar</a>

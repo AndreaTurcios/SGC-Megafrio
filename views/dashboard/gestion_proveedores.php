@@ -47,7 +47,6 @@ Dashboard_Page::headerTemplate('Proveedores');
         <table class="table table-bordered">
           <thead class="table-info">
             <tr>
-              <th scope="col">#</th>
               <th scope="col">Compañía</th>
               <th scope="col">Teléfono</th>
               <th scope="col">Dirección</th>

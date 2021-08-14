@@ -43,6 +43,7 @@ function fillTable(dataset) {
                 <td>${row.estado_tarea}</td>
                 <td>${row.observaciones}</td>
                 <td>
+                <a href="../../app/reports/agenda.php?id=${row.id_agenda}"class="btn" data-tooltip="Reporte">Reporte</a> /
                 <a href="#" onclick="openUpdateDialog(${row.id_agenda})" class="btn"  data-bs-toggle="modal" data-bs-target="#UpdateModal">Editar</a>  /
                 <a href="#" onclick="openDeleteDialog(${row.id_agenda})"class="btn">Eliminar</a>
                 </td>

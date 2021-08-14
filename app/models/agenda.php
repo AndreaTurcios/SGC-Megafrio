@@ -240,5 +240,15 @@ class Agenda extends Validator
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
+
+    public function readReport()
+    {
+        $sql = 'SELECT nombre_cli, nombre_usuario, fecha_programacion, hora_programacion, fecha_provisional, hora_provisional, tarea, estado_tarea, observaciones
+        FROM agenda INNER JOIN empleado USING(id_empleado) 
+        INNER JOIN clientes USING(id_cliente)
+        WHERE id_agenda = ?';
+         $params = array($this->id);
+         return Database::getRows($sql, $params);
+    }
 }
 ?>
