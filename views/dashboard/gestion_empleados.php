@@ -8,7 +8,7 @@ Dashboard_Page::headerTemplate('Empleados');
 <section>
   <br>
   <div class="container">
-    <div class="row">
+    <div class="row">  
       <!--Container con su respectivo título de pestaña, en este caso, proveedores -->
       <div class="col-12 text-center" id="Titulo1">
         <!-- Colocamos el h1 con su respectivo título, este caso la estión de empleados -->
