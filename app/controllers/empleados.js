@@ -20,7 +20,7 @@ function fillTable(dataset) {
             <tr>       
                 <td>${row.nombre_usuario}</td>
                 <td>${row.nombre_emp}</td>
-                <td>${row.apellido_emp}</td>
+                <td>${row.apellido_emp}</td> 
                 <td>${row.telefono_emp}</td>
                 <td>${l}</td> 
                 <td>${row.tipoemp}</td>  
