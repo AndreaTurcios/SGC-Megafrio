@@ -5,7 +5,7 @@ require_once("../../app/helpers/dashboard_page.php");
 Dashboard_Page::headerTemplate('Empleados');
 ?>
 <!--Aquí comenzamos abriendo la sección -->
-<section>
+<section>  
   <br>
   <div class="container">
     <div class="row">  
