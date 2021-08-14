@@ -16,7 +16,7 @@ function fillTable(dataset) {
     dataset.map(function (row) {  
         if(row.estado==true){l='Activo'} else{l='Bloqueado'} 
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
-        content += `
+        content += ` 
             <tr>       
                 <td>${row.nombre_usuario}</td>
                 <td>${row.nombre_emp}</td>
