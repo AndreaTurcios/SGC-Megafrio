@@ -15,7 +15,7 @@ function fillTable(dataset) {
     // Se recorre el conjunto de registros (dataset) fila por fila a través del objeto row.
     dataset.map(function (row) {  
         if(row.estado==true){l='Activo'} else{l='Bloqueado'} 
-        // Se crean y concatenan las filas de la tabla con los datos de cada registro.
+        // Se crean y concatenan las filas de la tabla con los datos de cada registro. 
         content += ` 
             <tr>       
                 <td>${row.nombre_usuario}</td>
