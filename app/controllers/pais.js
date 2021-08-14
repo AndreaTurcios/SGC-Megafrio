@@ -17,6 +17,7 @@ function fillTable(dataset) {
         <td>${row.nombre_pais}</td>
         <td>${row.codigo_postal}</td>   
         <td>
+            <a href="../../app/reports/paises.php?id=${row.id_pais}"class="btn" data-tooltip="Reporte">Reporte</a> /
             <a href="#" onclick="openUpdateDialog(${row.id_pais})"class="btn"  data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</a> /
             <a href="#" onclick="openDeleteDialog(${row.id_pais})"class="btn">Eliminar</a>
         </td>

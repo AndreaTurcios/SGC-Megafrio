@@ -9,8 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
     //readRows(ENDPOINT_TIPO);
 });
 
-
-
 // Función para llenar la tabla con los datos de los registros. Se manda a llamar en la función readRows().
 function fillTable(dataset) {
     let content = '';
@@ -19,8 +17,7 @@ function fillTable(dataset) {
         if(row.estado==true){l='Activo'} else{l='Bloqueado'} 
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
         content += `
-            <tr>   
-                <td>${row.id_empleado}</td>             
+            <tr>       
                 <td>${row.nombre_usuario}</td>
                 <td>${row.nombre_emp}</td>
                 <td>${row.apellido_emp}</td>
@@ -28,6 +25,7 @@ function fillTable(dataset) {
                 <td>${l}</td> 
                 <td>${row.tipoemp}</td>  
                 <td>
+                    <a href="../../app/reports/empleado.php?id=${row.id_empleado}"class="btn" data-tooltip="Reporte">Reporte</a> /
                     <a href="#" onclick="openUpdateDialog(${row.id_empleado})"class="btn"  data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</a> /
                     <a href="#" onclick="openDeleteDialog(${row.id_empleado})"class="btn">Eliminar</a>
                 </td>

@@ -154,7 +154,18 @@ if (isset($_GET['action'])) {
                 } else {
                     $result['exception'] = 'Proveedor incorrecto';
                 }
-                break;               
+                break;   
+                case 'Reporte':
+                    if ($result['dataset'] = $proveedor->Reporte()) {
+                         $result['status'] = 1;
+                    } else {
+                         if (Database::getException()) {
+                               $result['exception'] = Database::getException();
+                         } else {
+                               $result['exception'] = 'No hay datos registrados';
+                         }
+                    }						                    
+                break;	            
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';
         }

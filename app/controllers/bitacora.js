@@ -156,9 +156,9 @@ function fillTable(dataset) {
                 <td><a href="../../resources/docs/bitacora/${row.archivo}">${row.archivo}</a></td>
                 
                 <td>
-                
-                <a href="#" onclick="openUpdateDialog(${row.id_bitacora})" class="btn"  data-bs-toggle="modal" data-bs-target="#ActualizarBitacora">Editar</a>/
-                <a href="#" onclick="openDeleteDialog(${row.id_bitacora})" class="btn waves-effect red tooltipped" data-tooltip="Eliminar">Eliminar</a>
+                    <a href="../../app/reports/bitacora.php?id=${row.id_bitacora}"class="btn" data-tooltip="Reporte">Reporte</a> /
+                    <a href="#" onclick="openUpdateDialog(${row.id_bitacora})" class="btn"  data-bs-toggle="modal" data-bs-target="#ActualizarBitacora">Editar</a>/
+                    <a href="#" onclick="openDeleteDialog(${row.id_bitacora})" class="btn waves-effect red tooltipped" data-tooltip="Eliminar">Eliminar</a>
                 </td>
             </tr>
         `;

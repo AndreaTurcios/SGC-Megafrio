@@ -176,10 +176,12 @@ class Clientes extends Validator
         return Database::getRow($sql, $params);
     }
 
-
-
-
-
-
-    
+    public function readReport()
+    {
+        $sql = 'SELECT nombre_cli, telefono_cli, dui_cli, nit_cli, direccion_cli, correo_cli, estado_pago  
+        FROM clientes INNER JOIN estado_pago using(id_estado_pago)
+        WHERE id_cliente=?';
+        $params = array($this->id_cliente);
+        return Database::getRows($sql, $params);
+    }
 }

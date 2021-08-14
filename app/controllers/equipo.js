@@ -32,8 +32,9 @@ function fillTable(dataset) {
                 <td>${row.id_capacidad}</td>
                 <td><img src="../../resources/img/productos/${row.foto_equipo}" class="materialboxed" height="100"></td>
                 <td>
-                <a href="#" onclick="openUpdateDialog(${row.id_equipo})"class="btn"  data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</a> /
-                <a href="#" onclick="openDeleteDialog(${row.id_equipo})"class="btn">Eliminar</a>
+                    <a href="../../app/reports/equipo.php?id=${row.id_equipo}"class="btn" data-tooltip="Reporte">Reporte</a> /
+                    <a href="#" onclick="openUpdateDialog(${row.id_equipo})"class="btn"  data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</a> /
+                    <a href="#" onclick="openDeleteDialog(${row.id_equipo})"class="btn">Eliminar</a>
                 </td>
             </tr>
         `;

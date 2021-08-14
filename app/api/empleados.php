@@ -143,6 +143,17 @@ if (isset($_GET['action'])) {
                             $result['exception'] ='Empleado incorrecto';
                               }
                 break;
+                case 'estadoEmpleadoR':
+                    if ($result['dataset'] = $empleados->estadoEmpleadoR()) {
+                         $result['status'] = 1;
+                    } else {
+                         if (Database::getException()) {
+                               $result['exception'] = Database::getException();
+                         } else {
+                               $result['exception'] = 'No hay datos registrados';
+                         }
+                    }						                    
+                break;	
             // Si el action detecta que se desea realizar un delete a un dato se ejecuta lo siguiente
             case 'delete':
                 if ($empleados->setId($_POST['id_empleado'])) {

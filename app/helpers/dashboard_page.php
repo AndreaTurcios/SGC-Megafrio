@@ -246,9 +246,9 @@ class Dashboard_Page
               </div>
               <!-- Columna para perfil pero en usuarios de pantalla grande -->
               <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-2 col-xxl-2 text-center d-none d-lg-block">
-                <button class="btn btnperfill"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white"><i class="far fa-user"></i> Perfil</a></button>
-                <button class="btn btncerrar" id="cerrar">
-                  <i href="#" onclick="logOut()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</i>
+              <button class="btn btnperfill"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white" id="fontmen"><i class="far fa-user"></i> Perfil</a></button>
+              <button class="btn btncerrar" id="cerrar">
+                <i href="#" id="fontmen" onclick="logOut()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</i>
                 </button>
               </div>
             </nav>
@@ -303,28 +303,28 @@ class Dashboard_Page
                 <div class="col-12 d-none d-lg-block MenuSec">
                   <ul class="nav justify-content-center">
                     <li class="nav-item p-1">
-                      <button type="button" class="btn botonAnim"><i class="fas fa-user"></i><a href="gestion_empleados.php"> EMPLEADOS</a></button> 
+                      <button type="button" class="btn botonAnim"><i class="fas fa-user"></i><a href="gestion_empleados.php" id="fontmen"> EMPLEADOS</a></button> 
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn botonAnim"><i class="fas fa-shopping-basket"></i><a href="gestion_clientes.php"> CLIENTES</a></button> 
+                      <button type="button" class="btn botonAnim"><i class="fas fa-shopping-basket"></i><a href="gestion_clientes.php" id="fontmen"> CLIENTES</a></button> 
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn botonAnim"><img src="../../resources/img/logos/aire.svg" class="text-center" style="max-width:20%;width:20px;height:auto;"><a href="gestion_equipo.php"> EQUIPO</a></button>
+                      <button type="button" class="btn botonAnim"><img src="../../resources/img/logos/aire.svg" class="text-center" style="max-width:20%;width:20px;height:auto;"><a href="gestion_equipo.php" id="fontmen"> EQUIPO</a></button>
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn botonAnim"><i class="fas fa-truck-moving"></i><a href="gestion_proveedores.php"> PROVEEDORES</a></button>
+                      <button type="button" class="btn botonAnim"><i class="fas fa-truck-moving"></i><a href="gestion_proveedores.php" id="fontmen"> PROVEEDORES</a></button>
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn botonAnim"><i class="far fa-flag"></i><a href="Pais.php"> PAÍSES</a></button> 
+                      <button type="button" class="btn botonAnim"><i class="far fa-flag"></i><a href="Pais.php" id="fontmen"> PAÍSES</a></button> 
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn botonAnim"><i class="far fa-clipboard"></i><a href="bitacora.php"> BITÁCORA</a></button> 
+                      <button type="button" class="btn botonAnim"><i class="far fa-clipboard"></i><a href="bitacora.php" id="fontmen"> BITÁCORA</a></button> 
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn botonAnim"><i class="far fa-calendar-alt"></i><a href="agenda.php"> AGENDA</a></button> 
+                      <button type="button" class="btn botonAnim"><i class="far fa-calendar-alt"></i><a href="agenda.php" id="fontmen"> AGENDA</a></button> 
                     </li>
                     <li class="nav-item p-1">
-                      <button type="button" class="btn botonAnim"><img src="../../resources/img/logos/reportes.svg" class="text-center" style="max-width:20%;width:13px;height:auto;"><a href="Reportes.php"> REPORTES</a></button> 
+                      <button type="button" class="btn botonAnim"><img src="../../resources/img/logos/reportes.svg" class="text-center" style="max-width:20%;width:13px;height:auto;"><a href="Reportes.php" id="fontmen"> REPORTES</a></button> 
                     </li>
                   </ul>
                 </div>
@@ -484,8 +484,8 @@ class Dashboard_Page
         <footer>
             <!-- Derechos Reservados -->
             <div class="text-center p-3" id="ptDerechos">
-            © 2021 <b>Derechos reservados |</b>
-                <a class="text-blue" href="http://www.megafrio.com/"><u>MegaFrío </u></a>
+            © 2021 <b id="fontmen">Derechos reservados |</b>
+                <a class="text-blue" href="http://www.megafrio.com/" id="fontmen"><u>MegaFrío </u></a>
             </div>
         </footer>
         <!-- Agregamos SCRIPTS -->

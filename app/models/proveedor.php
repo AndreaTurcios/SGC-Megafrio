@@ -163,5 +163,28 @@ class Proveedor extends Validator{
         $params = array($this->id_proveedor);
         return Database::executeRow($sql, $params);
     }
+
+    public function Reporte()
+    {
+        $sql ='SELECT pa.nombre_pais, COUNT(pro.nombre_compania) as cantidad
+        From proveedor pro
+        INNER JOIN pais pa on pro.id_pais = pa.id_pais
+        GROUP BY pa.nombre_pais
+        LIMIT 10';
+        $params = null;
+        return Database::getRows($sql, $params);
+
+    }
+
+    public function readReport()
+    {
+        $sql = 'SELECT pro.nombre_compania,pro.telefono_pro,pro.direccion_pro, pro.info_tributaria,pa.nombre_pais
+        FROM proveedor pro  
+        INNER JOIN pais pa USING(id_pais)
+        WHERE id_proveedor = ?';
+        $params = array($this->id_proveedor);
+        return Database::getRows($sql, $params);
+    }
+    
     
 }
