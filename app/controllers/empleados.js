@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Función para llenar la tabla con los datos de los registros. Se manda a llamar en la función readRows().
-function fillTable(dataset) {
+function fillTable(dataset) { 
     let content = '';
     // Se recorre el conjunto de registros (dataset) fila por fila a través del objeto row.
     dataset.map(function (row) {  
