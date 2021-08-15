@@ -46,7 +46,7 @@ Dashboard_Page::headerTemplate('Empleados');
     <!-- Aquí agregamos la tabla la cual será responsive donde se mostrarán los respectivos datos -->
     <div class="row">
       <div class="table-responsive" class="col scroll">
-        <table class="table table-bordered">
+        <table id="data-table" class="table table-bordered">
           <thead class="table-info">
             <div id="bordes">
               <tr>
