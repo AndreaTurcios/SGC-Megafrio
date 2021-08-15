@@ -34,10 +34,18 @@ function fillTable(dataset) {
     });
     // Se agregan las filas al cuerpo de la tabla mediante su id para mostrar los registros.
     document.getElementById('tbody-rows').innerHTML = content;
+
+        // Se inicializa la tabla con DataTable.
+ let dataTable = new DataTable('#data-table', {
+    labels: {
+        placeholder: 'Buscar clientes...',
+        perPage: '{select} clientes por página',
+        noRows: 'No se encontraron clientes',
+        info:'Mostrando {start} a {end} de {rows} clientes'
+    }
+});
   
-    // Se inicializa el componente Material Box asignado a las imagenes para que funcione el efecto Lightbox.
-   // M.Materialbox.init(document.querySelectorAll('.materialboxed'));
-    // Se inicializa el componente Tooltip asignado a los enlaces para que funcionen las sugerencias textuales.
+    
 
 }
 
