@@ -148,7 +148,7 @@ Dashboard_Page::headerTemplate('Equipo');
   <!-- Creacion de la tabla -->
   <div class="row">
     <div class="table-responsive" class="col scroll">
-      <table class="table table-bordered text-center">
+      <table id="data-table" class="table table-bordered text-center">
         <thead class="table-info">
           <tr>
             <th scope="col">Nombre Equipo</th>
