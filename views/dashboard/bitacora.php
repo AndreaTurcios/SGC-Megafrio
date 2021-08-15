@@ -211,7 +211,7 @@ Dashboard_Page::headerTemplate('Bitácora');
     <div class="row">
 
         <div class="table-responsive" class="col scroll">
-            <table class="table table-bordered">
+            <table id="data-table" class="table table-bordered">
                 <thead class="table-info">
                     <tr>
                         <th scope="col">Cliente</th>

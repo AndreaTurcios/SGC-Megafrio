@@ -44,7 +44,7 @@ Dashboard_Page::headerTemplate('Agenda');
             
                             <div class="col-12 p- text-center">
                                 <div class="table-responsive" class="col scroll">
-                                    <table class="table table table-bordered" id="table-info">
+                                    <table class="table table table-bordered" id="data-table">
                                         <thead>
             
                                             <tr>

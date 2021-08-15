@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function fillTable(dataset) {
     let content = '';
     // Se recorre el conjunto de registros (dataset) fila por fila a través del objeto row.
-    dataset.map(function (row) {       
+    dataset.map(function (row) {
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
         content += `
         <tr>            
@@ -26,7 +26,16 @@ function fillTable(dataset) {
     });
     // Se agregan las filas al cuerpo de la tabla mediante su id para mostrar los registros.
     document.getElementById('tbody-rows').innerHTML = content;
-    //M.Tooltip.init(document.querySelectorAll('.tooltipped'));
+    
+    // Se inicializa la tabla con DataTable.
+    let dataTable = new DataTable('#data-table', {
+        labels: {
+            placeholder: 'Buscar clientes...',
+            perPage: '{select} clientes por página',
+            noRows: 'No se encontraron clientes',
+            info: 'Mostrando {start} a {end} de {rows} clientes'
+        }
+    });
 }
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de buscar.
 document.getElementById('search-form').addEventListener('submit', function (event) {
@@ -40,7 +49,7 @@ document.getElementById('search-form').addEventListener('submit', function (even
 document.getElementById('save-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
-    
+
     saveRow(API_PAIS, 'create', 'save-form', null);
     document.getElementById('save-form').reset();
 });
@@ -58,20 +67,20 @@ function openUpdateDialog(id) {
         if (request.ok) {
             request.json().then(function (response) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-                if (response.status) {        
-                document.getElementById('id_pais2').value = response.dataset.id_pais;
-                document.getElementById('nombre_pais2').value = response.dataset.nombre_pais;
-                document.getElementById('codigo_postal2').value = response.dataset.codigo_postal;
-            } else {
-                sweetAlert(2, response.exception, null);
-            }
-        });
-    } else {
-        console.log(request.status + ' ' + request.statusText);
-    }
-}).catch(function (error) {
-    console.log(error);
-});
+                if (response.status) {
+                    document.getElementById('id_pais2').value = response.dataset.id_pais;
+                    document.getElementById('nombre_pais2').value = response.dataset.nombre_pais;
+                    document.getElementById('codigo_postal2').value = response.dataset.codigo_postal;
+                } else {
+                    sweetAlert(2, response.exception, null);
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    }).catch(function (error) {
+        console.log(error);
+    });
 }
 
 
