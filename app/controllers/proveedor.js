@@ -16,7 +16,6 @@ function fillTable(dataset) {
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
         content += `
     <tr>
-        <td>${row.id_proveedor}</td>       
         <td>${row.nombre_compania}</td>
         <td>${row.telefono_pro}</td>
         <td>${row.direccion_pro}</td>
@@ -39,10 +38,10 @@ function fillTable(dataset) {
     // Se inicializa la tabla con DataTable.
     let dataTable = new DataTable('#data-table', {
         labels: {
-            placeholder: 'Buscar clientes...',
-            perPage: '{select} clientes por página',
-            noRows: 'No se encontraron clientes',
-            info: 'Mostrando {start} a {end} de {rows} clientes'
+            placeholder: 'Buscar proveedores...',
+            perPage: '{select} proveedores por página',
+            noRows: 'No se encontraron proveedores',
+            info: 'Mostrando {start} a {end} de {rows} proveedores'
         }
     });
 
