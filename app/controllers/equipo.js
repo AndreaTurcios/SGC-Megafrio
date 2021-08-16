@@ -27,9 +27,9 @@ function fillTable(dataset) {
                 <td>${row.modelo}</td>
                 <td>${row.voltaje}</td>
                 <td>${row.serie}</td>
-                <td>${row.id_proveedor}</td>
-                <td>${row.id_tipo_equipo}</td>
-                <td>${row.id_capacidad}</td>
+                <td>${row.nombre_compania}</td>
+                <td>${row.tipo_equipo}</td>
+                <td>${row.capacidad}</td>
                 <td><img src="../../resources/img/productos/${row.foto_equipo}" class="materialboxed" height="100"></td>
                 <td>
                     <a href="../../app/reports/equipo.php?id=${row.id_equipo}"class="btn" data-tooltip="Reporte">Reporte</a> /
