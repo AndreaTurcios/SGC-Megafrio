@@ -39,7 +39,7 @@ function fillTable(dataset) {
  let dataTable = new DataTable('#data-table', {
     labels: {
         placeholder: 'Buscar empleados...',
-        perPage: '{select} empleados por página',
+        perPage: '{select} Empleados por página',
         noRows: 'No se encontraron empleados',
         info:'Mostrando {start} a {end} de {rows} empleados'
     }
