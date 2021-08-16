@@ -39,7 +39,7 @@ function fillTable(dataset) {
     let dataTable = new DataTable('#data-table', {
         labels: {
             placeholder: 'Buscar proveedores...',
-            perPage: '{select} proveedores por página',
+            perPage: '{select} Proveedores por página',
             noRows: 'No se encontraron proveedores',
             info: 'Mostrando {start} a {end} de {rows} proveedores'
         }
