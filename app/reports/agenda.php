@@ -25,10 +25,10 @@ if (isset($_GET['id'])) {
                 $pdf->Cell(30, 10, utf8_decode('Usuario'), 1, 0, 'C', 1);
                 $pdf->Cell(25, 10, utf8_decode('Fecha'), 1, 0, 'C', 1);
                 $pdf->Cell(15, 10, utf8_decode('Hora'), 1, 0, 'C', 1);
-                $pdf->Cell(48, 10, utf8_decode('Fecha provisional'), 1, 0, 'C', 1);
+                $pdf->Cell(38, 10, utf8_decode('Fecha provisional'), 1, 0, 'C', 1);
                 $pdf->Cell(30, 10, utf8_decode('h. provisional'), 1, 0, 'C', 1);
                 $pdf->Cell(25, 10, utf8_decode('Tarea'), 1, 0, 'C', 1);
-                $pdf->Cell(15, 10, utf8_decode('Estado'), 1, 0, 'C', 1);
+                $pdf->Cell(22, 10, utf8_decode('Estado'), 1, 0, 'C', 1);
                 $pdf->Cell(35, 10, utf8_decode('Observaciones'), 1, 0, 'C', 1);
                 // Se establece la fuente para los datos de agenda
                 $pdf->SetFont('Arial', '', 11);
@@ -49,7 +49,7 @@ if (isset($_GET['id'])) {
                         $pdf->Cell(15, 10, utf8_decode($rows['hora_programacion']), 1, 0);
                     }   
                     if(isset($rows['fecha_provisional'])){
-                        $pdf->Cell(48, 10, utf8_decode($rows['fecha_provisional']), 1, 0);
+                        $pdf->Cell(38, 10, utf8_decode($rows['fecha_provisional']), 1, 0);
                     }   
                     if(isset($rows['hora_provisional'])){
                         $pdf->Cell(30, 10, utf8_decode($rows['hora_provisional']), 1, 0);
@@ -66,7 +66,7 @@ if (isset($_GET['id'])) {
                         else{
                             $l='Bloqueado';
                         }
-                        $pdf->Cell(15, 10, $l, 1, 0);
+                        $pdf->Cell(22, 10, $l, 1, 0);
                     }    
                     if(isset($rows['observaciones'])){
                         $pdf->Cell(35, 10, $rows['observaciones'], 1, 0);
