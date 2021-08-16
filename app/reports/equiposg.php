@@ -7,7 +7,7 @@
             // Se instancia la clase para crear el reporte.
             $pdf = new Report;
             // Se inicia el reporte con el encabezado del documento.
-            $pdf->startReports('Reporte de datos de equipo');
+            $pdf->startReports('Reporte de datos de equipos');
             // Se verifica si existen registros (productos) para mostrar, de lo contrario se imprime un mensaje.
             if ($equipoo = $equipo->readAll()) {// leer todos los registros
                 // Se establece un color de relleno para los encabezados.
