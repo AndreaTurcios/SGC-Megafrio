@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase con las plantillas del documento.
-require_once('../../app/helpers/dashboard_page.php');
+require_once("../../app/helpers/dashboard_page.php");
 // Se imprime la plantilla del encabezado enviando el título de la página web.
 Dashboard_Page::headerTemplate('Reportes');
 ?>
@@ -20,7 +20,7 @@ Dashboard_Page::headerTemplate('Reportes');
                 <div class="row">
                     <!-- Proveedores -->
                     <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 p-3 col-xxl-6 text-center">
-                        <a href="gestion_proveedores.php">
+                        <a href="../../app/reports/proveedoresg.php">
                             <div class="row">
                                 <div class="col-12" id="BoxSuperior">
                                     <img src="../../resources/img/materiales/proveedores.png" alt="" class="img-fluid">
@@ -83,5 +83,5 @@ Dashboard_Page::headerTemplate('Reportes');
 
 <?php
 // Se imprime la plantilla del encabezado enviando el título de la página web.
-Dashboard_Page::footerTemplate('reportes.js');
+Dashboard_Page::footerTemplate('reportsg.js');
 ?>>
