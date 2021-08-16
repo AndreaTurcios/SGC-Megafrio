@@ -59,7 +59,7 @@ if (isset($_GET['id'])) {
                     }   
                     $l = '';
                     if(isset($rows['estado_tarea'])){
-                        if($rows['estado_tarea'])
+                        if($rows['estado_tarea']=="true")
                         {
                             $l='Activo';
                         } 
