@@ -170,6 +170,7 @@ class Proveedor extends Validator{
         From proveedor pro
         INNER JOIN pais pa on pro.id_pais = pa.id_pais
         GROUP BY pa.nombre_pais
+        ORDER BY cantidad asc
         LIMIT 10';
         $params = null;
         return Database::getRows($sql, $params);
