@@ -20,32 +20,30 @@ if (isset($_GET['id'])) {
                 $pdf->Ln();  
                 $pdf->SetFont('Arial', 'B', 11);
                 // Se imprimen las celdas con los encabezados.
-                $pdf->Cell(40, 10, utf8_decode('Nombres'), 1, 0, 'C', 1);
+                $pdf->Cell(193, 10, utf8_decode('Tipo empleado: '.$rowEmpleado['tipoemp']), 1, 0, 'C', 1);
+                $pdf->Ln();
+                $pdf->Cell(60, 10, utf8_decode('Nombres'), 1, 0, 'C', 1);
                 // Se establece la fuente para los datos de los productos.
-                $pdf->Cell(40, 10, utf8_decode('Apellidos'), 1, 0, 'C', 1);
-                $pdf->Cell(28, 10, utf8_decode('Usuario'), 1, 0, 'C', 1);
+                $pdf->Cell(60, 10, utf8_decode('Apellidos'), 1, 0, 'C', 1);
+                $pdf->Cell(33, 10, utf8_decode('Usuario'), 1, 0, 'C', 1);
                 $pdf->Cell(40, 10, utf8_decode('Teléfono'), 1, 0, 'C', 1);
-                $pdf->Cell(40, 10, utf8_decode('Tipo empleado'), 1, 0, 'C', 1);
                 $pdf->SetFont('Arial', '', 11);
                 $pdf->Ln();
                 // Se recorren los registros
                 foreach ($empleadoss as $rows) {
                     // Se imprimen las celdas con los datos de los productos.                    
                     if(isset($rows['nombre_emp'])){
-                        $pdf->Cell(40, 10, utf8_decode($rows['nombre_emp']), 1, 0);
+                        $pdf->Cell(60, 10, utf8_decode($rows['nombre_emp']), 1, 0);
                     }
                     if(isset($rows['apellido_emp'])){
-                        $pdf->Cell(40, 10, utf8_decode($rows['apellido_emp']), 1, 0);
+                        $pdf->Cell(60, 10, utf8_decode($rows['apellido_emp']), 1, 0);
                     }                    
                     if(isset($rows['nombre_usuario'])){
-                        $pdf->Cell(28, 10, utf8_decode($rows['nombre_usuario']), 1, 0);
+                        $pdf->Cell(33, 10, utf8_decode($rows['nombre_usuario']), 1, 0);
                     }
                     if(isset($rows['telefono_emp'])){
                         $pdf->Cell(40, 10, utf8_decode($rows['telefono_emp']), 1, 0);
-                    }                    
-                    if(isset($rows['tipoemp'])){
-                        $pdf->Cell(40, 10, $rows['tipoemp'], 1, 0);
-                    }                  
+                    }              
                 }
             } else {
                 $pdf->Cell(0, 10, utf8_decode('No hay empleados asociados'), 1, 1);

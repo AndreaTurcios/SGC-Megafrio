@@ -174,8 +174,9 @@ class Empleados extends Validator{
 
     public function readOne()
     {
-        $sql = 'SELECT id_empleado, nombre_usuario, nombre_emp,apellido_emp,telefono_emp,estado,id_tipo_emp
+        $sql = 'SELECT id_empleado, nombre_usuario, nombre_emp,apellido_emp,telefono_emp,estado,tipoemp
                 FROM empleado 
+                INNER JOIN tipoempleado USING(id_tipo_emp)
                 WHERE id_empleado = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
