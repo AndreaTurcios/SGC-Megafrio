@@ -51,7 +51,19 @@ class tipoEmpleado extends Validator{
     public function readAll()
     {
         $sql = 'SELECT id_tipo_emp, tipoemp
-                FROM tipoempleado';
+                FROM tipoempleado
+                ORDER BY tipoemp';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+
+    public function readEmpleado()
+    {
+        $sql = 'SELECT od.tipoemp, em.id_empleado, em.nombre_usuario, em.nombre_emp,em.apellido_emp,em.telefono_emp,em.estado
+        FROM empleado em
+        INNER JOIN tipoempleado od on em.id_tipo_emp = od.id_tipo_emp
+        WHERE em.id_tipo_emp = ?
+        ORDER BY nombre_usuario';
         $params = null;
         return Database::getRows($sql, $params);
     }
