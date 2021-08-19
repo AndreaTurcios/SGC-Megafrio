@@ -300,7 +300,7 @@ function barGraph(canvas, xAxis, values, legend, title) {
     const context = document.getElementById(canvas).getContext('2d');
     // Se crea una instancia para generar la gráfica con los datos recibidos.
     const chart = new Chart(context, {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: xAxis,
             datasets: [{
@@ -355,7 +355,7 @@ function lineGraph(canvas, xAxis, values, legend, title) {
     const context = document.getElementById(canvas).getContext('2d');
     // Se crea una instancia para generar la gráfica con los datos recibidos.
     const chart = new Chart(context, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: xAxis,
             datasets: [{
