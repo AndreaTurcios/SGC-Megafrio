@@ -7,6 +7,7 @@ $pdf = new Report;
 $pdf->startReport('Reporte de datos de empleado por tipo empleado');
 // Se instancia el módelo Categorías para obtener los datos.
 $templeados = new tipoEmpleado;
+$dataEmpleados = $templeados->readAll();
 // Se verifica si existen registros (categorías) para mostrar, de lo contrario se imprime un mensaje.
 if ($dataEmpleados = $templeados->readAll()) {
     // Se recorren los registros ($dataCategorias) fila por fila ($rowCategoria).
@@ -33,21 +34,21 @@ if ($dataEmpleados = $templeados->readAll()) {
                 $pdf->Ln();
                 // Se recorren los registros ($dataProductos) fila por fila ($rowProducto).
                 foreach ($dataEmpleados as $rowEmpleados) {
-                    
                     $pdf->Cell(60, 10, utf8_decode($rowEmpleados['nombre_emp']), 1, 0);
                     $pdf->Cell(60, 10, utf8_decode($rowEmpleados['apellido_emp']), 1, 0);
                     $pdf->Cell(33, 10, utf8_decode($rowEmpleados['nombre_usuario']), 1, 0);
                     $pdf->Cell(40, 10, utf8_decode($rowEmpleados['telefono_emp']), 1, 0);
                     $pdf->Ln();
                     }   
+                } else {
+                    $pdf->Cell(0, 20, utf8_decode('                          '.'                            '.' No hay empleados registrados en este tipo'), 1, 1);
                 }
-            } else {
-                $pdf->Cell(0, 10, utf8_decode('No hay un tipo empleado para este empleado'), 1, 1);
-            }
+                }
     }
 } else {
     $pdf->Cell(0, 10, utf8_decode('No hay empleados para mostrar'), 1, 1);
 }
+
 // Se envía el documento al navegador y se llama al método Footer()
 $pdf->Output();
 ?>
