@@ -41,7 +41,7 @@ if ($dataEmpleados = $templeados->readAll()) {
                     $pdf->Ln();
                     }   
                 } else {
-                    $pdf->Cell(0, 20, utf8_decode('                          '.'                            '.' No hay empleados registrados en este tipo'), 1, 1);
+                    $pdf->Cell(193, 20, utf8_decode('                          '.'                            '.' No hay empleados registrados en este tipo'), 1, 1);
                 }
                 }
     }
