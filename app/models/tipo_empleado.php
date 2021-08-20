@@ -52,7 +52,7 @@ class tipoEmpleado extends Validator{
     {
         $sql = 'SELECT id_tipo_emp, tipoemp
                 FROM tipoempleado
-                ORDER BY tipoemp';
+                ORDER BY id_tipo_emp asc';
         $params = null;
         return Database::getRows($sql, $params);
     }
@@ -62,9 +62,9 @@ class tipoEmpleado extends Validator{
         $sql = 'SELECT od.tipoemp, em.id_empleado, em.nombre_usuario, em.nombre_emp,em.apellido_emp,em.telefono_emp,em.estado
         FROM empleado em
         INNER JOIN tipoempleado od on em.id_tipo_emp = od.id_tipo_emp
-        WHERE em.id_tipo_emp = ?
-        ORDER BY nombre_usuario';
-        $params = null;
+        WHERE em.id_tipo_emp = od.id_tipo_emp and od.id_tipo_emp = ?
+        ORDER BY od.tipoemp';
+        $params = array($this->id);
         return Database::getRows($sql, $params);
     }
 
