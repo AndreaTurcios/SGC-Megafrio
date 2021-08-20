@@ -87,7 +87,7 @@ class Pais extends Validator{
         $sql = 'SELECT pro.nombre_compania,pro.telefono_pro,pro.direccion_pro, pro.info_tributaria,pa.nombre_pais
         FROM proveedor pro  
         INNER JOIN pais pa USING(id_pais)
-        WHERE id_proveedor = ?';
+        WHERE id_pais = ?';
         $params = array($this->id_pais);
         return Database::getRows($sql, $params);
     }
