@@ -77,8 +77,7 @@ class Pais extends Validator{
     {
         $sql = 'SELECT id_pais, nombre_pais, codigo_postal
                 FROM pais
-                INNER JOIN proveedor USING(id_pais)
-                ORDER BY id_proveedor';
+                ORDER BY id_pais';
         $params = null;
         return Database::getRows($sql, $params);
     }
