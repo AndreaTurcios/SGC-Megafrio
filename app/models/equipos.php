@@ -227,6 +227,14 @@ class Equipos extends Validator
         return Database::getRows($sql, $params);
     }
 
+    public function readAllTipoEquipo()
+    {
+        $sql = 'SELECT id_tipo_equipo, tipo_equipo
+        FROM tipoequipo;';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+
     public function readOne()
     {
         $sql = 'SELECT id_equipo, foto_equipo, nombre_equipo, descripcion_equipo, precio_equipo, modelo, voltaje, serie,id_proveedor, id_tipo_equipo, id_capacidad
