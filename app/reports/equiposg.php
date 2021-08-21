@@ -11,7 +11,7 @@ $equipo = new Equipos;
 if ($dataEquipos = $equipo->readAllTipoEquipo()) {
     // Se recorren los registros ($dataCategorias) fila por fila ($rowCategoria).
     foreach ($dataEquipos as $rowEquipos) {
-                $pdf->SetFont('Arial', '', 11);
+                $pdf->SetFont('Arial', 'B', 11);
                 $pdf->SetFillColor(225);
                 $pdf->Cell(255, 10, utf8_decode('Tipo equipo: '.$rowEquipos['tipo_equipo']), 1, 1, 'C', 1);
         if ($equipo->setId($rowEquipos['id_tipo_equipo'])) {
@@ -19,7 +19,7 @@ if ($dataEquipos = $equipo->readAllTipoEquipo()) {
                 // Se establece un color de relleno para los encabezados.
                 $pdf->SetFillColor(225);
                 // Se establece la fuente para los encabezados.
-                $pdf->SetFont('Arial', '', 11);
+                $pdf->SetFont('Arial', 'B', 11);
                 // Se imprimen las celdas con los encabezados.
                 $pdf->Cell(50, 10, utf8_decode('Equipo'), 1, 0, 'C', 1);
                 // Se establece la fuente para los datos de los productos.
@@ -46,12 +46,13 @@ if ($dataEquipos = $equipo->readAllTipoEquipo()) {
                     $pdf->Ln(); 
                 }   
             } else {
-                $pdf->Cell(193, 20, utf8_decode('                        '.'                            '.' No hay empleados registrados para este rol'), 1, 1);
+                $pdf->SetFont('Arial', '', 11);
+                $pdf->Cell(193, 20, utf8_decode('                        '.'                            '.' No hay equipos registrados para este tipo'), 1, 1);
             }
             }
 }
 } else {
-$pdf->Cell(0, 10, utf8_decode('No hay empleados para mostrar'), 1, 1);
+$pdf->Cell(0, 10, utf8_decode('No hay equipos para mostrar'), 1, 1);
 }
 
 // Se envía el documento al navegador y se llama al método Footer()

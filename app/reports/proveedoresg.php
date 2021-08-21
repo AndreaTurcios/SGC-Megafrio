@@ -11,7 +11,7 @@ $pais = new Pais;
 if ($dataPais = $pais->readAll()) {
     // Se recorren los registros ($dataCategorias) fila por fila ($rowCategoria).
     foreach ($dataPais as $rowProveedores) {
-        $pdf->SetFont('Arial', '', 11);
+        $pdf->SetFont('Arial', 'B', 11);
         $pdf->SetFillColor(225);
         // Se imprime una celda con el nombre de la categoría.
         $pdf->Cell(240, 10, utf8_decode('País: '.$rowProveedores['nombre_pais']), 1, 1, 'C', 1);
@@ -39,6 +39,7 @@ if ($dataPais = $pais->readAll()) {
                     $pdf->Ln();      
                 }   
             } else {
+                $pdf->SetFont('Arial', '', 11);
                 $pdf->Cell(240, 20, utf8_decode('                                    '.'                                     '.' No hay proveedores registrados para este país'), 1, 1);
             }
             }

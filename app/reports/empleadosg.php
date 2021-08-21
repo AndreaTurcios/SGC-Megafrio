@@ -11,7 +11,7 @@ $templeados = new tipoEmpleado;
 if ($dataEmpleados = $templeados->readAll()) {
     // Se recorren los registros ($dataCategorias) fila por fila ($rowCategoria).
     foreach ($dataEmpleados as $rowEmpleados) {
-        $pdf->SetFont('Arial', '', 11);
+        $pdf->SetFont('Arial', 'B', 11);
         $pdf->SetFillColor(225);
         // Se imprime una celda con el nombre de la categoría.
         $pdf->Cell(193, 10, utf8_decode('Tipo empleado: '.$rowEmpleados['tipoemp']), 1, 1, 'C', 1);
@@ -22,7 +22,7 @@ if ($dataEmpleados = $templeados->readAll()) {
                 // Se establece un color de relleno para los encabezados.
                 $pdf->SetFillColor(225);
                 // Se establece la fuente para los encabezados.
-                $pdf->SetFont('Arial', '', 11);
+                $pdf->SetFont('Arial', 'B', 11);
                 // Se imprimen las celdas con los encabezados.
                 $pdf->Cell(60, 10, utf8_decode('Nombres'), 1, 0, 'C', 1);
                 // Se establece la fuente para los datos de los productos.
@@ -40,6 +40,7 @@ if ($dataEmpleados = $templeados->readAll()) {
                     $pdf->Ln();
                     }   
                 } else {
+                    $pdf->SetFont('Arial', '', 11);
                     $pdf->Cell(193, 20, utf8_decode('                        '.'                            '.' No hay empleados registrados para este rol'), 1, 1);
                 }
                 }
