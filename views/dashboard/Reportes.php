@@ -23,7 +23,7 @@ Dashboard_Page::headerTemplate('Reportes');
                         <a href="../../app/reports/proveedoresg.php">
                             <div class="row">
                                 <div class="col-12" id="BoxSuperior">
-                                    <img src="../../resources/img/materiales/proveedores.png" alt="" class="img-fluid">
+                                    <img src="../../resources/img/materiales/proveedoress.png" alt="" class="img-fluid">
                                 </div>
                                 <div class="col-12" id="BoxInferior">
                                     <h4>Proveedores</h4>
@@ -36,7 +36,7 @@ Dashboard_Page::headerTemplate('Reportes');
                         <a href="../../app/reports/equiposg.php">
                             <div class="row">
                                 <div class="col-12" id="BoxSuperior">
-                                    <img src="../../resources/img/materiales/proveedores.png" alt="" class="img-fluid">
+                                    <img src="../../resources/img/materiales/equipos.png" alt="" class="img-fluid">
                                 </div>
                                 <div class="col-12" id="BoxInferior">
                                     <h4>Equipos</h4>
@@ -49,7 +49,7 @@ Dashboard_Page::headerTemplate('Reportes');
                         <a href="../../app/reports/clientesg.php">
                             <div class="row">
                                 <div class="col-12" id="BoxSuperior">
-                                    <img src="../../resources/img/materiales/proveedores.png" alt="" class="img-fluid">
+                                    <img src="../../resources/img/materiales/clientes.png" alt="" class="img-fluid">
                                 </div>
                                 <div class="col-12" id="BoxInferior">
                                     <h4>Clientes</h4>
