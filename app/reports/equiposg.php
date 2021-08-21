@@ -23,8 +23,7 @@ if ($dataEquipos = $equipo->readAllTipoEquipo()) {
                 // Se imprimen las celdas con los encabezados.
                 $pdf->Cell(50, 10, utf8_decode('Equipo'), 1, 0, 'C', 1);
                 // Se establece la fuente para los datos de los productos.
-                $pdf->Cell(40, 10, utf8_decode('Tipo equipo'), 1, 0, 'C', 1);
-                $pdf->Cell(40, 10, utf8_decode('Descripción'), 1, 0, 'C', 1);
+                $pdf->Cell(80, 10, utf8_decode('Descripción'), 1, 0, 'C', 1);
                 $pdf->Cell(20, 10, utf8_decode('Precio'), 1, 0, 'C', 1);
                 $pdf->Cell(20, 10, utf8_decode('Modelo'), 1, 0, 'C', 1);
                 $pdf->Cell(30, 10, utf8_decode('Voltaje'), 1, 0, 'C', 1);
@@ -36,8 +35,7 @@ if ($dataEquipos = $equipo->readAllTipoEquipo()) {
                 foreach ($dataEquipos as $rowEquipos) {
                     // Se imprimen las celdas con los datos de los productos.                    
                     $pdf->Cell(50, 10, utf8_decode($rowEquipos['nombre_equipo']), 1, 0);
-                    $pdf->Cell(40, 10, utf8_decode($rowEquipos['tipo_equipo']), 1, 0);
-                    $pdf->Cell(40, 10, utf8_decode($rowEquipos['descripcion_equipo']), 1, 0);
+                    $pdf->Cell(80, 10, utf8_decode($rowEquipos['descripcion_equipo']), 1, 0);
                     $pdf->Cell(20, 10, utf8_decode($rowEquipos['precio_equipo']), 1, 0);
                     $pdf->Cell(20, 10, utf8_decode($rowEquipos['modelo']), 1, 0);
                     $pdf->Cell(30, 10, utf8_decode($rowEquipos['voltaje']), 1, 0);

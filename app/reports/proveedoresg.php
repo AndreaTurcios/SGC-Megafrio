@@ -24,18 +24,16 @@ if ($dataPais = $pais->readAll()) {
                 $pdf->Cell(50, 10, utf8_decode('Compañía'), 1, 0, 'C', 1);
                 // Se establece la fuente para los datos de los productos.
                 $pdf->Cell(40, 10, utf8_decode('Teléfono'), 1, 0, 'C', 1);
-                $pdf->Cell(40, 10, utf8_decode('Dirección'), 1, 0, 'C', 1);
-                $pdf->Cell(60, 10, utf8_decode('Info. Tributaria'), 1, 0, 'C', 1);
-                $pdf->Cell(50, 10, utf8_decode('País'), 1, 0, 'C', 1);
+                $pdf->Cell(60, 10, utf8_decode('Dirección'), 1, 0, 'C', 1);
+                $pdf->Cell(90, 10, utf8_decode('Info. Tributaria'), 1, 0, 'C', 1);
                 $pdf->SetFont('Arial', '', 11);
                 $pdf->Ln();
                 // Se recorren los registros
                 foreach ($dataPais as $rowProveedores) {
                     $pdf->Cell(50, 10, utf8_decode($rowProveedores['nombre_compania']), 1, 0);
                     $pdf->Cell(40, 10, utf8_decode($rowProveedores['telefono_pro']), 1, 0);
-                    $pdf->Cell(40, 10, utf8_decode($rowProveedores['direccion_pro']), 1, 0);
-                    $pdf->Cell(60, 10, utf8_decode($rowProveedores['info_tributaria']), 1, 0);
-                    $pdf->Cell(50, 10, $rowProveedores['nombre_pais'], 1, 0);
+                    $pdf->Cell(60, 10, utf8_decode($rowProveedores['direccion_pro']), 1, 0);
+                    $pdf->Cell(90, 10, utf8_decode($rowProveedores['info_tributaria']), 1, 0);
                     $pdf->Ln();      
                 }   
             } else {
