@@ -47,12 +47,12 @@ Dashboard_Page::headerTemplate('Clientes');
                     <thead class="table-info">
                         <tr>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Telefono</th>
+                            <th scope="col">Teléfono</th>
                             <th scope="col">NIT</th>
-                            <th scope="col">Dui</th>
-                            <th scope="col">Direccion</th>
+                            <th scope="col">DUI</th>
+                            <th scope="col">Dirección</th>
                             <th scope="col">Correo</th>
-                            <th scope="col">Estado Pago</th>
+                            <th scope="col">Estado pago</th>
                             <th scope="col">Controladores</th>
                         </tr>
                     </thead>
