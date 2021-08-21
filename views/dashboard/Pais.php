@@ -72,7 +72,7 @@ Dashboard_Page::headerTemplate('Gestión País');
                                   placeholder="Pais">
                               </div>
                               <div class="form-group">
-                                <label for="codigo_postal">Codigo postal:</label>
+                                <label for="codigo_postal">Código postal:</label>
                                 <input type="text" class="form-control" id="codigo_postal" name="codigo_postal"
                                   placeholder="codigo postal">
                               </div>
@@ -112,8 +112,8 @@ Dashboard_Page::headerTemplate('Gestión País');
       <table id="data-table" class="table table-bordered text-center">
         <thead class="table-info">
           <tr>
-            <th scope="col">Nombre_pais</th>
-            <th scope="col">Codigo_postal</th>
+            <th scope="col">Nombre país</th>
+            <th scope="col">Código postal</th>
             <th scope="col">Controladores</th>
           </tr>
         </thead>

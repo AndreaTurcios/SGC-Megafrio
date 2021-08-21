@@ -151,8 +151,8 @@ Dashboard_Page::headerTemplate('Equipo');
       <table id="data-table" class="table table-bordered text-center">
         <thead class="table-info">
           <tr>
-            <th scope="col">Nombre Equipo</th>
-            <th scope="col">Descripcion</th>
+            <th scope="col">Nombre equipo</th>
+            <th scope="col">Descripción</th>
             <th scope="col">Precio</th>
             <th scope="col">Modelo</th>
             <th scope="col">Voltaje</th>
