@@ -68,7 +68,7 @@ Dashboard_Page::headerTemplate('Bitácora');
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="formGroupExampleInput">Ubicacion</label>
+                                            <label for="formGroupExampleInput">Ubicación</label>
                                             <input type="text" class="form-control " placeholder=""
                                                 aria-describedby="basic-addon1" id="ubicacion" name="ubicacion"
                                                 type="text" />
@@ -222,7 +222,7 @@ Dashboard_Page::headerTemplate('Bitácora');
                         <th scope="col">Equipo</th>
                         <th scope="col">Estado Equipo</th>
                         <th scope="col">Tipo de Pago</th>
-                        <th scope="col">Ubicacion</th>
+                        <th scope="col">Ubicación</th>
                         <th scope="col">Archivo</th>
                         <th scope="col">Controladores</th>
                     </tr>
