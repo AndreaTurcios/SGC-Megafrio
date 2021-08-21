@@ -1,20 +1,20 @@
 <?php
     require('../../app/helpers/report.php');
-    require('../../app/models/clientes.php');
+    require('../../app/models/estado_pago.php');
  // Se instancia la clase para crear el reporte.
 $pdf = new Report;
 // Se inicia el reporte con el encabezado del documento.
 $pdf->startReports('Reporte de datos de clientes por estado pago');
 // Se instancia el módelo Categorías para obtener los datos.
-    $clientes = new Clientes;
-    if ($dataClientes = $clientes->readEstadoPago()) {// leer todos los registros
+    $clientes = new Estado_pago;
+    if ($dataClientes = $clientes->readAll()) {// leer todos los registros de estado pago
         foreach ($dataClientes as $rowClientes) {
             $pdf->SetFont('Arial', 'B', 11);
             $pdf->SetFillColor(225);
             $pdf->Cell(253, 10, utf8_decode('Estado pago: '.$rowClientes['estado_pago']), 1, 1, 'C', 1);
-            if ($clientes->setId($rowClientes['id_estado_pago'])) {
+            if ($clientes->setEstado($rowClientes['id_estado_pago'])) {
                 // Se dataClientes si existen registros (productos) para mostrar, de lo contrario se imprime un mensaje.
-                if ($dataClientes = $clientes->readAll()) {
+                if ($dataClientes = $clientes->readCliente()) {
                     $pdf->SetFont('Arial', 'B', 11);
                 // Se imprimen las celdas con los encabezados, en este caso del reporte de clientes
                 $pdf->Cell(40, 10, utf8_decode('Cliente'), 1, 0, 'C', 1);
@@ -38,7 +38,7 @@ $pdf->startReports('Reporte de datos de clientes por estado pago');
                 }   
             } else {
                 $pdf->SetFont('Arial', '', 11);
-                $pdf->Cell(240, 20, utf8_decode('                                    '.'                                     '.' No hay clientes registrados para este estado'), 1, 1);
+                $pdf->Cell(253, 20, utf8_decode('                                    '.'                                     '.' No hay clientes registrados para este estado'), 1, 1);
             }
             }
 }
