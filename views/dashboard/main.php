@@ -6,8 +6,8 @@ Dashboard_Page::headerTemplate('Página principal');
 ?>
 
         <!-- Se muestra un saludo de acuerdo con la hora del empleado -->
-        <div class="row">
-            <h4 class="text-center blue-text" id="greeting"></h4>
+        <div class="col-12 text-center" id="Titulo2">
+            <a id="fontmain"><h4 class="text-center blue-text" id="greeting"></h4></a>    
         </div>
 <main>
         <Section>
