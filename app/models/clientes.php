@@ -135,15 +135,15 @@ class Clientes extends Validator
         return Database::getRows($sql, $params);
     }
 
-    public function readEstadoPago()
+    public function readCliente()
     {
-        $sql = 'SELECT id_estado_pago, estado_pago 
-        FROM estado_pago
-        ORDER BY id_estado_pago;';
-        $params = null;
+        $sql = 'SELECT cli.id_cliente, cli.nombre_cli, cli.telefono_cli, cli.dui_cli, cli.nit_cli, cli.direccion_cli, cli.correo_cli, ep.estado_pago  
+        FROM clientes cli
+        INNER JOIN estado_pago ep on cli.id_estado_pago = ep.id_estado_pago
+        WHERE ep.id_estado_pago = ?';
+        $params = array($this->id_estado_pago);
         return Database::getRows($sql, $params);
     }
-
     public function readEstados()
     {
         $sql = 'SELECT id_estado_pago, estado_pago FROM estado_pago';
