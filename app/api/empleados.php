@@ -171,7 +171,20 @@ if (isset($_GET['action'])) {
                 } else {
                     $result['exception'] = 'Proveedor incorrecto';
                 }
-                break;               
+                break; 
+                case 'topEmpleados':
+                    if ($result['dataset'] = $empleados->topEmpleados()) {
+                        $result['status'] = 1;
+                    } else {
+                        if (Database::getException()) {
+                            $result['exception'] = Database::getException();
+                        } else {
+                            $result['exception'] = 'No hay datos disponibles';
+                        }
+                    }
+                    break;     
+                default:
+                    $result['exception'] = 'Acción no disponible dentro de la sesión';             
         }
         // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
         header('content-type: application/json; charset=utf-8');
