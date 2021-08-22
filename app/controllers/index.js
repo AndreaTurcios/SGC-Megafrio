@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     graficaEstadoEmpleado();
     graficaProveedor(); 
     graficaBarrasEquipo()
+    graficaTopEmpleados()
 });
 
 
@@ -121,6 +122,40 @@ function graficaBarrasEquipo() {
                     barGraph('chartEquipoPro', proveedor, cantidad, 'Cantidad de equipos', 'Top 5 de equipos por proveedor');
                 } else {
                     document.getElementById('chartEquipoPro').remove();
+                    console.log(response.exception);
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    }).catch(function (error) {
+        console.log(error);
+    });
+}
+
+// Función para mostrar la cantidad de empleados con mas tareas finalizadas.
+function graficaTopEmpleados() {
+    fetch(API_EMPLEADOSS + 'topEmpleados', {
+        method: 'get'
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+        if (request.ok) {
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas de la gráfica.
+                if (response.status) {
+                    // Se declaran los arreglos para guardar los datos por gráficar.
+                    let usuario = [];
+                    let cantidad = [];
+                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+                    response.dataset.map(function (row) {
+                        // Se asignan los datos a los arreglos.
+                        usuario.push(row.nombre_usuario);
+                        cantidad.push(row.cantidad);
+                    });
+                    // Se llama a la función que genera y muestra una gráfica de barras. Se encuentra en el archivo components.js
+                    barGraph('chartTopEmpleados', usuario, cantidad, 'Cantidad de tareas', 'Top 3 de empleados con más tareas finalizadas');
+                } else {
+                    document.getElementById('chartTopEmpleados').remove();
                     console.log(response.exception);
                 }
             });

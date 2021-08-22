@@ -195,7 +195,7 @@ class Proveedor extends Validator{
         $sql = 'SELECT nombre_compania, COUNT(id_equipo) cantidad
                 FROM proveedor INNER JOIN equipo USING(id_proveedor)
                 GROUP BY nombre_compania ORDER BY cantidad DESC
-                LIMIT 5';
+                LIMIT 3';
         $params = null;
         return Database::getRows($sql, $params);
     }

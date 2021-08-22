@@ -266,4 +266,18 @@ class Empleados extends Validator{
          $params = array($this->id);
          return Database::getRows($sql, $params);
     }
+
+    /*
+    *   Métodos para generar gráficas.
+    */
+    public function topEmpleados()
+    {
+        $sql = 'SELECT nombre_usuario, COUNT(id_agenda) cantidad
+                FROM empleado INNER JOIN agenda USING(id_empleado)
+                WHERE estado_tarea = true
+                GROUP BY nombre_usuario ORDER BY cantidad DESC
+                LIMIT 3';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
 }
