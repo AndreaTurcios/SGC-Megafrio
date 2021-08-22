@@ -7,7 +7,7 @@ class Estado_pago extends Validator
     public function setEstado($value){
         if ($this->validateNaturalNumber($value)) {
             $this->id_estado_pago = $value;
-            return true;
+            return true;  
         } else {
             return false;
         }
