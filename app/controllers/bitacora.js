@@ -38,7 +38,7 @@ function openCreateDialog() {
                         treshold: 1,
                         onSelectItem: ({ label, value }) => {
                             console.log("user selected:", label, value);
-                            formData.append('id_cliente', value);
+                            document.getElementById('id_cliente').value = value;
                         }
                     });
                     // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
@@ -76,7 +76,7 @@ function openCreateDialog() {
                         treshold: 1,
                         onSelectItem: ({ label, value }) => {
                             console.log("user selected:", label, value);
-                            formData.append('id_empleado', value);
+                            document.getElementById('id_empleado').value = value;
                         }
                     });
                     // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
@@ -114,7 +114,7 @@ function openCreateDialog() {
                         treshold: 1,
                         onSelectItem: ({ label, value }) => {
                             console.log("selected:", label, value);
-                            formData.append('id_equipo', value);
+                            document.getElementById('id_equipo').value = value;
                         }
                     });
                     // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
@@ -227,6 +227,12 @@ function openUpdateDialog(id) {
                     document.getElementById('fecha2').value = response.dataset.fecha;
                     document.getElementById('hora2').value = response.dataset.hora;
                     document.getElementById('ubicacion2').value = response.dataset.ubicacion;
+                    document.getElementById('cliente2').value = response.dataset.nombre_cli;
+                    document.getElementById('empleado2').value = response.dataset.nombre_emp;
+                    document.getElementById('equipo2').value = response.dataset.nombre_equipo;
+                    document.getElementById('id_cliente2').value = response.dataset.id_cliente;
+                    document.getElementById('id_empleado2').value = response.dataset.id_empleado;
+                    document.getElementById('id_equipo2').value = response.dataset.id_equipo;
 
                     fillSelect(LLENAR_ESTADO, 'estado_equipo2', response.dataset.id_estado_equipo);
                     fillSelect(LLENAR_SERVICIO, 'tipo_servicio2', response.dataset.id_tipo_servicio);
@@ -243,7 +249,7 @@ function openUpdateDialog(id) {
         console.log(error);
     });
 
-    let formElement = document.getElementById('save-form');
+    let formElement = document.getElementById('update-form');
     formData = new FormData(formElement);
 
     //LLENAR CLIENTE
@@ -262,7 +268,7 @@ function openUpdateDialog(id) {
                         treshold: 1,
                         onSelectItem: ({ label, value }) => {
                             console.log("user selected:", label, value);
-                            formData.append('id_cliente', value);
+                            document.getElementById('id_cliente2').value = value;
                         }
                     });
                     // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
@@ -300,7 +306,7 @@ function openUpdateDialog(id) {
                         treshold: 1,
                         onSelectItem: ({ label, value }) => {
                             console.log("user selected:", label, value);
-                            formData.append('id_empleado', value);
+                            document.getElementById('id_empleado2').value = value;
                         }
                     });
                     // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
@@ -338,7 +344,7 @@ function openUpdateDialog(id) {
                         treshold: 1,
                         onSelectItem: ({ label, value }) => {
                             console.log("selected:", label, value);
-                            formData.append('id_equipo', value);
+                            document.getElementById('id_equipo2').value = value;
                         }
                     });
                     // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
