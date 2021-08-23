@@ -20,14 +20,14 @@ if (isset($_GET['id'])) {
                 // Se establece la fuente para los encabezados.
                 $pdf->Ln();  
                 $pdf->SetFont('Arial', 'B', 11);
-                // Se imprimen las celdas con los encabezados, en este caso del reporte de agenda
+                // Se imprimen las celdas con los encabezados, en este caso del reporte de clientes
+                $pdf->Cell(253, 10, utf8_decode('Estado pago: '.$rowClientes['estado_pago']), 1, 1, 'C', 1);
                 $pdf->Cell(40, 10, utf8_decode('Cliente'), 1, 0, 'C', 1);
                 $pdf->Cell(30, 10, utf8_decode('Teléfono'), 1, 0, 'C', 1);
                 $pdf->Cell(25, 10, utf8_decode('DUI'), 1, 0, 'C', 1);
-                $pdf->Cell(35, 10, utf8_decode('NIT'), 1, 0, 'C', 1);
-                $pdf->Cell(48, 10, utf8_decode('Dirección'), 1, 0, 'C', 1);
+                $pdf->Cell(40, 10, utf8_decode('NIT'), 1, 0, 'C', 1);
+                $pdf->Cell(68, 10, utf8_decode('Dirección'), 1, 0, 'C', 1);
                 $pdf->Cell(50, 10, utf8_decode('Correo'), 1, 0, 'C', 1);
-                $pdf->Cell(25, 10, utf8_decode('Estado pago'), 1, 0, 'C', 1);
                 // Se establece la fuente para los datos de agenda
                 $pdf->SetFont('Arial', '', 11);
                 $pdf->Ln();
@@ -44,17 +44,14 @@ if (isset($_GET['id'])) {
                         $pdf->Cell(25, 10, utf8_decode($rows['dui_cli']), 1, 0);
                     }
                     if(isset($rows['nit_cli'])){
-                        $pdf->Cell(35, 10, utf8_decode($rows['nit_cli']), 1, 0);
+                        $pdf->Cell(40, 10, utf8_decode($rows['nit_cli']), 1, 0);
                     }   
                     if(isset($rows['direccion_cli'])){
-                        $pdf->Cell(48, 10, utf8_decode($rows['direccion_cli']), 1, 0);
+                        $pdf->Cell(68, 10, utf8_decode($rows['direccion_cli']), 1, 0);
                     }   
                     if(isset($rows['correo_cli'])){
                         $pdf->Cell(50, 10, utf8_decode($rows['correo_cli']), 1, 0);
-                    }   
-                    if(isset($rows['estado_pago'])){
-                        $pdf->Cell(25, 10, utf8_decode($rows['estado_pago']), 1, 0);
-                    }                
+                    }              
                 }
                     } else {
                     $pdf->Cell(0, 10, utf8_decode('No hay tareas asociadas'), 1, 1);

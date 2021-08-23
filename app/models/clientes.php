@@ -178,9 +178,10 @@ class Clientes extends Validator
 
     public function readOne()
     {
-        $sql = 'SELECT id_cliente, nombre_cli, telefono_cli, dui_cli, nit_cli, direccion_cli, correo_cli, id_estado_pago  
-        FROM clientes 
-        WHERE id_cliente = ?';
+        $sql = 'SELECT cli.id_cliente, cli.nombre_cli, cli.telefono_cli, cli.dui_cli, cli.nit_cli, cli.direccion_cli, cli.correo_cli, ep.estado_pago  
+        FROM clientes cli
+        INNER JOIN estado_pago ep on cli.id_estado_pago = ep.id_estado_pago
+        WHERE cli.id_cliente = ?';
         $params = array($this->id_cliente);
         return Database::getRow($sql, $params);
     }

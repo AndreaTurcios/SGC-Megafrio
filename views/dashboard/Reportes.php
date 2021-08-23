@@ -70,7 +70,30 @@ Dashboard_Page::headerTemplate('Reportes');
                             </div>
                         </a>
                     </div>
-
+                    <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 p-3 col-xxl-6 text-center">
+                        <a href="../../app/reports/agendag.php">
+                            <div class="row">
+                                <div class="col-12" id="BoxSuperior">
+                                    <img src="../../resources/img/materiales/equipos.png" alt="" class="img-fluid">
+                                </div>
+                                <div class="col-12" id="BoxInferior">
+                                    <h4>Agenda</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 p-3 col-xxl-6 text-center">
+                        <a href="../../app/reports/bitacorag.php">
+                            <div class="row">
+                                <div class="col-12" id="BoxSuperior">
+                                    <img src="../../resources/img/materiales/equipos.png" alt="" class="img-fluid">
+                                </div>
+                                <div class="col-12" id="BoxInferior">
+                                    <h4>Bitácora</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
 
                 </div>
 
