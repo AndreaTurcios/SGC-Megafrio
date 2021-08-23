@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
             // Se instancia la clase para crear el reporte.
             $pdf = new Report;
             // Se inicia el reporte con el encabezado del documento.
-            $pdf->startReports('Reporte de datos de cliente');
+            $pdf->startReports('Reporte de datos de cliente " '.$rowClientes['nombre_cli'].'"');
             // Se verifica si existen registros (productos) para mostrar, de lo contrario se imprime un mensaje.
             if ($clientess = $clientes->readReport()) {// leer todos los registros
                 // Se establece un color de relleno para los encabezados.

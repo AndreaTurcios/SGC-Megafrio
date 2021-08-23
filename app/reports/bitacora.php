@@ -20,13 +20,14 @@ if (isset($_GET['id'])) {
                 // Se establece la fuente para los encabezados.
                 $pdf->Ln();  
                 $pdf->SetFont('Arial', 'B', 11);
+                $pdf->Cell(229, 10, utf8_decode('Tipo servicio: '.$rowBitacora['tiposervicio']), 1, 0, 'C', 1);
+                $pdf->Ln();
                 // Se imprimen las celdas con los encabezados.
-                $pdf->Cell(35, 10, utf8_decode('Cliente'), 1, 0, 'C', 1);
+                $pdf->Cell(48, 10, utf8_decode('Cliente'), 1, 0, 'C', 1);
                 // Se establece la fuente para los datos de los productos.
-                $pdf->Cell(35, 10, utf8_decode('Empleado'), 1, 0, 'C', 1);
+                $pdf->Cell(48, 10, utf8_decode('Empleado'), 1, 0, 'C', 1);
                 $pdf->Cell(25, 10, utf8_decode('Fecha'), 1, 0, 'C', 1);
                 $pdf->Cell(18, 10, utf8_decode('Hora'), 1, 0, 'C', 1);
-                $pdf->Cell(48, 10, utf8_decode('Tipo de servicio'), 1, 0, 'C', 1);
                 $pdf->Cell(30, 10, utf8_decode('Equipo'), 1, 0, 'C', 1);
                 $pdf->Cell(25, 10, utf8_decode('Estado'), 1, 0, 'C', 1);
                 $pdf->Cell(35, 10, utf8_decode('Ubicación'), 1, 0, 'C', 1);
@@ -36,19 +37,16 @@ if (isset($_GET['id'])) {
                 foreach ($bitacoraa as $rows) {
                     // Se imprimen las celdas con los datos de los productos.                    
                     if(isset($rows['nombre_cli'])){
-                        $pdf->Cell(35, 10, utf8_decode($rows['nombre_cli']), 1, 0);
+                        $pdf->Cell(48, 10, utf8_decode($rows['nombre_cli']), 1, 0);
                     }
                     if(isset($rows['nombre_emp'])){
-                        $pdf->Cell(35, 10, utf8_decode($rows['nombre_emp']), 1, 0);
+                        $pdf->Cell(48, 10, utf8_decode($rows['nombre_emp']), 1, 0);
                     }                    
                     if(isset($rows['fecha'])){
                         $pdf->Cell(25, 10, utf8_decode($rows['fecha']), 1, 0);
                     }
                     if(isset($rows['hora'])){
                         $pdf->Cell(18, 10, utf8_decode($rows['hora']), 1, 0);
-                    }   
-                    if(isset($rows['tiposervicio'])){
-                        $pdf->Cell(48, 10, utf8_decode($rows['tiposervicio']), 1, 0);
                     }   
                     if(isset($rows['nombre_equipo'])){
                         $pdf->Cell(30, 10, utf8_decode($rows['nombre_equipo']), 1, 0);

@@ -237,8 +237,11 @@ class Equipos extends Validator
 
     public function readOne()
     {
-        $sql = 'SELECT id_equipo, foto_equipo, nombre_equipo, descripcion_equipo, precio_equipo, modelo, voltaje, serie,id_proveedor, id_tipo_equipo, id_capacidad
-                FROM equipo
+        $sql = 'SELECT eq.id_equipo, eq.foto_equipo, eq.nombre_equipo, eq.descripcion_equipo, eq.precio_equipo, eq.modelo, eq.voltaje, eq.serie,pro.nombre_compania, tie.tipo_equipo, ca.capacidad
+        FROM equipo eq
+        INNER JOIN proveedor pro on pro.id_proveedor = eq.id_proveedor
+        INNER JOIN tipoequipo tie on tie.id_tipo_equipo = eq.id_tipo_equipo
+        INNER JOIN capacidad ca on ca.id_capacidad = eq.id_capacidad
                 WHERE id_equipo = ?';
         $params = array($this->id_equipo);
         return Database::getRow($sql, $params);

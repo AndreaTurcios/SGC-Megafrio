@@ -31,8 +31,8 @@ class Dashboard_Page
                 <link rel="stylesheet" href="../../resources/css/Estilos/style.css">
                 <link rel="stylesheet" href="../../resources/css/Estilos/login.css">
                 <link rel="stylesheet" href="../../resources/css/vanilla-dataTables.min.css">
-                
-                <title>SGC Mega Frio</title>
+                <title>SGC Megafrio</title>
+                <link rel="shortcut icon" href="../../resources/img/logos/logo.ico" type="image/x-icon">
             </head>
             <body>          
         ');

@@ -269,8 +269,9 @@ class Bitacora extends Validator
     public function readOne()
     {
         $sql = 'SELECT id_bitacora, id_cliente, id_empleado, id_equipo, fecha, 
-        hora, id_tipo_servicio, id_tipo_pago, id_estado_equipo, archivo, ubicacion  
+        hora, id_tipo_servicio, id_tipo_pago, id_estado_equipo, archivo, ubicacion, tiposervicio
         FROM bitacora 
+        INNER JOIN tiposervicio using(id_tipo_servicio)
         WHERE id_bitacora = ?';
         $params = array($this->id_bitacora);
         return Database::getRow($sql, $params);

@@ -139,9 +139,10 @@ class Proveedor extends Validator{
 
     public function readOne()
     {
-        $sql = 'SELECT id_proveedor, nombre_compania, telefono_pro, direccion_pro, id_pais, info_tributaria
-                FROM proveedor 
-                WHERE id_proveedor = ?';
+        $sql = 'SELECT pro.id_proveedor, pro.nombre_compania, pro.telefono_pro, pro.direccion_pro, pa.nombre_pais, pro.info_tributaria
+        FROM proveedor pro
+        INNER JOIN pais pa on pro.id_pais = pa.id_pais
+        WHERE id_proveedor = ?';
         $params = array($this->id_proveedor);
         return Database::getRow($sql, $params);
     }

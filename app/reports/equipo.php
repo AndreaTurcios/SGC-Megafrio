@@ -21,10 +21,10 @@ if (isset($_GET['id'])) {
                 $pdf->Ln();  
                 $pdf->SetFont('Arial', 'B', 11);
                 // Se imprimen las celdas con los encabezados.
+                $pdf->Cell(255, 10, utf8_decode('Tipo equipo: '.$rowEquipo['tipo_equipo']), 1, 1, 'C', 1);
                 $pdf->Cell(50, 10, utf8_decode('Equipo'), 1, 0, 'C', 1);
                 // Se establece la fuente para los datos de los productos.
-                $pdf->Cell(40, 10, utf8_decode('Tipo equipo'), 1, 0, 'C', 1);
-                $pdf->Cell(40, 10, utf8_decode('Descripción'), 1, 0, 'C', 1);
+                $pdf->Cell(80, 10, utf8_decode('Descripción'), 1, 0, 'C', 1);
                 $pdf->Cell(20, 10, utf8_decode('Precio'), 1, 0, 'C', 1);
                 $pdf->Cell(20, 10, utf8_decode('Modelo'), 1, 0, 'C', 1);
                 $pdf->Cell(30, 10, utf8_decode('Voltaje'), 1, 0, 'C', 1);
@@ -37,12 +37,9 @@ if (isset($_GET['id'])) {
                     // Se imprimen las celdas con los datos de los productos.                    
                     if(isset($rows['nombre_equipo'])){
                         $pdf->Cell(50, 10, utf8_decode($rows['nombre_equipo']), 1, 0);
-                    }
-                    if(isset($rows['tipo_equipo'])){
-                        $pdf->Cell(40, 10, utf8_decode($rows['tipo_equipo']), 1, 0);
-                    }                    
+                    }             
                     if(isset($rows['descripcion_equipo'])){
-                        $pdf->Cell(40, 10, utf8_decode($rows['descripcion_equipo']), 1, 0);
+                        $pdf->Cell(80, 10, utf8_decode($rows['descripcion_equipo']), 1, 0);
                     }
                     if(isset($rows['precio_equipo'])){
                         $pdf->Cell(20, 10, utf8_decode($rows['precio_equipo']), 1, 0);

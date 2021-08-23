@@ -20,13 +20,13 @@ if (isset($_GET['id'])) {
                 // Se establece la fuente para los encabezados.
                 $pdf->Ln();  
                 $pdf->SetFont('Arial', 'B', 11);
+                $pdf->Cell(240, 10, utf8_decode('País: '.$rowProveedor['nombre_pais']), 1, 1, 'C', 1);
                 // Se imprimen las celdas con los encabezados.
                 $pdf->Cell(50, 10, utf8_decode('Compañía'), 1, 0, 'C', 1);
                 // Se establece la fuente para los datos de los productos.
                 $pdf->Cell(40, 10, utf8_decode('Teléfono'), 1, 0, 'C', 1);
-                $pdf->Cell(40, 10, utf8_decode('Dirección'), 1, 0, 'C', 1);
-                $pdf->Cell(60, 10, utf8_decode('Info. Tributaria'), 1, 0, 'C', 1);
-                $pdf->Cell(50, 10, utf8_decode('País'), 1, 0, 'C', 1);
+                $pdf->Cell(60, 10, utf8_decode('Dirección'), 1, 0, 'C', 1);
+                $pdf->Cell(90, 10, utf8_decode('Info. Tributaria'), 1, 0, 'C', 1);
                 $pdf->SetFont('Arial', '', 11);
                 $pdf->Ln();
                 // Se recorren los registros
@@ -39,14 +39,11 @@ if (isset($_GET['id'])) {
                         $pdf->Cell(40, 10, utf8_decode($rows['telefono_pro']), 1, 0);
                     }                    
                     if(isset($rows['direccion_pro'])){
-                        $pdf->Cell(40, 10, utf8_decode($rows['direccion_pro']), 1, 0);
+                        $pdf->Cell(60, 10, utf8_decode($rows['direccion_pro']), 1, 0);
                     }
                     if(isset($rows['info_tributaria'])){
-                        $pdf->Cell(60, 10, utf8_decode($rows['info_tributaria']), 1, 0);
-                    }                    
-                    if(isset($rows['nombre_pais'])){
-                        $pdf->Cell(50, 10, $rows['nombre_pais'], 1, 0);
-                    }                  
+                        $pdf->Cell(90, 10, utf8_decode($rows['info_tributaria']), 1, 0);
+                    }               
                 }
             } else {
                 $pdf->Cell(0, 10, utf8_decode('No hay proveedores asociados'), 1, 1);
