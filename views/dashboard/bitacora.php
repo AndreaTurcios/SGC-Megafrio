@@ -83,35 +83,35 @@ Dashboard_Page::headerTemplate('Bitácora');
                                         <br>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Tipo de Servicio</label>
-                                            <select id="tipo_servicio" name="tipo_servicio"></select>
+                                            <select id="tipo_servicio" class="form-select" name="tipo_servicio"></select>
                                         </div>
 
                                         <br>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Estado del Equipo</label>
-                                            <select id="estado_equipo" name="estado_equipo"></select>
+                                            <select id="estado_equipo" class="form-select" name="estado_equipo"></select>
                                         </div>
                                         <br>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Tipo de Pago</label>
-                                            <select id="tipo_pago" name="tipo_pago"></select>
+                                            <select id="tipo_pago" class="form-select" name="tipo_pago"></select>
                                         </div>
                                         <br>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Archivo</label>
-                                            <input id="archivo" type="file" name="archivo" accept=".pdf" /><br>
+                                            <input id="archivo" class="form-control" type="file" name="archivo" accept=".pdf" /><br>
                                         </div>
-                                        <br>
+                                        
                                         <div class="form-group d-none">
                                             <label for="estado_pago">id_cliente</label>
                                             <input type="text" id="id_cliente" name="id_cliente">
                                         </div>
-                                        <br>
+                                        
                                         <div class="form-group d-none">
                                             <label for="estado_pago">id_empleado</label>
                                             <input type="text" id="id_empleado" name="id_empleado">
                                         </div>
-                                        <br>
+                                        
                                         <div class="form-group d-none">
                                             <label for="estado_pago">id_equipo</label>
                                             <input type="text" id="id_equipo" name="id_equipo">
@@ -138,7 +138,7 @@ Dashboard_Page::headerTemplate('Bitácora');
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <div class="form-group">
+                                        <div class="form-group d-none">
                                             <label for="id_bitacora">ID</label>
                                             <input type="text" class="form-control d-none" placeholder="" aria-describedby="basic-addon1" id="id_bitacora" name="id_bitacora" />
                                         </div>
@@ -172,34 +172,34 @@ Dashboard_Page::headerTemplate('Bitácora');
                                         <br>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Tipo de Servicio</label>
-                                            <select id="tipo_servicio2" class="form-control" name="tipo_servicio2"></select>
+                                            <select id="tipo_servicio2" class="form-select" name="tipo_servicio2"></select>
                                         </div>
                                         <br>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Estado del Equipo</label>
-                                            <select id="estado_equipo2" class="form-control" name="estado_equipo2"></select>
+                                            <select id="estado_equipo2" class="form-select" name="estado_equipo2"></select>
                                         </div>
                                         <br>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Tipo de Pago</label>
-                                            <select id="tipo_pago2" class="form-control" name="tipo_pago2"></select>
+                                            <select id="tipo_pago2" class="form-select" name="tipo_pago2"></select>
                                         </div>
                                         <br>
                                         <div class="form-group">
                                             <label for="formGroupExampleInput">Archivo</label>
-                                            <input id="archivo2" type="file" name="archivo2" accept=".pdf" />
+                                            <input id="archivo2" class="form-control" type="file" name="archivo2" accept=".pdf" />
                                         </div>
-                                        <br>
+                                        
                                         <div class="form-group d-none">
                                             <label for="estado_pago">id_cliente</label>
                                             <input type="text" id="id_cliente2" name="id_cliente2">
                                         </div>
-                                        <br>
+                                        
                                         <div class="form-group d-none">
                                             <label for="estado_pago">id_empleado</label>
                                             <input type="text" id="id_empleado2" name="id_empleado2">
                                         </div>
-                                        <br>
+                                       
                                         <div class="form-group d-none">
                                             <label for="estado_pago">id_equipo</label>
                                             <input type="text" id="id_equipo2" name="id_equipo2">
