@@ -198,6 +198,26 @@ Dashboard_Page::headerTemplate('Proveedores');
       </div>
     </div>
   </div>
+  <div class="modal fade" id="graficos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Cantidad de unidades vendidas por equipo del proveedor</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <input type="text" class="form-control " placeholder="" aria-label="Buscar" aria-describedby="basic-addon1"
+            id="id_proveedorChart" type="text" name="id_proveedorChart" class="validate" required>
+          <!-- Se muestra una gráfica de barras con la cantidad de equipos vendidos por el vendedor seleccionado -->
+          <canvas id="chartEquipo"></canvas>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <?php

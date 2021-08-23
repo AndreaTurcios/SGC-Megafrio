@@ -176,7 +176,22 @@ if (isset($_GET['action'])) {
                             $result['exception'] = 'No hay datos disponibles';
                         }
                     }
-                    break; 	            
+                    break; 	 
+                case 'cantidadEquiposPorProveedor':
+                        if ($proveedor->setId($_GET['id'])) {
+                            if ($result['dataset'] = $proveedor->cantidadEquiposPorProveedor()) {
+                                $result['status'] = 1;
+                            } else {
+                                if (Database::getException()) {
+                                    $result['exception'] = Database::getException();
+                                } else {
+                                    $result['exception'] = 'No existe el respectivo proveedor';
+                                }
+                            }
+                        } else {
+                            $result['exception'] = 'Proveedor erróneo';
+                        }
+                        break;               
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';
         }

@@ -119,7 +119,7 @@ function graficaBarrasEquipo() {
                         cantidad.push(row.cantidad);
                     });
                     // Se llama a la función que genera y muestra una gráfica de barras. Se encuentra en el archivo components.js
-                    barGraph('chartEquipoPro', proveedor, cantidad, 'Cantidad de equipos', 'Top 5 de equipos por proveedor');
+                    barGraph('chartEquipoPro', proveedor, cantidad, 'Cantidad de equipos', 'Top 5 proveedores con más equipos instalados');
                 } else {
                     document.getElementById('chartEquipoPro').remove();
                     console.log(response.exception);
