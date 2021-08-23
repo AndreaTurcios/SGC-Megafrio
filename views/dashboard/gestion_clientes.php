@@ -64,7 +64,7 @@ Dashboard_Page::headerTemplate('Clientes');
             <div class="row">
                 <nav>
 
-                    <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center"
+                    <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3"
                         id="MuestraBTN">
                         <div id="ModalAgregarCliente" class="modal fade">
                             <div class="container-fluid">
@@ -86,6 +86,7 @@ Dashboard_Page::headerTemplate('Clientes');
                                                             pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required
                                                             minlength="3" maxlength="50" />
                                                     </div>
+                                                    <br>
                                                     <div class="form-group">
                                                         <label for="telefono_cli">Teléfono</label>
                                                         <input type="text" class="form-control" id="telefono_cli"
@@ -93,23 +94,27 @@ Dashboard_Page::headerTemplate('Clientes');
                                                             pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required
                                                             minlength="9" maxlength="9" />
                                                     </div>
+                                                    <br>
                                                     <div class="form-group">
                                                         <label for="nit_cli">NIT</label>
                                                         <input type="text" class="form-control" id="nit_cli"
                                                             name="nit_cli" placeholder="0000-000000-000-0" validate />
                                                     </div>
+                                                    <br>
                                                     <div class="form-group">
                                                         <label for="dui_cli">Dui</label>
                                                         <input type="text" class="form-control" id="dui_cli"
                                                             name="dui_cli" placeholder="00000000-0" required
                                                             minlength="10" maxlength="10" validate />
                                                     </div>
+                                                    <br>
                                                     <div class="form-group">
                                                         <label for="direccion_cli">Direccion</label>
                                                         <input type="text" class="form-control" id="direccion_cli"
                                                             name="direccion_cli" placeholder="Ej: Av. Los heroes"
                                                             required minlength="1" maxlength="300" />
                                                     </div>
+                                                    <br>
                                                     <div class="form-group">
                                                         <label for="correo_cli">Correo</label>
                                                         <input type="text" class="form-control" id="correo_cli"
@@ -119,7 +124,7 @@ Dashboard_Page::headerTemplate('Clientes');
                                                     <br>
                                                     <div class="form-group">
                                                         <label for="estado_pago">Estado Pago</label>
-                                                        <select id="estado_pago" name="estado_pago">
+                                                        <select id="estado_pago" class="form-select" name="estado_pago">
                                                             <option selected></option>
                                                         </select>
                                                     </div>
@@ -163,27 +168,32 @@ Dashboard_Page::headerTemplate('Clientes');
                                         placeholder="Nombre cliente" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required
                                         minlength="3" maxlength="50" />
                                 </div>
+                                <br>
                                 <div class="form-group">
                                     <label for="telefono_cli2">Teléfono</label>
                                     <input type="text" class="form-control" id="telefono_cli2" name="telefono_cli2"
                                         placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required
                                         minlength="9" maxlength="9" />
                                 </div>
+                                <br>
                                 <div class="form-group">
                                     <label for="nit_cli2">NIT</label>
                                     <input type="text" class="form-control" id="nit_cli2" name="nit_cli2"
                                         placeholder="0000-000000-000-0" validate required />
                                 </div>
+                                <br>
                                 <div class="form-group">
                                     <label for="dui_cli2">Dui</label>
                                     <input type="text" class="form-control" id="dui_cli2" name="dui_cli2"
                                         placeholder="00000000-0" validate required minlength="10" maxlength="11" />
                                 </div>
+                                <br>
                                 <div class="form-group">
                                     <label for="direccion_cli2">Direccion</label>
                                     <input type="text" class="form-control" id="direccion_cli2" name="direccion_cli2"
                                         placeholder="Ej: Av. Los heroes" required minlength="1" maxlength="300" />
                                 </div>
+                                <br>
                                 <div class="form-group">
                                     <label for="correo_cli2">Correo</label>
                                     <input type="text" class="form-control" id="correo_cli2" name="correo_cli2"
@@ -192,7 +202,7 @@ Dashboard_Page::headerTemplate('Clientes');
                                 <br>
                                 <div class="form-group">
                                     <label for="estado_pago2">Estado Pago</label>
-                                    <select id="estado_pago2" name="estado_pago2">
+                                    <select id="estado_pago2" class="form-select" name="estado_pago2">
                                         <option selected></option>
                                     </select>
                                 </div>
