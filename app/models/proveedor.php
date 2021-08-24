@@ -10,6 +10,7 @@ class Proveedor extends Validator{
     private $direccion_pro = null;
     private $id_pais = null;
     private $info_tributaria = null;
+    
 
     /*
     *   Métodos para asignar valores a los atributos.
@@ -147,6 +148,16 @@ class Proveedor extends Validator{
         return Database::getRow($sql, $params);
     }
 
+    public function readOneGraf()
+    {
+        $sql = 'SELECT id_proveedor, pro.nombre_compania, pro.telefono_pro, pro.direccion_pro, pa.nombre_pais, pro.info_tributaria
+        FROM proveedor pro
+        INNER JOIN pais pa on pro.id_pais = pa.id_pais
+        WHERE id_proveedor = ?';
+        $params = array($this->id_proveedor);
+        return Database::getRow($sql, $params);
+    }
+
     public function updateRow()
     {
         $sql = 'UPDATE proveedor 
@@ -203,11 +214,11 @@ class Proveedor extends Validator{
 
     public function cantidadEquiposPorProveedor()
     {
-        $sql = 'SELECT nombre_equipo, COUNT(id_bitacora) cantidad
-                FROM equipo INNER JOIN proveedor USING(id_proveedor)
-                INNER JOIN bitacora USING(id_equipo) 
-                WHERE id_proveedor = ?
-                GROUP BY nombre_equipo ORDER BY cantidad DESC';
+        $sql = 'SELECT nombre_compania, COUNT(id_equipo) AS cantidad, pr.id_proveedor
+        FROM equipo eq
+        INNER JOIN proveedor pr on eq.id_proveedor =  pr.id_proveedor
+        WHERE pr.id_proveedor = ?
+        GROUP BY nombre_equipo , pr.id_proveedor';
         $params = array($this->id_proveedor);
         return Database::getRows($sql, $params);
     }
