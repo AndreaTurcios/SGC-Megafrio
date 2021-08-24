@@ -214,10 +214,9 @@ class Proveedor extends Validator{
 
     public function cantidadEquiposPorProveedor()
     {
-        $sql = 'SELECT nombre_equipo, COUNT(id_bitacora) AS cantidad, pr.id_proveedor
+        $sql = 'SELECT nombre_compania, COUNT(id_equipo) AS cantidad, pr.id_proveedor
         FROM equipo eq
         INNER JOIN proveedor pr on eq.id_proveedor =  pr.id_proveedor
-        INNER JOIN bitacora bt on  bt.id_equipo = eq.id_equipo 
         WHERE pr.id_proveedor = ?
         GROUP BY nombre_equipo , pr.id_proveedor';
         $params = array($this->id_proveedor);

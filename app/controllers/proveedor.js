@@ -139,7 +139,6 @@ function openChart(id){
                 if (response.status) {
                     // Se inicializan los campos del formulario con los datos del registro seleccionado.
                     document.getElementById('idprore').value = response.dataset.id_proveedor;
-                    
                     fetch(API_PROVEEDOR + 'cantidadEquiposPorProveedor', {
                         method: 'post',
                         body: data
@@ -150,16 +149,16 @@ function openChart(id){
                                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas de la gráfica.
                                 if (response.status) {                    
                                     // Se declaran los arreglos para guardar los datos por gráficar.                    
-                                    let nombre = [];
+                                    let nombre_compania = [];
                                     let cantidad = [];
                                     // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
                                     response.dataset.map(function (row) {
                                         // Se asignan los datos a los arreglos.
-                                        nombre.push(row.nombre_equipo);
+                                        nombre_compania.push(row.nombre_compania);
                                         cantidad.push(row.cantidad);
                                     });
                                     // Se llama a la función que genera y muestra una gráfica de pastel en porcentajes. Se encuentra en el archivo components.js
-                                    pieGraph('chartPro', nombre, cantidad, 'Porcentaje de Tratamientos por Tipo');
+                                    lineGraph('chartPro', nombre_compania, cantidad, 'Porcentaje de Tratamientos por Tipo');
                                 } else {
                                     document.getElementById('chartPro').remove();
                                     console.log(response.exception);
