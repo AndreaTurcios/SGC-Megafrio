@@ -178,7 +178,7 @@ if (isset($_GET['action'])) {
                     }
                     break; 	 
                 case 'cantidadEquiposPorProveedor':
-                        if ($proveedor->setId($_GET['id'])) {
+                    if ($proveedor->setId($_POST['idprore'])) {
                             if ($result['dataset'] = $proveedor->cantidadEquiposPorProveedor()) {
                                 $result['status'] = 1;
                             } else {
@@ -189,9 +189,24 @@ if (isset($_GET['action'])) {
                                 }
                             }
                         } else {
-                            $result['exception'] = 'Proveedor erróneo';
+                            $result['exception'] = 'Proveedor erróneo por queeeeeeeeeee';
                         }
-                        break;               
+                        break; 
+                        case 'readOneGraf':
+                            if ($proveedor->setId($_POST['idprore'])) {
+                                if ($result['dataset'] = $proveedor->readOneGraf()) {
+                                    $result['status'] = 1;
+                                } else {
+                                    if (Database::getException()) {
+                                        $result['exception'] = Database::getException();
+                                    } else {
+                                        $result['exception'] = 'No existe el respectivo proveedor';
+                                    }
+                                }
+                            } else {
+                                $result['exception'] = 'Proveedor erróneo f gg';
+                            }
+                            break;              
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';
         }

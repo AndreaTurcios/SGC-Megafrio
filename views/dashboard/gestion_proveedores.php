@@ -198,28 +198,33 @@ Dashboard_Page::headerTemplate('Proveedores');
       </div>
     </div>
   </div>
+
   <div class="modal fade" id="graficos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form method="post" id="send-form"> 
+                            
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Cantidad de unidades vendidas por equipo del proveedor</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <input type="text" class="form-control " placeholder="" aria-label="Buscar" aria-describedby="basic-addon1"
-            id="id_proveedorChart" type="text" name="id_proveedorChart" class="validate" required>
-          <!-- Se muestra una gráfica de barras con la cantidad de equipos vendidos por el vendedor seleccionado -->
-          <canvas id="chartEquipo"></canvas>
-        </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput">ID:</label>
+            <input type="number" id="idprore" name="idprore"  required>
+          </div>
+          <div class="modal-body">
+                <canvas id="chartPro"></canvas>
+          </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
+    </form>
   </div>
-</section>
 
+</section>
+<script type="text/javascript" src="../../resources/js/chart.js"></script>
 <?php
 //Se imprime la plantilla del pie y se envía el nombre del controlador para la página web
 Dashboard_Page::footerTemplate('proveedor.js');

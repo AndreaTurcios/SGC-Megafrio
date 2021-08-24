@@ -29,6 +29,7 @@ function fillTable(dataset) {
             <a href="#" onclick="openDeleteDialog(${row.id_proveedor})" class="btn">Eliminar</a>/
             <a href="#" onclick="openChart(${row.id_proveedor})" class="btn" data-bs-toggle="modal"
             data-bs-target="#graficos">Generar gráfico</a>
+
         </td>
     </tr>
     `;
@@ -119,30 +120,59 @@ function openDeleteDialog(id) {
 }
 
 
-// Función para preparar el formulario al momento de modificar un registro.
-function openChart(id) {
-     fetch(API_PROVEEDOR + 'cantidadEquiposPorProveedor', {
-        method: 'get'
+function openChart(id){
+    
+    // document.getElementById('send-form').reset()
+    // let instance = M.Modal.getInstance(document.getElementById('send-modal'));    
+    //instance.open();
+
+    const data = new FormData();
+    data.append('idprore', id);
+    fetch(API_PROVEEDOR + 'readOneGraf', {
+        method: 'post',
+        body: data
     }).then(function (request) {
         // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
         if (request.ok) {
             request.json().then(function (response) {
-                // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas de la gráfica.
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
-                    // Se declaran los arreglos para guardar los datos por gráficar.
-                    let equipo = [];
-                    let cantidad = [];
-                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
-                    response.dataset.map(function (row) {
-                        // Se asignan los datos a los arreglos.
-                        equipo.push(row.nombre_equipo);
-                        cantidad.push(row.cantidad);
+                    // Se inicializan los campos del formulario con los datos del registro seleccionado.
+                    document.getElementById('idprore').value = response.dataset.id_proveedor;
+                    
+                    fetch(API_PROVEEDOR + 'cantidadEquiposPorProveedor', {
+                        method: 'post',
+                        body: data
+                    }).then(function (request) {
+                        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+                        if (request.ok) {
+                            request.json().then(function (response) {
+                                // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas de la gráfica.
+                                if (response.status) {                    
+                                    // Se declaran los arreglos para guardar los datos por gráficar.                    
+                                    let nombre = [];
+                                    let cantidad = [];
+                                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+                                    response.dataset.map(function (row) {
+                                        // Se asignan los datos a los arreglos.
+                                        nombre.push(row.nombre_equipo);
+                                        cantidad.push(row.cantidad);
+                                    });
+                                    // Se llama a la función que genera y muestra una gráfica de pastel en porcentajes. Se encuentra en el archivo components.js
+                                    pieGraph('chartPro', nombre, cantidad, 'Porcentaje de Tratamientos por Tipo');
+                                } else {
+                                    document.getElementById('chartPro').remove();
+                                    console.log(response.exception);
+                                }
+                            });
+                        } else {
+                            console.log(request.status + ' ' + request.statusText);
+                        }
+                    }).catch(function (error) {
+                        console.log(error);
                     });
-                    // Se llama a la función que genera y muestra una gráfica de barras. Se encuentra en el archivo components.js
-                    barGraph('chartEquipo', usuario, cantidad, 'Cantidad de equipos vendidos', 'Cantidad de unidades vendidas por equipo de un solo proveedor');
                 } else {
-                    document.getElementById('chartEquipo').remove();
-                    console.log(response.exception);
+                    sweetAlert(2, response.exception, null);
                 }
             });
         } else {
