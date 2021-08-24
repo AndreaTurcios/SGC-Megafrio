@@ -22,8 +22,54 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('fecha_nal').setAttribute('min', date);
     document.getElementById('fecha_pro2').setAttribute('min', date);
     document.getElementById('fecha_nal2').setAttribute('min', date);
-    fillSelect(ENDPOINT_CLIENTES, 'cli-select', null);
+    
 });
+
+
+function openCreateDialog() {
+    document.getElementById('save-form').reset();
+
+    //LLENAR CLIENTE
+    fetch(ENDPOINT_CLIENTES, {
+        method: 'get'
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+        if (request.ok) {
+            request.json().then(function (response) {
+                let data = [];
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    const field = document.getElementById('cliente');
+                    const ac = new Autocomplete(field, {
+                        maximumItems: 5,
+                        treshold: 1,
+                        onSelectItem: ({ label, value }) => {
+                            console.log("user selected:", label, value);
+                            document.getElementById('id_cliente').value = value;
+                        }
+                    });
+                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+                    response.dataset.map(function (row) {  
+                        data.push({'label':row.nombre_cli,'value':row.id_cliente});
+                    });
+                    
+                    ac.setData(data);
+
+                } else {
+                    document.getElementById('cliente').placeholder = 'No hay clientes registrados...';
+                }
+              
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    }).catch(function (error) {
+        console.log(error);
+    });
+}
+
+
+
 
 // Función para llenar la tabla con los datos de los registros. Se manda a llamar en la función readRows().
 function fillTable(dataset) {
@@ -96,11 +142,50 @@ function openUpdateDialog(id) {
                     document.getElementById('hora_nal2').value = response.dataset.hora_provisional;
                     document.getElementById('tarea2').value = response.dataset.tarea;
                     document.getElementById('comentario').value = response.dataset.observaciones;
-                    fillSelect(ENDPOINT_CLIENTES,'cli-select2',value = response.dataset.id_cliente);
+                    document.getElementById('cliente2').value = response.dataset.nombre_cli;
                     document.getElementById('tarea-select2').value = response.dataset.estado_tarea;
+                    document.getElementById('id_cliente2').value = response.dataset.id_cliente;
                 } else {
                     sweetAlert(2, response.exception, null);
                 }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    }).catch(function (error) {
+        console.log(error);
+    });
+
+    //LLENAR CLIENTE
+    fetch(ENDPOINT_CLIENTES, {
+        method: 'get'
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+        if (request.ok) {
+            request.json().then(function (response) {
+                let data = [];
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    const field = document.getElementById('cliente2');
+                    const ac = new Autocomplete(field, {
+                        maximumItems: 5,
+                        treshold: 1,
+                        onSelectItem: ({ label, value }) => {
+                            console.log("user selected:", label, value);
+                            document.getElementById('id_cliente2').value = value;
+                        }
+                    });
+                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+                    response.dataset.map(function (row) {  
+                        data.push({'label':row.nombre_cli,'value':row.id_cliente});
+                    });
+                    
+                    ac.setData(data);
+
+                } else {
+                    document.getElementById('cliente2').placeholder = 'No hay clientes registrados...';
+                }
+              
             });
         } else {
             console.log(request.status + ' ' + request.statusText);

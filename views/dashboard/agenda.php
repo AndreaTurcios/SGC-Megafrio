@@ -30,7 +30,7 @@ Dashboard_Page::headerTemplate('Agenda');
                                     </div>
                                     
                                 
-                                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#Modalcreate">
+                                    <button type="button" class="btn" data-bs-toggle="modal" onclick="openCreateDialog()" data-bs-target="#Modalcreate">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus"
                                         viewBox="0 0 16 16">
                                         <path
@@ -81,9 +81,11 @@ Dashboard_Page::headerTemplate('Agenda');
                                 <div class="modal-body">
                                     <form method="post" id="save-form" enctype="multipart/form-data">
                                         <div class="mb-3">
-                                            <label for="message-text" class="col-form-label">Selecciona un cliente:</label>
-                                            <select class="form-select" aria-label="Select" id="cli-select" name="cli-select" class="validate" required>
-                                            </select>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput">Cliente</label>
+                                            <input type="text" id="cliente" name="cliente" autocomplete="off" class="form-control" placeholder="Comience a escribir">
+                                        </div>
+                                        <br>
                                         </div>
                                         <div class="mb-3">
                                             <label for="message-text" class="col-form-label">Fecha de programación:</label>
@@ -126,6 +128,10 @@ Dashboard_Page::headerTemplate('Agenda');
                                             <label for="message-text" class="col-form-label">Observaciones:</label>
                                             <p><textarea type="text" name="comentario" rows="5" cols="60": class="validate" required></textarea></p>
                                         </div>
+                                        <div class="form-group d-none">
+                                            <label for="estado_pago">id_cliente</label>
+                                            <input type="text" id="id_cliente" name="id_cliente">
+                                        </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                             <button type="submit" class="btn btn-primary">Guardar</button>
@@ -149,10 +155,9 @@ Dashboard_Page::headerTemplate('Agenda');
                                             <label for="formGroupExampleInput">ID:</label>
                                             <input type="text" class="form-control " placeholder="" aria-label="Buscar" aria-describedby="basic-addon1" id="id_agenda" type="text" name="id_agenda" class="validate" required>
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="message-text" class="col-form-label">Selecciona un cliente:</label>
-                                            <select class="form-select" aria-label="Select" id="cli-select2" name="cli-select2" class="validate" required>
-                                            </select>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput">Cliente</label>
+                                            <input type="text" id="cliente2" name="cliente2" autocomplete="off" class="form-control" placeholder="Comience a escribir">
                                         </div>
                                         <div class="mb-3">
                                             <label for="message-text" class="col-form-label">Fecha de programación:</label>
@@ -194,6 +199,10 @@ Dashboard_Page::headerTemplate('Agenda');
                                         <div class="mb-3">
                                             <label for="message-text" class="col-form-label">Observaciones:</label>
                                             <p><textarea type="text" id="comentario" name="comentario" rows="5" cols="60": class="validate" required></textarea></p>
+                                        </div>
+                                        <div class="form-group d-none">
+                                            <label for="estado_pago">id_cliente</label>
+                                            <input type="text" id="id_cliente2" name="id_cliente2">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

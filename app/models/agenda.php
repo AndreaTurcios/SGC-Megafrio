@@ -216,8 +216,8 @@ class Agenda extends Validator
 
     public function readOne()
     {
-        $sql = 'SELECT id_agenda, id_cliente, id_empleado, fecha_programacion, hora_programacion, fecha_provisional, hora_provisional, tarea, estado_tarea, observaciones
-                FROM agenda
+        $sql = 'SELECT id_agenda, id_cliente, nombre_cli, id_empleado, fecha_programacion, hora_programacion, fecha_provisional, hora_provisional, tarea, estado_tarea, observaciones
+                FROM agenda INNER JOIN clientes using(id_cliente)
                 WHERE id_agenda = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);

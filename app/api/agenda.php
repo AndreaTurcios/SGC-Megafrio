@@ -61,8 +61,7 @@ if (isset($_GET['action'])) {
                 break;
             case 'create':
                 $_POST = $agenda->validateForm($_POST);
-                if (isset($_POST['cli-select'])) {
-                    if($agenda->setIdCliente($_POST['cli-select'])){
+                    if($agenda->setIdCliente($_POST['id_cliente'])){
                         if($agenda->setIdEmpleado($_SESSION['id_empleado'])){
                             if($agenda->setFechaProgramacion($_POST['fecha_pro'])){
                                 if($agenda->setHoraProgramacion($_POST['hora_pro'])){
@@ -104,9 +103,7 @@ if (isset($_GET['action'])) {
                     } else{
                         $result['exception'] = 'Cliente incorrecto';
                     }
-                } else {
-                    $result['exception'] = 'Seleccione un cliente';
-                }
+                
                 break;
             case 'readOne':
                 if ($agenda->setId($_POST['id_agenda'])) {
@@ -127,8 +124,7 @@ if (isset($_GET['action'])) {
                 $_POST = $agenda->validateForm($_POST);
                 if ($agenda->setId($_POST['id_agenda'])) {
                     if ($data = $agenda->readOne()) {
-                        if (isset($_POST['cli-select2'])) {
-                            if($agenda->setIdCliente($_POST['cli-select2'])){
+                            if($agenda->setIdCliente($_POST['id_cliente2'])){
                                 if($agenda->setIdEmpleado($_SESSION['id_empleado'])){
                                     if($agenda->setFechaProgramacion($_POST['fecha_pro2'])){
                                         if($agenda->setHoraProgramacion($_POST['hora_pro2'])){
@@ -170,9 +166,7 @@ if (isset($_GET['action'])) {
                             } else{
                                 $result['exception'] = 'Cliente incorrecto';
                             }
-                        } else {
-                            $result['exception'] = 'Seleccione un cliente';
-                        }
+                        
                     } else {
                         $result['exception'] = 'Tarea inexistente';
                     }
