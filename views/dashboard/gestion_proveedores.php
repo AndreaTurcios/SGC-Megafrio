@@ -200,13 +200,14 @@ Dashboard_Page::headerTemplate('Proveedores');
   </div>
 
   <div class="modal fade" id="graficos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form method="post" id="send-form"> 
-                            
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Cantidad de unidades vendidas por equipo del proveedor</h5>
-          <div class="form-group">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="post" id="send-form">
+        <div class="form-group d-none">
             <label for="formGroupExampleInput">ID:</label>
             <input type="number" id="idprore" name="idprore"  required>
           </div>
@@ -215,12 +216,11 @@ Dashboard_Page::headerTemplate('Proveedores');
           </div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
+        </form>
+        
+        
       </div>
     </div>
-    </form>
   </div>
 
 </section>

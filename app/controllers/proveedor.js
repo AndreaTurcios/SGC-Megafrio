@@ -149,16 +149,16 @@ function openChart(id){
                                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas de la gráfica.
                                 if (response.status) {                    
                                     // Se declaran los arreglos para guardar los datos por gráficar.                    
-                                    let nombre_compania = [];
+                                    let nombre_equipo = [];
                                     let cantidad = [];
                                     // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
                                     response.dataset.map(function (row) {
                                         // Se asignan los datos a los arreglos.
-                                        nombre_compania.push(row.nombre_compania);
+                                        nombre_equipo.push(row.nombre_equipo);
                                         cantidad.push(row.cantidad);
                                     });
                                     // Se llama a la función que genera y muestra una gráfica de pastel en porcentajes. Se encuentra en el archivo components.js
-                                    lineGraph('chartPro', nombre_compania, cantidad, 'Porcentaje de Tratamientos por Tipo');
+                                    barGraph('chartPro', nombre_equipo, cantidad, 'Cantidad de unidades:', 'Cantidad de unidades vendidas por equipo de cada proveedor');
                                 } else {
                                     document.getElementById('chartPro').remove();
                                     console.log(response.exception);
