@@ -28,6 +28,11 @@ Dashboard_Page::headerTemplate('Página principal');
                             <canvas id="chartEquipoPro"></canvas>
                         </div>
                         <div class="text-center col-12 col-xs-12 col-sm-12 col-lg-6 col-xl-6 p-4 col-xxl-6">
+                            <!-- Se muestra una gráfica de barras con la cantidad de equipos por proveedores -->
+                            <canvas id="chartEquipoTipo"></canvas>
+                        </div>
+
+                        <div class="text-center col-12 col-xs-12 col-sm-12 col-lg-6 col-xl-6 p-4 col-xxl-6">
                             <!-- Se muestra una gráfica de barras con el top 5 empleados con mas tareas completadas -->
                             <canvas id="chartTopEmpleados"></canvas>
                         </div>

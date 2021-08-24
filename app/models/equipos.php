@@ -298,4 +298,17 @@ class Equipos extends Validator
          $params = array($this->id_equipo);
          return Database::getRows($sql, $params);
     }
+
+    /*
+    *   Métodos para generar gráficas.
+    */
+    public function cantidadEquiposTipo()
+    {
+        $sql = 'SELECT tipo_equipo, COUNT(id_equipo) cantidad
+                FROM tipoequipo INNER JOIN equipo USING(id_tipo_equipo)
+                GROUP BY tipo_equipo ORDER BY cantidad DESC
+                LIMIT 3';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
 }

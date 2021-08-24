@@ -2,6 +2,7 @@
 
 const API_EMPLEADOSS = '../../app/api/empleados.php?action=';
 const API_PROVEEDORESS = '../../app/api/proveedor.php?action=';
+const API_EQUIPOSS = '../../app/api/equipo.php?action=';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     graficaProveedor(); 
     graficaBarrasEquipo()
     graficaTopEmpleados()
+    graficaTipoEquipo()
 });
 
 
@@ -97,6 +99,40 @@ function graficaEstadoEmpleado() {
         }).catch(function (error) {
             console.log(error);
         });
+}
+
+
+function graficaTipoEquipo() {
+    fetch(API_EQUIPOSS + 'cantidadEquiposTipo', {
+        method: 'get'
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+        if (request.ok) {
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas de la gráfica.
+                if (response.status) {
+                    // Se declaran los arreglos para guardar los datos por gráficar.
+                    let tipo = [];
+                    let cantidad = [];
+                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+                    response.dataset.map(function (row) {
+                        // Se asignan los datos a los arreglos.
+                        tipo.push(row.tipo_equipo);
+                        cantidad.push(row.cantidad);
+                    });
+                    // Se llama a la función que genera y muestra una gráfica de barras. Se encuentra en el archivo components.js
+                    barGraph('chartEquipoTipo', tipo, cantidad, 'Cantidad de equipos por tipo', 'Top 5 de equipos por tipo de equipo');
+                } else {
+                    document.getElementById('chartEquipoTipo').remove();
+                    console.log(response.exception);
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    }).catch(function (error) {
+        console.log(error);
+    });
 }
 
 // Función para mostrar la cantidad de productos por categoría en una gráfica de barras.
