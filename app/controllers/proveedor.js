@@ -122,9 +122,7 @@ function openDeleteDialog(id) {
 
 function openChart(id){
     
-    // document.getElementById('send-form').reset()
-    // let instance = M.Modal.getInstance(document.getElementById('send-modal'));    
-    //instance.open();
+   
 
     const data = new FormData();
     data.append('idprore', id);

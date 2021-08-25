@@ -34,7 +34,9 @@ function fillTable(dataset) {
                 <td>
                     <a href="../../app/reports/equipo.php?id=${row.id_equipo}"class="btn" data-tooltip="Reporte">Reporte</a> /
                     <a href="#" onclick="openUpdateDialog(${row.id_equipo})"class="btn"  data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</a> /
-                    <a href="#" onclick="openDeleteDialog(${row.id_equipo})"class="btn">Eliminar</a>
+                    <a href="#" onclick="openDeleteDialog(${row.id_equipo})"class="btn">Eliminar</a> / 
+                    <a href="#" onclick="openChart(${row.id_equipo})" class="btn" data-bs-toggle="modal"
+                    data-bs-target="#graficosEquipo">Generar gráfico</a>
                 </td>
             </tr>
         `;
@@ -124,4 +126,64 @@ function openDeleteDialog(id) {
     data.append('id_equipo', id);
     // Se llama a la función que elimina un registro. Se encuentra en el archivo components.js
     confirmDelete(API_EQUIPO, data);
+}
+
+function openChart(id){
+    
+   
+
+    const data = new FormData();
+    data.append('idEquipo', id);
+    fetch(API_EQUIPO + 'readOneGraf', {
+        method: 'post',
+        body: data
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+        if (request.ok) {
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    // Se inicializan los campos del formulario con los datos del registro seleccionado.
+                    document.getElementById('idEquipo').value = response.dataset.id_equipo;
+                    fetch(API_EQUIPO + 'cantidadEquiposFuncionales', {
+                        method: 'post',
+                        body: data
+                    }).then(function (request) {
+                        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+                        if (request.ok) {
+                            request.json().then(function (response) {
+                                // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas de la gráfica.
+                                if (response.status) {                    
+                                    // Se declaran los arreglos para guardar los datos por gráficar.                    
+                                    let estado_equipo = [];
+                                    let cantidad = [];
+                                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+                                    response.dataset.map(function (row) {
+                                        // Se asignan los datos a los arreglos.
+                                        estado_equipo.push(row.estado_equipo);
+                                        cantidad.push(row.cantidad);
+                                    });
+                                    // Se llama a la función que genera y muestra una gráfica de pastel en porcentajes. Se encuentra en el archivo components.js
+                                    barGraph('chartEquipo', estado_equipo, cantidad, 'Cantidad de unidades:', 'Cantidad de unidades funcionales y no funcionales de cada equipo');
+                                } else {
+                                    document.getElementById('chartEquipo').remove();
+                                    console.log(response.exception);
+                                }
+                            });
+                        } else {
+                            console.log(request.status + ' ' + request.statusText);
+                        }
+                    }).catch(function (error) {
+                        console.log(error);
+                    });
+                } else {
+                    sweetAlert(2, response.exception, null);
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    }).catch(function (error) {
+        console.log(error);
+    });
 }

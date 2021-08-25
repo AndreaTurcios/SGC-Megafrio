@@ -266,7 +266,36 @@ if (isset($_GET['action'])) {
                         }
                     }
                     break;
-                
+                case 'cantidadEquiposFuncionales':
+                    if ($equipo->setId($_POST['idEquipo'])) {
+                            if ($result['dataset'] = $equipo->cantidadEquiposFuncionales()) {
+                                $result['status'] = 1;
+                            } else {
+                                if (Database::getException()) {
+                                    $result['exception'] = Database::getException();
+                                } else {
+                                    $result['exception'] = 'No existe el respectivo equipo';
+                                }
+                            }
+                        } else {
+                            $result['exception'] = 'Equipo incorrecto';
+                        }
+                        break; 
+                    case 'readOneGraf':
+                            if ($equipo->setId($_POST['idEquipo'])) {
+                                if ($result['dataset'] = $equipo->readOneGraf()) {
+                                    $result['status'] = 1;
+                                } else {
+                                    if (Database::getException()) {
+                                        $result['exception'] = Database::getException();
+                                    } else {
+                                        $result['exception'] = 'No existe el respectivo proveedor';
+                                    }
+                                }
+                            } else {
+                                $result['exception'] = 'Proveedor erróneo f gg';
+                            }
+                            break; 
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';
         }

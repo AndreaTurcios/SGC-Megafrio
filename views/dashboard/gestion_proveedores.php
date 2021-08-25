@@ -203,7 +203,7 @@ Dashboard_Page::headerTemplate('Proveedores');
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Cantidad de unidades vendidas por equipo del proveedor</h5>
+          <h5 class="modal-title">Gráficas</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="post" id="send-form">
@@ -211,10 +211,10 @@ Dashboard_Page::headerTemplate('Proveedores');
             <label for="formGroupExampleInput">ID:</label>
             <input type="number" id="idprore" name="idprore"  required>
           </div>
-          <div class="modal-body">
-                <canvas id="chartPro"></canvas>
-          </div>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-body">
+                  <canvas id="chartPro"></canvas>
+            </div>
+            
           </div>
         </form>
         

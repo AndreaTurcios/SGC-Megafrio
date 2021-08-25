@@ -164,7 +164,7 @@ Dashboard_Page::headerTemplate('Agenda');
                                             <!-- Campo de entrada de fecha -->
 
                                             <input type="date" id="fecha_pro2" name="fecha_pro2" class="form-control" 
-                                                  class="validate" required/>
+                                                  class="validate" required readonly/>
                                         </div>
                                         <div class="mb-3">
                                         <label for="message-text" class="col-form-label">Hora de programación:</label>

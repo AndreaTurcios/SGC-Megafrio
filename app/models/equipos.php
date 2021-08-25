@@ -311,4 +311,27 @@ class Equipos extends Validator
         $params = null;
         return Database::getRows($sql, $params);
     }
+
+    public function cantidadEquiposFuncionales()
+    {
+        $sql = 'SELECT estado_equipo, COUNT(id_estado_equipo) cantidad
+                FROM bitacora INNER JOIN equipo USING(id_equipo)
+                INNER JOIN estado_equipo USING(id_estado_equipo)
+                WHERE id_equipo = ?
+                GROUP BY estado_equipo ORDER BY cantidad DESC';
+        $params = array($this->id_equipo);
+        return Database::getRows($sql, $params);
+    }
+
+    public function readOneGraf()
+    {
+        $sql = 'SELECT eq.id_equipo, eq.foto_equipo, eq.nombre_equipo, eq.descripcion_equipo, eq.precio_equipo, eq.modelo, eq.voltaje, eq.serie,pro.nombre_compania, tie.tipo_equipo, ca.capacidad
+        FROM equipo eq
+        INNER JOIN proveedor pro on pro.id_proveedor = eq.id_proveedor
+        INNER JOIN tipoequipo tie on tie.id_tipo_equipo = eq.id_tipo_equipo
+        INNER JOIN capacidad ca on ca.id_capacidad = eq.id_capacidad
+                WHERE id_equipo = ?';
+        $params = array($this->id_equipo);
+        return Database::getRow($sql, $params);
+    }
 }

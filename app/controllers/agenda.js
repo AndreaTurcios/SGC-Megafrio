@@ -76,6 +76,7 @@ function fillTable(dataset) {
     let content = '';
     // Se recorre el conjunto de registros (dataset) fila por fila a través del objeto row.
     dataset.map(function (row) {
+        if(row.estado_tarea==true){l='En proceso'} else{l='Finalizado'} 
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
         content += `
             <tr>
@@ -86,7 +87,7 @@ function fillTable(dataset) {
                 <td>${row.fecha_provisional}</td>
                 <td>${row.hora_provisional}</td>
                 <td>${row.tarea}</td>
-                <td>${row.estado_tarea}</td>
+                <td>${l }</td>
                 <td>${row.observaciones}</td>
                 <td>
                 <a href="../../app/reports/agenda.php?id=${row.id_agenda}"class="btn" data-tooltip="Reporte">Reporte</a> /

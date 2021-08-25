@@ -255,8 +255,30 @@ Dashboard_Page::headerTemplate('Equipo');
       </div>
     </div>
   </div>
+  <div class="modal fade" id="graficosEquipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Gráficas</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="post" id="send-form">
+        <div class="form-group d-none">
+            <label for="formGroupExampleInput">ID:</label>
+            <input type="number" id="idEquipo" name="idEquipo"  required>
+          </div>
+            <div class="modal-body">
+                  <canvas id="chartEquipo"></canvas>
+            </div>
+          </div>
+        </form>
+        
+        
+      </div>
+    </div>
+  </div>
 </body>
-
+<script type="text/javascript" src="../../resources/js/chart.js"></script>
 <?php
 // Se imprime la plantilla del pie enviando el nombre del controlador para la página web.
 Dashboard_Page::footerTemplate('equipo.js');
