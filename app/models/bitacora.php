@@ -267,7 +267,7 @@ class Bitacora extends Validator
     }
 
     public function readOne()
-    {
+    {  
         $sql = 'SELECT id_bitacora, id_cliente, id_empleado, id_equipo, nombre_cli, nombre_emp, nombre_equipo, fecha, 
         hora, id_tipo_servicio, id_tipo_pago, id_estado_equipo, archivo, ubicacion, tiposervicio  
         FROM bitacora INNER JOIN clientes using(id_cliente)
