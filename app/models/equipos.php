@@ -312,6 +312,16 @@ class Equipos extends Validator
         return Database::getRows($sql, $params);
     }
 
+    public function cantidadEquiposCapacidad()
+    {
+        $sql = 'SELECT capacidad, COUNT(id_equipo) cantidad
+                FROM capacidad INNER JOIN equipo USING(id_capacidad)
+                GROUP BY capacidad ORDER BY cantidad DESC
+                LIMIT 3';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+
     public function cantidadEquiposFuncionales()
     {
         $sql = 'SELECT estado_equipo, COUNT(id_estado_equipo) cantidad

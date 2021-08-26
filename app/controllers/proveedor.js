@@ -121,9 +121,6 @@ function openDeleteDialog(id) {
 
 
 function openChart(id){
-    
-   
-
     const data = new FormData();
     data.append('idprore', id);
     fetch(API_PROVEEDOR + 'readOneGraf', {

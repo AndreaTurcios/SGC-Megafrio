@@ -1,6 +1,7 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 
 const API_EMPLEADOSS = '../../app/api/empleados.php?action=';
+const API_CLIENTESS = '../../app/api/clientes.php?action=';
 const API_PROVEEDORESS = '../../app/api/proveedor.php?action=';
 const API_EQUIPOSS = '../../app/api/equipo.php?action=';
 
@@ -28,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
     graficaBarrasEquipo()
     graficaTopEmpleados()
     graficaTipoEquipo()
+    graficaClientesPago()
+    graficaCapacidadEquipo()
 });
 
 
@@ -100,6 +103,73 @@ function graficaEstadoEmpleado() {
             console.log(error);
         });
 }
+
+function graficaClientesPago() {
+    fetch(API_CLIENTESS + 'cantidadClientesPago', {
+        method: 'get'
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+        if (request.ok) {
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas de la gráfica.
+                if (response.status) {
+                    // Se declaran los arreglos para guardar los datos por gráficar.
+                    let estado = [];
+                    let cantidad = [];
+                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+                    response.dataset.map(function (row) {
+                        // Se asignan los datos a los arreglos.
+                        estado.push(row.estado_pago);
+                        cantidad.push(row.cantidad);
+                    });
+                    // Se llama a la función que genera y muestra una gráfica de barras. Se encuentra en el archivo components.js
+                    donutGraph('chartClientePago', estado, cantidad, 'Porcentaje de clientes', 'Cantidad de clientes con sus estados de pago');
+                } else {
+                    document.getElementById('chartClientePago').remove();
+                    console.log(response.exception);
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    }).catch(function (error) {
+        console.log(error);
+    });
+}
+
+function graficaCapacidadEquipo() {
+    fetch(API_EQUIPOSS + 'cantidadEquiposCapacidad', {
+        method: 'get'
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+        if (request.ok) {
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas de la gráfica.
+                if (response.status) {
+                    // Se declaran los arreglos para guardar los datos por gráficar.
+                    let capacidad = [];
+                    let cantidad = [];
+                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+                    response.dataset.map(function (row) {
+                        // Se asignan los datos a los arreglos.
+                        capacidad.push(row.capacidad);
+                        cantidad.push(row.cantidad);
+                    });
+                    // Se llama a la función que genera y muestra una gráfica de barras. Se encuentra en el archivo components.js
+                    barGraph('chartEquipoCapacidad', capacidad, cantidad, 'Cantidad de equipos por capacidad', 'Top 3 de capacidades por cantidad equipos');
+                } else {
+                    document.getElementById('chartEquipoCapacidad').remove();
+                    console.log(response.exception);
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    }).catch(function (error) {
+        console.log(error);
+    });
+}
+
 
 
 function graficaTipoEquipo() {

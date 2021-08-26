@@ -194,4 +194,17 @@ class Clientes extends Validator
         $params = array($this->id_cliente);
         return Database::getRows($sql, $params);
     }
+
+    /*
+    *   Métodos para generar gráficas.
+    */
+    public function cantidadClientesPago()
+    {
+        $sql = 'SELECT estado_pago, COUNT(id_cliente) cantidad
+                FROM estado_pago INNER JOIN clientes USING(id_estado_pago)
+                GROUP BY estado_pago ORDER BY cantidad DESC
+                LIMIT 3';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
 }

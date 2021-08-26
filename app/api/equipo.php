@@ -266,6 +266,17 @@ if (isset($_GET['action'])) {
                         }
                     }
                     break;
+                    case 'cantidadEquiposCapacidad':
+                        if ($result['dataset'] = $equipo->cantidadEquiposCapacidad()) {
+                            $result['status'] = 1;
+                        } else {
+                            if (Database::getException()) {
+                                $result['exception'] = Database::getException();
+                            } else {
+                                $result['exception'] = 'No hay datos disponibles';
+                            }
+                        }
+                        break;
                 case 'cantidadEquiposFuncionales':
                     if ($equipo->setId($_POST['idEquipo'])) {
                             if ($result['dataset'] = $equipo->cantidadEquiposFuncionales()) {
