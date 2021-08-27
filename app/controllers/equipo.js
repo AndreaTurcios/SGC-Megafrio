@@ -37,6 +37,7 @@ function fillTable(dataset) {
                     <a href="#" onclick="openDeleteDialog(${row.id_equipo})"class="btn">Eliminar</a> / 
                     <a href="#" onclick="openChart(${row.id_equipo})" class="btn" data-bs-toggle="modal"
                     data-bs-target="#graficosEquipo">Generar gráfico</a>
+                    <a href="#" onclick="openChartEquip(${row.id_equipo})" class="btn" data-bs-toggle="modal" data-bs-target="#graficosEquip">Gráfico</a>
                 </td>
             </tr>
         `;
@@ -169,6 +170,63 @@ function openChart(id){
                                     barGraph('chartEquipo', estado_equipo, cantidad, 'Cantidad de unidades:', 'Cantidad de unidades funcionales y no funcionales de ' + nombre_equipo);
                                 } else {
                                     document.getElementById('chartEquipo').remove();
+                                    console.log(response.exception);
+                                }
+                            });
+                        } else {
+                            console.log(request.status + ' ' + request.statusText);
+                        }
+                    }).catch(function (error) {
+                        console.log(error);
+                    });
+                } else {
+                    sweetAlert(2, response.exception, null);
+                }
+            });
+        } else {
+            console.log(request.status + ' ' + request.statusText);
+        }
+    }).catch(function (error) {
+        console.log(error);
+    });
+}
+
+function openChartEquip(id){
+    const data = new FormData();
+    data.append('idequi', id);
+    fetch(API_EQUIPO + 'readOneGrafEqui', {   
+        method: 'post',
+        body: data
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+        if (request.ok) { 
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    // Se inicializan los campos del formulario con los datos del registro seleccionado.
+                    document.getElementById('idequi').value = response.dataset.id_equipo;
+                    fetch(API_EQUIPO + 'cantidadEquiposCapacidad2', {
+                        method: 'post',
+                        body: data
+                    }).then(function (request) {
+                        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+                        if (request.ok) {
+                            request.json().then(function (response) {
+                                // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas de la gráfica.
+                                if (response.status) {                    
+                                    // Se declaran los arreglos para guardar los datos por gráficar.                    
+                                    let tiposervicio = [];
+                                    let cantidad = [];
+                                    // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
+                                    response.dataset.map(function (row) {
+                                        // Se asignan los datos a los arreglos.
+                                        tiposervicio.push(row.tiposervicio);
+                                        cantidad.push(row.cantidad);        
+                                    });
+                                    // Se llama a la función que genera y muestra una gráfica de pastel en porcentajes. Se encuentra en el archivo components.js
+                                    pieGraph('chartEqui', tiposervicio, cantidad, 'Cantidad de equipos:', 'Cantidad de equipos por tipo de servicio');
+                                } else {
+                                    document.getElementById('chartEqui').remove();
                                     console.log(response.exception);
                                 }
                             });

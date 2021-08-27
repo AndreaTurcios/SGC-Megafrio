@@ -98,7 +98,7 @@ if (isset($_GET['action'])) {
                                     $result['exception'] = 'Equipo incorrecto';
                                 }
                                 break;
-
+                                
                                 case 'create':
                                     $_POST = $equipo->validateForm($_POST);
                                     if ($equipo->setNombre($_POST['nombre_equipo'])) {
@@ -306,7 +306,37 @@ if (isset($_GET['action'])) {
                             } else {
                                 $result['exception'] = 'Proveedor erróneo f gg';
                             }
-                            break; 
+                            break;
+                            case 'readOneGrafEqui':
+                                if ($equipo->setId($_POST['idequi'])) {
+                                    if ($result['dataset'] = $equipo->readOneGrafEqui()) {
+                                        $result['status'] = 1;
+                                    } else {
+                                        if (Database::getException()) {
+                                            $result['exception'] = Database::getException();
+                                        } else {
+                                            $result['exception'] = 'No existe el respectivo proveedor';
+                                        }
+                                    }
+                                } else {
+                                    $result['exception'] = 'Proveedor erróneo f gg';
+                                }
+                                break;
+                            case 'cantidadEquiposCapacidad2':
+                                if ($equipo->setId($_POST['idequi'])) {
+                                        if ($result['dataset'] = $equipo->cantidadEquiposCapacidad2()) {
+                                            $result['status'] = 1;
+                                        } else {
+                                            if (Database::getException()) {
+                                                $result['exception'] = Database::getException();
+                                            } else {
+                                                $result['exception'] = 'No existe el respectivo equipo';
+                                            }
+                                        }
+                                    } else {
+                                        $result['exception'] = 'Equipo incorrecto';
+                                    }
+                                    break; 
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';
         }

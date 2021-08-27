@@ -345,4 +345,29 @@ class Equipos extends Validator
         $params = array($this->id_equipo);
         return Database::getRow($sql, $params);
     }
+
+    public function readOneGrafEqui()
+    {
+        $sql = 'SELECT eq.id_equipo, eq.foto_equipo, eq.nombre_equipo, eq.descripcion_equipo, eq.precio_equipo, eq.modelo, eq.voltaje, eq.serie,pro.nombre_compania, tie.tipo_equipo, ca.capacidad
+        FROM equipo eq
+        INNER JOIN proveedor pro on pro.id_proveedor = eq.id_proveedor
+        INNER JOIN tipoequipo tie on tie.id_tipo_equipo = eq.id_tipo_equipo
+        INNER JOIN capacidad ca on ca.id_capacidad = eq.id_capacidad
+        WHERE id_equipo = ?';
+        $params = array($this->id_equipo);
+        return Database::getRow($sql, $params);
+    }
+    
+
+    public function cantidadEquiposCapacidad2()
+    {
+        $sql = 'SELECT tiposer.tiposervicio, equip.nombre_equipo, COUNT (bita.id_bitacora) as cantidad
+        from equipo equip 
+        inner join bitacora bita on equip.id_equipo = bita.id_equipo
+        inner join tiposervicio tiposer on tiposer.id_tipo_servicio = bita.id_tipo_servicio 
+        where equip.id_equipo = ?
+        group by tiposer.tiposervicio, equip.nombre_equipo, bita.id_bitacora';
+        $params = array($this->id_equipo);
+        return Database::getRows($sql, $params);
+    }
 }

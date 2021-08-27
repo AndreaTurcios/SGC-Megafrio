@@ -236,7 +236,7 @@ Dashboard_Page::headerTemplate('Equipo');
             </div>
             <div class="file-field input-field col s12 m6">
               <div data-tooltip="Seleccione una imagen de al menos 500x500">
-                <input id="archivo_producto" type="file" name="archivo_producto" accept=".gif, .jpg, .png" />
+                <input id="archivo_producto2" type="file" name="archivo_producto2" accept=".gif, .jpg, .png" />
               </div>
             </div>
             <br>
@@ -257,6 +257,30 @@ Dashboard_Page::headerTemplate('Equipo');
   </div>
   <div class="modal fade" id="graficosEquipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
+      <div class="modal-content"> donde guardas el id del equip
+        <div class="modal-header">
+          <h5 class="modal-title">Gráficas</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="post" id="send-form">
+        <div class="form-group d-none">
+            <label for="formGroupExampleInput">ID:</label>
+            <input type="number" id="idequi" name="idequi"  required>
+          </div>
+            <div class="modal-body">
+                  <canvas id="chartPro"></canvas>
+            </div>
+            
+          </div>
+        </form>
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="chartEqui" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Gráficas</h5>
@@ -268,7 +292,7 @@ Dashboard_Page::headerTemplate('Equipo');
             <input type="number" id="idEquipo" name="idEquipo"  required>
           </div>
             <div class="modal-body">
-                  <canvas id="chartEquipo"></canvas>
+                  <canvas id="chartEqui"></canvas> 
             </div>
           </div>
         </form>

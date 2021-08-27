@@ -191,7 +191,7 @@ function graficaTipoEquipo() {
                         cantidad.push(row.cantidad);
                     });
                     // Se llama a la función que genera y muestra una gráfica de barras. Se encuentra en el archivo components.js
-                    barGraph('chartEquipoTipo', tipo, cantidad, 'Cantidad de equipos por tipo', 'Top 5 de equipos por tipo de equipo');
+                    barGraph('chartEquipoTipo', tipo, cantidad, 'Cantidad de equipos por tipo', 'Top 3 de equipos por tipo de equipo');
                 } else {
                     document.getElementById('chartEquipoTipo').remove();
                     console.log(response.exception);
