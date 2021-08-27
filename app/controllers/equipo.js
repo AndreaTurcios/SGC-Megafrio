@@ -35,8 +35,7 @@ function fillTable(dataset) {
                     <a href="../../app/reports/equipo.php?id=${row.id_equipo}"class="btn" data-tooltip="Reporte">Reporte</a> /
                     <a href="#" onclick="openUpdateDialog(${row.id_equipo})"class="btn"  data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</a> /
                     <a href="#" onclick="openDeleteDialog(${row.id_equipo})"class="btn">Eliminar</a> / 
-                    <a href="#" onclick="openChart(${row.id_equipo})" class="btn" data-bs-toggle="modal"
-                    data-bs-target="#graficosEquipo">Generar gráfico</a>
+                    <a href="#" onclick="openChart(${row.id_equipo})" class="btn" data-bs-toggle="modal" data-bs-target="#graficosEquipo">Generar gráfico</a>
                     <a href="#" onclick="openChartEquip(${row.id_equipo})" class="btn" data-bs-toggle="modal" data-bs-target="#graficosEquip">Gráfico</a>
                 </td>
             </tr>

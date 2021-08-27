@@ -202,7 +202,8 @@ Dashboard_Page::headerTemplate('Equipo');
             </div>
             <div class="form-group">
               <label for="precio_equipo2">Precio:</label>
-              <input type="number" class="form-control" id="precio_equipo2" name="precio_equipo2"  min="100.0" max="999.99">
+              <input type="number" class="form-control" id="precio_equipo2" name="precio_equipo2" min="100.0"
+                max="999.99">
             </div>
             <div class="form-group">
               <label for="modelo2">Modelo:</label>
@@ -257,29 +258,25 @@ Dashboard_Page::headerTemplate('Equipo');
   </div>
   <div class="modal fade" id="graficosEquipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content"> donde guardas el id del equip
+      <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Gráficas</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="post" id="send-form">
-        <div class="form-group d-none">
+          <div class="form-group d-none">
             <label for="formGroupExampleInput">ID:</label>
-            <input type="number" id="idequi" name="idequi"  required>
+            <input type="number" id="idequi" name="idequi" required>
           </div>
-            <div class="modal-body">
-                  <canvas id="chartPro"></canvas>
-            </div>
-            
+          <div class="modal-body">
+            <canvas id="chartPro"></canvas>
           </div>
-        </form>
-        
-        
       </div>
+      </form>
     </div>
   </div>
 
-  <div class="modal fade" id="chartEqui" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="graficosEquip" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -287,18 +284,15 @@ Dashboard_Page::headerTemplate('Equipo');
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="post" id="send-form">
-        <div class="form-group d-none">
+          <div class="form-group d-none">
             <label for="formGroupExampleInput">ID:</label>
-            <input type="number" id="idEquipo" name="idEquipo"  required>
+            <input type="number" id="idEquipo" name="idEquipo" required>
           </div>
-            <div class="modal-body">
-                  <canvas id="chartEqui"></canvas> 
-            </div>
+          <div class="modal-body">
+            <canvas id="chartEqui"></canvas>
           </div>
-        </form>
-        
-        
       </div>
+      </form>
     </div>
   </div>
 </body>
