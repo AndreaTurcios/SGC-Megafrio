@@ -119,7 +119,7 @@ function openDeleteDialog(id) {
     confirmDelete(API_PROVEEDOR, data);
 }
 
-
+//Funcion para abrir el modal y mostrar el gráfico con los datos solicitados 
 function openChart(id){
     const data = new FormData();
     data.append('idprore', id);
@@ -154,7 +154,7 @@ function openChart(id){
                                         nombre_equipo.push(row.nombre_equipo);
                                         cantidad.push(row.cantidad);
                                     });
-                                    // Se llama a la función que genera y muestra una gráfica de pastel en porcentajes. Se encuentra en el archivo components.js
+                                    // Se llama a la función que genera y muestra una gráfica de barras en cantidades. Se encuentra en el archivo components.js
                                     barGraph('chartPro', nombre_equipo, cantidad, 'Cantidad de unidades:', 'Cantidad de unidades vendidas por equipo de ' + nombre_compania);
                                 } else {
                                     document.getElementById('chartPro').remove();

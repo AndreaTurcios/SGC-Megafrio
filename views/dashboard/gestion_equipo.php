@@ -255,6 +255,7 @@ Dashboard_Page::headerTemplate('Equipo');
       </div>
     </div>
   </div>
+  <!-- Creación de modal gráficos equipos tanto funcionales como no funcionales-->
   <div class="modal fade" id="graficosEquipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -262,12 +263,14 @@ Dashboard_Page::headerTemplate('Equipo');
           <h5 class="modal-title">Gráficas</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <!--Formulario del gráfico donde se envía el ID -->
         <form action="post" id="send-form">
           <div class="form-group d-none">
             <label for="formGroupExampleInput">ID:</label>
             <input type="number" id="idEquipo" name="idEquipo" required>
           </div>
           <div class="modal-body">
+            <!--Gráfico que muestra la cantidad de unidades tanto funcionales y no funcionales del equipo solicitado -->
             <canvas id="chartEquipo"></canvas>
           </div>
       </div>
@@ -275,7 +278,7 @@ Dashboard_Page::headerTemplate('Equipo');
     </div>
   </div>
   </div>
-
+  <!-- Creación de modal gráficos equipos por tipo servicio-->
   <div class="modal fade" id="graficosEquip" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -283,12 +286,14 @@ Dashboard_Page::headerTemplate('Equipo');
           <h5 class="modal-title">Gráficas</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <!--Formulario del gráfico donde se envía el ID -->
         <form action="post" id="send-form">
           <div class="form-group d-none">
             <label for="formGroupExampleInput">ID:</label>
             <input type="number" id="idequi" name="idequi" required>
           </div>
           <div class="modal-body">
+            <!--Gráfico que muestra el porcentaje de unidades por el tipo de servicio del equipo solicitado -->
             <canvas id="chartEqui"></canvas>
           </div>
       </div>

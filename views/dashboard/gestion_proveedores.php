@@ -198,7 +198,7 @@ Dashboard_Page::headerTemplate('Proveedores');
       </div>
     </div>
   </div>
-
+  <!-- Creación de modal gráficos proveedores de cantidad de unidades vendidas por equipo-->
   <div class="modal fade" id="graficos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -206,12 +206,14 @@ Dashboard_Page::headerTemplate('Proveedores');
           <h5 class="modal-title">Gráficas</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <!--Formulario del gráfico donde se envía el ID -->
         <form action="post" id="send-form">
         <div class="form-group d-none">
             <label for="formGroupExampleInput">ID:</label>
             <input type="number" id="idprore" name="idprore"  required>
           </div>
             <div class="modal-body">
+                  <!--Gráfico que muestra la cantidad de unidades vendidas de equipos por proveedores -->
                   <canvas id="chartPro"></canvas>
             </div>
             

@@ -127,11 +127,8 @@ function openDeleteDialog(id) {
     // Se llama a la función que elimina un registro. Se encuentra en el archivo components.js
     confirmDelete(API_EQUIPO, data);
 }
-
+//Funcion para abrir el modal y mostrar el gráfico con los datos solicitados
 function openChart(id){
-    
-   
-
     const data = new FormData();
     data.append('idEquipo', id);
     fetch(API_EQUIPO + 'readOneGraf', {
@@ -165,7 +162,7 @@ function openChart(id){
                                         estado_equipo.push(row.estado_equipo);
                                         cantidad.push(row.cantidad);
                                     });
-                                    // Se llama a la función que genera y muestra una gráfica de pastel en porcentajes. Se encuentra en el archivo components.js
+                                    // Se llama a la función que genera y muestra una gráfica de barras en cantidades. Se encuentra en el archivo components.js
                                     barGraph('chartEquipo', estado_equipo, cantidad, 'Cantidad de unidades:', 'Cantidad de unidades funcionales y no funcionales de ' + nombre_equipo);
                                 } else {
                                     document.getElementById('chartEquipo').remove();
@@ -190,6 +187,7 @@ function openChart(id){
     });
 }
 
+//Funcion para abrir el modal y mostrar el gráfico con los datos solicitados
 function openChartEquip(id){
     const data = new FormData();
     data.append('idequi', id);
