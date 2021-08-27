@@ -16,7 +16,7 @@ if (isset($_GET['id'])) {
             // Se verifica si existen registros (productos) para mostrar, de lo contrario se imprime un mensaje.
             if ($clientess = $clientes->readReport()) {// leer todos los registros
                 // Se establece un color de relleno para los encabezados.
-                $pdf->SetFillColor(225);
+                $pdf->SetFillColor(174, 232, 251);
                 // Se establece la fuente para los encabezados.
                 $pdf->Ln();  
                 $pdf->SetFont('Arial', 'B', 11);
@@ -31,6 +31,7 @@ if (isset($_GET['id'])) {
                 // Se establece la fuente para los datos de agenda
                 $pdf->SetFont('Arial', '', 11);
                 $pdf->Ln();
+                $pdf->SetFillColor(174, 232, 251);
                 // Se recorren los registros
                 foreach ($clientess as $rows) {
                     // Se imprimen las celdas con los datos de los productos.                    

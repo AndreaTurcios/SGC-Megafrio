@@ -12,7 +12,7 @@ if ($dataEmpleados = $templeados->readAll()) {
     // Se recorren los registros ($dataCategorias) fila por fila ($rowCategoria).
     foreach ($dataEmpleados as $rowEmpleados) {
         $pdf->SetFont('Arial', 'B', 11);
-        $pdf->SetFillColor(225);
+        $pdf->SetFillColor(0, 188, 209);
         // Se imprime una celda con el nombre de la categoría.
         $pdf->Cell(193, 10, utf8_decode('Tipo empleado: '.$rowEmpleados['tipoemp']), 1, 1, 'C', 1);
         // Se establece la categoría para obtener sus productos, de lo contrario se imprime un mensaje de error.
@@ -20,7 +20,7 @@ if ($dataEmpleados = $templeados->readAll()) {
             // Se verifica si existen registros (productos) para mostrar, de lo contrario se imprime un mensaje.
             if ($dataEmpleados = $templeados->readEmpleado()) {
                 // Se establece un color de relleno para los encabezados.
-                $pdf->SetFillColor(225);
+                $pdf->SetFillColor(174, 232, 251);
                 // Se establece la fuente para los encabezados.
                 $pdf->SetFont('Arial', 'B', 11);
                 // Se imprimen las celdas con los encabezados.

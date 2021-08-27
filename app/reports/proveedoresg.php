@@ -12,7 +12,7 @@ if ($dataPais = $pais->readAll()) {
     // Se recorren los registros ($dataCategorias) fila por fila ($rowCategoria).
     foreach ($dataPais as $rowProveedores) {
         $pdf->SetFont('Arial', 'B', 11);
-        $pdf->SetFillColor(225);
+        $pdf->SetFillColor(0, 188, 209);
         // Se imprime una celda con el nombre de la categoría.
         $pdf->Cell(240, 10, utf8_decode('País: '.$rowProveedores['nombre_pais']), 1, 1, 'C', 1);
         // Se establece la categoría para obtener sus productos, de lo contrario se imprime un mensaje de error.
@@ -20,6 +20,7 @@ if ($dataPais = $pais->readAll()) {
             // Se verifica si existen registros (productos) para mostrar, de lo contrario se imprime un mensaje.
             if ($dataPais = $pais->readPais()) {
                 $pdf->SetFont('Arial', 'B', 11);
+                $pdf->SetFillColor(174, 232, 251);
                 // Se imprimen las celdas con los encabezados.
                 $pdf->Cell(50, 10, utf8_decode('Compañía'), 1, 0, 'C', 1);
                 // Se establece la fuente para los datos de los productos.

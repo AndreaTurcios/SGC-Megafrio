@@ -16,10 +16,11 @@ if (isset($_GET['id'])) {
             // Se verifica si existen registros (productos) para mostrar, de lo contrario se imprime un mensaje.
             if ($agendaa = $agenda->readReport()) {// leer todos los registros
                 // Se establece un color de relleno para los encabezados.
-                $pdf->SetFillColor(225);
+                $pdf->SetFillColor(0, 188, 209);
                 // Se establece la fuente para los encabezados.
                 $pdf->Ln();  
                 $pdf->SetFont('Arial', 'B', 11);
+                $pdf->SetFillColor(0, 188, 209);
                 // Se imprimen las celdas con los encabezados, en este caso del reporte de agenda
                 $pdf->Cell(35, 10, utf8_decode('Cliente'), 1, 0, 'C', 1);
                 $pdf->Cell(30, 10, utf8_decode('Usuario'), 1, 0, 'C', 1);

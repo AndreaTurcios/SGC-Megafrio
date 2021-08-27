@@ -15,24 +15,24 @@ if (isset($_GET['id'])) {
             // Se verifica si existen registros (productos) para mostrar, de lo contrario se imprime un mensaje.
             if ($paiss = $pais->readReport()) {// leer todos los registros
                 // Se establece un color de relleno para los encabezados.
-                $pdf->SetFillColor(225);
+                $pdf->SetFillColor(174, 232, 251);
                 // Se establece la fuente para los encabezados.
                 $pdf->Ln();  
                 $pdf->SetFont('Arial', 'B', 11);
                 // Se imprimen las celdas con los encabezados.
-                $pdf->Cell(60, 10, utf8_decode('País'), 1, 0, 'C', 1);
+                $pdf->Cell(100, 10, utf8_decode('País'), 1, 0, 'C', 1);
                 // Se establece la fuente para los datos de los productos.
-                $pdf->Cell(60, 10, utf8_decode('Código postal'), 1, 0, 'C', 1);
+                $pdf->Cell(100, 10, utf8_decode('Código postal'), 1, 0, 'C', 1);
                 $pdf->SetFont('Arial', '', 11);
                 $pdf->Ln();
                 // Se recorren los registros
                 foreach ($paiss as $rows) {
                     // Se imprimen las celdas con los datos de los productos.                    
                     if(isset($rows['nombre_pais'])){
-                        $pdf->Cell(60, 10, utf8_decode($rows['nombre_pais']), 1, 0);
+                        $pdf->Cell(100, 10, utf8_decode($rows['nombre_pais']), 1, 0);
                     }
                     if(isset($rows['codigo_postal'])){
-                        $pdf->Cell(60, 10, utf8_decode($rows['codigo_postal']), 1, 0);
+                        $pdf->Cell(100, 10, utf8_decode($rows['codigo_postal']), 1, 0);
                     }                    
                 }
             } else {

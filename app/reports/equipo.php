@@ -16,7 +16,7 @@ if (isset($_GET['id'])) {
             // Se verifica si existen registros (productos) para mostrar, de lo contrario se imprime un mensaje.
             if ($equipoo = $equipo->readReport()) {// leer todos los registros
                 // Se establece un color de relleno para los encabezados.
-                $pdf->SetFillColor(225);
+                $pdf->SetFillColor(174, 232, 251);
                 // Se establece la fuente para los encabezados.
                 $pdf->Ln();  
                 $pdf->SetFont('Arial', 'B', 11);

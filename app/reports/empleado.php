@@ -12,13 +12,15 @@ if (isset($_GET['id'])) {
             $pdf = new Report;
             // Se inicia el reporte con el encabezado del documento.
             $pdf->startReport('Reporte de datos de empleado');
+            $pdf->SetFillColor(0, 188, 209);
             // Se verifica si existen registros (productos) para mostrar, de lo contrario se imprime un mensaje.
             if ($empleadoss = $empleados->readReport()) {// leer todos los registros
                 // Se establece un color de relleno para los encabezados.
-                $pdf->SetFillColor(225);
+                
                 // Se establece la fuente para los encabezados.
                 $pdf->Ln();  
                 $pdf->SetFont('Arial', 'B', 11);
+                $pdf->SetFillColor(174, 232, 251);
                 // Se imprimen las celdas con los encabezados.
                 $pdf->Cell(193, 10, utf8_decode('Tipo empleado: '.$rowEmpleado['tipoemp']), 1, 0, 'C', 1);
                 $pdf->Ln();
