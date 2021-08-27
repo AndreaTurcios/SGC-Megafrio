@@ -35,8 +35,8 @@ function fillTable(dataset) {
                     <a href="../../app/reports/equipo.php?id=${row.id_equipo}"class="btn" data-tooltip="Reporte">Reporte</a> /
                     <a href="#" onclick="openUpdateDialog(${row.id_equipo})"class="btn"  data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</a> /
                     <a href="#" onclick="openDeleteDialog(${row.id_equipo})"class="btn">Eliminar</a> / 
-                    <a href="#" onclick="openChart(${row.id_equipo})" class="btn" data-bs-toggle="modal" data-bs-target="#graficosEquipo">Generar gráfico</a>
-                    <a href="#" onclick="openChartEquip(${row.id_equipo})" class="btn" data-bs-toggle="modal" data-bs-target="#graficosEquip">Gráfico</a>
+                    <a href="#" onclick="openChart(${row.id_equipo})" class="btn" data-bs-toggle="modal" data-bs-target="#graficosEquipo">Gráfico unidades</a> /
+                    <a href="#" onclick="openChartEquip(${row.id_equipo})" class="btn" data-bs-toggle="modal" data-bs-target="#graficosEquip">Gráfico tipo servicio</a>
                 </td>
             </tr>
         `;
@@ -223,7 +223,7 @@ function openChartEquip(id){
                                         cantidad.push(row.cantidad);        
                                     });
                                     // Se llama a la función que genera y muestra una gráfica de pastel en porcentajes. Se encuentra en el archivo components.js
-                                    pieGraph('chartEqui', tiposervicio, cantidad, 'Cantidad de equipos:', 'Cantidad de equipos por tipo de servicio');
+                                    pieGraph('chartEqui', tiposervicio, cantidad, 'Cantidad de equipos por tipo servicio', 'Cantidad de equipos por tipo de servicio');
                                 } else {
                                     document.getElementById('chartEqui').remove();
                                     console.log(response.exception);

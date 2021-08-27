@@ -90,7 +90,7 @@ function graficaEstadoEmpleado() {
                         });
                         // Se llama a la función que genera y muestra una gráfica de pastel en porcentajes. Se encuentra en el archivo components.js
                        // pieGraph('chart5',['inactivos','activos'], cantidad, 'Porcentaje de empleados por estado' );
-                       lineGraph('ProveedoreG',nombre_pais, cantidad, 'Proveedores por país', 'Top 10 de proveedores por país' );
+                       lineGraph('ProveedoreG',nombre_pais, cantidad, 'Proveedores por país', 'Top 5 de proveedores por país' );
                     } else {
                         document.getElementById('ProveedoreG').remove();
                         console.log(response.exception);
@@ -225,7 +225,7 @@ function graficaBarrasEquipo() {
                         cantidad.push(row.cantidad);
                     });
                     // Se llama a la función que genera y muestra una gráfica de barras. Se encuentra en el archivo components.js
-                    barGraph('chartEquipoPro', proveedor, cantidad, 'Cantidad de equipos', 'Top 5 proveedores con más equipos instalados');
+                    barGraph('chartEquipoPro', proveedor, cantidad, 'Cantidad de equipos', 'Top 5 proveedores con mayor cantidad de equipos');
                 } else {
                     document.getElementById('chartEquipoPro').remove();
                     console.log(response.exception);
