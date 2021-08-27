@@ -285,7 +285,7 @@ if (isset($_GET['action'])) {
                                 if (Database::getException()) {
                                     $result['exception'] = Database::getException();
                                 } else {
-                                    $result['exception'] = 'No existe el respectivo equipo';
+                                    $result['exception'] = 'Actualmente no existen unidades vendidas de este esquipo';
                                 }
                             }
                         } else {

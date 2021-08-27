@@ -154,17 +154,19 @@ function openChart(id){
                             request.json().then(function (response) {
                                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas de la gráfica.
                                 if (response.status) {                    
-                                    // Se declaran los arreglos para guardar los datos por gráficar.                    
+                                    // Se declaran los arreglos para guardar los datos por gráficar.        
+                                    let nombre_equipo = [];            
                                     let estado_equipo = [];
                                     let cantidad = [];
                                     // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
                                     response.dataset.map(function (row) {
                                         // Se asignan los datos a los arreglos.
+                                        nombre_equipo.push(row.nombre_equipo);
                                         estado_equipo.push(row.estado_equipo);
                                         cantidad.push(row.cantidad);
                                     });
                                     // Se llama a la función que genera y muestra una gráfica de pastel en porcentajes. Se encuentra en el archivo components.js
-                                    barGraph('chartEquipo', estado_equipo, cantidad, 'Cantidad de unidades:', 'Cantidad de unidades funcionales y no funcionales de cada equipo');
+                                    barGraph('chartEquipo', estado_equipo, cantidad, 'Cantidad de unidades:', 'Cantidad de unidades funcionales y no funcionales de ' + nombre_equipo);
                                 } else {
                                     document.getElementById('chartEquipo').remove();
                                     console.log(response.exception);

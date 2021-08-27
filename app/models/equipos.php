@@ -324,11 +324,12 @@ class Equipos extends Validator
 
     public function cantidadEquiposFuncionales()
     {
-        $sql = 'SELECT estado_equipo, COUNT(id_estado_equipo) cantidad
-                FROM bitacora INNER JOIN equipo USING(id_equipo)
+        $sql = 'SELECT nombre_equipo, estado_equipo, COUNT(id_estado_equipo) cantidad
+                FROM bitacora 
+                INNER JOIN equipo USING(id_equipo)
                 INNER JOIN estado_equipo USING(id_estado_equipo)
                 WHERE id_equipo = ?
-                GROUP BY estado_equipo ORDER BY cantidad DESC';
+                GROUP BY nombre_equipo, estado_equipo ORDER BY cantidad DESC';
         $params = array($this->id_equipo);
         return Database::getRows($sql, $params);
     }
