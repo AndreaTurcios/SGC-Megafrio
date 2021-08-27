@@ -56,7 +56,7 @@ class Report extends FPDF
             $this->SetTitle('Dashboard - Reporte', true);
             // Se establecen los margenes del documento (izquierdo, superior y derecho).
             $this->setMargins(15, 15, 15);
-            // Se añade una nueva página al documento (orientación vertical y formato carta) y se llama al método Header()
+            // Se añade una nueva página al documento (orientación horizontal y formato carta) y se llama al método Header()
             $this->AddPage('l', 'letter');
             // Se define un alias para el número total de páginas que se muestra en el pie del documento.
             $this->AliasNbPages();
