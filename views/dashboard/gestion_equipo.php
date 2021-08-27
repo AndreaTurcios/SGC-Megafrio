@@ -237,7 +237,7 @@ Dashboard_Page::headerTemplate('Equipo');
             </div>
             <div class="file-field input-field col s12 m6">
               <div data-tooltip="Seleccione una imagen de al menos 500x500">
-                <input id="archivo_producto2" type="file" name="archivo_producto2" accept=".gif, .jpg, .png" />
+                <input id="archivo_producto" type="file" name="archivo_producto" accept=".gif, .jpg, .png" />
               </div>
             </div>
             <br>
@@ -252,7 +252,6 @@ Dashboard_Page::headerTemplate('Equipo');
             <button type="submit" data-tooltip="Actualizar" class="btn btn-primary">Guardar Cambios</button>
           </div>
         </form>
-
       </div>
     </div>
   </div>
@@ -266,14 +265,15 @@ Dashboard_Page::headerTemplate('Equipo');
         <form action="post" id="send-form">
           <div class="form-group d-none">
             <label for="formGroupExampleInput">ID:</label>
-            <input type="number" id="idequi" name="idequi" required>
+            <input type="number" id="idEquipo" name="idEquipo" required>
           </div>
           <div class="modal-body">
-            <canvas id="chartPro"></canvas>
+            <canvas id="chartEquipo"></canvas>
           </div>
       </div>
       </form>
     </div>
+  </div>
   </div>
 
   <div class="modal fade" id="graficosEquip" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -286,15 +286,17 @@ Dashboard_Page::headerTemplate('Equipo');
         <form action="post" id="send-form">
           <div class="form-group d-none">
             <label for="formGroupExampleInput">ID:</label>
-            <input type="number" id="idEquipo" name="idEquipo" required>
+            <input type="number" id="idequi" name="idequi" required>
           </div>
           <div class="modal-body">
             <canvas id="chartEqui"></canvas>
           </div>
       </div>
-      </form>
     </div>
   </div>
+  </div>
+  </form>
+
 </body>
 <script type="text/javascript" src="../../resources/js/chart.js"></script>
 <?php
