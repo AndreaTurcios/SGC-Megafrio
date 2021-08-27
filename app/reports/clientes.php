@@ -3,7 +3,7 @@
 if (isset($_GET['id'])) {
     require('../../app/helpers/report.php');
     require('../../app/models/clientes.php');
-    // Se instancia el modelo en este caso productos para procesar los datos.
+    // Se instancia el modelo en este caso clientes para procesar los datos.
     $clientes = new Clientes;
 
     if ($clientes->setId($_GET['id'])) {
@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
             $pdf = new Report;
             // Se inicia el reporte con el encabezado del documento.
             $pdf->startReports('Reporte de datos de cliente " '.$rowClientes['nombre_cli'].'"');
-            // Se verifica si existen registros (productos) para mostrar, de lo contrario se imprime un mensaje.
+            // Se verifica si existen registros (clientes) para mostrar, de lo contrario se imprime un mensaje.
             if ($clientess = $clientes->readReport()) {// leer todos los registros
                 // Se establece un color de relleno para los encabezados.
                 $pdf->SetFillColor(174, 232, 251);
@@ -34,7 +34,7 @@ if (isset($_GET['id'])) {
                 $pdf->SetFillColor(174, 232, 251);
                 // Se recorren los registros
                 foreach ($clientess as $rows) {
-                    // Se imprimen las celdas con los datos de los productos.                    
+                    // Se imprimen las celdas con los datos de los clientes.                    
                     if(isset($rows['nombre_cli'])){
                         $pdf->Cell(40, 10, utf8_decode($rows['nombre_cli']), 1, 0);
                     }

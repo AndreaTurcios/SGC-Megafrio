@@ -3,7 +3,7 @@
 if (isset($_GET['id'])) {
     require('../../app/helpers/report.php');
     require('../../app/models/equipos.php');
-    // Se instancia el modelo en este caso productos para procesar los datos.
+    // Se instancia el modelo en este caso equipos para procesar los datos.
     $equipo = new Equipos;
 
     if ($equipo->setId($_GET['id'])) {
@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
             $pdf = new Report;
             // Se inicia el reporte con el encabezado del documento.
             $pdf->startReports('Reporte de datos de equipo');
-            // Se verifica si existen registros (productos) para mostrar, de lo contrario se imprime un mensaje.
+            // Se verifica si existen registros (equipos) para mostrar, de lo contrario se imprime un mensaje.
             if ($equipoo = $equipo->readReport()) {// leer todos los registros
                 // Se establece un color de relleno para los encabezados.
                 $pdf->SetFillColor(174, 232, 251);
@@ -23,7 +23,7 @@ if (isset($_GET['id'])) {
                 // Se imprimen las celdas con los encabezados.
                 $pdf->Cell(255, 10, utf8_decode('Tipo equipo: '.$rowEquipo['tipo_equipo']), 1, 1, 'C', 1);
                 $pdf->Cell(50, 10, utf8_decode('Equipo'), 1, 0, 'C', 1);
-                // Se establece la fuente para los datos de los productos.
+                // Se establece la fuente para los datos de los equipos.
                 $pdf->Cell(80, 10, utf8_decode('Descripción'), 1, 0, 'C', 1);
                 $pdf->Cell(20, 10, utf8_decode('Precio'), 1, 0, 'C', 1);
                 $pdf->Cell(20, 10, utf8_decode('Modelo'), 1, 0, 'C', 1);
@@ -34,7 +34,7 @@ if (isset($_GET['id'])) {
                 $pdf->Ln();
                 // Se recorren los registros
                 foreach ($equipoo as $rows) {
-                    // Se imprimen las celdas con los datos de los productos.                    
+                    // Se imprimen las celdas con los datos de los equipos.                    
                     if(isset($rows['nombre_equipo'])){
                         $pdf->Cell(50, 10, utf8_decode($rows['nombre_equipo']), 1, 0);
                     }             

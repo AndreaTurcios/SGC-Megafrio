@@ -3,7 +3,7 @@
 if (isset($_GET['id'])) {
     require('../../app/helpers/report.php');
     require('../../app/models/agenda.php');
-    // Se instancia el modelo en este caso productos para procesar los datos.
+    // Se instancia el modelo en este caso agenda para procesar los datos.
     $agenda = new Agenda;
 
     if ($agenda->setId($_GET['id'])) {
@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
             $pdf = new Report;
             // Se inicia el reporte con el encabezado del documento.
             $pdf->startReports('Reporte de datos de agenda');
-            // Se verifica si existen registros (productos) para mostrar, de lo contrario se imprime un mensaje.
+            // Se verifica si existen registros (agenda) para mostrar, de lo contrario se imprime un mensaje.
             if ($agendaa = $agenda->readReport()) {// leer todos los registros
                 // Se establece un color de relleno para los encabezados.
                 $pdf->SetFillColor(225);
@@ -36,7 +36,7 @@ if (isset($_GET['id'])) {
                 $pdf->Ln();
                 // Se recorren los registros
                 foreach ($agendaa as $rows) {
-                    // Se imprimen las celdas con los datos de los productos.                    
+                    // Se imprimen las celdas con los datos de los agenda.                    
                     if(isset($rows['nombre_cli'])){
                         $pdf->Cell(35, 10, utf8_decode($rows['nombre_cli']), 1, 0);
                     }

@@ -3,7 +3,7 @@
 if (isset($_GET['id'])) {
     require('../../app/helpers/report.php');
     require('../../app/models/bitacora.php');
-    // Se instancia el modelo en este caso productos para procesar los datos.
+    // Se instancia el modelo en este caso bitacora para procesar los datos.
     $bitacora = new Bitacora;
 
     if ($bitacora->setId($_GET['id'])) {
@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
             $pdf = new Report;
             // Se inicia el reporte con el encabezado del documento.
             $pdf->startReports('Reporte de datos de bitácora');
-            // Se verifica si existen registros (productos) para mostrar, de lo contrario se imprime un mensaje.
+            // Se verifica si existen registros (bitacora) para mostrar, de lo contrario se imprime un mensaje.
             if ($bitacoraa = $bitacora->readReport()) {// leer todos los registros
                 // Se establece un color de relleno para los encabezados.
                 $pdf->SetFillColor(0, 188, 209);
@@ -25,7 +25,7 @@ if (isset($_GET['id'])) {
                 $pdf->SetFillColor(174, 232, 251);
                 // Se imprimen las celdas con los encabezados.
                 $pdf->Cell(48, 10, utf8_decode('Cliente'), 1, 0, 'C', 1);
-                // Se establece la fuente para los datos de los productos.
+                // Se establece la fuente para los datos de los bitacora.
                 $pdf->Cell(48, 10, utf8_decode('Empleado'), 1, 0, 'C', 1);
                 $pdf->Cell(25, 10, utf8_decode('Fecha'), 1, 0, 'C', 1);
                 $pdf->Cell(18, 10, utf8_decode('Hora'), 1, 0, 'C', 1);
@@ -36,7 +36,7 @@ if (isset($_GET['id'])) {
                 $pdf->Ln();
                 // Se recorren los registros
                 foreach ($bitacoraa as $rows) {
-                    // Se imprimen las celdas con los datos de los productos.                    
+                    // Se imprimen las celdas con los datos de los bitacora.                    
                     if(isset($rows['nombre_cli'])){
                         $pdf->Cell(48, 10, utf8_decode($rows['nombre_cli']), 1, 0);
                     }

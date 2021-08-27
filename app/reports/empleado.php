@@ -3,7 +3,7 @@
 if (isset($_GET['id'])) {
     require('../../app/helpers/report.php');
     require('../../app/models/empleados.php');
-    // Se instancia el modelo en este caso productos para procesar los datos.
+    // Se instancia el modelo en este caso empleados para procesar los datos.
     $empleados = new Empleados;
     if ($empleados->setId($_GET['id'])) {
         // Se verifica si la categoría del parametro existe, de lo contrario se direcciona a la página web de origen.
@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
             // Se inicia el reporte con el encabezado del documento.
             $pdf->startReport('Reporte de datos de empleado');
             $pdf->SetFillColor(0, 188, 209);
-            // Se verifica si existen registros (productos) para mostrar, de lo contrario se imprime un mensaje.
+            // Se verifica si existen registros (empleados) para mostrar, de lo contrario se imprime un mensaje.
             if ($empleadoss = $empleados->readReport()) {// leer todos los registros
                 // Se establece un color de relleno para los encabezados.
                 
@@ -25,7 +25,7 @@ if (isset($_GET['id'])) {
                 $pdf->Cell(193, 10, utf8_decode('Tipo empleado: '.$rowEmpleado['tipoemp']), 1, 0, 'C', 1);
                 $pdf->Ln();
                 $pdf->Cell(60, 10, utf8_decode('Nombres'), 1, 0, 'C', 1);
-                // Se establece la fuente para los datos de los productos.
+                // Se establece la fuente para los datos de los empleados.
                 $pdf->Cell(60, 10, utf8_decode('Apellidos'), 1, 0, 'C', 1);
                 $pdf->Cell(33, 10, utf8_decode('Usuario'), 1, 0, 'C', 1);
                 $pdf->Cell(40, 10, utf8_decode('Teléfono'), 1, 0, 'C', 1);
@@ -33,7 +33,7 @@ if (isset($_GET['id'])) {
                 $pdf->Ln();
                 // Se recorren los registros
                 foreach ($empleadoss as $rows) {
-                    // Se imprimen las celdas con los datos de los productos.                    
+                    // Se imprimen las celdas con los datos de los empleados.                    
                     if(isset($rows['nombre_emp'])){
                         $pdf->Cell(60, 10, utf8_decode($rows['nombre_emp']), 1, 0);
                     }

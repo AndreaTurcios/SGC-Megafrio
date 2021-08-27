@@ -5,11 +5,11 @@
 $pdf = new Report;
 // Se inicia el reporte con el encabezado del documento.
 $pdf->startReports('Reporte de datos de equipo por tipo equipo');
-// Se instancia el módelo Categorías para obtener los datos.
+// Se instancia el módelo Equipos para obtener los datos.
 $equipo = new Equipos;
-// Se verifica si existen registros (categorías) para mostrar, de lo contrario se imprime un mensaje.
+// Se verifica si existen registros (equipos) para mostrar, de lo contrario se imprime un mensaje.
 if ($dataEquipos = $equipo->readAllTipoEquipo()) {
-    // Se recorren los registros ($dataCategorias) fila por fila ($rowCategoria).
+    // Se recorren los registros ($dataEquipos) fila por fila ($rowEquipos).
     foreach ($dataEquipos as $rowEquipos) {
                 $pdf->SetFont('Arial', 'B', 11);
                 $pdf->SetFillColor(0, 188, 209);
@@ -22,7 +22,7 @@ if ($dataEquipos = $equipo->readAllTipoEquipo()) {
                 $pdf->SetFont('Arial', 'B', 11);
                 // Se imprimen las celdas con los encabezados.
                 $pdf->Cell(50, 10, utf8_decode('Equipo'), 1, 0, 'C', 1);
-                // Se establece la fuente para los datos de los productos.
+                // Se establece la fuente para los datos de los equipos.
                 $pdf->Cell(80, 10, utf8_decode('Descripción'), 1, 0, 'C', 1);
                 $pdf->Cell(20, 10, utf8_decode('Precio'), 1, 0, 'C', 1);
                 $pdf->Cell(20, 10, utf8_decode('Modelo'), 1, 0, 'C', 1);
@@ -33,7 +33,7 @@ if ($dataEquipos = $equipo->readAllTipoEquipo()) {
                 $pdf->Ln();
                 // Se recorren los registros
                 foreach ($dataEquipos as $rowEquipos) {
-                    // Se imprimen las celdas con los datos de los productos.                    
+                    // Se imprimen las celdas con los datos de los equipos.                    
                     $pdf->Cell(50, 10, utf8_decode($rowEquipos['nombre_equipo']), 1, 0);
                     $pdf->Cell(80, 10, utf8_decode($rowEquipos['descripcion_equipo']), 1, 0);
                     $pdf->Cell(20, 10, utf8_decode($rowEquipos['precio_equipo']), 1, 0);
