@@ -58,7 +58,7 @@ class Validator
     public function validateForm($fields)
     {
         foreach ($fields as $index => $value) {
-            $value = strip_tags(trim($value);
+            $value = strip_tags(trim($value));
             $fields[$index] = $value;
         }
         return $fields;
