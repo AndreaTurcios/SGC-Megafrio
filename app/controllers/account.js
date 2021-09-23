@@ -1,9 +1,9 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
-const API = '../../app/api/usuarios.php?action=';
+const API_USUARIOS = '../../app/api/usuarios.php?action=';
 
 // Función para mostrar el formulario de editar perfil con los datos del usuario que ha iniciado sesión.
 function openProfileDialog() {
-    fetch(API + 'readProfile', {
+    fetch(API_USUARIOS + 'readProfile', {
         method: 'get'
     }).then(function (request) {
         // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
@@ -33,7 +33,7 @@ document.getElementById('profile-form').addEventListener('submit', function (eve
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
 
-    fetch(API + 'editProfile', {
+    fetch(API_USUARIOS + 'editProfile', {
         method: 'post',
         body: new FormData(document.getElementById('profile-form'))
     }).then(function (request) {
@@ -68,7 +68,7 @@ function logOut() {
     }).then(function (value) {
         // Se verifica si fue cliqueado el botón Sí para hacer la petición de cerrar sesión, de lo contrario se muestra un mensaje.
         if (value) {
-            fetch(API + 'logOut', {
+            fetch(API_USUARIOS + 'logOut', {
                 method: 'get'
             }).then(function (request) {
                 // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
@@ -98,7 +98,7 @@ document.getElementById('password-form').addEventListener('submit', function (ev
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
 
-    fetch(API + 'changePassword', {
+    fetch(API_USUARIOS + 'changePassword', {
         method: 'post',
         body: new FormData(document.getElementById('password-form'))
     }).then(function (request) {
@@ -109,7 +109,7 @@ document.getElementById('password-form').addEventListener('submit', function (ev
                 if (response.status) {
                     // Se cierra la caja de dialogo (modal) del formulario.
                     
-                    fetch(API + 'logOut', {
+                    fetch(API_USUARIOS + 'logOut', {
                         method: 'get'
                     }).then(function (request) {
                         // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', sessionTime);
 
 function sessionTime() 
 {
-        fetch(API + 'sessionTime', {
+        fetch(API_USUARIOS + 'sessionTime', {
             method: 'get'
         }).then(function (request) {
             // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
