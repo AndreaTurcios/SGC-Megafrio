@@ -50,5 +50,5 @@ Dashboard_Page::headerTemplate('Página principal');
     
 <?php
 // Se imprime la plantilla del encabezado enviando el título de la página web.
-Dashboard_Page::footerTemplate('account.js');
+Dashboard_Page::footerTemplate('ignoreme.js');
 ?>
