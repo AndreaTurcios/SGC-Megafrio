@@ -70,6 +70,7 @@ class Dashboard_Page
                       <!-- Columna para perfil pero en usuarios de pantalla grande -->
                       <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-2 col-xxl-2 text-center d-none d-lg-block">
                         <button class="btn btnperfill"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white"><i class="far fa-user"></i> Perfil</a></button>
+                        <button class="btn btnperfill"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white"><i class="far fa-user"></i> Perfil</a></button>
                         <button class="btn btncerrar" id="cerrar">
                           <i href="#" onclick="logOut()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</i>
                         </button>
@@ -246,6 +247,7 @@ class Dashboard_Page
               </div>
               <!-- Columna para perfil pero en usuarios de pantalla grande -->
               <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-2 col-xxl-2 text-center d-none d-lg-block">
+              <button class="btn btncontra"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-white"><i class="fas fa-shield-alt"></i> Cambiar contraseña</a></button>
               <button class="btn btnperfill"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white" id="fontmen"><i class="far fa-user"></i> Perfil</a></button>
               <button class="btn btncerrar" id="cerrar">
                 <i href="#" id="fontmen" onclick="logOut()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</i>
@@ -388,7 +390,56 @@ class Dashboard_Page
                     </form>
                     </div>
                 </div>
-            </div>');
+            </div>
+            <div class="modal fade" id="password-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modal-title"> Cambio de contraseña</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="password-form" method="post" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        
+                                            <i class="fas fa-shield-alt"></i>
+                                            <label for="clave_actual">Clave actual</label>   
+                                            <input id="clave_actual" type="password" name="clave_actual" class="validate form-control" required/>
+                                            
+                                        
+                                    </div>
+                                    <br>
+                                    <div class="center-align">
+                                        <label>CLAVE NUEVA</label>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        
+                                            <i class="fas fa-shield-alt"></i>
+                                            <label for="clave_nueva_1">Clave</label>
+                                            <input id="clave_nueva_1" type="password" name="clave_nueva_1" class="validate form-control" required/>
+                                            
+                                            
+                                    </div>
+                                    <br>
+                                    
+                                    <div class="form-group">
+                                            <i class="fas fa-shield-alt"></i>
+                                            <label for="clave_nueva_2">Confirmar clave</label>   
+                                            <input id="clave_nueva_2" type="password" name="clave_nueva_2" class="validate form-control" required/>
+                                            
+                                    </div>        
+                                </div>  
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" data-tooltip="Actualizar" class="btn btn-primary" >Guardar Cambios</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div> 
+            ');
                 
             } else {
                 header('location: main.php');

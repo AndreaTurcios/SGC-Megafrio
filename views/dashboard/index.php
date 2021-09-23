@@ -43,7 +43,7 @@ Dashboard_Page::headerTemplate('Iniciar sesión');
                             <h4>Usuario:</h4>
                         </div>
                         <div class="col-8">
-                            <input class="form-control me-2" type="text" placeholder="Ingrese su nombre de usuario" aria-label="Usuario" name="username" class="validate" required>
+                            <input class="form-control me-2" type="text" placeholder="Ingrese su nombre de usuario" aria-label="Usuario" name="username" class="validate" autocomplete="off" required>
                         </div>
                     </div>
                     <br>
@@ -54,7 +54,7 @@ Dashboard_Page::headerTemplate('Iniciar sesión');
                             <h4>Contraseña:</h4>
                         </div>
                         <div class="col-8">
-                            <input class="form-control me-2" type="password" placeholder="Ingrese su contraseña" aria-label="Usuario" name="clave" class="validate" required>
+                            <input class="form-control me-2" type="password" placeholder="Ingrese su contraseña" aria-label="Usuario" name="clave" class="validate" autocomplete="off" required>
                         </div>
                     </div>
                     <br>

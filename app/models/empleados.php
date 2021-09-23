@@ -17,6 +17,16 @@ class Empleados extends Validator{
     /*
     *   Métodos para asignar valores a los atributos.
     */
+
+    public function setPasswordAlias($value, $alias)
+    {
+        if ($this->validatePasswordAlias($value, $alias)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function setId($value)
     {
         if ($this->validateNaturalNumber($value)) {
@@ -279,5 +289,14 @@ class Empleados extends Validator{
                 LIMIT 3';
         $params = null;
         return Database::getRows($sql, $params);
+    }
+
+    public function changePassword()
+    {
+        // Se transforma la contraseña a una cadena de texto de longitud fija mediante el algoritmo por defecto.
+        $hash = password_hash($this->claveempleado, PASSWORD_DEFAULT);
+        $sql = 'UPDATE empleado SET clave_emp = ? WHERE id_empleado = ?';
+        $params = array($hash, $_SESSION['id_empleado']);
+        return Database::executeRow($sql, $params);
     }
 }

@@ -58,7 +58,7 @@ class Validator
     public function validateForm($fields)
     {
         foreach ($fields as $index => $value) {
-            $value = trim($value);
+            $value = strip_tags(trim($value);
             $fields[$index] = $value;
         }
         return $fields;
@@ -255,12 +255,56 @@ class Validator
     public function validatePassword($value)
     {
         // Se verifica la longitud mínima de la contraseña.
-        if (strlen($value) >= 6) {
-            return true;
-        } else {
-            $this->passwordError = 'Clave menor a 6 caracteres';
+        if (strlen($value) < 8) {
+            $this->passwordError = 'Clave menor a 8 caracteres';
             return false;
+        } else{
+            if(strlen($value) > 16){
+            $this->passwordError = "La clave no puede tener más de 16 caracteres";
+            return false;
+            } else{
+                if (!preg_match('`[a-z]`',$value)){
+                $this->passwordError = "La clave debe tener al menos una letra minúscula";
+                return false;
+                } else{
+                    if (!preg_match('`[A-Z]`',$value)){
+                    $this->passwordError = "La clave debe tener al menos una letra mayúscula";
+                    return false;
+                    } else{
+                        if (!preg_match('`[0-9]`',$value)){
+                        $this->passwordError = "La clave debe tener al menos un caracter numérico";
+                        return false;
+                        } else {
+                            if ((strpos($value, " "))){
+                                $this->passwordError = "Procure que la contraseña no tenga espacios";
+                                return false;
+                            } else{
+                                if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $value)){
+
+                                        return true;
+                                }
+                                else {
+                                    $this->passwordError = "Agregar por lo menos un carácter especial";
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }     
+    }
+
+    public function validatePasswordAlias($value, $alias)
+    {
+        similar_text($value, $alias, $percent);
+        if($percent >= 30){
+            $this->passwordError = "Por favor, no ocupe su nombre de usuario como contraseña";
+            return false;
+        } else{
+            return true;
         }
+        
     }
 
     /*
