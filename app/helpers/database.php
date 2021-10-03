@@ -98,6 +98,7 @@ class Database
             return false;
         }
     }
+    
 
     /*
     *   Método para obtener todos los registros de una sentencia SQL tipo SELECT.
@@ -149,10 +150,11 @@ class Database
                 self::$error = 'Registro ocupado, no se puede eliminar';
                 break;
             default:
-                //self::$error = 'Ocurrió un problema en la base de datos';
-                self::$error = $message;
+                self::$error = 'Ocurrió un problema en la base de datos';
+                self::$error = $message;    
         }
     }
+    
 
     /*
     *   Método para obtener un error personalizado cuando ocurre una excepción.

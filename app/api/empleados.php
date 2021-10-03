@@ -74,22 +74,23 @@ if (isset($_GET['action'])) {
                                                 }
                                         }else {
                                             $result['exception'] ='Clave demasiado corta';
+                                            $result['exception'] = $empleados->getPasswordError();
                                             }
                                             }else {
                                                 $result['exception'] ='Contraseñas no coinciden';
                                                 }
                                     } else {
-                                        $result['exception'] = $empleados->getPasswordError();
-                                        $result['exception'] = 'Claves inválida';
+                                        
+                                        $result['exception'] = 'Teléfono incorrecto';
                                             }
                                 } else {
-                                    $result['exception'] = 'Claves diferentes';
+                                    $result['exception'] = 'Apellido de empleado incorrecto';
                                         }
                             }else {
-                                $result['exception'] ='Nombre de usuario incorrecto';
+                                $result['exception'] ='Nombre de empleado incorrecto';
                                 }
                         }else {
-                            $result['exception'] ='Estado incorrecto';
+                            $result['exception'] ='Nombre de usuario incorrecto';
                             }
                     }else {
                         $result['exception'] ='No utilice su nombre de usuario como contraseña';
