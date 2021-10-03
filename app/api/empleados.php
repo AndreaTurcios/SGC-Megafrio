@@ -50,42 +50,50 @@ if (isset($_GET['action'])) {
             // En el caso de que el action detecte que se desea crear o insertar, se ejecutará lo siguiente
             case 'create':
                 $_POST = $empleados->validateForm($_POST);
-                if ($empleados->setNombreUsuario($_POST['nombre_usuario'])) {
-                    if ($empleados->setNombreEmpleado($_POST['nombre_emp'])) {
-                        if ($empleados->setApellidoEmpleado($_POST['apellido_emp'])) {
-                            if ($empleados->setTelefonoEmpleado($_POST['telefono_emp'])) {
-                                if ($empleados->setClaveEmpleado($_POST['clave_emp'])) {
-                                    if ($empleados->setEstado($_POST['estado'])) {
-                                    if ($empleados->setIDTipoEmpleado($_POST['tipoemp'])) {
-                                        if ($empleados->createRow()) {
-                                            $result['status'] = 1;
-                                            // Se indica que el empleado se registró existosamente en el caso de que los if se ejecuten automáticamente, caso contrario nos manda los siguientes mensajes
-                                            $result['message'] = 'Empleado registrado exitosamente';                                                        
-                                        } else {
-                                            $result['exception'] = Database::getException();                                                        
-                                                }  
+                if ($empleados->validatePasswordAlias($_POST['clave_emp'],$_POST['nombre_usuario'])) {
+                    if ($empleados->setNombreUsuario($_POST['nombre_usuario'])) {
+                        if ($empleados->setNombreEmpleado($_POST['nombre_emp'])) {
+                            if ($empleados->setApellidoEmpleado($_POST['apellido_emp'])) {
+                                if ($empleados->setTelefonoEmpleado($_POST['telefono_emp'])) {
+                                    if ($_POST['clave_emp'] == $_POST['claveconf']) {
+                                        if ($empleados->setClaveEmpleado($_POST['clave_emp'])) {
+                                            if ($empleados->setEstado($_POST['estado'])) {
+                                                if ($empleados->setIDTipoEmpleado($_POST['tipoemp'])) {
+                                                    if ($empleados->createRow()) {
+                                                    $result['status'] = 1;
+                                                    // Se indica que el empleado se registró existosamente en el caso de que los if se ejecuten automáticamente, caso contrario nos manda los siguientes mensajes
+                                                    $result['message'] = 'Empleado registrado exitosamente';                                                        
+                                                    } else {
+                                                        $result['exception'] = Database::getException();                                                        
+                                                    }  
+                                                }else {
+                                                    $result['exception'] ='Tipo empleado incorrecto';
+                                                }
                                             }else {
-                                                $result['exception'] ='Tipo empleado incorrecto';
-                                                  }
-                                    }else {
-                                        $result['exception'] ='Estado empleado incorrecto';
-                                          }
-                                }else {
-                                    $result['exception'] ='Clave demasiado corta';
-                                       }
-                            } else {
-                                $result['exception'] = $empleados->getPasswordError();
-                                $result['exception'] = 'Claves inválida';
-                                    }
-                        } else {
-                            $result['exception'] = 'Claves diferentes';
+                                                $result['exception'] ='Estado empleado incorrecto';
+                                                }
+                                        }else {
+                                            $result['exception'] ='Clave demasiado corta';
+                                            }
+                                            }else {
+                                                $result['exception'] ='Contraseñas no coinciden';
+                                                }
+                                    } else {
+                                        $result['exception'] = $empleados->getPasswordError();
+                                        $result['exception'] = 'Claves inválida';
+                                            }
+                                } else {
+                                    $result['exception'] = 'Claves diferentes';
+                                        }
+                            }else {
+                                $result['exception'] ='Nombre de usuario incorrecto';
                                 }
+                        }else {
+                            $result['exception'] ='Estado incorrecto';
+                            }
                     }else {
-                        $result['exception'] ='Nombre de usuario incorrecto';
-                          }
-                }else {
-                    $result['exception'] ='Estado incorrecto';
-                      }
+                        $result['exception'] ='No utilice su nombre de usuario como contraseña';
+                    }
             break;
                 // En el caso de que el action detecte que se desea únicamente leer un id en específico nos 
                 //ejecuta la siguiente acción, en caso contrario nos indica que el empleado que se intenta 
