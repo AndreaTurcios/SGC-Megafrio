@@ -50,13 +50,10 @@ class Dashboard_Page
                           <!-- Columna Logo -->
                           <div class="col-11 col-xs-11 col-sm-11 d-lg-none text-center">
                             <a href="main.php"><img src="../../resources/img/logos/iconPNG.png" class="img-fluid" alt=""></a>
-                            
                           </div>
                           <!-- Columna Logo pero para mobile -->
                           <div class="col-10 d-none d-lg-block " id="SeccionImagen">
-
                             <a href="main.php"><img src="../../resources/img/logos/iconPNG.png" class="img-fluid" alt=""></a>
-
                           </div>
                           <!-- Columna de Boton usuario pero para Pequeños -->
                           <div class="col-1 col-xs-1 col-sm-1 d-lg-none text-left" id="mnSuperiorMobile">
@@ -66,7 +63,6 @@ class Dashboard_Page
                             <a href="#" onclick="logOut()">
                               <i class="fas fa-sign-out-alt"></i>
                             </button></a>
-                            
                           </div>
                           <!-- Columna para perfil pero en usuarios de pantalla grande -->
                           <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-2 col-xxl-2 text-center d-none d-lg-block">
@@ -1287,7 +1283,7 @@ class Dashboard_Page
                                                       </div>
                                                   </div>
                                               </header>
-                                              <main>    
+                                              </main>    
      ');
     }
   }

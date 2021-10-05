@@ -438,10 +438,14 @@ class Empleados extends Validator{
 
             // Contenido del correo
             $mail->isHTML(true);
-            $mail->Subject = 'Código para restaurar contraseña';
+            $mail->Subject = 'Megafrio - Codigo de confirmacion '.$codigo;
             $mail->Body = 'Estimado cliente, ' .$correo .' gracias por preferirnos. 
-                        Por este medio le enviamos el codígo de verificación para continuar con el proceso de restauración de contraseña
-                        El cual es:<b>'.$codigo.'!</b>';
+                        Por este medio le enviamos el código de verificación para continuar con el proceso de restauración de contraseña.
+                        Su código de seguridad es: <h2>'.$codigo.'</h2>'.' 
+            --
+            <br><p>
+            𝕔 Megafrio - 2021, El Salvador';
+            $mail->AltBody = '𝕔 Megafrio - 2021, El Salvador';
 
             if($mail->send()){
                 return true;

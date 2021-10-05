@@ -4,10 +4,11 @@ require_once('../../app/helpers/dashboard_page.php');
 // Se imprime la plantilla del encabezado enviando el título de la página web.
 Dashboard_Page::headerTemplate('Página principal');
 ?>
-        <!-- Se muestra un saludo de acuerdo con la hora del empleado -->
-        <div class="col-12 text-center" id="Titulo2">
-            <a id="fontmain"><h4 class="text-center blue-text" id="greeting"></h4></a>    
-        </div>
+
+<!-- Se muestra un saludo de acuerdo con la hora del empleado -->
+<div class="col-12 text-center" id="Titulo2">
+    <a id="fontmain"><h4 class="text-center blue-text" id="greeting"></h4></a>    
+</div>
 <main>
         <Section>
         <div class="row">   

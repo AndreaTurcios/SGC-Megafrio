@@ -5,11 +5,8 @@ require_once('../../app/helpers/dashboard_page.php');
 Dashboard_Page::headerTemplate('Iniciar sesión');
 ?>
 
-<div class="animated bounceInUp">
 <div class="container">
-
     <br>
-
     <div class="container" id="ContainerLogin">
         <!-- Caja de la IMAGEN -->
         <div class="row text-center">
@@ -21,12 +18,9 @@ Dashboard_Page::headerTemplate('Iniciar sesión');
                 <br>
                 <img src="../../resources/img/materiales/equipo.png" class="img-fluid" alt="">
             </div>
-
             <!-- Caja de los Datos -->
-        
             <div class="col-12 col-lg-6" id="CajaDatos">
                 <div class="container">
-
                     <br>
                     <form method="post" id="session-form">
                     <!-- Titulo de iniciar Sesion -->
@@ -35,7 +29,6 @@ Dashboard_Page::headerTemplate('Iniciar sesión');
                             <h3>- Iniciar sesión -</h3>
                         </div>
                     </div>
-
                     <br>
                     <!-- Usuario y Su Imput -->
                     <div class="row">
@@ -47,7 +40,6 @@ Dashboard_Page::headerTemplate('Iniciar sesión');
                         </div>
                     </div>
                     <br>
-
                     <!-- Contraseña y su input -->
                     <div class="row">
                         <div class="col-4 p-1 d-flex flex-row">
@@ -60,7 +52,6 @@ Dashboard_Page::headerTemplate('Iniciar sesión');
                     <br>
                     <!-- Espacio en blanco para separar -->
                     <div class="row" id="EspacioBlanco">
-
                     </div>
                     <!-- Espacio para boton -->
                     <div class="row">
@@ -78,22 +69,21 @@ Dashboard_Page::headerTemplate('Iniciar sesión');
                     <br>
                     <!-- EspacioBlanco para separar -->
                     <div class="row" id="EspacioBlanco2">
-
                     </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    </div>
 
+    
     <form method="post" id="confirmar-form">
                 <!-- Modal -->
                 <div class="modal" id="confirmar-modal" tabindex="-1" aria-labelledby="confirmar-modal" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Ingresa el codigo de confirmación</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Ingresa el código de confirmación</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -107,12 +97,7 @@ Dashboard_Page::headerTemplate('Iniciar sesión');
                     </div>
                 </div>
     </form>
-
-
-
-
 </div>
-
 
 <?php
 // Se imprime la plantilla del encabezado enviando el título de la página web.

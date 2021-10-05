@@ -209,7 +209,7 @@ if(isset($_GET['action'])) {
                                             if($usuario->updateCodigo2($codigo)){
                                                 $_SESSION['correo_cli_us'] = $usuario->getCorreo();
                                                 $result['status'] = 1;
-                                                $result['message'] = 'Se ha enviado un codigo de confirmación a su correo';
+                                                $result['message'] = 'Se ha enviado un código de confirmación a su correo';
                                             }else{
                                                 $result['exception'] = 'Ocurrió un problema al actualizar el código';
                                             }
@@ -272,35 +272,27 @@ if(isset($_GET['action'])) {
                             }
                         }
                         break;
-                    
-                        
-    
-                    case 'comparar':
-                        $_POST = $usuario->validateForm($_POST);
-                        if($usuario->checkCodigo2($_POST['codigo'])){
-                            $usuario->resetearIntentos();
-                            $_SESSION['tiempo_usuario'] = time();
-                            $_SESSION['id_empleado'] = $usuario->getId();
-                            $_SESSION['nombre_usuario'] = $usuario->getNombreUsuario();
-                            $_SESSION['id_tipo_emp'] = $usuario->getIDTipoEmpleado();  
-                            $_SESSION['estado'] = $usuario->getEstado();
-                            $_SESSION['correo'] = $usuario->getCorreo();
-                            $result['status'] = 1;
-                            $result['message'] = 'Autenticación correcta';
-
-                            if($usuario->checkDevice()){
-                                $result[''] = 'Ya hay dispositivos registrados';
-                            } else{
-                                $usuario->registrarDispositivos();
+                        case 'comparar':
+                            $_POST = $usuario->validateForm($_POST);
+                            if($usuario->checkCodigo2($_POST['codigo'])){
+                                $usuario->resetearIntentos();
+                                $_SESSION['tiempo_usuario'] = time();
+                                $_SESSION['id_empleado'] = $usuario->getId();
+                                $_SESSION['nombre_usuario'] = $usuario->getNombreUsuario();
+                                $_SESSION['id_tipo_emp'] = $usuario->getIDTipoEmpleado();  
+                                $_SESSION['estado'] = $usuario->getEstado();
+                                $_SESSION['correo'] = $usuario->getCorreo();
+                                $result['status'] = 1;
+                                $result['message'] = 'Autenticación correcta';
+                                if($usuario->checkDevice()){
+                                    $result[''] = 'Ya hay dispositivos registrados';
+                                } else{
+                                    $usuario->registrarDispositivos();
+                                }
+                            }else {
+                                $result['exception'] = 'Código incorrecto, verifique otra vez';
                             }
-                            
-                        }else {
-                            $result['exception'] = 'codigo incorrecto, verifique otra vez';
-                        }
-                        
-                        break;
-
-
+                            break;
                 default:
                     $result['exception'] = 'Acción no disponible fuera de la sesión';    
             }
