@@ -275,8 +275,6 @@ class Dashboard_Page
                                             <i class="fas fa-shield-alt"></i>
                                             <label for="clave_nueva_1">Clave</label>
                                             <input id="clave_nueva_1" type="password" name="clave_nueva_1" class="validate form-control" required/>
-                                            
-                                            
                                     </div>
                                     <br>
                                     
@@ -284,7 +282,6 @@ class Dashboard_Page
                                             <i class="fas fa-shield-alt"></i>
                                             <label for="clave_nueva_2">Confirmar clave</label>   
                                             <input id="clave_nueva_2" type="password" name="clave_nueva_2" class="validate form-control" required/>
-                                            
                                     </div>        
                                 </div>  
                             <div class="modal-footer">
@@ -342,7 +339,6 @@ class Dashboard_Page
 
         <div class="container-fluid " id="BarraNav">
           <div class="row">
-
             <nav class="navbar navbar-expand-lg navbar-light SecBarra">
               <div class="container-fluid">
                 <!-- Parte del NAVBAR MOBILE -->
@@ -1281,8 +1277,9 @@ class Dashboard_Page
           
       } else {
           header('location: main.php');
-      }
+      
   }
+  
 } else {
       if ($filename != 'index.php' && $filename != 'register.php' && $filename != 'recuperacion.php') {
           header('location: index.php ');
@@ -1307,6 +1304,7 @@ class Dashboard_Page
           <main>    
           ');
       }
+    }
   }
 }
     
