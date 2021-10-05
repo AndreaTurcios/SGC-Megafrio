@@ -41,7 +41,7 @@ class Dashboard_Page
         // Se comprueba si existe una sesión de administrador para mostrar el menú de opciones, de lo contrario se muestra un menú vacío.
         if (isset($_SESSION['id_empleado'])) {
             if(isset($_SESSION['id_tipo_emp']) === 6) {
-                if ($filename != 'index.php') {
+                if ($filename != 'index.php' && $filename != 'register.php') {
                   print('
                   <header>
                   <div class="container-fluid">
@@ -218,7 +218,7 @@ class Dashboard_Page
                   header('location: main.php');
               }
             } else{
-              if ($filename != 'index.php') {
+              if ($filename != 'index.php' && $filename != 'register.php' ) {
                 print('
           <header>
           <div class="container-fluid">
@@ -448,7 +448,7 @@ class Dashboard_Page
             
         } else {
             // 
-            if ($filename != 'index.php') {
+            if ($filename != 'index.php' && $filename != 'register.php') {
                 header('location: index.php ');
             } else {
                 print('

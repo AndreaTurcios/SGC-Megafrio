@@ -72,7 +72,7 @@ Dashboard_Page::headerTemplate('Iniciar sesión');
                     <!-- Espacio para solicitar nueva contra -->
                     <div class="row">
                         <div class="col-12" id="SolicitarContra">
-                            <a href="#">He olvidado mi contraseña</a>
+                            <a href="recuperacion.php">He olvidado mi contraseña</a>
                         </div>
                     </div>
                     <br>
