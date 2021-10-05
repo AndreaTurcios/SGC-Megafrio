@@ -41,7 +41,7 @@ class Dashboard_Page
         // Se comprueba si existe una sesión de administrador para mostrar el menú de opciones, de lo contrario se muestra un menú vacío.
         if (isset($_SESSION['id_empleado'])) {
             if( $_SESSION['id_tipo_emp']== 1) {
-                if ($filename != 'index.php') {
+                if ($filename != 'index.php' && $filename != 'register.php') {
                   print('
                   <header>
           <div class="container-fluid">
@@ -263,7 +263,7 @@ class Dashboard_Page
                   header('location: main.php');
               }
             } else if($_SESSION['id_tipo_emp']==2) {
-              if ($filename != 'index.php') {
+              if ($filename != 'index.php' && $filename != 'register.php') {
                 print('
           <header>
           <div class="container-fluid">
@@ -473,7 +473,7 @@ class Dashboard_Page
                 header('location: main.php');
             }
         } else if($_SESSION['id_tipo_emp']==3) {
-          if ($filename != 'index.php') {
+          if ($filename != 'index.php' && $filename != 'register.php') {
             print('
       <header>
       <div class="container-fluid">
@@ -671,7 +671,7 @@ class Dashboard_Page
             header('location: main.php');
         }
       } else if($_SESSION['id_tipo_emp']==4) {
-        if ($filename != 'index.php') {
+        if ($filename != 'index.php' && $filename != 'register.php') {
           print('
     <header>
     <div class="container-fluid">
@@ -1247,7 +1247,7 @@ class Dashboard_Page
       }
   }
 } else {
-      if ($filename != 'index.php') {
+      if ($filename != 'index.php' && $filename != 'register.php') {
           header('location: index.php ');
       } else {
           print('

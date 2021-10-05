@@ -1,12 +1,5 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\SMTP;
-
-require '../libraries/phpmailer/src/Exception.php';
-require '../libraries/phpmailer/src/PHPMailer.php';
-require '../libraries/phpmailer/src/SMTP.php';
 /*
 *	Clase para manejar la tabla productos de la base de datos. Es clase hija de Validator.
 */
@@ -35,7 +28,6 @@ class Empleados extends Validator{
     private $codigo_recu = null;
 
     private $intentosC = null;
-    private $correoError = null;
     /*
     *   Métodos para asignar valores a los atributos.
     */
@@ -151,16 +143,6 @@ class Empleados extends Validator{
     {
         if ($this->validateBoolean($value)) {
             $this->estado = $value;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function setCorreo($value)
-    {
-        if ($this->validateEmail($value)) {
-            $this->correo = $value;
             return true;
         } else {
             return false;
