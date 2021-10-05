@@ -448,13 +448,15 @@ class Empleados extends Validator{
             return false;
         }
     }
+    
     public function checkCodigo2($restauracion)
     {
-        $sql = 'SELECT id_empleado, codigo_recu FROM empleado WHERE correo = ?';
-        $params = array($_SESSION['correo']);
+        $sql = 'SELECT id_empleado, codigo_recu, nombre_usuario FROM empleado WHERE correo = ?';
+        $params = array($_SESSION['correo_cli_us']);
         $data = Database::getRow($sql, $params);
         if ($restauracion == $data['codigo_recu']) {
             $this->id = $data['id_empleado'];
+            $this->alias = $data['nombre_usuario'];
             $sql = 'UPDATE empleado SET codigo_recu = null WHERE id_empleado = ?';
             $params = array($this->id);
             return Database::executeRow($sql, $params);
