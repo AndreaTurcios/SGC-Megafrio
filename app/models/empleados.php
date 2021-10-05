@@ -412,12 +412,18 @@ class Empleados extends Validator{
         $params = array($this->id);
         $data = Database::getRow($sql, $params);
         $fechaHoy = date('Y-m-d');
-        $dateDifference = abs(strtotime($fechaHoy) - strtotime($data['fechacontra']));
-        $years  = floor($dateDifference / (365 * 60 * 60 * 24));
-        $months = floor(($dateDifference - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
-        $days   = floor(($dateDifference - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 *24) / (60 * 60 * 24));
+        
+        $datetime1 = date_create($fechaHoy);
+        $datetime2 = date_create($data['fechacontra']);
+        $interval = date_diff($datetime1,$datetime2);
+        $tiempo = array();
 
-        if($months>=3){
+        foreach($interval as $valor)
+        {
+            $tiempo[] = $valor;
+        }
+
+        if($tiempo[11]>=90){
             return true;
         }else{
             return false;
