@@ -127,13 +127,18 @@ if(isset($_GET['action'])) {
                     if ($usuario->checkUser($_POST['username'])) {
                         if ($usuario->checkPassword($_POST['clave'])) {
                             if($usuario->getEstado() == true){
-                                $result['status'] = 1;
-                                $result['message'] = 'Autenticación correcta';
-                                $_SESSION['tiempo_usuario'] = time();
-                                $_SESSION['id_empleado'] = $usuario->getId();
-                                $_SESSION['nombre_usuario'] = $usuario->getNombreUsuario();
-                                $_SESSION['id_tipo_emp'] = $usuario->getIDTipoEmpleado();  
-                                $_SESSION['estado'] = $usuario->getEstado();
+                                $codigo = $usuario->generarCodigoRecu(6);
+                                        if ($usuario->enviarCorreo($usuario->getCorreo(), $codigo)) {
+                                            if($usuario->updateCodigo2($codigo)){
+                                                $_SESSION['correo_cli_us'] = $usuario->getCorreo();
+                                                $result['status'] = 1;
+                                                $result['message'] = 'Se ha enviado un codigo de confirmacion a su correo';
+                                            }else{
+                                                $result['exception'] = 'Ocurrio un problema al actualizar el código';
+                                            }
+                                        } else {
+                                            $result['exception'] = $usuario->getCorreo();
+                                        }
                             }else{
                                 if (Database::getException()) {
                                     $result['exception'] = Database::getException();
@@ -157,6 +162,68 @@ if(isset($_GET['action'])) {
                         }
                     }
                     break;
+
+                    case 'tiempocontra':
+                        $_POST = $usuario->validateForm($_POST);
+                        
+                        if ($usuario->checkUser($_POST['username'])) {
+                            if ($usuario->getEstado() == true) {
+                                if ($usuario->checkPassword($_POST['clave'])) {
+                                    if($usuario->obtenerDiff()){
+                                        $result['exception'] = 'Debe cambiar su contraseña';
+                                    }else{
+                                        $result['status'] = 1;
+                                        $result['message'] = 'Su contraseña es valida';
+                                    }
+
+                                } else {
+                                    if (Database::getException()) {
+                                        $result['exception'] = Database::getException();
+                                    } else {
+                                        $usuario->agregarIntentosEmp();
+                                        $result['exception'] = 'Clave incorrecta';
+                                    }
+                                }
+                            } else {
+                                $result['exception'] = 'La cuenta ha sido desactivada';
+                            }
+                        } else {
+                            if (Database::getException()) {
+                                $result['exception'] = Database::getException();
+                            } else {
+                                $result['exception'] = 'Usuario incorrecto';
+                            }
+                        }
+                        break;
+                    
+                        
+    
+                    case 'comparar':
+                        $_POST = $usuario->validateForm($_POST);
+                        if($usuario->checkCodigo2($_POST['codigo'])){
+                            $usuario->resetearIntentos();
+                            $_SESSION['tiempo_usuario'] = time();
+                            $_SESSION['id_empleado'] = $usuario->getId();
+                            $_SESSION['nombre_usuario'] = $usuario->getNombreUsuario();
+                            $_SESSION['id_tipo_emp'] = $usuario->getIDTipoEmpleado();  
+                            $_SESSION['estado'] = $usuario->getEstado();
+                            $_SESSION['correo'] = $usuario->getCorreo();
+                            $result['status'] = 1;
+                            $result['message'] = 'Autenticación correcta';
+
+                            //if($usuario->checkDeviceEmp()){
+                             //   $result[''] = 'Ya hay dispositivos registrados';
+                           // } else{
+                             //   $usuario->registrarDispositivosCli();
+                           // }
+                            
+                        }else {
+                            $result['exception'] = 'codigo incorrecto, verifique otra vez';
+                        }
+                        
+                        break;
+
+
                 default:
                     $result['exception'] = 'Acción no disponible fuera de la sesión';    
             }
