@@ -44,9 +44,6 @@ function fillTable(dataset) {
         info:'Mostrando {start} a {end} de {rows} empleados'
     }
 });
-  
-    
-
 }
 
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de buscar.
@@ -57,11 +54,11 @@ document.getElementById('search-form').addEventListener('submit', function (even
     searchRows(API_EMPLEADOS, 'search-form');
 });
 
+
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de guardar.
 document.getElementById('save-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
-    
     saveRow(API_EMPLEADOS, 'create', 'save-form', null);
     document.getElementById('save-form').reset();
 });
@@ -115,6 +112,7 @@ function openUpdateDialog(id) {
     }
 });
 
+
 // Se agarra el elemento en base al id y se realiza un update, en el proceso se coloca el event.preventdefault para evitar que recargue la página
 document.getElementById('update-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.
@@ -130,3 +128,16 @@ function openDeleteDialog(id) {
     confirmDelete(API_EMPLEADOS, data);
 }
 
+
+document.querySelector('.campo1 span').addEventListener('click', e => {
+    const passwordInput = document.querySelector('#claveconf');
+    if (e.target.classList.contains('show')) {
+        e.target.classList.remove('show');
+        e.target.textContent = 'OCULTAR';
+        passwordInput.type = 'text';
+    } else {
+        e.target.classList.add('show');
+        e.target.textContent = 'MOSTRAR';
+        passwordInput.type = 'password';
+    }
+});

@@ -123,6 +123,19 @@ Dashboard_Page::headerTemplate('Empleados');
                           </div>
                         </div>
                         <br>
+
+                        <div class="form-group">
+                          <label for="claveconf">Confirmar clave:</label>
+                          <input type="password" class="form-control" id="claveconf" name="claveconf" autocomplete="off"
+                            placeholder="Confirmar clave:" required />
+                          <div class="campo1">
+                            <div class="form-group d-none">
+                              <input type="password" name="password" id="claveconf">
+                            </div>
+                            <span>MOSTRAR</span>
+                          </div>
+                        </div>
+                        <br>
                         <div class="input-field col s12 m6">
                           <label>Estado: </label>
                           <select id="estado" name="estado">
@@ -210,7 +223,6 @@ Dashboard_Page::headerTemplate('Empleados');
               </div>
             </div>
             <br>
-
             <!--Colocamos los divs para el dropdown del filtro de búsqueda -->
             <div class="input-field col s12 m6">
               <label>Tipo empleado: </label>

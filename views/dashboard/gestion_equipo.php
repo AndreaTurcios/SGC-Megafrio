@@ -67,31 +67,31 @@ Dashboard_Page::headerTemplate('Equipo');
                             <form id="save-form" method="post" enctype="multipart/form-data">
                               <div class="form-group ">
                                 <label for="nombre_equipo">Nombre equipo:</label>
-                                <input type="text" class="form-control" id="nombre_equipo" name="nombre_equipo"
+                                <input type="text" class="form-control" id="nombre_equipo" name="nombre_equipo" autocomplete="off"
                                   placeholder="Equipo">
                               </div>
                               <div class="form-group">
                                 <label for="descripcion_equipo">Descripcion:</label>
-                                <input type="text" class="form-control" id="descripcion_equipo"
+                                <input type="text" class="form-control" id="descripcion_equipo" autocomplete="off"
                                   name="descripcion_equipo" placeholder="Descripcion">
                               </div>
                               <div class="form-group">
                                 <label for="precio_equipo">Precio:</label>
-                                <input type="number" class="form-control" id="precio_equipo" name="precio_equipo"
+                                <input type="number" class="form-control" id="precio_equipo" name="precio_equipo" autocomplete="off"
                                   min="100.0" max="999.99">
                               </div>
                               <div class="form-group">
                                 <label for="modelo">Modelo:</label>
-                                <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Modelo">
+                                <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Modelo" autocomplete="off">
                               </div>
                               <div class="form-group">
                                 <label for="voltaje">Voltaje:</label>
-                                <input type="text" class="form-control" id="voltaje" name="voltaje"
+                                <input type="text" class="form-control" id="voltaje" name="voltaje" autocomplete="off"
                                   placeholder="voltaje">
                               </div>
                               <div class="form-group">
                                 <label for="serie">Serie:</label>
-                                <input type="text" class="form-control" id="serie" name="serie" placeholder="Serie">
+                                <input type="text" class="form-control" id="serie" name="serie" placeholder="Serie" autocomplete="off">
                               </div>
                               <div class="input-field col s12 m6">
                                 <label>Proveedor: </label>

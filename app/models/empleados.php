@@ -1,4 +1,12 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+
+require '../libraries/phpmailer/src/Exception.php';
+require '../libraries/phpmailer/src/PHPMailer.php';
+require '../libraries/phpmailer/src/SMTP.php';
 /*
 *	Clase para manejar la tabla productos de la base de datos. Es clase hija de Validator.
 */
@@ -26,6 +34,8 @@ class Empleados extends Validator{
     private $correoError = null;
     private $codigo_recu = null;
 
+    private $intentosC = null;
+    private $correoError = null;
     /*
     *   Métodos para asignar valores a los atributos.
     */
@@ -127,6 +137,16 @@ class Empleados extends Validator{
         }
     }
 
+    public function setCorreo($value)
+    {
+        if ($this->validateEmail($value)) {
+            $this->correo = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function setEstado($value)
     {
         if ($this->validateBoolean($value)) {
@@ -150,6 +170,11 @@ class Empleados extends Validator{
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getCorreo()
+    {
+        return $this->correo;
     }
 
     public function getNombreUsuario()
@@ -185,11 +210,6 @@ class Empleados extends Validator{
     public function getEstado()
     {
         return $this->estado;
-    }
-
-    public function getCorreo()
-    {
-        return $this->correo;
     }
 
     public function getCorreoError()
@@ -281,13 +301,14 @@ class Empleados extends Validator{
 
     public function checkUser($nombreusuario)
     {
-        $sql = 'SELECT id_empleado, id_tipo_emp, estado, nombre_usuario FROM empleado WHERE nombre_usuario = ?';
+        $sql = 'SELECT id_empleado, id_tipo_emp, estado, nombre_usuario, correo FROM empleado WHERE nombre_usuario = ?';
         $params = array($nombreusuario);
         if ($data = Database::getRow($sql, $params)) {
             $this->id = $data['id_empleado'];
             $this->idtipoempleado = $data['id_tipo_emp'];
             $this->estado = $data['estado'];
             $this->nombreusuario = $data['nombre_usuario'];
+            $this->correo = $data['correo'];
             return true;
         } else {
             return false;
@@ -367,45 +388,9 @@ class Empleados extends Validator{
         return Database::executeRow($sql, $params);
     }
 
-    public function registrarDispositivos()
-    {
-        $dispositivo = php_uname();
-        $sql = 'INSERT INTO historial_sesion (id_empleado, dispositivo) VALUES(?,?)';
-        $params = array($_SESSION['id_empleado'], $dispositivo);
-        return Database::executeRow($sql, $params);
-    }
 
+    //Funciones para contraseña
 
-    //Verificar si el dispositivo ya existe
-    public function checkDevice()
-    {
-        $sql = 'SELECT dispositivo FROM historial_sesion WHERE dispositivo = ? AND id_empleado = ?';
-        $params = array(php_uname(), $_SESSION['id_empleado']);
-        return Database::getRow($sql, $params);
-        
-    }
-
-    //Obtener las sesiones de un dispositivo
-    public function getDevices()
-    {
-        $sql = 'SELECT dispositivo, fecha FROM historial_sesion WHERE id_empleado = ?';
-        $params = array($_SESSION['id_empleado']);
-        return Database::getRows($sql, $params);
-    }
-
-    public function checkUserCorreo($correo)
-    {
-        $sql = 'SELECT id_empleado, estado FROM empleado WHERE correo = ?';
-        $params = array($correo_cli_us);
-        if ($data = Database::getRow($sql, $params)) {
-            $this->id = $data['id_empleado'];
-            $this->estado = $data['estado'];
-            $this->correo = $correo;
-            return true;
-        } else {
-            return false;
-        }
-    }
 
     public function generarCodigoRecu($longitud){
         //creamos la variable codigo
@@ -433,10 +418,10 @@ class Empleados extends Validator{
             $mail->Host  = 'smtp.gmail.com';                     // Servidor SMTP
             $mail->SMTPAuth  = true;                                       // Identificacion SMTP
             $mail->Username  = 'recuperacion.megafrio@gmail.com';                  // Usuario SMTP
-            $mail->Password  = 'megafrioxz1';	  	          // Contraseña SMTP
+            $mail->Password  = 'megafrio123';	  	          // Contraseña SMTP
             $mail->SMTPSecure = 'tls';
             $mail->Port  = 587;
-            $mail->setFrom("recuperacion.megafrio@gmail.com", "MegaFrio");                // Remitente del correo
+            $mail->setFrom("recuperacion.megafrio@gmail.com", "Megafrio");                // Remitente del correo
 
             // Destinatarios
             $mail->addAddress($correo);  // Email y nombre del destinatario
@@ -495,5 +480,55 @@ class Empleados extends Validator{
             return false;
         }
     }
+
+    public function obtenerDiff()
+    {
+        $sql = 'SELECT fechacontra from empleado where id_empleado = ?';
+        $params = array($this->id);
+        $data = Database::getRow($sql, $params);
+        $fechaHoy = date('Y-m-d');
+        $dateDifference = abs(strtotime($fechaHoy) - strtotime($data['fechacontra']));
+        $years  = floor($dateDifference / (365 * 60 * 60 * 24));
+        $months = floor(($dateDifference - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
+        $days   = floor(($dateDifference - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 *24) / (60 * 60 * 24));
+
+        if($months>=3){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+     // Funciones para agregar intentos
+     public function agregarIntentosEmp()
+     {   
+         $sql = 'SELECT intentos FROM empleado WHERE id_empleado = ?';
+         $params = array($this->id);
+         if($data = Database::getRow($sql, $params)){
+             if($data['intentos'] >=3 ){
+                 
+                 $sql = 'UPDATE empleado SET estado = false where id_empleado = ?';
+                 $params = array( $this->id);
+                 return Database::executeRow($sql, $params);
+             } else {
+                 $this->intentosC = $data['intentos'];
+                 $intentos = $this->intentosC + 1;
+                 $sql = 'UPDATE empleado SET intentos = ? where id_empleado = ?';
+                 $params = array($intentos, $this->id);
+                 return Database::executeRow($sql, $params);
+             }
+         } else {
+             return false;
+         }
+ 
+     }
+
+    public function resetearIntentos()
+    {
+        $sql = 'UPDATE empleado SET intentos = null where id_empleado = ?';
+        $params = array($this->id);
+        return Database::executeRow($sql, $params);
+    }
+
 
 }

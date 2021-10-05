@@ -211,6 +211,17 @@ class Validator
         }
     }
 
+    public function validatePasswordd($value)
+    {
+        // Se verifica la longitud mínima de la contraseña.
+        if (preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%&]{8,75}$/',$value)) {
+            return true;           
+        } else {
+            $this->passwordError = 'Clave menor a 8 caracteres o no cumple con los requisitos de seguridad';
+            return false;
+        }
+    }
+
     /*
     *   Método para validar un dato alfanumérico (letras, dígitos y espacios en blanco).
     *
@@ -280,11 +291,10 @@ class Validator
                                 return false;
                             } else{
                                 if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $value)){
-
                                         return true;
                                 }
                                 else {
-                                    $this->passwordError = "Agregar por lo menos un carácter especial";
+                                    $this->passwordError = "Agregar por lo menos dos carácteres especiales";
                                     return false;
                                 }
                             }
