@@ -40,10 +40,10 @@ class Dashboard_Page
         $filename = basename($_SERVER['PHP_SELF']);
         // Se comprueba si existe una sesión de administrador para mostrar el menú de opciones, de lo contrario se muestra un menú vacío.
         if (isset($_SESSION['id_empleado'])) {
-            if( $_SESSION['id_tipo_emp']== 1) {
-                if ($filename != 'index.php' && $filename != 'register.php') {
-                  print('
-                  <header>
+          if( $_SESSION['id_tipo_emp']== 1) {
+              if ($filename != 'index.php' && $filename != 'register.php') {
+                print('
+          <header>
           <div class="container-fluid">
           <div class="row ">
             <nav class="nav">
@@ -238,8 +238,6 @@ class Dashboard_Page
                                             <i class="fas fa-shield-alt"></i>
                                             <label for="clave_nueva_1">Clave</label>
                                             <input id="clave_nueva_1" type="password" name="clave_nueva_1" class="validate form-control" required/>
-                                            
-                                            
                                     </div>
                                     <br>
                                     
@@ -247,7 +245,6 @@ class Dashboard_Page
                                             <i class="fas fa-shield-alt"></i>
                                             <label for="clave_nueva_2">Confirmar clave</label>   
                                             <input id="clave_nueva_2" type="password" name="clave_nueva_2" class="validate form-control" required/>
-                                            
                                     </div>        
                                 </div>  
                             <div class="modal-footer">
@@ -305,7 +302,6 @@ class Dashboard_Page
 
         <div class="container-fluid " id="BarraNav">
           <div class="row">
-
             <nav class="navbar navbar-expand-lg navbar-light SecBarra">
               <div class="container-fluid">
                 <!-- Parte del NAVBAR MOBILE -->
@@ -1244,8 +1240,9 @@ class Dashboard_Page
           
       } else {
           header('location: main.php');
-      }
+      
   }
+  
 } else {
       if ($filename != 'index.php' && $filename != 'register.php') {
           header('location: index.php ');
@@ -1270,6 +1267,7 @@ class Dashboard_Page
           <main>    
           ');
       }
+    }
   }
 }
     

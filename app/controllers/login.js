@@ -1,10 +1,10 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
-const API_USUARIOS = '../../app/api/usuarios.php?action=';
+const API_USUARIOS12 = '../../app/api/usuarios.php?action=';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
     // Petición para verificar si existen usuarios.
-    fetch(API_USUARIOS + 'readAll', {
+    fetch(API_USUARIOS12 + 'readAll', {
         method: 'get'
     }).then(function (request) {
         // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
@@ -37,7 +37,7 @@ document.getElementById('session-form').addEventListener('submit', function (eve
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
 
-    fetch(API_USUARIOS + 'tiempocontra', {
+    fetch(API_USUARIOS12 + 'tiempocontra', {
         method: 'post',
         body: new FormData(document.getElementById('session-form'))
     }).then(function (request) {
@@ -47,7 +47,7 @@ document.getElementById('session-form').addEventListener('submit', function (eve
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
 
-                    fetch(API_USUARIOS + 'logIn', {
+                    fetch(API_USUARIOS12 + 'logIn', {
                         method: 'post',
                         body: new FormData(document.getElementById('session-form'))
                     }).then(function (request) {
@@ -93,7 +93,7 @@ document.getElementById('confirmar-form').addEventListener('submit', function (e
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
 
-    fetch(API_USUARIOS + 'comparar', {
+    fetch(API_USUARIOS12 + 'comparar', {
         method: 'post',
         body: new FormData(document.getElementById('confirmar-form'))
     }).then(function (request) {
