@@ -1283,7 +1283,7 @@ class Dashboard_Page
                                                       </div>
                                                   </div>
                                               </header>
-                                              </main>    
+                                              <main>    
      ');
     }
   }
