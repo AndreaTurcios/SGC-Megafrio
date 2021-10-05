@@ -26,7 +26,7 @@ class Empleados extends Validator{
     private $correo = null;
     private $correoError = null;
     private $codigo_recu = null;
-
+    private $fechaHoy = null;
     private $intentosC = null;
     /*
     *   Métodos para asignar valores a los atributos.
@@ -41,9 +41,18 @@ class Empleados extends Validator{
         }  
     }
 
-    public function setPasswordAlias($value, $alias)
+    public function setFecha($value){
+        if($this->validateAlphanumeric($value, 1, 50)){
+            $this->fechaHoy = $value;
+            return true;
+        }else{
+            return false;
+        }  
+    }
+
+    public function setPasswordAlias($value, $nombreusuario)
     {
-        if ($this->validatePasswordAlias($value, $alias)) {
+        if ($this->validatePasswordAlias($value, $nombreusuario)) {
             return true;
         } else {
             return false;
@@ -157,6 +166,11 @@ class Empleados extends Validator{
     public function getCorreo()
     {
         return $this->correo;
+    }
+
+    public function getFecha()
+    {
+        return $this->fechaHoy;
     }
 
     public function getNombreUsuario()
@@ -291,6 +305,20 @@ class Empleados extends Validator{
             $this->estado = $data['estado'];
             $this->nombreusuario = $data['nombre_usuario'];
             $this->correo = $data['correo'];
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function checkUserCorreo($correo)
+    {
+        $sql = 'SELECT id_empleado, estado FROM empleado WHERE correo = ?';
+        $params = array($correo);
+        if ($data = Database::getRow($sql, $params)) {
+            $this->id = $data['id_empleado'];
+            $this->estado = $data['estado'];
+            $this->correo = $correo;
             return true;
         } else {
             return false;

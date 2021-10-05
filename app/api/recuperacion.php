@@ -1,8 +1,8 @@
 <?php
 
-require_once('../../helpers/database.php');
-require_once('../../helpers/validator.php');
-require_once('../../models/empleado.php');
+require_once('../helpers/database.php');
+require_once('../helpers/validator.php');
+require_once('../models/empleados.php');
 
 
 
@@ -55,23 +55,23 @@ require_once('../../models/empleado.php');
                             echo $id;
                             $_POST = $empleado->validateForm($_POST);
                             if ($empleado->checkCodigo($_POST['codigo_recu'])) {
-                                if ($cliente->setPasswordNombreUsuario($_POST['clave_nueva_1'], $cliente->getCorreoCliUs())) {
+                                if ($empleado->setPasswordAlias($_POST['clave_nueva_1'], $empleado->getCorreo())) {
                                     if ($_POST['clave_nueva_1'] == $_POST['clave_nueva_2']) {
-                                                if ($cliente->setClave($_POST['clave_nueva_1'])) {
-                                                    if ($cliente->restorePassword()) {
+                                                if ($empleado->setClaveEmpleado($_POST['clave_nueva_1'])) {
+                                                    if ($empleado->restorePassword()) {
                                                         $result['status'] = 1;
                                                         $result['message'] = 'Contraseña restaurada correctamente';
                                                     } else {
                                                         $result['exception'] = Database::getException();
                                                     }
                                                 } else {
-                                                    $result['exception'] = $cliente->getPasswordError();
+                                                    $result['exception'] = $empleado->getPasswordError();
                                                 } 
                                             } else {
                                                 $result['exception'] = 'Claves nuevas diferentes';
                                             }       
                                     } else {
-                                        $result['exception'] = $cliente->getPasswordError();
+                                        $result['exception'] = $empleado->getPasswordError();
                                     }        
                             } else {
                                 $result['exception'] = 'Código ingresado erróneo';

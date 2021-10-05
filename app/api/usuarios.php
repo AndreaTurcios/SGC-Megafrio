@@ -288,11 +288,11 @@ if(isset($_GET['action'])) {
                             $result['status'] = 1;
                             $result['message'] = 'Autenticación correcta';
 
-                            //if($usuario->checkDeviceEmp()){
-                             //   $result[''] = 'Ya hay dispositivos registrados';
-                           // } else{
-                             //   $usuario->registrarDispositivosCli();
-                           // }
+                            if($usuario->checkDeviceEmp()){
+                                $result[''] = 'Ya hay dispositivos registrados';
+                            } else{
+                                $usuario->registrarDispositivosCli();
+                            }
                             
                         }else {
                             $result['exception'] = 'codigo incorrecto, verifique otra vez';

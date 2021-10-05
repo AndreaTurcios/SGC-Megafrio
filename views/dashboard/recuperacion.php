@@ -11,7 +11,7 @@ Dashboard_Page::headerTemplate('Primer registro');
     <div class="row">
         <div class="col-12 text-center" id="Titulo1">
             <h1>Recuperacion Contraseña</h1>
-            <form method="post" id="register-form">
+            <form method="post" id="recuperacion-form">
             <!-- Ingresar correo de usuario -->
             <div class="row  p-3">
                 <div class="col-3 text-center">
@@ -81,4 +81,7 @@ Dashboard_Page::headerTemplate('Primer registro');
 
 </div>
 
-<script type="text/javascript" src="../../app/controllers/register.js"></script>
+<?php
+//Se imprime la plantilla del pie y se envía el nombre del controlador para la página web
+Dashboard_Page::footerTemplate('recuperacion.js');
+?>
