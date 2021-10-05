@@ -450,37 +450,7 @@ class Empleados extends Validator{
             }
     }
 
-    public function enviarCorreo2($correo, $codigo){
-        // Inicio
-        $mail = new PHPMailer(true);
-
-            // Configuracion SMTP
-            $mail->SMTPDebug = 0;                      // Mostrar salida (Desactivar en producción)
-            $mail->isSMTP();                                               // Activar envio SMTP
-            $mail->Host  = 'smtp.gmail.com';                     // Servidor SMTP
-            $mail->SMTPAuth  = true;                                       // Identificacion SMTP
-            $mail->Username  = 'recuperacion.megafrio@gmail.com';                  // Usuario SMTP
-            $mail->Password  = 'megafrio123';	  	          // Contraseña SMTP
-            $mail->SMTPSecure = 'tls';
-            $mail->Port  = 587;
-            $mail->setFrom("recuperacion.megafrio@gmail.com", "Megafrio");                // Remitente del correo
-
-            // Destinatarios
-            $mail->addAddress($correo);  // Email y nombre del destinatario
-
-            // Contenido del correo
-            $mail->isHTML(true);
-            $mail->Subject = 'Código para restaurar contraseña';
-            $mail->Body = 'Estimado cliente, ' .$correo .' gracias por preferirnos. 
-                        Por este medio le enviamos el codígo de verificación para continuar con el proceso de restauración de contraseña
-                        El cual es:<b>'.$codigo.'!</b>';
-
-            if($mail->send()){
-                return true;
-            } else{
-                return false;
-            }
-    }
+    
 
     public function updateCodigo()
     {

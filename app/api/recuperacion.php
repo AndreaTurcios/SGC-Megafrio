@@ -24,7 +24,7 @@ require_once('../models/empleados.php');
                     if ($empleado->checkUserCorreoRecu($_POST['correo'])) {
                         if ($empleado->getEstado()) { 
                                 $codigo = $empleado->generarCodigoRecu(6);
-                                if ($empleado->enviarCorreo2($_POST['correo'], $codigo)) {
+                                if ($empleado->enviarCorreo($_POST['correo'], $codigo)) {
                                     if ($empleado->setCodigoRecu($codigo)) {
                                         if ($empleado->updateCodigo()) {
                                             $result['status'] = 1;
