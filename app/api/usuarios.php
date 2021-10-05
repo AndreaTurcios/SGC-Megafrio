@@ -209,9 +209,9 @@ if(isset($_GET['action'])) {
                                             if($usuario->updateCodigo2($codigo)){
                                                 $_SESSION['correo_cli_us'] = $usuario->getCorreo();
                                                 $result['status'] = 1;
-                                                $result['message'] = 'Se ha enviado un codigo de confirmacion a su correo';
+                                                $result['message'] = 'Se ha enviado un codigo de confirmación a su correo';
                                             }else{
-                                                $result['exception'] = 'Ocurrio un problema al actualizar el código';
+                                                $result['exception'] = 'Ocurrió un problema al actualizar el código';
                                             }
                                         } else {
                                             $result['exception'] = $usuario->getCorreo();
