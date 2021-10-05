@@ -1,5 +1,9 @@
 <?php
 
+/*
+*	Clase para manejar la tabla productos de la base de datos. Es clase hija de Validator.
+*/
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
@@ -7,9 +11,7 @@ use PHPMailer\PHPMailer\SMTP;
 require '../libraries/phpmailer/src/Exception.php';
 require '../libraries/phpmailer/src/PHPMailer.php';
 require '../libraries/phpmailer/src/SMTP.php';
-/*
-*	Clase para manejar la tabla productos de la base de datos. Es clase hija de Validator.
-*/
+
 class Empleados extends Validator{
     
     // Declaración de atributos (propiedades).
@@ -22,11 +24,22 @@ class Empleados extends Validator{
     private $idtipoempleado = null;
     private $estado = null;
     private $correo = null;
-    private $intentosC = null;
     private $correoError = null;
+    private $codigo_recu = null;
+
+    private $intentosC = null;
     /*
     *   Métodos para asignar valores a los atributos.
     */
+
+    public function setCodigoRecu($value){
+        if($this->validateAlphanumeric($value, 1, 6)){
+            $this->codigo_recu = $value;
+            return true;
+        }else{
+            return false;
+        }  
+    }
 
     public function setPasswordAlias($value, $alias)
     {
@@ -91,6 +104,15 @@ class Empleados extends Validator{
     {
         if ($this->validatePassword($value, 1, 50)) {
             $this->claveempleado = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setPasswordNombreUsuario($value, $alias)
+    {
+        if ($this->validatePasswordAlias($value, $alias, 16)) {
             return true;
         } else {
             return false;
@@ -177,6 +199,11 @@ class Empleados extends Validator{
         return $this->correoError;
     }
 
+    public function getCodigoRecu()
+    {
+        return $this->codigo_recu;
+    }
+
     /*
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
     */
@@ -202,9 +229,21 @@ class Empleados extends Validator{
         return Database::executeRow($sql, $params);
     }
 
+    public function createRowRegister()
+    {
+        $estado = 'true';
+        $idtipoempleado = 1;
+        // Se encripta la clave por medio del algoritmo bcrypt que genera un string de 60 caracteres.
+        $hash = password_hash($this->claveempleado, PASSWORD_DEFAULT);
+        $sql = 'INSERT INTO empleado (nombre_usuario, nombre_emp,correo,apellido_emp,telefono_emp,clave_emp,estado,id_tipo_emp)
+        VALUES (? ,?, ?, ?, ?, ?, ?, ?)';
+        $params = array($this->nombreusuario, $this->nombreempleado,$this->correo, $this->apellidoempleado, $this->telefonoempleado,$hash,$estado,$idtipoempleado);
+        return Database::executeRow($sql, $params);
+    }
+
     public function readAll()
     {
-        $sql = 'SELECT em.id_empleado, em.nombre_usuario, em.nombre_emp,em.apellido_emp,em.telefono_emp,em.estado,od.tipoemp 
+        $sql = 'SELECT em.id_empleado, em.nombre_usuario, em.nombre_emp,em.apellido_emp,em.telefono_emp,em.estado,od.tipoemp,em.correo 
         FROM empleado em
         INNER JOIN tipoempleado od on em.id_tipo_emp = od.id_tipo_emp
         ORDER BY nombre_usuario';
@@ -314,10 +353,10 @@ class Empleados extends Validator{
     public function topEmpleados()
     {
         $sql = 'SELECT nombre_usuario, COUNT(id_agenda) cantidad
-                FROM empleado INNER JOIN agenda USING(id_empleado)
-                WHERE estado_tarea = true
-                GROUP BY nombre_usuario ORDER BY cantidad DESC
-                LIMIT 3';
+        FROM empleado INNER JOIN agenda USING(id_empleado)
+        WHERE estado = true
+        GROUP BY nombre_usuario ORDER BY cantidad DESC
+        LIMIT 3';
         $params = null;
         return Database::getRows($sql, $params);
     }
@@ -372,7 +411,7 @@ class Empleados extends Validator{
             // Contenido del correo
             $mail->isHTML(true);
             $mail->Subject = 'Código para restaurar contraseña';
-            $mail->Body = 'Estimado usuario, ' .$correo .'. 
+            $mail->Body = 'Estimado cliente, ' .$correo .' gracias por preferirnos. 
                         Por este medio le enviamos el codígo de verificación para continuar con el proceso de restauración de contraseña
                         El cual es:<b>'.$codigo.'!</b>';
 
@@ -383,21 +422,39 @@ class Empleados extends Validator{
             }
     }
 
+    public function updateCodigo()
+    {
+        $sql = 'UPDATE empleado SET codigo_recu = ? WHERE id_empleado = ?';
+        $params = array($this->codigo_recu, $this->id);
+        return Database::getRows($sql, $params);
+    }
+
     public function updateCodigo2($codigo_con)
     {
         $sql = 'UPDATE empleado SET codigo_recu = ? WHERE id_empleado = ?';
         $params = array($codigo_con, $this->id);
         return Database::executeRow($sql, $params);
     }
-
+    
+    public function checkCodigo($restauracion)
+    {
+        $sql = 'SELECT id_empleado, correo FROM empleado WHERE codigo_recu = ?';
+        $params = array($restauracion);
+        if ($data = Database::getRow($sql, $params)) {
+            $this->id = $data['id_empleado'];
+            $this->correo = $data['correo'];
+            return true;
+        } else {
+            return false;
+        }
+    }
     public function checkCodigo2($restauracion)
     {
-        $sql = 'SELECT id_empleado, codigo_recu, nombre_usuario FROM empleado WHERE correo = ?';
-        $params = array($_SESSION['correo_cli_us']);
+        $sql = 'SELECT id_empleado, codigo_recu FROM empleado WHERE correo = ?';
+        $params = array($_SESSION['correo']);
         $data = Database::getRow($sql, $params);
         if ($restauracion == $data['codigo_recu']) {
             $this->id = $data['id_empleado'];
-            $this->alias = $data['nombre_usuario'];
             $sql = 'UPDATE empleado SET codigo_recu = null WHERE id_empleado = ?';
             $params = array($this->id);
             return Database::executeRow($sql, $params);
@@ -459,6 +516,32 @@ class Empleados extends Validator{
         $sql = 'UPDATE empleado SET intentos = null where id_empleado = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
+    }
+    
+    public function registrarDispositivos()
+    {
+        $dispositivo = php_uname();
+        $sql = 'INSERT INTO historial_sesion (id_empleado, dispositivo) VALUES(?,?)';
+        $params = array($_SESSION['id_empleado'], $dispositivo);
+        return Database::executeRow($sql, $params);
+    }
+
+
+    //Verificar si el dispositivo ya existe
+    public function checkDevice()
+    {
+        $sql = 'SELECT dispositivo FROM historial_sesion WHERE dispositivo = ? AND id_empleado = ?';
+        $params = array(php_uname(), $_SESSION['id_empleado']);
+        return Database::getRow($sql, $params);
+        
+    }
+
+    //Obtener las sesiones de un dispositivo
+    public function getDevices()
+    {
+        $sql = 'SELECT dispositivo, fecha FROM historial_sesion WHERE id_empleado = ?';
+        $params = array($_SESSION['id_empleado']);
+        return Database::getRows($sql, $params);
     }
 
 
