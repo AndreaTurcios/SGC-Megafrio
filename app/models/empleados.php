@@ -606,7 +606,7 @@ class Empleados extends Validator{
         return Database::getRows($sql, $params);
     }
 
-    public function checkUserCorreo($correo)
+    public function checkUserCorreoRecu($correo)
     {
         $sql = 'SELECT id_empleado, estado FROM empleado WHERE correo = ?';
         $params = array($correo);

@@ -21,10 +21,10 @@ require_once('../models/empleados.php');
             switch ($_GET['action']) {
                 case 'recover':
                     $_POST = $empleado->validateForm($_POST);
-                    if ($empleado->checkUserCorreo($_POST['correo'])) {
+                    if ($empleado->checkUserCorreoRecu($_POST['correo'])) {
                         if ($empleado->getEstado()) { 
                                 $codigo = $empleado->generarCodigoRecu(6);
-                                if ($empleado->enviarCorreo($_POST['correo'], $codigo)) {
+                                if ($empleado->enviarCorreo2($_POST['correo'], $codigo)) {
                                     if ($empleado->setCodigoRecu($codigo)) {
                                         if ($empleado->updateCodigo()) {
                                             $result['status'] = 1;

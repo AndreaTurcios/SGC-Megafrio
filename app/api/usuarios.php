@@ -288,10 +288,10 @@ if(isset($_GET['action'])) {
                             $result['status'] = 1;
                             $result['message'] = 'Autenticación correcta';
 
-                            if($usuario->checkDeviceEmp()){
+                            if($usuario->checkDevice()){
                                 $result[''] = 'Ya hay dispositivos registrados';
                             } else{
-                                $usuario->registrarDispositivosCli();
+                                $usuario->registrarDispositivos();
                             }
                             
                         }else {

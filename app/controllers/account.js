@@ -2,8 +2,6 @@
 const API_USUARIOS = '../../app/api/usuarios.php?action=';
 
 
-
-
 function openDevicesDialog() {
     fetch(API + 'getDevices', {
         method: 'get'
