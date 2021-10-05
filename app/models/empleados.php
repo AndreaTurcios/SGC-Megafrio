@@ -450,6 +450,38 @@ class Empleados extends Validator{
             }
     }
 
+    public function enviarCorreo2($correo, $codigo){
+        // Inicio
+        $mail = new PHPMailer(true);
+
+            // Configuracion SMTP
+            $mail->SMTPDebug = 0;                      // Mostrar salida (Desactivar en producción)
+            $mail->isSMTP();                                               // Activar envio SMTP
+            $mail->Host  = 'smtp.gmail.com';                     // Servidor SMTP
+            $mail->SMTPAuth  = true;                                       // Identificacion SMTP
+            $mail->Username  = 'recuperacion.megafrio@gmail.com';                  // Usuario SMTP
+            $mail->Password  = 'megafrio123';	  	          // Contraseña SMTP
+            $mail->SMTPSecure = 'tls';
+            $mail->Port  = 587;
+            $mail->setFrom("recuperacion.megafrio@gmail.com", "Megafrio");                // Remitente del correo
+
+            // Destinatarios
+            $mail->addAddress($correo);  // Email y nombre del destinatario
+
+            // Contenido del correo
+            $mail->isHTML(true);
+            $mail->Subject = 'Código para restaurar contraseña';
+            $mail->Body = 'Estimado cliente, ' .$correo .' gracias por preferirnos. 
+                        Por este medio le enviamos el codígo de verificación para continuar con el proceso de restauración de contraseña
+                        El cual es:<b>'.$codigo.'!</b>';
+
+            if($mail->send()){
+                return true;
+            } else{
+                return false;
+            }
+    }
+
     public function updateCodigo()
     {
         $sql = 'UPDATE empleado SET codigo_recu = ? WHERE id_empleado = ?';
@@ -476,13 +508,15 @@ class Empleados extends Validator{
             return false;
         }
     }
+
     public function checkCodigo2($restauracion)
     {
-        $sql = 'SELECT id_empleado, codigo_recu FROM empleado WHERE correo = ?';
-        $params = array($_SESSION['correo']);
+        $sql = 'SELECT id_empleado, codigo_recu, nombre_usuario FROM empleado WHERE correo = ?';
+        $params = array($_SESSION['correo_cli_us']);
         $data = Database::getRow($sql, $params);
         if ($restauracion == $data['codigo_recu']) {
             $this->id = $data['id_empleado'];
+            $this->alias = $data['nombre_usuario'];
             $sql = 'UPDATE empleado SET codigo_recu = null WHERE id_empleado = ?';
             $params = array($this->id);
             return Database::executeRow($sql, $params);
@@ -497,12 +531,18 @@ class Empleados extends Validator{
         $params = array($this->id);
         $data = Database::getRow($sql, $params);
         $fechaHoy = date('Y-m-d');
-        $dateDifference = abs(strtotime($fechaHoy) - strtotime($data['fechacontra']));
-        $years  = floor($dateDifference / (365 * 60 * 60 * 24));
-        $months = floor(($dateDifference - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
-        $days   = floor(($dateDifference - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 *24) / (60 * 60 * 24));
+        
+        $datetime1 = date_create($fechaHoy);
+        $datetime2 = date_create($data['fechacontra']);
+        $interval = date_diff($datetime1,$datetime2);
+        $tiempo = array();
 
-        if($months>=3){
+        foreach($interval as $valor)
+        {
+            $tiempo[] = $valor;
+        }
+
+        if($tiempo[11]>=90){
             return true;
         }else{
             return false;
