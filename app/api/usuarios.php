@@ -207,7 +207,8 @@ if(isset($_GET['action'])) {
                                 $codigo = $usuario->generarCodigoRecu(6);
                                         if ($usuario->enviarCorreo($usuario->getCorreo(), $codigo)) {
                                             if($usuario->updateCodigo2($codigo)){
-                                                $_SESSION['correo_cli_us'] = $usuario->getCorreo();
+                                                $_SESSION['correo'] = $usuario->getCorreo();
+                                                $_SESSION['nombre_usuario'] = $usuario->getNombreUsuario();
                                                 $_SESSION['id_tipo_emp'] = $usuario->getIDTipoEmpleado();  
                                                 $result['status'] = 1;
                                                 $result['message'] = 'Se ha enviado un código de confirmación a su correo';
@@ -240,7 +241,6 @@ if(isset($_GET['action'])) {
                         }
                     }
                     break;
-
                     case 'tiempocontra':
                         $_POST = $usuario->validateForm($_POST);
                         
