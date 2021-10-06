@@ -34,13 +34,15 @@ class Dashboard_Page
                 <title>SGC Megafrio</title>
                 <link rel="shortcut icon" href="../../resources/img/logos/logo.ico" type="image/x-icon">
             </head>
-            <body>          
+            <body>  
+
+            
         ');
         // Se obtiene el nombre del archivo de la página web actual.
         $filename = basename($_SERVER['PHP_SELF']);
         // Se comprueba si existe una sesión de administrador para mostrar el menú de opciones, de lo contrario se muestra un menú vacío.
         if (isset($_SESSION['id_empleado'])) {
-            if( $_SESSION['id_tipo_emp']== 1) {
+            if($_SESSION['id_tipo_emp']== 1) {
                 if ($filename != 'index.php' && $filename != 'register.php' && $filename != 'recuperacion.php') {
                   print('
                     <header>
@@ -487,11 +489,11 @@ class Dashboard_Page
                                         </div> 
                                       ');
                                     } else {
-                                          header('location: main.php');
-                                    }
-                                  } else if($_SESSION['id_tipo_emp']==3) {
-                                    if ($filename != 'index.php' && $filename != 'register.php' && $filename != 'recuperacion.php') {
-                                      print('
+                                      header('location: main.php');
+                                  }
+                              } else if($_SESSION['id_tipo_emp']==3) {
+                                if ($filename != 'index.php') {
+                                  print('
                                       <header>
                                       <div class="container-fluid">
                                       <div class="row ">
