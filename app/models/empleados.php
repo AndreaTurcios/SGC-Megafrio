@@ -247,11 +247,12 @@ class Empleados extends Validator{
     {
         $estado = 'true';
         $idtipoempleado = 1;
+        $fechaHoy = date('Y-m-d');
         // Se encripta la clave por medio del algoritmo bcrypt que genera un string de 60 caracteres.
         $hash = password_hash($this->claveempleado, PASSWORD_DEFAULT);
-        $sql = 'INSERT INTO empleado (nombre_usuario, nombre_emp,correo,apellido_emp,telefono_emp,clave_emp,estado,id_tipo_emp)
-        VALUES (? ,?, ?, ?, ?, ?, ?, ?)';
-        $params = array($this->nombreusuario, $this->nombreempleado,$this->correo, $this->apellidoempleado, $this->telefonoempleado,$hash,$estado,$idtipoempleado);
+        $sql = 'INSERT INTO empleado (nombre_usuario, nombre_emp,correo,apellido_emp,telefono_emp,clave_emp,estado,id_tipo_emp,fechacontra)
+        VALUES (? ,?, ?, ?, ?, ?, ?, ?, ?)';
+        $params = array($this->nombreusuario, $this->nombreempleado,$this->correo, $this->apellidoempleado, $this->telefonoempleado,$hash,$estado,$idtipoempleado,$fechaHoy);
         return Database::executeRow($sql, $params);
     }
 
@@ -441,7 +442,7 @@ class Empleados extends Validator{
             $mail->isHTML(true);
             $mail->Subject = 'Megafrio - Codigo de confirmacion '.$codigo;
             $mail->Body = 'Estimado cliente, ' .$correo .' gracias por preferirnos. 
-                        Por este medio le enviamos el código de verificación para continuar con el proceso de restauración de contraseña.
+                        Por este medio le enviamos el código de verificación.
                         Su código de seguridad es: <h2>'.$codigo.'</h2>'.' 
             --
             <br><p>
