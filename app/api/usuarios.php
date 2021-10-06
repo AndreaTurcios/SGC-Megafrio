@@ -284,10 +284,10 @@ if(isset($_GET['action'])) {
                                 $_SESSION['correo'] = $usuario->getCorreo();
                                 $result['status'] = 1;
                                 $result['message'] = 'Autenticación correcta';
-                                if($usuario->checkDevice()){
+                                if($usuario->registrarDispositivos()){
                                     $result[''] = 'Ya hay dispositivos registrados';
                                 } else{
-                                    $usuario->registrarDispositivos();
+                                    $usuario->checkDevice();
                                 }
                             }else {
                                 $result['exception'] = 'Código incorrecto, verifique otra vez';

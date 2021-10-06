@@ -3,7 +3,7 @@ const API_USUARIOS = '../../app/api/usuarios.php?action=';
 
 
 function openDevicesDialog() {
-    fetch(API + 'getDevices', {
+    fetch(API_USUARIOS + 'getDevices', {
         method: 'get'
     }).then(function (request) {
         // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
