@@ -15,6 +15,39 @@
   text-align: center;
 }
 
+.btnperfill1 {
+  border-style: solid;
+  position: center;
+  border-radius: 50ch;
+  border-color: #091e2b;
+  color: rgb(141, 140, 140);
+  background-image: -webkit-linear-gradient(45deg, #4974b9 50%, transparent 50%);
+  background-image: linear-gradient(45deg, #465bb6 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  -webkit-transition: background 300ms ease-in-out;
+  transition: background 300ms ease-in-out;
+}
+.btnperfill1:hover {
+  background-position: 0;
+}
+
+
+.btndrop {
+  padding:10px;
+  border-style:solid;
+  position: center;
+  border-radius: 1ch;
+  border-color: #16405a;
+  border-bottom-width: thick;
+  width:60px;
+  height:150px;
+  color: rgb(141, 140, 140);
+}
+.btndrop:hover {
+  background-position: 0;
+}
+
 .campo span {
   position: center;
   right: 5px;
@@ -86,6 +119,40 @@
   .botonAnim:hover:after {
     width: 110%;
   }
+
+
+.botonAnim1 {
+  border-color: #6ba7df;
+  background: rgb(183, 210, 211);
+  border-radius: 0;
+  color: #232b30;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  -webkit-transition: color 150ms ease-in-out;
+  transition: color 150ms ease-in-out;
+}
+.botonAnim1:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 0;
+  height: 100%;
+  background: rgb(175, 218, 219);
+  z-index: -1;
+  -webkit-transition: width 150ms ease-in-out;
+  transition: width 150ms ease-in-out;
+}
+.botonAnim1:hover {
+  color: rgb(15, 87, 204);
+}
+.botonAnim1:hover:after {
+  width: 110%;
+}
 
   .btnperfill {
     border-color: #08b186;

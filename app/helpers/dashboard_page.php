@@ -67,10 +67,18 @@ class Dashboard_Page
                             </button></a>
                           </div>
                           <!-- Columna para perfil pero en usuarios de pantalla grande -->
-                          <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-2 col-xxl-2 text-center d-none d-lg-block">
-                          <button class="btn btncontra"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-white"><i class="fas fa-shield-alt"></i> Cambiar contraseña</a></button>
-                          <button class="btn btnperfill"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white" id="fontmen"><i class="far fa-user"></i> Perfil</a></button>
-                          <a href="#" class="btn waves-effect blue tooltipped" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal"><i class="fas fa-shield-alt"></i>Dispositivos</a>
+                          <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-4 col-xxl-2 text-center d-none d-lg-block">
+                          <div class="btn-group">
+                                    <button type="button" class="btn dropdown botonAnim1" id="fontmen" data-bs-toggle="dropdown"><i class="fas fa-users-cog"></i>
+                                      Configuración
+                                    </button>
+                                    <ul class="dropdown-menu btndrop" aria-labelledby="defaultDropdown">
+                                      <li><button class="btn btnperfill1"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-blue" id="fontmen">Perfil</a></button></li>
+                                      <li><button class="btn btnperfill1"><a href="#" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal" id="fontmen">Dispositivos</a></li>
+                                      <li><button class="btn btnperfill1"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-blue" id="fontmen">Contraseña</a></button></li>
+                                      <br>
+                                    </ul>
+                            </div>
                           <button class="btn btncerrar" id="cerrar">
                             <i href="#" id="fontmen" onclick="logOut()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</i>
                             </button>
@@ -146,6 +154,7 @@ class Dashboard_Page
                                 <li class="nav-item p-1">
                                   <button type="button" class="btn botonAnim"><img src="../../resources/img/logos/reportes.svg" class="text-center" style="max-width:20%;width:13px;height:auto;"><a href="Reportes.php" id="fontmen"> REPORTES</a></button> 
                                 </li>
+                                <li>
                               </ul>
                             </div>
                           </div>
@@ -315,10 +324,18 @@ class Dashboard_Page
                                         
                                       </div>
                                       <!-- Columna para perfil pero en usuarios de pantalla grande -->
-                                      <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-2 col-xxl-2 text-center d-none d-lg-block">
-                                      <button class="btn btncontra"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-white"><i class="fas fa-shield-alt"></i> Cambiar contraseña</a></button>
-                                      <button class="btn btnperfill"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white" id="fontmen"><i class="far fa-user"></i> Perfil</a></button>
-                                      <a href="#" class="btn waves-effect blue tooltipped" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal"><i class="fas fa-shield-alt"></i>Dispositivos</a>
+                                      <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-4 col-xxl-2 text-center d-none d-lg-block">
+                                      <div class="btn-group">
+                                                <button type="button" class="btn dropdown botonAnim1" id="fontmen" data-bs-toggle="dropdown"><i class="fas fa-users-cog"></i>
+                                                  Configuración
+                                                </button>
+                                                <ul class="dropdown-menu btndrop" aria-labelledby="defaultDropdown">
+                                                  <li><button class="btn btnperfill1"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-blue" id="fontmen">Perfil</a></button></li>
+                                                  <li><button class="btn btnperfill1"><a href="#" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal" id="fontmen">Dispositivos</a></li>
+                                                  <li><button class="btn btnperfill1"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-blue" id="fontmen">Contraseña</a></button></li>
+                                                  <br>
+                                                </ul>
+                                        </div>
                                       <button class="btn btncerrar" id="cerrar">
                                         <i href="#" id="fontmen" onclick="logOut()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</i>
                                         </button>
@@ -556,15 +573,24 @@ class Dashboard_Page
                                             
                                           </div>
                                           <!-- Columna para perfil pero en usuarios de pantalla grande -->
-                                          <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-2 col-xxl-2 text-center d-none d-lg-block">
-                                          <button class="btn btncontra"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-white"><i class="fas fa-shield-alt"></i> Cambiar contraseña</a></button>
-                                          <button class="btn btnperfill"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white" id="fontmen"><i class="far fa-user"></i> Perfil</a></button>
-                                          <a href="#" class="btn waves-effect blue tooltipped" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal"><i class="fas fa-shield-alt"></i>Dispositivos</a>
-                                          <button class="btn btncerrar" id="cerrar">
-                                            <i href="#" id="fontmen" onclick="logOut()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</i>
-                                            </button>
-                                          </div>
-                                        </nav>
+                                          <!-- Columna para perfil pero en usuarios de pantalla grande -->
+                                      <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-4 col-xxl-2 text-center d-none d-lg-block">
+                                      <div class="btn-group">
+                                                <button type="button" class="btn dropdown botonAnim1" id="fontmen" data-bs-toggle="dropdown"><i class="fas fa-users-cog"></i>
+                                                  Configuración
+                                                </button>
+                                                <ul class="dropdown-menu btndrop" aria-labelledby="defaultDropdown">
+                                                  <li><button class="btn btnperfill1"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-blue" id="fontmen">Perfil</a></button></li>
+                                                  <li><button class="btn btnperfill1"><a href="#" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal" id="fontmen">Dispositivos</a></li>
+                                                  <li><button class="btn btnperfill1"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-blue" id="fontmen">Contraseña</a></button></li>
+                                                  <br>
+                                                </ul>
+                                        </div>
+                                      <button class="btn btncerrar" id="cerrar">
+                                        <i href="#" id="fontmen" onclick="logOut()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</i>
+                                        </button>
+                                      </div>
+                                    </nav>
                                       </div>
 
                                     </div>
@@ -755,10 +781,18 @@ class Dashboard_Page
                                           
                                         </div>
                                         <!-- Columna para perfil pero en usuarios de pantalla grande -->
-                                        <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-2 col-xxl-2 text-center d-none d-lg-block">
-                                        <button class="btn btncontra"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-white"><i class="fas fa-shield-alt"></i> Cambiar contraseña</a></button>
-                                        <button class="btn btnperfill"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white" id="fontmen"><i class="far fa-user"></i> Perfil</a></button>
-                                        <a href="#" class="btn waves-effect blue tooltipped" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal"><i class="fas fa-shield-alt"></i>Dispositivos</a>
+                                        <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-4 col-xxl-2 text-center d-none d-lg-block">
+                                        <div class="btn-group">
+                                                  <button type="button" class="btn dropdown botonAnim1" id="fontmen" data-bs-toggle="dropdown"><i class="fas fa-users-cog"></i>
+                                                    Configuración
+                                                  </button>
+                                                  <ul class="dropdown-menu btndrop" aria-labelledby="defaultDropdown">
+                                                    <li><button class="btn btnperfill1"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-blue" id="fontmen">Perfil</a></button></li>
+                                                    <li><button class="btn btnperfill1"><a href="#" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal" id="fontmen">Dispositivos</a></li>
+                                                    <li><button class="btn btnperfill1"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-blue" id="fontmen">Contraseña</a></button></li>
+                                                    <br>
+                                                  </ul>
+                                          </div>
                                         <button class="btn btncerrar" id="cerrar">
                                           <i href="#" id="fontmen" onclick="logOut()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</i>
                                           </button>
@@ -985,15 +1019,23 @@ class Dashboard_Page
                                         
                                       </div>
                                       <!-- Columna para perfil pero en usuarios de pantalla grande -->
-                                      <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-2 col-xxl-2 text-center d-none d-lg-block">
-                                      <button class="btn btncontra"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-white"><i class="fas fa-shield-alt"></i> Cambiar contraseña</a></button>
-                                      <button class="btn btnperfill"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white" id="fontmen"><i class="far fa-user"></i> Perfil</a></button>
-                                      <a href="#" class="btn waves-effect blue tooltipped" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal"><i class="fas fa-shield-alt"></i>Dispositivos</a>
-                                      <button class="btn btncerrar" id="cerrar">
-                                        <i href="#" id="fontmen" onclick="logOut()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</i>
-                                        </button>
-                                      </div>
-                                    </nav>
+                          <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-4 col-xxl-2 text-center d-none d-lg-block">
+                          <div class="btn-group">
+                                    <button type="button" class="btn dropdown botonAnim1" id="fontmen" data-bs-toggle="dropdown"><i class="fas fa-users-cog"></i>
+                                      Configuración
+                                    </button>
+                                    <ul class="dropdown-menu btndrop" aria-labelledby="defaultDropdown">
+                                      <li><button class="btn btnperfill1"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-blue" id="fontmen">Perfil</a></button></li>
+                                      <li><button class="btn btnperfill1"><a href="#" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal" id="fontmen">Dispositivos</a></li>
+                                      <li><button class="btn btnperfill1"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-blue" id="fontmen">Contraseña</a></button></li>
+                                      <br>
+                                    </ul>
+                            </div>
+                          <button class="btn btncerrar" id="cerrar">
+                            <i href="#" id="fontmen" onclick="logOut()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</i>
+                            </button>
+                          </div>
+                        </nav>
                                   </div>
 
                                 </div>
@@ -1209,10 +1251,18 @@ class Dashboard_Page
                                             
                                           </div>
                                           <!-- Columna para perfil pero en usuarios de pantalla grande -->
-                                          <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-2 col-xxl-2 text-center d-none d-lg-block">
-                                          <button class="btn btncontra"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-white"><i class="fas fa-shield-alt"></i> Cambiar contraseña</a></button>
-                                          <button class="btn btnperfill"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white" id="fontmen"><i class="far fa-user"></i> Perfil</a></button>
-                                          <a href="#" class="btn waves-effect blue tooltipped" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal"><i class="fas fa-shield-alt"></i>Dispositivos</a>
+                                          <div class="col-12 col-xs-12 col-sm-12 col-lg-2 col-xl-4 col-xxl-2 text-center d-none d-lg-block">
+                                          <div class="btn-group">
+                                                    <button type="button" class="btn dropdown botonAnim1" id="fontmen" data-bs-toggle="dropdown"><i class="fas fa-users-cog"></i>
+                                                      Configuración
+                                                    </button>
+                                                    <ul class="dropdown-menu btndrop" aria-labelledby="defaultDropdown">
+                                                      <li><button class="btn btnperfill1"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-blue" id="fontmen">Perfil</a></button></li>
+                                                      <li><button class="btn btnperfill1"><a href="#" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal" id="fontmen">Dispositivos</a></li>
+                                                      <li><button class="btn btnperfill1"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-blue" id="fontmen">Contraseña</a></button></li>
+                                                      <br>
+                                                    </ul>
+                                            </div>
                                           <button class="btn btncerrar" id="cerrar">
                                             <i href="#" id="fontmen" onclick="logOut()"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</i>
                                             </button>
