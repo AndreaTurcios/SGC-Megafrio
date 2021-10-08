@@ -140,7 +140,7 @@ Dashboard_Page::headerTemplate('Empleados');
                             placeholder="Confirmar clave:" required />
                           <div class="campo1">
                             <div class="form-group d-none">
-                              <input type="password" name="password" id="claveconf">
+                              <input type="password" name="password" id="claveconf2">
                             </div>
                             <span>MOSTRAR</span>
                           </div>

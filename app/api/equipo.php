@@ -13,6 +13,7 @@ if (isset($_GET['action'])) {
     // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
+            //Case para leer los registros y ver si existe algún equipo, en caso de no existir manda mensaje en la exception
             case 'readAll':
                 if ($result['dataset'] = $equipo->readAll()) {
                     $result['status'] = 1;
@@ -24,7 +25,7 @@ if (isset($_GET['action'])) {
                     }
                 }
                 break;
-
+                // Case para leer el proveedor y ver si existen o no
                 case 'readProveedor':
                     if ($result['dataset'] = $equipo->readProveedor()) {
                         $result['status'] = 1;
@@ -36,7 +37,7 @@ if (isset($_GET['action'])) {
                         }
                     }
                     break;
-
+                    //Case para leer el tipo de equipo 
                 case 'readTipoEquipo':
                     if ($result['dataset'] = $equipo->readTipoEquipo()) {
                         $result['status'] = 1;
@@ -48,7 +49,7 @@ if (isset($_GET['action'])) {
                         }
                     }
                     break;
-
+                    // case para realizar el read de capacidades
                     case 'readCapacidad':
                         if ($result['dataset'] = $equipo->readCapacidad()) {
                             $result['status'] = 1;

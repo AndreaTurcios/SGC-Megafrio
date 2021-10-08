@@ -85,7 +85,7 @@ if (isset($_GET['action'])) {
                         }
                     }
                 break;
-            
+            //  Case para leer el estado del equipo
             case 'readEstadoEquipo':
                 if ($result['dataset'] = $bitacora->readEstadoEquipo()) {
                         $result['status'] = 1;
@@ -97,7 +97,7 @@ if (isset($_GET['action'])) {
                         }
                     }
                 break;
-
+            // Case para leer el tipo de servicio brindado 
             case 'readTipoServicio':
                 if ($result['dataset'] = $bitacora->readTipoServicio()) {
                         $result['status'] = 1;
@@ -109,7 +109,7 @@ if (isset($_GET['action'])) {
                         }
                     }
                 break;
-
+            //Case para leer el tipo de pago con el que se ha realizado la acción
             case 'readTipoPago':
                 if ($result['dataset'] = $bitacora->readTipoPago()) {
                         $result['status'] = 1;
@@ -121,7 +121,7 @@ if (isset($_GET['action'])) {
                         }
                     }
                 break;
-
+            //Case para leer algún dato en específico 
             case 'readOne':
                     if ($bitacora->setId($_POST['id_bitacora'])) {   
                         if ($result['dataset'] = $bitacora->readOne()) {
@@ -137,7 +137,7 @@ if (isset($_GET['action'])) {
                         $result['exception'] = 'Bitacora incorrecto';
                     }
                 break;
-
+            // Case para realizar una búsqueda de un dato o campo
             case 'search':
                 $_POST = $bitacora->validateForm($_POST);
                 if ($_POST['search'] != '') {
@@ -160,8 +160,7 @@ if (isset($_GET['action'])) {
                         $result['exception'] = 'Hay campos vacios';
                 }
                 break;
-
-
+                // Case para eliminar alguna bitácora
                 case 'delete':
                     if ($bitacora->setId($_POST['id_bitacora'])) {
                         if ($data = $bitacora->readOne()) {
@@ -182,7 +181,7 @@ if (isset($_GET['action'])) {
                         $result['exception'] = 'Bitacora incorrecto';
                     }
             break;
-
+            // Case para realizar un create de bitácora
             case 'create':
                 $_POST = $bitacora->validateForm($_POST);
                 
