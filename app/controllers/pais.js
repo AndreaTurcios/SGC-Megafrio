@@ -30,10 +30,10 @@ function fillTable(dataset) {
     // Se inicializa la tabla con DataTable.
     let dataTable = new DataTable('#data-table', {
         labels: {
-            placeholder: 'Buscar clientes...',
-            perPage: '{select} clientes por página',
-            noRows: 'No se encontraron clientes',
-            info: 'Mostrando {start} a {end} de {rows} clientes'
+            placeholder: 'Buscar países...',
+            perPage: '{select} Países por página',
+            noRows: 'No se encontraron países',
+            info: 'Mostrando {start} a {end} de {rows} países'
         }
     });
 }

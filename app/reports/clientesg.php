@@ -10,7 +10,7 @@ $pdf->startReports('Reporte de datos de clientes por estado pago');
     if ($dataClientes = $clientes->readAll()) {// leer todos los registros de estado pago
         foreach ($dataClientes as $rowClientes) {
             $pdf->SetFont('Arial', 'B', 11);
-            $pdf->SetFillColor(0, 188, 209);
+            $pdf->SetFillColor(174, 232, 251);
             $pdf->Cell(253, 10, utf8_decode('Estado pago: '.$rowClientes['estado_pago']), 1, 1, 'C', 1);
             if ($clientes->setEstado($rowClientes['id_estado_pago'])) {
                 // Se dataClientes si existen registros (productos) para mostrar, de lo contrario se imprime un mensaje.

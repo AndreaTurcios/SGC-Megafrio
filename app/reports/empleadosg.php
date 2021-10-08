@@ -12,7 +12,7 @@ if ($dataEmpleados = $templeados->readAll()) {
     // Se recorren los registros ($dataEmpleados) fila por fila ($rowEmpleados).
     foreach ($dataEmpleados as $rowEmpleados) {
         $pdf->SetFont('Arial', 'B', 11);
-        $pdf->SetFillColor(0, 188, 209);
+        $pdf->SetFillColor(174, 232, 251);
         // Se imprime una celda con el nombre de la categoría.
         $pdf->Cell(193, 10, utf8_decode('Tipo empleado: '.$rowEmpleados['tipoemp']), 1, 1, 'C', 1);
         // Se establece la categoría para obtener sus empleados, de lo contrario se imprime un mensaje de error.

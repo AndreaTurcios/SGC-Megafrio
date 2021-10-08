@@ -12,7 +12,7 @@ if ($dataPais = $pais->readAll()) {
     // Se recorren los registros ($dataPais) fila por fila ($rowProveedores).
     foreach ($dataPais as $rowProveedores) {
         $pdf->SetFont('Arial', 'B', 11);
-        $pdf->SetFillColor(0, 188, 209);
+        $pdf->SetFillColor(174, 232, 251);
         // Se imprime una celda con el nombre de los paises.
         $pdf->Cell(240, 10, utf8_decode('País: '.$rowProveedores['nombre_pais']), 1, 1, 'C', 1);
         // Se establece el pais para obtener sus proveedores, de lo contrario se imprime un mensaje de error.

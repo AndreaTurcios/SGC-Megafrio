@@ -15,6 +15,7 @@ if (isset($_GET['action'])) {
     if (isset($_SESSION['id_empleado'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
+            // Se realiza un readAll para verificar si existen tareas agendadas
             case 'readAll':
                 if ($result['dataset'] = $agenda->readAll()) {
                     $result['status'] = 1;
@@ -26,6 +27,7 @@ if (isset($_GET['action'])) {
                     }
                 }
                 break;
+                // Se hace un read para visualizar a los clientes respectivos
             case 'readClientes':
                 if ($result['dataset'] = $agenda->readClientes()) {
                         $result['status'] = 1;
@@ -37,6 +39,7 @@ if (isset($_GET['action'])) {
                         }
                     }
                 break; 
+                // Se realiza un case del search en dado caso se desee buscar un dato en específico
             case 'search':
                 $_POST = $agenda->validateForm($_POST);
                 if ($_POST['search'] != '') {
@@ -59,6 +62,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Ingrese un valor para buscar';
                 }
                 break;
+                // Se realiza un case para el create para agendar una nueva tarea
             case 'create':
                 $_POST = $agenda->validateForm($_POST);
                     if($agenda->setIdCliente($_POST['id_cliente'])){
@@ -105,6 +109,7 @@ if (isset($_GET['action'])) {
                     }
                 
                 break;
+                // Se realiza un case para leer una tarea específica
             case 'readOne':
                 if ($agenda->setId($_POST['id_agenda'])) {
                     if ($result['dataset'] = $agenda->readOne()) {
@@ -117,9 +122,10 @@ if (isset($_GET['action'])) {
                         }
                     }
                 } else {
-                    $result['exception'] = 'Tareaincorrecto';
+                    $result['exception'] = 'Tarea incorrecta';
                 }
                 break;
+                // Se realiza un case para el update en caso de que se desee actualizar algún dato de la agenda
             case 'update':
                 $_POST = $agenda->validateForm($_POST);
                 if ($agenda->setId($_POST['id_agenda'])) {
@@ -174,6 +180,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Tarea incorrecta';
                 }        
                 break;
+                // Se realiza un case para el delete para eliminar una tarea en específico
             case 'delete':
                 if ($agenda->setId($_POST['id_agenda'])) {
                     if ($data = $agenda->readOne()) {

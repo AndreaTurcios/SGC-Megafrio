@@ -83,11 +83,11 @@ Dashboard_Page::headerTemplate('Iniciar sesión');
                     <div class="modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Ingresa el código de confirmación</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Ingresa el código de confirmación: </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <input type="text" class="form-select" id="codigo" autocomplete="off" name="codigo">
+                            <input type="text" class="form-control" id="codigo" autocomplete="off" name="codigo">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>

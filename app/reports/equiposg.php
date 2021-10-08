@@ -12,7 +12,7 @@ if ($dataEquipos = $equipo->readAllTipoEquipo()) {
     // Se recorren los registros ($dataEquipos) fila por fila ($rowEquipos).
     foreach ($dataEquipos as $rowEquipos) {
                 $pdf->SetFont('Arial', 'B', 11);
-                $pdf->SetFillColor(0, 188, 209);
+                $pdf->SetFillColor(174, 232, 251);
                 $pdf->Cell(255, 10, utf8_decode('Tipo equipo: '.$rowEquipos['tipo_equipo']), 1, 1, 'C', 1);
         if ($equipo->setId($rowEquipos['id_tipo_equipo'])) {
             if ($dataEquipos = $equipo->readAll()) {

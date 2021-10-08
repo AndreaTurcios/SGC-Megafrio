@@ -19,10 +19,10 @@
   border-style: solid;
   position: center;
   border-radius: 50ch;
-  border-color: #091e2b;
-  color: rgb(141, 140, 140);
-  background-image: -webkit-linear-gradient(45deg, #4974b9 50%, transparent 50%);
-  background-image: linear-gradient(45deg, #465bb6 50%, transparent 50%);
+  border-color: #ffffff;
+  color: rgb(255, 255, 255);
+  background-image: -webkit-linear-gradient(45deg, #6ca0f5 50%, transparent 50%);
+  background-image: linear-gradient(45deg, #8f9ee4 50%, transparent 50%);
   background-position: 100%;
   background-size: 400%;
   -webkit-transition: background 300ms ease-in-out;

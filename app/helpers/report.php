@@ -10,6 +10,7 @@ class Report extends FPDF
 {
     // Propiedad para guardar el título del reporte.
     private $title = null;
+    
 
     /*
     *   Método para iniciar el reporte con el encabezado del documento.
@@ -24,7 +25,7 @@ class Report extends FPDF
         ini_set('date.timezone', 'America/El_Salvador');
        
         // Se crea una sesión o se reanuda la actual para poder utilizar variables de sesión en los reportes.
-        session_start();
+         session_start();
         // Se verifica si un administrador ha iniciado sesión para generar el documento, de lo contrario se direcciona a main.php
         //    if (isset($_SESSION['idempleado'])) {
             // Se asigna el título del documento a la propiedad de la clase.
@@ -45,7 +46,7 @@ class Report extends FPDF
 
     public function startReports($title)
     {
-        session_start();
+         session_start();
         // Se establece la zona horaria a utilizar durante la ejecución del reporte.
         ini_set('date.timezone', 'America/El_Salvador');
         // Se crea una sesión o se reanuda la actual para poder utilizar variables de sesión en los reportes.
@@ -72,7 +73,7 @@ class Report extends FPDF
     */
     public function Header()
     {
-        //session_start();
+        
         // Se verifica si un administrador ha iniciado sesión para generar el documento, de lo contrario se direcciona a main.php
         if (isset($_SESSION['id_empleado'])) {
         // Se establece el logo.
@@ -86,8 +87,7 @@ class Report extends FPDF
         $this->Cell(20);
         $this->SetFont('Arial', '', 10);
         $this->Cell(166, 10, 'Fecha/Hora: '.date('d-m-Y H:i:s'), 0, 1, 'C');
-        $this->Cell(205, 10, 'Usuario: '.$_SESSION['nombre_usuario'], 0, 1, 'C');
-        // Se agrega un salto de línea para mostrar el contenido principal del documento.
+        // $this->Cell(205, 10, 'Usuario: '.$_SESSION['nombre_usuario'], 0, 1, 'C');
         $this->Ln(10);
     }
 }

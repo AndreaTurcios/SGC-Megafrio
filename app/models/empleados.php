@@ -298,7 +298,7 @@ class Empleados extends Validator{
 
     public function checkUser($nombreusuario)
     {
-        $sql = 'SELECT id_tipo_emp, id_empleado,  estado, nombre_usuario, correo FROM empleado WHERE nombre_usuario = ?';
+        $sql = 'SELECT id_tipo_emp, id_empleado, estado, nombre_usuario, correo FROM empleado WHERE nombre_usuario = ?';
         $params = array($nombreusuario);
         if ($data = Database::getRow($sql, $params)) {
             $this->idtipoempleado = $data['id_tipo_emp'];

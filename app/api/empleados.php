@@ -80,7 +80,6 @@ if (isset($_GET['action'])) {
                                                 $result['exception'] ='Contraseñas no coinciden';
                                                 }
                                     } else {
-                                        
                                         $result['exception'] = 'Teléfono incorrecto';
                                             }
                                 } else {

@@ -42,6 +42,7 @@ class Dashboard_Page
         $filename = basename($_SERVER['PHP_SELF']);
         // Se comprueba si existe una sesión de administrador para mostrar el menú de opciones, de lo contrario se muestra un menú vacío.
         if (isset($_SESSION['id_empleado'])) {
+          // En este apartado se corrobora que el id de tipo usuario corresponda a uno de la tabla tipo empleados, y muestre la vista respectiva a cada tipo de usuario
             if($_SESSION['id_tipo_emp']== 1) {
                 if ($filename != 'index.php' && $filename != 'register.php' && $filename != 'recuperacion.php') {
                   print('
@@ -73,9 +74,9 @@ class Dashboard_Page
                                       Configuración
                                     </button>
                                     <ul class="dropdown-menu btndrop" aria-labelledby="defaultDropdown">
-                                      <li><button class="btn btnperfill1"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-blue" id="fontmen">Perfil</a></button></li>
-                                      <li><button class="btn btnperfill1"><a href="#" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal" id="fontmen">Dispositivos</a></li>
-                                      <li><button class="btn btnperfill1"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-blue" id="fontmen">Contraseña</a></button></li>
+                                      <li><button class="btn btnperfill1"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white" id="fontmen">Perfil</a></button></li>
+                                      <li><button class="btn btnperfill1"><a href="#" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal" class="text-white" id="fontmen">Dispositivos</a></li>
+                                      <li><button class="btn btnperfill1"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-white" id="fontmen">Contraseña</a></button></li>
                                       <br>
                                     </ul>
                             </div>
@@ -330,9 +331,9 @@ class Dashboard_Page
                                                   Configuración
                                                 </button>
                                                 <ul class="dropdown-menu btndrop" aria-labelledby="defaultDropdown">
-                                                  <li><button class="btn btnperfill1"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-blue" id="fontmen">Perfil</a></button></li>
-                                                  <li><button class="btn btnperfill1"><a href="#" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal" id="fontmen">Dispositivos</a></li>
-                                                  <li><button class="btn btnperfill1"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-blue" id="fontmen">Contraseña</a></button></li>
+                                                  <li><button class="btn btnperfill1"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white" id="fontmen">Perfil</a></button></li>
+                                                  <li><button class="btn btnperfill1"><a href="#" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal" class="text-white" id="fontmen">Dispositivos</a></li>
+                                                  <li><button class="btn btnperfill1"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-white" id="fontmen">Contraseña</a></button></li>
                                                   <br>
                                                 </ul>
                                         </div>
@@ -580,9 +581,9 @@ class Dashboard_Page
                                                   Configuración
                                                 </button>
                                                 <ul class="dropdown-menu btndrop" aria-labelledby="defaultDropdown">
-                                                  <li><button class="btn btnperfill1"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-blue" id="fontmen">Perfil</a></button></li>
-                                                  <li><button class="btn btnperfill1"><a href="#" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal" id="fontmen">Dispositivos</a></li>
-                                                  <li><button class="btn btnperfill1"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-blue" id="fontmen">Contraseña</a></button></li>
+                                                  <li><button class="btn btnperfill1"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white" id="fontmen">Perfil</a></button></li>
+                                                  <li><button class="btn btnperfill1"><a href="#" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal" class="text-white" id="fontmen">Dispositivos</a></li>
+                                                  <li><button class="btn btnperfill1"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-white" id="fontmen">Contraseña</a></button></li>
                                                   <br>
                                                 </ul>
                                         </div>
@@ -787,9 +788,9 @@ class Dashboard_Page
                                                     Configuración
                                                   </button>
                                                   <ul class="dropdown-menu btndrop" aria-labelledby="defaultDropdown">
-                                                    <li><button class="btn btnperfill1"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-blue" id="fontmen">Perfil</a></button></li>
-                                                    <li><button class="btn btnperfill1"><a href="#" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal" id="fontmen">Dispositivos</a></li>
-                                                    <li><button class="btn btnperfill1"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-blue" id="fontmen">Contraseña</a></button></li>
+                                                    <li><button class="btn btnperfill1"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white" id="fontmen">Perfil</a></button></li>
+                                                    <li><button class="btn btnperfill1"><a href="#" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal" class="text-white" id="fontmen">Dispositivos</a></li>
+                                                    <li><button class="btn btnperfill1"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-white" id="fontmen">Contraseña</a></button></li>
                                                     <br>
                                                   </ul>
                                           </div>
@@ -1025,9 +1026,9 @@ class Dashboard_Page
                                       Configuración
                                     </button>
                                     <ul class="dropdown-menu btndrop" aria-labelledby="defaultDropdown">
-                                      <li><button class="btn btnperfill1"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-blue" id="fontmen">Perfil</a></button></li>
-                                      <li><button class="btn btnperfill1"><a href="#" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal" id="fontmen">Dispositivos</a></li>
-                                      <li><button class="btn btnperfill1"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-blue" id="fontmen">Contraseña</a></button></li>
+                                      <li><button class="btn btnperfill1"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white" id="fontmen">Perfil</a></button></li>
+                                      <li><button class="btn btnperfill1"><a href="#" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal" class="text-white" id="fontmen">Dispositivos</a></li>
+                                      <li><button class="btn btnperfill1"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-white" id="fontmen">Contraseña</a></button></li>
                                       <br>
                                     </ul>
                             </div>
@@ -1257,9 +1258,9 @@ class Dashboard_Page
                                                       Configuración
                                                     </button>
                                                     <ul class="dropdown-menu btndrop" aria-labelledby="defaultDropdown">
-                                                      <li><button class="btn btnperfill1"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-blue" id="fontmen">Perfil</a></button></li>
-                                                      <li><button class="btn btnperfill1"><a href="#" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal" id="fontmen">Dispositivos</a></li>
-                                                      <li><button class="btn btnperfill1"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-blue" id="fontmen">Contraseña</a></button></li>
+                                                      <li><button class="btn btnperfill1"><a href="#" onclick="openProfileDialog()"data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#profile" class="text-white" id="fontmen">Perfil</a></button></li>
+                                                      <li><button class="btn btnperfill1"><a href="#" onclick="openDevicesDialog()" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#devices-modal" class="text-white"  id="fontmen">Dispositivos</a></li>
+                                                      <li><button class="btn btnperfill1"><a href="#" data-tooltip="profile" data-bs-toggle="modal" data-bs-target="#password-modal" class="text-white" id="fontmen">Contraseña</a></button></li>
                                                       <br>
                                                     </ul>
                                             </div>
@@ -1522,7 +1523,7 @@ class Dashboard_Page
             <!-- Derechos Reservados -->
             <div class="text-center p-3" id="ptDerechos">
             © 2021 <b id="fontmen">Derechos reservados |</b>
-                <a class="text-blue" href="http://www.megafrio.com/" id="fontmen"><u>MegaFrío </u></a>
+                <a class="text-white" href="http://www.megafrio.com/" id="fontmen"><u>MegaFrío </u></a>
             </div>
         </footer>
         <!-- Agregamos SCRIPTS -->

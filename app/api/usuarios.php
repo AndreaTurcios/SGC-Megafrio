@@ -211,7 +211,7 @@ if(isset($_GET['action'])) {
                                                 $_SESSION['nombre_usuario'] = $usuario->getNombreUsuario();
                                                 $_SESSION['id_tipo_emp'] = $usuario->getIDTipoEmpleado();  
                                                 $result['status'] = 1;
-                                                $result['message'] = 'Se ha enviado un código de confirmación a su correo';
+                                                $result['message'] = 'Se ha enviado un código de confirmación a su correo, '.$_SESSION['nombre_usuario'];
                                             }else{
                                                 $result['exception'] = 'Ocurrió un problema al actualizar el código';
                                             }
@@ -225,7 +225,6 @@ if(isset($_GET['action'])) {
                                     $result['exception'] = 'Lamentablemente su usuario ha sido suspendido, para más información contactar con el administrador';
                                 }
                             }
-                            
                         } else {
                             if (Database::getException()) {
                                 $result['exception'] = Database::getException();
