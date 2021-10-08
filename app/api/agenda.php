@@ -198,6 +198,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Tarea incorrecto';
                 }
                 break;
+                // Mensaje por default
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';
         }

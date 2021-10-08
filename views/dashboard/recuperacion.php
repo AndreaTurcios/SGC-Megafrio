@@ -43,21 +43,37 @@ Dashboard_Page::headerTemplate('Recuperación de contraseña');
                                     <form id="restore-form" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
                                             <label for="clave_actual"><i class="fas fa-key"></i> Introduzca el código enviado:</label>   
-                                            <input id="codigo_recu" type="password" name="codigo_recu" class="validate form-control" required/>
+                                            <input id="codigo_recu" type="text" name="codigo_recu" class="validate form-control" required/>
                                     </div>
                                     <div class="center">
                                         <label>CLAVE NUEVA</label>
                                     </div>
+
                                     <div class="form-group">
-                                            <label for="clave_nueva_1"><i class="fas fa-shield-alt"></i> Contraseña</label>
-                                            <input id="clave_nueva_1" type="password" name="clave_nueva_1" class="validate form-control" required/>
+                                    <label for="clave_emp">Clave:</label>
+                                    <input type="password" class="form-control" id="clave_nueva_1" name="clave_nueva_1" autocomplete="off"
+                                        placeholder="Clave" required />
+                                    <div class="campoCo">
+                                        <div class="form-group d-none">
+                                        <input type="password" name="password" id="clave_nueva_1">
+                                        </div>
+                                        <span>MOSTRAR</span>
+                                    </div>
                                     </div>
                                     <br>
+
                                     <div class="form-group">
-                                            <label for="clave_nueva_2"><i class="fas fa-shield-alt"></i></i> Confirmar contraseña</label>   
-                                            <input id="clave_nueva_2" type="password" name="clave_nueva_2" class="validate form-control" required/>
-                                    </div>        
-                                </div>  
+                                    <label for="clave_nueva_2">Confirmar clave:</label>
+                                    <input type="password" class="form-control" id="clave_nueva_2" name="clave_nueva_2" autocomplete="off"
+                                        placeholder="Confirmar clave:" required />
+                                    <div class="campoConf">
+                                        <div class="form-group d-none">
+                                        <input type="password" name="password" id="clave_nueva_2">
+                                        </div>
+                                        <span>MOSTRAR</span>
+                                    </div>
+                                    </div>
+                                    <br>
                                 <div class="modal-footer">
                                     <button type="submit" data-tooltip="Actualizar" class="btn btn-primary" >Verificar</button>
                                 </div>

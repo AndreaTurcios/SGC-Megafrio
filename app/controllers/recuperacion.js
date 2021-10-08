@@ -14,7 +14,7 @@ document.getElementById('recuperacion-form').addEventListener('submit', function
             request.json().then(function (response) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
-                    sweetAlert(3, response.message, null);
+                    sweetAlert(1, response.message, null);
                     bloquearCorreo();
                     var myModal = new bootstrap.Modal(document.getElementById('recuperacion-modal'));
                     myModal.show();
@@ -28,6 +28,32 @@ document.getElementById('recuperacion-form').addEventListener('submit', function
     }).catch(function (error) {
         console.log(error);
     });
+});
+
+document.querySelector('.campoCo span').addEventListener('click', e => {
+    const passwordInput = document.querySelector('#clave_nueva_1');
+    if (e.target.classList.contains('show')) {
+        e.target.classList.remove('show');
+        e.target.textContent = 'OCULTAR';
+        passwordInput.type = 'text';
+    } else {
+        e.target.classList.add('show');
+        e.target.textContent = 'MOSTRAR';
+        passwordInput.type = 'password';
+    }
+});
+
+document.querySelector('.campoConf span').addEventListener('click', e => {
+    const passwordInput = document.querySelector('#clave_nueva_2');
+    if (e.target.classList.contains('show')) {
+        e.target.classList.remove('show');
+        e.target.textContent = 'OCULTAR';
+        passwordInput.type = 'text';
+    } else {
+        e.target.classList.add('show');
+        e.target.textContent = 'MOSTRAR';
+        passwordInput.type = 'password';
+    }
 });
 
 function bloquearCorreo(){

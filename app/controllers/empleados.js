@@ -24,6 +24,7 @@ function fillTable(dataset) {
                 <td>${row.telefono_emp}</td>
                 <td>${l}</td> 
                 <td>${row.tipoemp}</td>  
+                <td>${row.correo}</td>  
                 <td>
                     <a href="../../app/reports/empleado.php?id=${row.id_empleado}"class="btn" data-tooltip="Reporte">Reporte</a> /
                     <a href="#" onclick="openUpdateDialog(${row.id_empleado})"class="btn"  data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</a> /

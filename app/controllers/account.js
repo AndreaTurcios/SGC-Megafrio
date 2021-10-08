@@ -26,10 +26,10 @@ function openDevicesDialog() {
                     document.getElementById('tbody-devices').innerHTML = content;
                     let dataTable = new DataTable('#data-table2', {
                         labels: {
-                            placeholder: 'Buscar clientes...',
-                            perPage: '{select} clientes por página',
-                            noRows: 'No se encontraron clientes',
-                            info:'Mostrando {start} a {end} de {rows} clientes'
+                            placeholder: 'Buscar dispositivos...',
+                            perPage: '{select} dispositivos por página',
+                            noRows: 'No se encontraron dispositivos',
+                            info:'Mostrando {start} a {end} de {rows} dispositivos'
                         }
                     });
                 } else {

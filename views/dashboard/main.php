@@ -4,7 +4,7 @@ require_once('../../app/helpers/dashboard_page.php');
 // Se imprime la plantilla del encabezado enviando el título de la página web.
 Dashboard_Page::headerTemplate('Página principal');
 ?>
-
+<div class="animated bounceInUp">
 <!-- Se muestra un saludo de acuerdo con la hora del empleado -->
 <div class="col-12 text-center" id="Titulo2">
     <a id="fontmain"><h4 class="text-center blue-text" id="greeting"></h4></a>    
@@ -42,6 +42,7 @@ Dashboard_Page::headerTemplate('Página principal');
                             <!-- Se muestra una gráfica de barras con el top 5 empleados con mas tareas completadas -->
                             <canvas id="chartTopEmpleados"></canvas>
                         </div>
+            </div>
         </div>
         </Section>
 </main>

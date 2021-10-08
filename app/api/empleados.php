@@ -59,6 +59,7 @@ if (isset($_GET['action'])) {
                                         if ($empleados->setClaveEmpleado($_POST['clave_emp'])) {
                                             if ($empleados->setEstado($_POST['estado'])) {
                                                 if ($empleados->setIDTipoEmpleado($_POST['tipoemp'])) {
+                                                        if ($empleados->setCorreo($_POST['correo_emp'])) {
                                                     if ($empleados->createRow()) {
                                                     $result['status'] = 1;
                                                     // Se indica que el empleado se registró existosamente en el caso de que los if se ejecuten automáticamente, caso contrario nos manda los siguientes mensajes
@@ -66,6 +67,9 @@ if (isset($_GET['action'])) {
                                                     } else {
                                                         $result['exception'] = Database::getException();                                                        
                                                     }  
+                                                }else {
+                                                    $result['exception'] ='Correo incorrecto';
+                                                }
                                                 }else {
                                                     $result['exception'] ='Tipo empleado incorrecto';
                                                 }

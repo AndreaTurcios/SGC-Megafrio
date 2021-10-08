@@ -237,9 +237,9 @@ class Empleados extends Validator{
     {
         // Se encripta la clave por medio del algoritmo bcrypt que genera un string de 60 caracteres.
         $hash = password_hash($this->claveempleado, PASSWORD_DEFAULT);
-        $sql = 'INSERT INTO empleado (nombre_usuario, nombre_emp,apellido_emp,telefono_emp,clave_emp,estado,id_tipo_emp)
-        VALUES (? ,?, ?, ?, ?, ?, ?)';
-        $params = array($this->nombreusuario, $this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado,$hash,$this->estado,$this->idtipoempleado);
+        $sql = 'INSERT INTO empleado (nombre_usuario, nombre_emp,apellido_emp,telefono_emp,clave_emp,estado,id_tipo_emp, correo)
+        VALUES (? ,?, ?, ?, ?, ?, ?, ?)';
+        $params = array($this->nombreusuario, $this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado,$hash,$this->estado,$this->idtipoempleado,$this->correo);
         return Database::executeRow($sql, $params);
     }
 

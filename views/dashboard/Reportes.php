@@ -82,5 +82,5 @@ Dashboard_Page::headerTemplate('Reportes');
 
 <?php
 // Se imprime la plantilla del encabezado enviando el título de la página web.
-Dashboard_Page::footerTemplate('reportsg.js');
+Dashboard_Page::footerTemplate('ignoreme.js');
 ?>>

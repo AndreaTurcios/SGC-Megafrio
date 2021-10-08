@@ -56,6 +56,7 @@ Dashboard_Page::headerTemplate('Empleados');
                 <th scope="col">Teléfono</th>
                 <th scope="col">Estado</th>
                 <th scope="col">Tipo empleado</th>
+                <th scope="col">Correo</th>
                 <th scope="col">Controlador</th>
             </div>
             </tr>
@@ -92,7 +93,7 @@ Dashboard_Page::headerTemplate('Empleados');
                             maxlength="50" autocomplete="off"/>
                         </div>
                         <div class="form-group">
-                          <label for="apellido_emp">Apellido empleado</label>
+                          <label for="apellido_emp">Apellido empleado:</label>
                           <input class="form-control" id="apellido_emp" type="text" name="apellido_emp"
                             placeholder="Apellido empleado" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required
                             minlength="3" maxlength="50" autocomplete="off"/>
@@ -106,11 +107,20 @@ Dashboard_Page::headerTemplate('Empleados');
                             maxlength="9"
                             onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
                         </div>
+
+                        <div class="form-group">
+                          <label for="correo_emp">Correo:</label>
+                          <input class="form-control" id="correo_emp" type="email" name="correo_emp"
+                            placeholder="Correo" size="30" required
+                            minlength="3" maxlength="50" autocomplete="off"/>
+                        </div>
+
                         <div class="form-group">
                           <label for="nombre_usuario">Usuario:</label>
                           <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario" autocomplete="off"
                             placeholder="Usuario" required />
                         </div>
+
                         <div class="form-group">
                           <label for="clave_emp">Clave:</label>
                           <input type="password" class="form-control" id="clave_emp" name="clave_emp" autocomplete="off"

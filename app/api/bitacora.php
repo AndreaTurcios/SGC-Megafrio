@@ -10,7 +10,7 @@ if (isset($_GET['action'])) {
 
     if (isset($_SESSION['id_empleado'])) {
         switch ($_GET['action']) {
-
+            // Case para realizar la acción de ver si existe más de un dato en el sistema
             case 'readAll':
                 if ($result['dataset'] = $bitacora->readAll()) {
                     $result['status'] = 1;
@@ -22,8 +22,7 @@ if (isset($_GET['action'])) {
                     }
                 }
                 break;
-
-
+                // Case para realizar la función de busqueda dentro del sistema, en bitácora
             case 'search':
                 $_POST = $bitacora->validateForm($_POST);
                 if ($_POST['search'] != '') {
@@ -31,22 +30,26 @@ if (isset($_GET['action'])) {
                         $result['status'] = 1;
                         $rows = count($result['dataset']);
                         if ($rows > 1) {
+                            //If para saber el número de coincidencias que se tienen de registros
                             $result['message'] = 'Se encontraron ' . $rows . ' coincidencias';
                         } else {
+                            //Else para notificar al usuario que existe únicamente un registro 
                             $result['message'] = 'Solo existe una coincidencia';
                         }
                     } else {
+                        //Else que nos muestra errores ya sea de la base o que no hay coincidencias
                         if (Database::getException()) {
                             $result['exception'] = Database::getException();
                         } else {
                             $result['exception'] = 'No hay coincidencias';
                         }
                     }
+                    //Else en caso no se haya ingresado algún valor
                 } else {
                     $result['exception'] = 'Ingrese un valor para buscar';
                 }
                 break;
-
+                //Case para el read de los respectivos clientes
             case 'readClientes':
                 if ($result['dataset'] = $bitacora->readClientes()) {
                         $result['status'] = 1;
@@ -58,7 +61,7 @@ if (isset($_GET['action'])) {
                         }
                     }
                 break;
-
+            // Case para leer empleados
             case 'readEmpleados':
                 if ($result['dataset'] = $bitacora->readEmpleados()) {
                         $result['status'] = 1;
@@ -70,7 +73,7 @@ if (isset($_GET['action'])) {
                         }
                     }
                 break;
-
+            // Case para leer equipos
             case 'readEquipo':
                 if ($result['dataset'] = $bitacora->readEquipo()) {
                         $result['status'] = 1;
