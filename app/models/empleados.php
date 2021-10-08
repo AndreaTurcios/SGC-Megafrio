@@ -488,7 +488,7 @@ class Empleados extends Validator{
     public function checkCodigo2($restauracion)
     {
         $sql = 'SELECT id_empleado, codigo_recu, nombre_usuario, correo FROM empleado WHERE correo = ?';
-        $params = array($_SESSION['correo_cli_us']);
+        $params = array($_SESSION['correo']);
         $data = Database::getRow($sql, $params);
         if ($restauracion == $data['codigo_recu']) {
             $this->id = $data['id_empleado'];
