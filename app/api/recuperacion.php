@@ -52,7 +52,6 @@ require_once('../models/empleados.php');
                     break;
                     case 'restorePassword':
                             $id= $empleado->getId();
-                            echo $id;
                             $_POST = $empleado->validateForm($_POST);
                             if ($empleado->checkCodigo($_POST['codigo_recu'])) {
                                 if ($empleado->setPasswordAlias($_POST['clave_nueva_1'], $empleado->getCorreo())) {

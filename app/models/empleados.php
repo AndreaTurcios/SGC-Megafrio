@@ -400,6 +400,15 @@ class Empleados extends Validator{
         return Database::executeRow($sql, $params);
     }
 
+    public function restorePassword()
+    {
+        // Se transforma la contraseña a una cadena de texto de longitud fija mediante el algoritmo por defecto.
+        $hash = password_hash($this->claveempleado, PASSWORD_DEFAULT);
+        $sql = 'UPDATE empleado SET clave_emp = ? WHERE id_empleado = ?';
+        $params = array($hash, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+
 
     //Funciones para contraseña
 

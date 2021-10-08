@@ -2,7 +2,7 @@
 // Se incluye la clase con las plantillas del documento.
 require_once('../../app/helpers/dashboard_page.php');
 // Se imprime la plantilla del encabezado enviando el título de la página web.
-Dashboard_Page::headerTemplate('Primer registro');
+Dashboard_Page::headerTemplate('Recuperación de contraseña');
 ?>
 
 <div class="container">
@@ -28,8 +28,11 @@ Dashboard_Page::headerTemplate('Primer registro');
             <span class="text-footer">¿Recordaste la contraseña?
                 <a href="index.php">Ingresa</a>
             </span>
-            </div>               
+            </div>
+            </div>
+
     </form>
+    
     <div class="modal" id="recuperacion-modal" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -39,33 +42,20 @@ Dashboard_Page::headerTemplate('Primer registro');
                                 <div class="modal-body">
                                     <form id="restore-form" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
-                                        
-                                            
                                             <label for="clave_actual"><i class="fas fa-key"></i> Introduzca el código enviado:</label>   
                                             <input id="codigo_recu" type="password" name="codigo_recu" class="validate form-control" required/>
-                                            
-                                        
                                     </div>
-                                    
-                                    <div class="center-align">
+                                    <div class="center">
                                         <label>CLAVE NUEVA</label>
                                     </div>
-                                    
                                     <div class="form-group">
-                                        
-                                            
                                             <label for="clave_nueva_1"><i class="fas fa-shield-alt"></i> Contraseña</label>
                                             <input id="clave_nueva_1" type="password" name="clave_nueva_1" class="validate form-control" required/>
-                                            
-                                            
                                     </div>
                                     <br>
-                                    
                                     <div class="form-group">
-                                            
                                             <label for="clave_nueva_2"><i class="fas fa-shield-alt"></i></i> Confirmar contraseña</label>   
                                             <input id="clave_nueva_2" type="password" name="clave_nueva_2" class="validate form-control" required/>
-                                            
                                     </div>        
                                 </div>  
                                 <div class="modal-footer">

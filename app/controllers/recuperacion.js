@@ -1,13 +1,10 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
 const API = '../../app/api/recuperacion.php?action=';
 
-
-
 // Método manejador de eventos que se ejecuta cuando se envía el correo de recuperación.
 document.getElementById('recuperacion-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
-
     fetch(API + 'recover', {
         method: 'post',
         body: new FormData(document.getElementById('recuperacion-form'))
@@ -18,7 +15,6 @@ document.getElementById('recuperacion-form').addEventListener('submit', function
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     sweetAlert(3, response.message, null);
-                    ocultar();
                     bloquearCorreo();
                     var myModal = new bootstrap.Modal(document.getElementById('recuperacion-modal'));
                     myModal.show();
@@ -34,12 +30,6 @@ document.getElementById('recuperacion-form').addEventListener('submit', function
     });
 });
 
-
-function ocultar(){
-    document.getElementById('enviar').style.display = 'none';
-}
-
-
 function bloquearCorreo(){
     document.getElementById('correo').disabled = true;
 }
@@ -48,7 +38,6 @@ function bloquearCorreo(){
 document.getElementById('restore-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
-
     fetch(API + 'restorePassword', {
         method: 'post',
         body: new FormData(document.getElementById('restore-form'))
@@ -59,8 +48,6 @@ document.getElementById('restore-form').addEventListener('submit', function (eve
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     sweetAlert(1, response.message, 'index.php');
-                    
-                    
                 } else {
                     sweetAlert(2, response.exception, null);
                 }
