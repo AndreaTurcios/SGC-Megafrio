@@ -24,6 +24,14 @@ function openDevicesDialog() {
                     });
                     // Se agregan las filas al cuerpo de la tabla mediante su id para mostrar los registros.
                     document.getElementById('tbody-devices').innerHTML = content;
+                    let dataTable = new DataTable('#data-table2', {
+                        labels: {
+                            placeholder: 'Buscar clientes...',
+                            perPage: '{select} clientes por página',
+                            noRows: 'No se encontraron clientes',
+                            info:'Mostrando {start} a {end} de {rows} clientes'
+                        }
+                    });
                 } else {
                     sweetAlert(2, response.exception, null);
                 }

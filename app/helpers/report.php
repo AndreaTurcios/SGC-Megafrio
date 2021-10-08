@@ -32,7 +32,7 @@ class Report extends FPDF
             // Se establece el título del documento (true = utf-8).
             $this->SetTitle('Dashboard - Reporte', true);
             // Se establecen los margenes del documento (izquierdo, superior y derecho).
-            $this->setMargins(15, 15, 15);
+            $this->setMargins(9, 15, 15);
             // Se añade una nueva página al documento (orientación vertical y formato carta) y se llama al método Header()
             $this->AddPage('p', 'letter');
             // Se define un alias para el número total de páginas que se muestra en el pie del documento.
@@ -56,7 +56,7 @@ class Report extends FPDF
             $this->SetTitle('Dashboard - Reporte', true);
             // Se establecen los margenes del documento (izquierdo, superior y derecho).
             $this->setMargins(15, 15, 15);
-            // Se añade una nueva página al documento (orientación horizontal y formato carta) y se llama al método Header()
+            // Se añade una nueva página al documento (orientación vertical y formato carta) y se llama al método Header()
             $this->AddPage('l', 'letter');
             // Se define un alias para el número total de páginas que se muestra en el pie del documento.
             $this->AliasNbPages();
@@ -86,7 +86,7 @@ class Report extends FPDF
         $this->Cell(20);
         $this->SetFont('Arial', '', 10);
         $this->Cell(166, 10, 'Fecha/Hora: '.date('d-m-Y H:i:s'), 0, 1, 'C');
-        $this->Cell(205, 10, 'Usuario que imprime: '.$_SESSION['nombre_usuario'], 0, 1, 'C');
+        $this->Cell(205, 10, 'Usuario: '.$_SESSION['nombre_usuario'], 0, 1, 'C');
         // Se agrega un salto de línea para mostrar el contenido principal del documento.
         $this->Ln(10);
     }
