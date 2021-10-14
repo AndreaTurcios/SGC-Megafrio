@@ -109,22 +109,28 @@ Dashboard_Page::headerTemplate('Empleados');
                         </div>
 
                         <div class="form-group">
+                        <label for="telefono_emp">Tipo de Registro:</label><br>
+                        <button type="button" onclick="activarInput()" class="btn btn-info">Acceso al Sistema</button>
+                        <button type="button" onclick="desactivarInput()" class="btn btn-info">Sin Acceso al Sistema</button>
+                        </div>
+
+                        <div class="form-group">
                           <label for="correo_emp">Correo:</label>
                           <input class="form-control" id="correo_emp" type="email" name="correo_emp"
-                            placeholder="Correo" size="30" required
+                            placeholder="Correo" size="30" disabled="" required=""
                             minlength="3" maxlength="50" autocomplete="off"/>
                         </div>
 
                         <div class="form-group">
                           <label for="nombre_usuario">Usuario:</label>
                           <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario" autocomplete="off"
-                            placeholder="Usuario" required />
+                            placeholder="Usuario"  disabled="" required=""/>
                         </div>
 
                         <div class="form-group">
                           <label for="clave_emp">Clave:</label>
                           <input type="password" class="form-control" id="clave_emp" name="clave_emp" autocomplete="off"
-                            placeholder="Clave" required />
+                            placeholder="Clave" disabled="" required=""/>
                           <div class="campo">
                             <div class="form-group d-none">
                               <input type="password" name="password" id="clave">
@@ -137,7 +143,7 @@ Dashboard_Page::headerTemplate('Empleados');
                         <div class="form-group">
                           <label for="claveconf">Confirmar clave:</label>
                           <input type="password" class="form-control" id="claveconf" name="claveconf" autocomplete="off"
-                            placeholder="Confirmar clave:" required />
+                            placeholder="Confirmar clave:" disabled="" required=""/>
                           <div class="campo1">
                             <div class="form-group d-none">
                               <input type="password" name="password" id="claveconf2">

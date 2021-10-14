@@ -64,6 +64,29 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     document.getElementById('save-form').reset();
 });
 
+function desactivarInput(){
+    document.getElementById('correo_emp').disabled=true;
+    document.getElementById('nombre_usuario').disabled=true;
+    document.getElementById('clave_emp').disabled=true;
+    document.getElementById('claveconf').disabled=true;
+    document.getElementById('correo_emp').required = false;
+    document.getElementById('nombre_usuario').required = false;
+    document.getElementById('clave_emp').required = false;
+    document.getElementById('claveconf').required = false;
+}
+
+function activarInput(){
+    document.getElementById('correo_emp').disabled=false;
+    document.getElementById('nombre_usuario').disabled=false;
+    document.getElementById('clave_emp').disabled=false;
+    document.getElementById('claveconf').disabled=false;
+
+    document.getElementById('correo_emp').required = true;
+    document.getElementById('nombre_usuario').required = true;
+    document.getElementById('clave_emp').required = true;
+    document.getElementById('claveconf').required = true;
+}
+
 
 // Función para preparar el formulario al momento de modificar un registro.
 function openUpdateDialog(id) {
