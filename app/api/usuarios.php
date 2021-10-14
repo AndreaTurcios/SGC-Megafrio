@@ -102,32 +102,7 @@ if(isset($_GET['action'])) {
                         $result['exception'] = 'Usuario incorrecto';
                     }
                     break;
-            case 'editProfile':  
-                    $_POST = $usuario->validateForm($_POST);
-                    if ($usuario->setNombreUsuario($_POST['username'])){
-                        if ($usuario->setNombreEmpleado($_POST['nombres'])) {
-                            if ($usuario->setApellidoEmpleado($_POST['apellidos'])) {
-                                if ($usuario->setTelefonoEmpleado($_POST['telefono'])) {
-                                    if ($usuario->editProfile()) {
-                                        $result['status'] = 1;
-                                        $_SESSION['nombre_usuario'] = $usuario->getNombreUsuario();
-                                        $result['message'] = 'Perfil modificado correctamente';
-                                    } else {
-                                        $result['exception'] = Database::getException();
-                                    }
-                                } else{
-                                    $result['exception'] = 'Télefono incorrecto';
-                                }  
-                            } else{
-                                $result['exception'] = 'Apellidos de empleado incorrectos';
-                            }  
-                        } else{
-                            $result['exception'] = 'Nombres de empleado incorrectos';
-                        }   
-                    } else{
-                        $result['exception'] = 'Nombre de usuario incorrecto';
-                    }     
-                    break;    
+              
                 default:
                     $result['exception'] = 'Acción no disponible dentro de la sesión';
             }    
