@@ -260,7 +260,7 @@ class Empleados extends Validator{
     {
         $sql = 'SELECT em.id_empleado, em.nombre_usuario, em.nombre_emp,em.apellido_emp,em.telefono_emp,em.estado,od.tipoemp,em.correo 
         FROM empleado em
-        INNER JOIN tipoempleado od on em.id_tipo_emp = od.id_tipo_emp
+        INNER JOIN tipoempleado od on em.id_tipo_emp = od.id_tipo_emp WHERE acceso = true
         ORDER BY nombre_usuario';
         $params = null;
         return Database::getRows($sql, $params);
@@ -268,7 +268,7 @@ class Empleados extends Validator{
 
     public function readOne()
     {
-        $sql = 'SELECT id_empleado, nombre_usuario, nombre_emp,apellido_emp,telefono_emp,estado,tipoemp
+        $sql = 'SELECT id_empleado, nombre_usuario, nombre_emp,apellido_emp,telefono_emp,estado,tipoemp, id_tipo_emp
                 FROM empleado 
                 INNER JOIN tipoempleado USING(id_tipo_emp)
                 WHERE id_empleado = ?';

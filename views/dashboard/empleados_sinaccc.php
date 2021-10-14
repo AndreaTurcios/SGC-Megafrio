@@ -2,7 +2,7 @@
 //Se incluye la clase con las plantillas del documento
 require_once("../../app/helpers/dashboard_page.php");
 //Se imprime la plantilla del encabezado y se envía el titulo para la página web
-Dashboard_Page::headerTemplate('Empleados');
+Dashboard_Page::headerTemplate('Registro de Empleados');
 ?>
 <!--Aquí comenzamos abriendo la sección -->
 <section>  
@@ -12,7 +12,7 @@ Dashboard_Page::headerTemplate('Empleados');
       <!--Container con su respectivo título de pestaña, en este caso, proveedores -->
       <div class="col-12 text-center" id="Titulo1">
         <!-- Colocamos el h1 con su respectivo título, este caso la estión de empleados -->
-        <h1 class="center">Gestión de empleados</h1>
+        <h1 class="center">Registro de empleados</h1>
       </div>
     </div>
     <br>
@@ -50,13 +50,11 @@ Dashboard_Page::headerTemplate('Empleados');
           <thead class="table-info">
             <div id="bordes">
               <tr>
-                <th scope="col">Usuario</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
                 <th scope="col">Teléfono</th>
                 <th scope="col">Estado</th>
                 <th scope="col">Tipo empleado</th>
-                <th scope="col">Correo</th>
                 <th scope="col">Controlador</th>
             </div>
             </tr>
@@ -107,44 +105,6 @@ Dashboard_Page::headerTemplate('Empleados');
                             maxlength="9"
                             onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
                         </div>
-
-                        <div class="form-group">
-                          <label for="correo_emp">Correo:</label>
-                          <input class="form-control" id="correo_emp" type="email" name="correo_emp"
-                            placeholder="Correo" size="30" required
-                            minlength="3" maxlength="50" autocomplete="off"/>
-                        </div>
-
-                        <div class="form-group">
-                          <label for="nombre_usuario">Usuario:</label>
-                          <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario" autocomplete="off"
-                            placeholder="Usuario" required />
-                        </div>
-
-                        <div class="form-group">
-                          <label for="clave_emp">Clave:</label>
-                          <input type="password" class="form-control" id="clave_emp" name="clave_emp" autocomplete="off"
-                            placeholder="Clave" required />
-                          <div class="campo">
-                            <div class="form-group d-none">
-                              <input type="password" name="password" id="clave">
-                            </div>
-                            <span>MOSTRAR</span>
-                          </div>
-                        </div>
-                        <br>
-
-                        <div class="form-group">
-                          <label for="claveconf">Confirmar clave:</label>
-                          <input type="password" class="form-control" id="claveconf" name="claveconf" autocomplete="off"
-                            placeholder="Confirmar clave:" required />
-                          <div class="campo1">
-                            <div class="form-group d-none">
-                              <input type="password" name="password" id="claveconf2">
-                            </div>
-                            <span>MOSTRAR</span>
-                          </div>
-                        </div>
                         <br>
                         <div class="input-field col s12 m6">
                           <label>Estado: </label>
@@ -153,25 +113,22 @@ Dashboard_Page::headerTemplate('Empleados');
                             <option value="1">Activo</option>
                             <option value="0">Bloqueado</option>
                           </select>
-
+                          <br>
                         </div>
-                      
-                      <br>
-
+                     
                       <!--Colocamos los divs para el dropdown del filtro de búsqueda -->
-                      <div class="input-field col s12 m6">
+                      <div class="form-group">
                         <label>Tipo empleado: </label>
                         <select class="form-select" id="tipoemp" name="tipoemp">
                           <option selected></option>
                         </select>
-
                       </div>
                       <br>
-                    </div>
+                      </div>
                       <!--Colocamos el div del footer -->
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn waves-effect blue tooltipped"
+                        <button type="submit" id="btnguardar" class="btn waves-effect blue tooltipped"
                           data-tooltip="Guardar">Guardar</button><br>
                       </div>
               </form>
@@ -216,11 +173,6 @@ Dashboard_Page::headerTemplate('Empleados');
                 onkeyup="this.value = mascara(this.value)" required minlength="9" maxlength="9"
                 onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
             </div>
-            <div class="form-group">
-              <label for="nombre_usuario2">Usuario:</label>
-              <input type="text" class="form-control" id="nombre_usuario2" name="nombre_usuario2" placeholder="Usuario"
-                required />
-            </div>
             <br>
             <div class="form-group">
               <div class="input-field col s12 m6">
@@ -255,5 +207,5 @@ Dashboard_Page::headerTemplate('Empleados');
 
 <?php
 //Se imprime la plantilla del pie y se envía el nombre del controlador para la página web
-Dashboard_Page::footerTemplate('empleados.js');
+Dashboard_Page::footerTemplate('empleado_sinacc.js');
 ?>

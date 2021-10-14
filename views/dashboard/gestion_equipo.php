@@ -93,28 +93,29 @@ Dashboard_Page::headerTemplate('Equipo');
                                 <label for="serie">Serie:</label>
                                 <input type="text" class="form-control" id="serie" name="serie" placeholder="Serie" autocomplete="off">
                               </div>
-                              <div class="input-field col s12 m6">
+                              <div class="form-group">
                                 <label>Proveedor: </label>
-                                <select id="nombre_compania" name="nombre_compania" class="form-control">
+                                <select id="nombre_compania" name="nombre_compania" class="form-select">
                                   <option selected></option>
                                 </select>
                               </div>
-                              <div class="input-field col s12 m6">
+                              <div class="form-group">
                                 <label>Tipo equipo: </label>
-                                <select id="tipo_equipo" name="tipo_equipo" class="form-control">
+                                <select id="tipo_equipo" name="tipo_equipo" class="form-select">
                                   <option selected></option>
                                 </select>
                               </div>
-                              <div class="input-field col s12 m6">
+                              <div class="form-group">
                                 <label>Capacidad: </label>
-                                <select id="capacidad" name="capacidad" class="form-control">
+                                <select id="capacidad" name="capacidad" class="form-select">
                                   <option selected></option>
                                 </select>
                               </div>
-
+                              
                               <div class="file-field input-field col s12 m6">
+                              <br>
                                 <div data-tooltip="Seleccione una imagen de al menos 500x500">
-                                  <input id="archivo_producto" type="file" name="archivo_producto"
+                                  <input id="archivo_producto" type="file" class="form-control" name="archivo_producto"
                                     accept=".gif, .jpg, .png" />
                                 </div>
                               </div>
@@ -188,7 +189,7 @@ Dashboard_Page::headerTemplate('Equipo');
             <input type="text" class="form-control " placeholder="" aria-label="Buscar" aria-describedby="basic-addon1"
               id="id_equipo2" type="text" name="id_equipo2" class="validate" required>
           </div>
-          <div class="modal-body">
+          <div class="modal-body text-center">
 
             <div class="form-group">
               <label for="nombre_equipo2">Nombre equipo:</label>
@@ -219,25 +220,26 @@ Dashboard_Page::headerTemplate('Equipo');
             </div>
             <div class="input-field col s12 m6">
               <label>Proveedor: </label>
-              <select id="nombre_compania2" name="nombre_compania2" class="form-control">
+              <select id="nombre_compania2" name="nombre_compania2" class="form-select">
                 <option selected></option>
               </select>
             </div>
             <div class="input-field col s12 m6">
               <label>Tipo equipo: </label>
-              <select id="tipo_equipo2" name="tipo_equipo2" class="form-control">
+              <select id="tipo_equipo2" name="tipo_equipo2" class="form-select">
                 <option selected></option>
               </select>
             </div>
             <div class="input-field col s12 m6">
               <label>Capacidad: </label>
-              <select id="capacidad2" name="capacidad2" class="form-control">
+              <select id="capacidad2" name="capacidad2" class="form-select">
                 <option selected></option>
               </select>
             </div>
             <div class="file-field input-field col s12 m6">
+              <br>
               <div data-tooltip="Seleccione una imagen de al menos 500x500">
-                <input id="archivo_producto" type="file" name="archivo_producto" accept=".gif, .jpg, .png" />
+                <input id="archivo_producto" class="form-control" type="file" name="archivo_producto" accept=".gif, .jpg, .png" />
               </div>
             </div>
             <br>

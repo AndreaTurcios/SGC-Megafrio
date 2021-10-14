@@ -237,7 +237,7 @@ class Equipos extends Validator
 
     public function readOne()
     {
-        $sql = 'SELECT eq.id_equipo, eq.foto_equipo, eq.nombre_equipo, eq.descripcion_equipo, eq.precio_equipo, eq.modelo, eq.voltaje, eq.serie,pro.nombre_compania, tie.tipo_equipo, ca.capacidad
+        $sql = 'SELECT eq.id_equipo, eq.foto_equipo, eq.nombre_equipo, eq.descripcion_equipo, eq.precio_equipo, eq.modelo, eq.voltaje, eq.serie,pro.nombre_compania, tie.tipo_equipo, ca.capacidad, eq.id_tipo_equipo, eq.id_proveedor, eq.id_capacidad
         FROM equipo eq
         INNER JOIN proveedor pro on pro.id_proveedor = eq.id_proveedor
         INNER JOIN tipoequipo tie on tie.id_tipo_equipo = eq.id_tipo_equipo

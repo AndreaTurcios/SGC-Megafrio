@@ -1,11 +1,11 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
-const API_EMPLEADOS = '../../app/api/empleados.php?action=';
+const API_EMPLEADOSINACC = '../../app/api/empleadosinacc.php?action=';
 const ENDPOINT_TIPO = '../../app/api/tipo_empleado.php?action=readAll';
 
 document.addEventListener('DOMContentLoaded', function () {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
     fillSelect(ENDPOINT_TIPO,'tipoemp',null)
-    readRows(API_EMPLEADOS);
+    readRows(API_EMPLEADOSINACC);
     //readRows(ENDPOINT_TIPO);
 });
 
@@ -18,15 +18,13 @@ function fillTable(dataset) {
         // Se crean y concatenan las filas de la tabla con los datos de cada registro. 
         content += ` 
             <tr>       
-                <td>${row.nombre_usuario}</td>
                 <td>${row.nombre_emp}</td>
                 <td>${row.apellido_emp}</td> 
                 <td>${row.telefono_emp}</td>
                 <td>${l}</td> 
                 <td>${row.tipoemp}</td>  
-                <td>${row.correo}</td>  
                 <td>
-                    <a href="../../app/reports/empleado.php?id=${row.id_empleado}"class="btn" data-tooltip="Reporte">Reporte</a> /
+                   
                     <a href="#" onclick="openUpdateDialog(${row.id_empleado})"class="btn"  data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</a> /
                     <a href="#" onclick="openDeleteDialog(${row.id_empleado})"class="btn">Eliminar</a>
                 </td>
@@ -47,15 +45,6 @@ function fillTable(dataset) {
 });
 }
 
-// Método manejador de eventos que se ejecuta cuando se envía el formulario de buscar.
-document.getElementById('search-form').addEventListener('submit', function (event) {
-    // Se evita recargar la página web después de enviar el formulario.
-    event.preventDefault();
-    // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
-    searchRows(API_EMPLEADOS, 'search-form');
-});
-
-
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de guardar.
 document.getElementById('save-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.
@@ -71,7 +60,7 @@ function openUpdateDialog(id) {
     document.getElementById('update-form').reset();
     const data = new FormData();
     data.append('id_empleado', id);
-    fetch(API_EMPLEADOS + 'readOne', {
+    fetch(API_EMPLEADOSINACC + 'readOne', {
         method: 'post',
         body: data
     }).then(function (request) {
@@ -81,7 +70,6 @@ function openUpdateDialog(id) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {        
                 document.getElementById('id_empleado2').value = response.dataset.id_empleado;
-                document.getElementById('nombre_usuario2').value = response.dataset.nombre_usuario;
                 document.getElementById('nombre_emp2').value = response.dataset.nombre_emp;
                 document.getElementById('apellido_emp2').value = response.dataset.apellido_emp;
                 document.getElementById('telefono_emp2').value = response.dataset.telefono_emp;
@@ -98,47 +86,3 @@ function openUpdateDialog(id) {
     console.log(error);
 });
 }
-
-// Esto es para poder visualizar la contraseña y facilitar al usuario el ingreso de la misma
-  document.querySelector('.campo span').addEventListener('click', e => {
-    const passwordInput = document.querySelector('#clave_emp');
-    if (e.target.classList.contains('show')) {
-        e.target.classList.remove('show');
-        e.target.textContent = 'Ocultar';
-        passwordInput.type = 'text';
-    } else {
-        e.target.classList.add('show');
-        e.target.textContent = 'Mostrar';
-        passwordInput.type = 'password';
-    }
-});
-
-
-// Se agarra el elemento en base al id y se realiza un update, en el proceso se coloca el event.preventdefault para evitar que recargue la página
-document.getElementById('update-form').addEventListener('submit', function (event) {
-    // Se evita recargar la página web después de enviar el formulario.
-    event.preventDefault();
-    updateRow(API_EMPLEADOS, 'update', 'update-form', 'update-modal');
-});
-
-function openDeleteDialog(id) {
-    // Se define un objeto con los datos del registro seleccionado.
-    const data = new FormData();
-    data.append('id_empleado', id);
-    // Se confirma que se quiere eliminar un empleado en especifico en base al id
-    confirmDelete(API_EMPLEADOS, data);
-}
-
-
-document.querySelector('.campo1 span').addEventListener('click', e => {
-    const passwordInput = document.querySelector('#claveconf');
-    if (e.target.classList.contains('show')) {
-        e.target.classList.remove('show');
-        e.target.textContent = 'OCULTAR';
-        passwordInput.type = 'text';
-    } else {
-        e.target.classList.add('show');
-        e.target.textContent = 'MOSTRAR';
-        passwordInput.type = 'password';
-    }
-});
