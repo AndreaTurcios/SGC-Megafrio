@@ -109,9 +109,10 @@ class EmpleadosSinAcc extends Validator{
 
     public function createRowSinAcc()
     {   
+        $acceso = 'false';
         $sql = 'INSERT INTO empleado (nombre_emp,apellido_emp,telefono_emp,estado,id_tipo_emp, acceso)
         VALUES (? ,?, ?, ?, ?, ?)';
-        $params = array($this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado,$this->estado,$this->idtipoempleado, $this->acceso);
+        $params = array($this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado,$this->estado,$this->idtipoempleado, $acceso);
         return Database::executeRow($sql, $params);
     }
 
@@ -138,12 +139,11 @@ class EmpleadosSinAcc extends Validator{
     public function updateRow()
     { 
         // Se encripta la clave por medio del algoritmo bcrypt que genera un string de 60 caracteres.
-        $hash = password_hash($this->claveempleado, PASSWORD_DEFAULT);
         $sql = 'UPDATE empleado 
-                SET nombre_usuario=?,nombre_emp=?,apellido_emp=?,telefono_emp=?,estado=?,id_tipo_emp=?
+                SET nombre_emp=?,apellido_emp=?,telefono_emp=?,estado=?,id_tipo_emp=?
                 WHERE id_empleado = ?';
        //$params = array($this->nombreusuario, $this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado,$this->claveempleado,$this->estado,$this->idtipoempleado);
-       $params = array($this->nombreusuario, $this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado,$this->estado,$this->idtipoempleado, $this->id);
+       $params = array($this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado,$this->estado,$this->idtipoempleado, $this->id);
         return Database::executeRow($sql, $params);
     }
 

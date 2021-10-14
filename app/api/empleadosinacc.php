@@ -29,7 +29,6 @@ if (isset($_GET['action'])) {
                                 if ($empleados->setApellidoEmpleado($_POST['apellido_emp'])) {
                                     if ($empleados->setTelefonoEmpleado($_POST['telefono_emp'])) {
                                                 if ($empleados->setEstado($_POST['estado'])) {
-                                                    if ($empleados->setAcceso($_POST['acceso'])) {
                                                         if ($empleados->setIDTipoEmpleado($_POST['tipoemp'])) {
                                                             if ($empleados->createRowSinAcc()) {
                                                             $result['status'] = 1;
@@ -40,9 +39,6 @@ if (isset($_GET['action'])) {
                                                             }
                                                         }else {
                                                             $result['exception'] ='Tipo empleado incorrecto';
-                                                        }
-                                                    }else {
-                                                        $result['exception'] ='Acceso empleado incorrecto';
                                                         }
                                                 }else {
                                                     $result['exception'] ='Estado empleado incorrecto';

@@ -49,7 +49,7 @@ function fillTable(dataset) {
 document.getElementById('save-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
-    saveRow(API_EMPLEADOS, 'create', 'save-form', null);
+    saveRow(API_EMPLEADOSINACC, 'create', 'save-form', null);
     document.getElementById('save-form').reset();
 });
 
@@ -86,3 +86,11 @@ function openUpdateDialog(id) {
     console.log(error);
 });
 }
+
+
+document.getElementById('update-form').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
+    updateRow(API_EMPLEADOSINACC, 'update', 'update-form', null);
+});
