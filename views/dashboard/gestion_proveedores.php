@@ -110,7 +110,7 @@ Dashboard_Page::headerTemplate('Proveedores');
                         <!--Aquí colocamos un dropdown para elegir el pais de procedencia del proveedor -->
                         <div class="input-field col s12 m6">
                           <label>País </label>
-                          <select id="id_pais" name="id_pais">
+                          <select class="form-select" id="id_pais" name="id_pais">
                             <option selected></option>
                           </select>
                         </div>
@@ -178,7 +178,7 @@ Dashboard_Page::headerTemplate('Proveedores');
                 <!--Aquí colocamos un dropdown para elegir el pais de procedencia del proveedor -->
                 <div class="input-field col s12 m6">
                   <label>País </label>
-                  <select id="id_pais2" name="id_pais2">
+                  <select class="form-select" id="id_pais2" name="id_pais2">
                     <option selected></option>
                   </select>
                 </div>

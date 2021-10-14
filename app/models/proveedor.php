@@ -140,7 +140,7 @@ class Proveedor extends Validator{
 
     public function readOne()
     {
-        $sql = 'SELECT pro.id_proveedor, pro.nombre_compania, pro.telefono_pro, pro.direccion_pro, pa.nombre_pais, pro.info_tributaria
+        $sql = 'SELECT pro.id_proveedor, pro.nombre_compania, pro.telefono_pro, pro.direccion_pro, pa.nombre_pais, pro.info_tributaria, pro.id_pais
         FROM proveedor pro
         INNER JOIN pais pa on pro.id_pais = pa.id_pais
         WHERE id_proveedor = ?';
