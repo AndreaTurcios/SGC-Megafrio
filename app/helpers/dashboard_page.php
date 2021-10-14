@@ -181,7 +181,7 @@ class Dashboard_Page
                                                 <h4>Nombres:</h4>
                                             </div>
                                             <div class="">
-                                                <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="nombres" name="nombres" class="validate" required>
+                                                <input class="form-control me-2" type="text" readonly placeholder="" aria-label="Usuario" id="nombres" name="nombres" class="validate" required>
                                             </div>
                                             </div>
                                             <div class="form-group">
@@ -189,7 +189,7 @@ class Dashboard_Page
                                                 <h4>Apellidos:</h4>
                                             </div>
                                             <div class="">
-                                                <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="apellidos" name="apellidos" class="validate" required>
+                                                <input class="form-control me-2" type="text" readonly placeholder="" aria-label="Usuario" id="apellidos" name="apellidos" class="validate" required>
                                             </div>
                                             </div>
                                             <div class="form-group">
@@ -197,7 +197,7 @@ class Dashboard_Page
                                               <h4>Telefono:</h4>
                                             </div>
                                             <div class="">
-                                                <input class="form-control me-2" type="text" placeholder="" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" aria-label="Usuario" id="telefono" name="telefono" class="validate" required>
+                                                <input class="form-control me-2" type="text" readonly placeholder="" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" aria-label="Usuario" id="telefono" name="telefono" class="validate" required>
                                             </div>
                                             </div>
                                             <div class="form-group">
@@ -205,13 +205,13 @@ class Dashboard_Page
                                                 <h4>Nombre de usuario:</h4>
                                             </div>
                                             <div class="">
-                                                <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="username" name="username" class="validate" required>
+                                                <input class="form-control me-2" type="text" readonly placeholder="" aria-label="Usuario" id="username" name="username" class="validate" required>
                                             </div>
                                             </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                        <button type="submit" data-tooltip="Actualizar" class="btn btn-primary" >Guardar Cambios</button>
+                                        
                                     </div>
                                 </form>
                                 </div>
@@ -433,7 +433,7 @@ class Dashboard_Page
                                                             <h4>Nombres:</h4>
                                                         </div>
                                                         <div class="">
-                                                            <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="nombres" name="nombres" class="validate" required>
+                                                            <input class="form-control me-2" type="text" readonly placeholder="" aria-label="Usuario" id="nombres" name="nombres" class="validate" required>
                                                         </div>
                                                         </div>
                                                         <div class="form-group">
@@ -441,7 +441,7 @@ class Dashboard_Page
                                                             <h4>Apellidos:</h4>
                                                         </div>
                                                         <div class="">
-                                                            <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="apellidos" name="apellidos" class="validate" required>
+                                                            <input class="form-control me-2" type="text" readonly placeholder="" aria-label="Usuario" id="apellidos" name="apellidos" class="validate" required>
                                                         </div>
                                                         </div>
                                                         <div class="form-group">
@@ -449,7 +449,7 @@ class Dashboard_Page
                                                           <h4>Telefono:</h4>
                                                         </div>
                                                         <div class="">
-                                                            <input class="form-control me-2" type="text" placeholder="" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" aria-label="Usuario" id="telefono" name="telefono" class="validate" required>
+                                                            <input class="form-control me-2" type="text" readonly placeholder="" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" aria-label="Usuario" id="telefono" name="telefono" class="validate" required>
                                                         </div>
                                                         </div>
                                                         <div class="form-group">
@@ -457,13 +457,12 @@ class Dashboard_Page
                                                             <h4>Nombre de usuario:</h4>
                                                         </div>
                                                         <div class="">
-                                                            <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="username" name="username" class="validate" required>
+                                                            <input class="form-control me-2" type="text" readonly placeholder="" aria-label="Usuario" id="username" name="username" class="validate" required>
                                                         </div>
                                                         </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                    <button type="submit" data-tooltip="Actualizar" class="btn btn-primary" >Guardar Cambios</button>
                                                 </div>
                                             </form>
                                             </div>
@@ -672,7 +671,7 @@ class Dashboard_Page
                                                                 <h4>Nombres:</h4>
                                                             </div>
                                                             <div class="">
-                                                                <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="nombres" name="nombres" class="validate" required>
+                                                                <input class="form-control me-2" type="text" readonly placeholder="" aria-label="Usuario" id="nombres" name="nombres" class="validate" required>
                                                             </div>
                                                             </div>
                                                             <div class="form-group">
@@ -680,7 +679,7 @@ class Dashboard_Page
                                                                 <h4>Apellidos:</h4>
                                                             </div>
                                                             <div class="">
-                                                                <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="apellidos" name="apellidos" class="validate" required>
+                                                                <input class="form-control me-2" type="text" readonly placeholder="" aria-label="Usuario" id="apellidos" name="apellidos" class="validate" required>
                                                             </div>
                                                             </div>
                                                             <div class="form-group">
@@ -688,7 +687,7 @@ class Dashboard_Page
                                                               <h4>Telefono:</h4>
                                                             </div>
                                                             <div class="">
-                                                                <input class="form-control me-2" type="text" placeholder="" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" aria-label="Usuario" id="telefono" name="telefono" class="validate" required>
+                                                                <input class="form-control me-2" type="text" readonly placeholder="" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" aria-label="Usuario" id="telefono" name="telefono" class="validate" required>
                                                             </div>
                                                             </div>
                                                             <div class="form-group">
@@ -696,13 +695,12 @@ class Dashboard_Page
                                                                 <h4>Nombre de usuario:</h4>
                                                             </div>
                                                             <div class="">
-                                                                <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="username" name="username" class="validate" required>
+                                                                <input class="form-control me-2" type="text" readonly placeholder="" aria-label="Usuario" id="username" name="username" class="validate" required>
                                                             </div>
                                                             </div>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                        <button type="submit" data-tooltip="Actualizar" class="btn btn-primary" >Guardar Cambios</button>
                                                     </div>
                                                 </form>
                                                 </div>
@@ -879,7 +877,7 @@ class Dashboard_Page
                                                               <h4>Nombres:</h4>
                                                           </div>
                                                           <div class="">
-                                                              <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="nombres" name="nombres" class="validate" required>
+                                                              <input class="form-control me-2" type="text" readonly placeholder="" aria-label="Usuario" id="nombres" name="nombres" class="validate" required>
                                                           </div>
                                                           </div>
                                                           <div class="form-group">
@@ -887,7 +885,7 @@ class Dashboard_Page
                                                               <h4>Apellidos:</h4>
                                                           </div>
                                                           <div class="">
-                                                              <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="apellidos" name="apellidos" class="validate" required>
+                                                              <input class="form-control me-2" type="text" readonly placeholder="" aria-label="Usuario" id="apellidos" name="apellidos" class="validate" required>
                                                           </div>
                                                           </div>
                                                           <div class="form-group">
@@ -895,7 +893,7 @@ class Dashboard_Page
                                                             <h4>Telefono:</h4>
                                                           </div>
                                                           <div class="">
-                                                              <input class="form-control me-2" type="text" placeholder="" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" aria-label="Usuario" id="telefono" name="telefono" class="validate" required>
+                                                              <input class="form-control me-2" type="text" readonly placeholder="" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" aria-label="Usuario" id="telefono" name="telefono" class="validate" required>
                                                           </div>
                                                           </div>
                                                           <div class="form-group">
@@ -903,13 +901,12 @@ class Dashboard_Page
                                                               <h4>Nombre de usuario:</h4>
                                                           </div>
                                                           <div class="">
-                                                              <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="username" name="username" class="validate" required>
+                                                              <input class="form-control me-2" type="text" readonly placeholder="" aria-label="Usuario" id="username" name="username" class="validate" required>
                                                           </div>
                                                           </div>
                                                   </div>
                                                   <div class="modal-footer">
                                                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                      <button type="submit" data-tooltip="Actualizar" class="btn btn-primary" >Guardar Cambios</button>
                                                   </div>
                                               </form>
                                               </div>
@@ -1105,7 +1102,7 @@ class Dashboard_Page
                                                             <h4>Nombres:</h4>
                                                         </div>
                                                         <div class="">
-                                                            <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="nombres" name="nombres" class="validate" required>
+                                                            <input class="form-control me-2" type="text" readonly placeholder="" aria-label="Usuario" id="nombres" name="nombres" class="validate" required>
                                                         </div>
                                                         </div>
                                                         <div class="form-group">
@@ -1113,7 +1110,7 @@ class Dashboard_Page
                                                             <h4>Apellidos:</h4>
                                                         </div>
                                                         <div class="">
-                                                            <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="apellidos" name="apellidos" class="validate" required>
+                                                            <input class="form-control me-2" type="text" readonly placeholder="" aria-label="Usuario" id="apellidos" name="apellidos" class="validate" required>
                                                         </div>
                                                         </div>
                                                         <div class="form-group">
@@ -1121,7 +1118,7 @@ class Dashboard_Page
                                                           <h4>Telefono:</h4>
                                                         </div>
                                                         <div class="">
-                                                            <input class="form-control me-2" type="text" placeholder="" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" aria-label="Usuario" id="telefono" name="telefono" class="validate" required>
+                                                            <input class="form-control me-2" type="text" readonly placeholder="" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" aria-label="Usuario" id="telefono" name="telefono" class="validate" required>
                                                         </div>
                                                         </div>
                                                         <div class="form-group">
@@ -1129,13 +1126,12 @@ class Dashboard_Page
                                                             <h4>Nombre de usuario:</h4>
                                                         </div>
                                                         <div class="">
-                                                            <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="username" name="username" class="validate" required>
+                                                            <input class="form-control me-2" type="text" readonly placeholder="" aria-label="Usuario" id="username" name="username" class="validate" required>
                                                         </div>
                                                         </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                    <button type="submit" data-tooltip="Actualizar" class="btn btn-primary" >Guardar Cambios</button>
                                                 </div>
                                             </form>
                                             </div>
@@ -1330,7 +1326,7 @@ class Dashboard_Page
                                                                 <h4>Nombres:</h4>
                                                             </div>
                                                             <div class="">
-                                                                <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="nombres" name="nombres" class="validate" required>
+                                                                <input class="form-control me-2" type="text" readonly placeholder="" aria-label="Usuario" id="nombres" name="nombres" class="validate" required>
                                                             </div>
                                                             </div>
                                                             <div class="form-group">
@@ -1338,7 +1334,7 @@ class Dashboard_Page
                                                                 <h4>Apellidos:</h4>
                                                             </div>
                                                             <div class="">
-                                                                <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="apellidos" name="apellidos" class="validate" required>
+                                                                <input class="form-control me-2" type="text" readonly placeholder="" aria-label="Usuario" id="apellidos" name="apellidos" class="validate" required>
                                                             </div>
                                                             </div>
                                                             <div class="form-group">
@@ -1346,7 +1342,7 @@ class Dashboard_Page
                                                               <h4>Telefono:</h4>
                                                             </div>
                                                             <div class="">
-                                                                <input class="form-control me-2" type="text" placeholder="" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" aria-label="Usuario" id="telefono" name="telefono" class="validate" required>
+                                                                <input class="form-control me-2" type="text" readonly placeholder="" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" aria-label="Usuario" id="telefono" name="telefono" class="validate" required>
                                                             </div>
                                                             </div>
                                                             <div class="form-group">
@@ -1354,13 +1350,12 @@ class Dashboard_Page
                                                                 <h4>Nombre de usuario:</h4>
                                                             </div>
                                                             <div class="">
-                                                                <input class="form-control me-2" type="text" placeholder="" aria-label="Usuario" id="username" name="username" class="validate" required>
+                                                                <input class="form-control me-2" type="text" readonly placeholder="" aria-label="Usuario" id="username" name="username" class="validate" required>
                                                             </div>
                                                             </div>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                        <button type="submit" data-tooltip="Actualizar" class="btn btn-primary" >Guardar Cambios</button>
                                                     </div>
                                                 </form>
                                                 </div>
