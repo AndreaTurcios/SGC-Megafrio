@@ -94,3 +94,12 @@ document.getElementById('update-form').addEventListener('submit', function (even
     // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
     updateRow(API_EMPLEADOSINACC, 'update', 'update-form', null);
 });
+
+
+function openDeleteDialog(id) {
+    // Se define un objeto con los datos del registro seleccionado.
+    const data = new FormData();
+    data.append('id_empleado', id);
+    // Se llama a la función que elimina un registro. Se encuentra en el archivo components.js
+    confirmDelete(API_EMPLEADOSINACC, data);
+}
