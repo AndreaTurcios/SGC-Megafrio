@@ -43,7 +43,7 @@ class Dashboard_Page
         // Se comprueba si existe una sesión de administrador para mostrar el menú de opciones, de lo contrario se muestra un menú vacío.
         if (isset($_SESSION['id_empleado'])) {
           // En este apartado se corrobora que el id de tipo usuario corresponda a uno de la tabla tipo empleados, y muestre la vista respectiva a cada tipo de usuario
-            if($_SESSION['id_tipo_emp']== 1) {
+            if($_SESSION['id_tipo_emp']== 1 || $_SESSION['id_tipo_emp']== 2 ) {
                 if ($filename != 'index.php' && $filename != 'register.php' && $filename != 'recuperacion.php') {
                   print('
                     <header>
@@ -302,7 +302,7 @@ class Dashboard_Page
                             } else {
                                 header('location: main.php');
                             }
-                              } else if($_SESSION['id_tipo_emp']==2) {
+                              } else if($_SESSION['id_tipo_emp']==3) {
                                 if ($filename != 'index.php' && $filename != 'register.php' && $filename != 'recuperacion.php') {
                                   print('
                                   <header>
@@ -560,7 +560,7 @@ class Dashboard_Page
                                     } else {
                                       header('location: main.php');
                                   }
-                              } else if($_SESSION['id_tipo_emp']==3) {
+                              } else if($_SESSION['id_tipo_emp']==4) {
                                 if ($filename != 'index.php') {
                                   print('
                                   <header>
@@ -818,7 +818,7 @@ class Dashboard_Page
                                         } else {
                                             header('location: main.php');
                                         }
-                                      } else if($_SESSION['id_tipo_emp']==4) {
+                                      } else if($_SESSION['id_tipo_emp']==5) {
                                         if ($filename != 'index.php' && $filename != 'register.php' && $filename != 'recuperacion.php') {
                                           print('
                                           <header>
@@ -1076,7 +1076,7 @@ class Dashboard_Page
                                         } else {
                                             header('location: main.php');
                                         }
-                                      } else if($_SESSION['id_tipo_emp']==5) {
+                                      } else if($_SESSION['id_tipo_emp']==6) {
                                         if ($filename != 'index.php') {
                                           print('
                                           <header>
@@ -1292,7 +1292,7 @@ class Dashboard_Page
                                       } else {
                                           header('location: main.php');
                                       }
-                                  } else if($_SESSION['id_tipo_emp']==6) {
+                                  } else if($_SESSION['id_tipo_emp']==7) {
                                 if ($filename != 'index.php') {
                                   print('
                                   <header>
