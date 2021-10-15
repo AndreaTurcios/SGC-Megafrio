@@ -47,7 +47,7 @@ if ($dataEquipos = $tipoEquipo->readAll()) {
                 }   
             } else {
                 $pdf->SetFont('Arial', '', 11);
-                $pdf->Cell(255, 20, utf8_decode('                                                         '.'                            '.' No hay equipos registrados para este tipo'), 1, 1);
+                $pdf->Cell(255, 20, utf8_decode('                                                          '.'                            '.' No hay equipos registrados para este tipo'), 1, 1);
             }
             }
 }
