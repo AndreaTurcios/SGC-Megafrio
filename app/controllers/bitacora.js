@@ -81,7 +81,7 @@ function openCreateDialog() {
                     });
                     // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
                     response.dataset.map(function (row) {  
-                        data.push({'label':row.nombre_emp,'value':row.id_empleado});
+                        data.push({'label':row.completo,'value':row.id_empleado});
                     });
                     
                     ac.setData(data);
@@ -311,7 +311,7 @@ function openUpdateDialog(id) {
                     });
                     // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
                     response.dataset.map(function (row) {  
-                        data.push({'label':row.nombre_emp,'value':row.id_empleado});
+                        data.push({'label':row.completo,'value':row.id_empleado});
                     });
                     
                     ac.setData(data);

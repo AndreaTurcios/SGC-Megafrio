@@ -205,7 +205,7 @@ class Bitacora extends Validator
 
     public function readEmpleados()
     {
-        $sql = 'SELECT id_empleado, nombre_emp FROM empleado';
+        $sql = "SELECT id_empleado, (nombre_emp || ' ' || apellido_emp) AS completo FROM empleado";
         $params = null;
         return Database::getRows($sql, $params);
     }
