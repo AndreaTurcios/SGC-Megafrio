@@ -110,29 +110,21 @@ if (isset($_GET['action'])) {
                                                     if ($equipo->setVoltaje($_POST['voltaje'])) {
                                                         if ($equipo->setSerie($_POST['serie'])) {
                                                             if ($equipo->setIdProveedor($_POST['nombre_compania'])) {
+                                                                if ($equipo->setIdTipoEqui($_POST['tipo_equipo'])) {
                                                                     if ($equipo->setIdCapacidad($_POST['capacidad'])) {
                                                                         if (is_uploaded_file($_FILES['archivo_producto']['tmp_name'])) { //archivo_producto es creado en el modal del vista agregar
                                                                             if ($equipo->setFoto($_FILES['archivo_producto'])) {
-                                                                                if ($equipo->setIdTipoEqui($_POST['tipo_equipo'])) {
-                                                                                    if ($equipo->createRow()) {
-                                                                                        $result['status'] = 1;
-                                                                                        if ($equipo->saveFile($_FILES['archivo_producto'], $equipo->getRuta(), $equipo->getFoto())) {
-                                                                                            $result['message'] = 'Equipo creado correctamente';
-                                                                                        } else {
-                                                                                            $result['message'] = 'Equipo creado pero no se guardó la imagen';
-                                                                                        }
+                                                                                if ($equipo->createRow()) {
+                                                                                    $result['status'] = 1;
+                                                                                    if ($equipo->saveFile($_FILES['archivo_producto'], $equipo->getRuta(), $equipo->getFoto())) {
+                                                                                        $result['message'] = 'Equipo creado correctamente';
                                                                                     } else {
-                                                                                        $result['exception'] = Database::getException();;
+                                                                                        $result['message'] = 'Equipo creado pero no se guardó la imagen';
                                                                                     }
-                                                                                } else if ($equipo->setIdTipoEqui($_POST['prg1'])) {
-                                                                                $result['message'] = 'Tipo equipo creado';
-                                                                            }
-                                                                                else{
-                                                                                    $result['exception'] = 'Problema al insertar el tipo de equipo';
+                                                                                } else {
                                                                                     $result['exception'] = Database::getException();;
                                                                                 }
-                                                                            }    
-                                                                            else {
+                                                                            } else {
                                                                                 $result['exception'] = $equipo->getImageError();
                                                                             }
                                                                         } else {
@@ -141,7 +133,10 @@ if (isset($_GET['action'])) {
                                                                     } else {
                                                                         $result['exception'] = 'Capacidad incorrecta';
                                                                     }   
-                                                                     
+                                                                } else {
+                                                                    $equipo->setIdTipoEqui($_POST['prg1']);
+                                                                    $result['exception'] = 'Tipo equipo incorrecto';
+                                                                }        
                                                             } else {
                                                                 $result['exception'] = 'Proveedor incorrecto';
                                                             }
@@ -160,6 +155,8 @@ if (isset($_GET['action'])) {
                                         } else {
                                             $result['exception'] = 'Descripción incorrecta';
                                         }
+                                    } else {
+                                        $result['exception'] = 'Nombre incorrecto';
                                     }
                                     break;
                                     // Case para el caso del update del sistema

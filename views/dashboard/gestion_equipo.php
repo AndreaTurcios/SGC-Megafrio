@@ -115,10 +115,11 @@ Dashboard_Page::headerTemplate('Equipo');
                                   <option selected></option>
                                 </select>
                               </div>
-                              
+
+                              <div class="form-group">
                                   <label><input name="chec" type="checkbox" id="chec" onChange="d1(this);"/> Otro</label><br>
                                   <input id="prg1" name='prg1' size='50' placeholder="Específicar..." type='text' class="form-control"/>
-                              
+                              </div>
                               
                               <div class="form-group">
                                 <label>Capacidad: </label>
