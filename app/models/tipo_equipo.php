@@ -50,6 +50,33 @@ class tipoequipo extends Validator{
         return Database::getRows($sql, $params);
     }
 
+    public function deleteRow()
+    {
+        $sql = 'DELETE FROM tipoequipo
+                WHERE id_tipo_equipo = ?';
+        $params = array($this->id_tipo_equipo);
+        return Database::executeRow($sql, $params);
+    }
+    
+    public function readOne()
+    {
+        $sql = 'SELECT id_tipo_equipo, tipo_equipo
+        FROM tipoequipo
+        WHERE id_tipo_equipo = ?';
+        $params = array($this->id_tipo_equipo);
+        return Database::getRow($sql, $params);
+    }
+
+    public function updateRow()
+    {
+        $sql = 'UPDATE tipoequipo 
+                SET tipo_equipo=?
+                WHERE id_tipo_equipo = ?';
+       
+        $params = array($this->tipo_equipo,$this->id_tipo_equipo);
+        return Database::executeRow($sql, $params);
+    }
+
     public function readTipo()
     {
         $sql = 'SELECT id_tipo_equipo, tipo_equipo

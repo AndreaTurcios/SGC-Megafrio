@@ -26,7 +26,7 @@ if (isset($_GET['action'])) {
                 break;
             case 'create':
                 $_POST = $tipoEquipo->validateForm($_POST);
-                if ($tipoEquipo->setTipoEquipo($_POST['prg1'])) {
+                if ($tipoEquipo->setTipoEquipo($_POST['tipo_equipo'])) {
                     if ($tipoEquipo->createRow()) {
                             $result['status'] = 1;
                             // Se indica que el proveedor se registró existosamente en el caso de que los if se ejecuten automáticamente, caso contrario nos manda los siguientes mensajes
@@ -38,6 +38,56 @@ if (isset($_GET['action'])) {
                             $result['exception'] = 'Tipo equipo incorrecto';
                     }
                 break;
+                case 'readOne':
+                    if ($tipoEquipo->setId($_POST['id_tipo_equipo'])) {
+                        if ($result['dataset'] = $tipoEquipo->readOne()) {
+                            $result['status'] = 1;
+                        } else {
+                            if (Database::getException()) {
+                                $result['exception'] = Database::getException();
+                            } else {
+                                $result['exception'] = 'No existe el respectivo tipo equipo';
+                            }
+                        }
+                    } else {
+                        $result['exception'] = 'Empleado erróneo';
+                    }
+                    break;
+                    case 'update':
+                        $_POST = $tipoEquipo->validateForm($_POST);
+                        if ($tipoEquipo->setId($_POST['id_tipo_equipo2'])) {
+                            if ($tipoEquipo->setTipoEquipo($_POST['tipo_equipo2'])) {                                              
+                                if ($tipoEquipo->updateRow()) {
+                                        $result['status'] = 1;
+                                        $result['message'] = 'Tipo equipo modificado exitosamente';  
+                                } else {
+                                        $result['exception'] = Database::getException();                                                        
+                                        }   
+                                    } else {
+                                        $result['exception'] = 'Problema con el tipo de equipo';
+                                    }
+                                } else {
+                                    $result['exception'] = 'Tipo equipo inexistente';
+                                }
+                    break;  
+                    case 'delete':
+                        if ($tipoEquipo->setId($_POST['id_tipo_equipo2'])) {
+                            if ($data = $tipoEquipo->readOne()) {
+                                if ($tipoEquipo->deleteRow()) {
+                                    $result['status'] = 1;
+                                    $result['message'] = 'Tipo equipo eliminado correctamente'; 
+                                   
+                                } else {
+                                    $result['exception'] = Database::getException();
+                                }
+                            // En caso el tipo equipo no exista manda el mensaje correspondiente
+                            } else {
+                                $result['exception'] = 'Tipo equipo inexistente';
+                            }
+                        } else {
+                            $result['exception'] = 'Tipo equipo incorrecto';
+                        }
+                        break;   
             }
         // Se indica el tipo de contenido a mostrar y su respectivo conjunto de carácteres.
         header('content-type: application/json; charset=utf-8');
