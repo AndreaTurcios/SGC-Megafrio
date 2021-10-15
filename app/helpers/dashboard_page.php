@@ -111,7 +111,7 @@ class Dashboard_Page
                                     <a class="nav-link" href="gestion_clientes.php">CLIENTES</a>
                                   </li>
                                   <li class="nav-item">
-                                    <a class="nav-link" href="gestion_empleados.php">EMPLEADOS</a>
+                                    <a class="nav-link" href="gestion_empleados.php">USUARIOS</a>
                                   </li>
                                   <li class="nav-item">
                                     <a class="nav-link" href="agenda.php">AGENDA</a>
@@ -125,6 +125,9 @@ class Dashboard_Page
                                   <li class="nav-item">
                                     <a class="nav-link" href="Reportes.php">REPORTES</a>
                                   </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="empleados_sinaccc.php">EMPLEADOS</a>
+                                  </li>
                                 </ul>
                               </div>
                             </div>
@@ -132,7 +135,7 @@ class Dashboard_Page
                             <div class="col-12 d-none d-lg-block MenuSec">
                               <ul class="nav justify-content-center">
                                 <li class="nav-item p-1">
-                                  <button type="button" class="btn botonAnim"><i class="fas fa-user"></i><a href="gestion_empleados.php" id="fontmen"> EMPLEADOS</a></button> 
+                                  <button type="button" class="btn botonAnim"><i class="fas fa-user"></i><a href="gestion_empleados.php" id="fontmen"> USUARIOS</a></button> 
                                 </li>
                                 <li class="nav-item p-1">
                                   <button type="button" class="btn botonAnim"><i class="fas fa-shopping-basket"></i><a href="gestion_clientes.php" id="fontmen"> CLIENTES</a></button> 
@@ -154,6 +157,9 @@ class Dashboard_Page
                                 </li>
                                 <li class="nav-item p-1">
                                   <button type="button" class="btn botonAnim"><img src="../../resources/img/logos/reportes.svg" class="text-center" style="max-width:20%;width:13px;height:auto;"><a href="Reportes.php" id="fontmen"> REPORTES</a></button> 
+                                </li>
+                                <li class="nav-item p-1">
+                                  <button type="button" class="btn botonAnim"><i class="fas fa-user"></i><a href="empleados_sinaccc.php" id="fontmen"> EMPLEADOS</a></button> 
                                 </li>
                                 <li>
                               </ul>
