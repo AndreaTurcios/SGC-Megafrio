@@ -23,6 +23,7 @@ class Empleados extends Validator{
     private $claveempleado = null;
     private $idtipoempleado = null;
     private $estado = null;
+    private $acceso = null;
     private $correo = null;
     private $correoError = null;
     private $codigo_recu = null;
@@ -158,6 +159,16 @@ class Empleados extends Validator{
         }
     }
 
+    public function setAcceso($value)
+    {
+        if ($this->validateBoolean($value)) {
+            $this->acceso = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function getId()
     {
         return $this->id;
@@ -166,6 +177,11 @@ class Empleados extends Validator{
     public function getCorreo()
     {
         return $this->correo;
+    }
+
+    public function getAcceso()
+    {
+        return $this->acceso;
     }
 
     public function getFecha()
@@ -235,24 +251,27 @@ class Empleados extends Validator{
 
     public function createRow()
     {
+        $acceso = 'true';
+        $fechaHoy = date('Y-m-d');
         // Se encripta la clave por medio del algoritmo bcrypt que genera un string de 60 caracteres.
         $hash = password_hash($this->claveempleado, PASSWORD_DEFAULT);
-        $sql = 'INSERT INTO empleado (nombre_usuario, nombre_emp,apellido_emp,telefono_emp,clave_emp,estado,id_tipo_emp, correo)
-        VALUES (? ,?, ?, ?, ?, ?, ?, ?)';
-        $params = array($this->nombreusuario, $this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado,$hash,$this->estado,$this->idtipoempleado,$this->correo);
+        $sql = 'INSERT INTO empleado (nombre_usuario, nombre_emp,apellido_emp,telefono_emp,clave_emp,estado,id_tipo_emp,correo,acceso,fechacontra)
+        VALUES (? ,?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        $params = array($this->nombreusuario, $this->nombreempleado, $this->apellidoempleado, $this->telefonoempleado,$hash,$this->estado,$this->idtipoempleado,$this->correo,$acceso,$fechaHoy);
         return Database::executeRow($sql, $params);
     }
 
     public function createRowRegister()
     {
         $estado = 'true';
+        $acceso = 'true';
         $idtipoempleado = 1;
         $fechaHoy = date('Y-m-d');
         // Se encripta la clave por medio del algoritmo bcrypt que genera un string de 60 caracteres.
         $hash = password_hash($this->claveempleado, PASSWORD_DEFAULT);
-        $sql = 'INSERT INTO empleado (nombre_usuario, nombre_emp,correo,apellido_emp,telefono_emp,clave_emp,estado,id_tipo_emp,fechacontra)
-        VALUES (? ,?, ?, ?, ?, ?, ?, ?, ?)';
-        $params = array($this->nombreusuario, $this->nombreempleado,$this->correo, $this->apellidoempleado, $this->telefonoempleado,$hash,$estado,$idtipoempleado,$fechaHoy);
+        $sql = 'INSERT INTO empleado (nombre_usuario, nombre_emp,correo,apellido_emp,telefono_emp,clave_emp,estado,id_tipo_emp,fechacontra,acceso)
+        VALUES (? ,?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        $params = array($this->nombreusuario, $this->nombreempleado,$this->correo, $this->apellidoempleado, $this->telefonoempleado,$hash,$estado,$idtipoempleado,$fechaHoy,$acceso);
         return Database::executeRow($sql, $params);
     }
 
@@ -393,19 +412,21 @@ class Empleados extends Validator{
 
     public function changePassword()
     {
+        $fechaHoy = date('Y-m-d');
         // Se transforma la contraseña a una cadena de texto de longitud fija mediante el algoritmo por defecto.
         $hash = password_hash($this->claveempleado, PASSWORD_DEFAULT);
-        $sql = 'UPDATE empleado SET clave_emp = ? WHERE id_empleado = ?';
-        $params = array($hash, $_SESSION['id_empleado']);
+        $sql = 'UPDATE empleado SET clave_emp = ?, fechacontra = ? WHERE id_empleado = ?';
+        $params = array($hash, $fechaHoy, $_SESSION['id_empleado']);
         return Database::executeRow($sql, $params);
     }
 
     public function restorePassword()
-    {
+    {   
+        $fechaHoy = date('Y-m-d');
         // Se transforma la contraseña a una cadena de texto de longitud fija mediante el algoritmo por defecto.
         $hash = password_hash($this->claveempleado, PASSWORD_DEFAULT);
-        $sql = 'UPDATE empleado SET clave_emp = ? WHERE id_empleado = ?';
-        $params = array($hash, $this->id);
+        $sql = 'UPDATE empleado SET clave_emp = ?, fechacontra = ? WHERE id_empleado = ?';
+        $params = array($hash, $fechaHoy, $this->id);
         return Database::executeRow($sql, $params);
     }
 
