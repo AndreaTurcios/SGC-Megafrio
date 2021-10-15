@@ -71,7 +71,7 @@ Dashboard_Page::headerTemplate('Gestión Capacidades');
                             <form>
                               <div class="form-group ">
                                 <label for="Capacidad">Capacidad:</label>
-                                <input type="text" class="form-control" id="capacidad" name="capacidad"
+                                <input type="text" autocomplete="off" class="form-control" id="capacidad" name="capacidad"
                                   placeholder="EJ: 18,000 ">
                               </div>
                               <br>
@@ -140,7 +140,7 @@ Dashboard_Page::headerTemplate('Gestión Capacidades');
           <div class="modal-body">
             <div class="form-group">
               <label for="Capacidad2">Capacidad:</label>
-              <input type="text" class="form-control" id="capacidad2" name="capacidad2" placeholder="capacidad"
+              <input type="text" autocomplete="off" class="form-control" id="capacidad2" name="capacidad2" placeholder="capacidad"
                  required minlength="3" maxlength="50" />
             </div>
           </div>

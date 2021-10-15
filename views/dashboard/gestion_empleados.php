@@ -200,25 +200,25 @@ Dashboard_Page::headerTemplate('Empleados');
           <div class="modal-body">
             <div class="form-group">
               <label for="nombre_emp2">Nombre empleado:</label>
-              <input type="text" class="form-control" autocomplete="off" id="nombre_emp2" name="nombre_emp2" placeholder="Nombre empleado"
+              <input type="text" autocomplete="off" class="form-control" autocomplete="off" id="nombre_emp2" name="nombre_emp2" placeholder="Nombre empleado"
                 pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required minlength="3" maxlength="50" />
             </div>
             <div class="form-group">
               <label for="apellido_emp2">Apellido empleado</label>
-              <input class="form-control" id="apellido_emp2" autocomplete="off" type="text" name="apellido_emp2"
+              <input class="form-control" autocomplete="off" id="apellido_emp2" autocomplete="off" type="text" name="apellido_emp2"
                 placeholder="Apellido empleado" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required minlength="3"
                 maxlength="50" />
             </div>
             <div class="form-group">
               <label for="telefono_emp2">Teléfono:</label>
-              <input type="text" class="form-control" id="telefono_emp2" name="telefono_emp2" placeholder="0000-0000"
+              <input type="text" autocomplete="off" class="form-control" id="telefono_emp2" name="telefono_emp2" placeholder="0000-0000"
                 pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required minlength="9" maxlength="9"
                 onkeyup="this.value = mascara(this.value)" required minlength="9" maxlength="9"
                 onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
             </div>
             <div class="form-group">
               <label for="nombre_usuario2">Usuario:</label>
-              <input type="text" class="form-control" id="nombre_usuario2" name="nombre_usuario2" placeholder="Usuario"
+              <input type="text" autocomplete="off" class="form-control" id="nombre_usuario2" name="nombre_usuario2" placeholder="Usuario"
                 required />
             </div>
             <br>

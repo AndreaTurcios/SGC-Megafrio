@@ -68,12 +68,12 @@ Dashboard_Page::headerTemplate('Gestión País');
                             <form>
                               <div class="form-group ">
                                 <label for="nombre_pais">Nombre pais:</label>
-                                <input type="text" class="form-control" id="nombre_pais" name="nombre_pais"
+                                <input type="text" autocomplete="off" class="form-control" id="nombre_pais" name="nombre_pais"
                                   placeholder="Pais">
                               </div>
                               <div class="form-group">
                                 <label for="codigo_postal">Código postal:</label>
-                                <input type="text" class="form-control" id="codigo_postal" name="codigo_postal"
+                                <input type="text" autocomplete="off" class="form-control" id="codigo_postal" name="codigo_postal"
                                   placeholder="codigo postal">
                               </div>
                               <br>
@@ -146,12 +146,12 @@ Dashboard_Page::headerTemplate('Gestión País');
 
             <div class="form-group">
               <label for="nombre_pais2">Nombre pais:</label>
-              <input type="text" class="form-control" id="nombre_pais2" name="nombre_pais2" placeholder="Nombre pais"
+              <input type="text" autocomplete="off" class="form-control" id="nombre_pais2" name="nombre_pais2" placeholder="Nombre pais"
                 pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required minlength="3" maxlength="50" />
             </div>
             <div class="form-group">
               <label for="codigo_postal2">Codigo Postal:</label>
-              <input class="form-control" id="codigo_postal2" type="text" name="codigo_postal2"
+              <input class="form-control" autocomplete="off" id="codigo_postal2" type="text" name="codigo_postal2"
                 placeholder="Codigo postal" required minlength="3" maxlength="50" />
             </div>
           </div>

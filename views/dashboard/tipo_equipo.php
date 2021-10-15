@@ -86,7 +86,7 @@ Dashboard_Page::headerTemplate('Tipo equipo');
                         <div class="form-group">
                          <div class="input-field col s12 m6">
                         <label>Tipo equipo: </label>
-                        <input type="text" class="form-control" id="tipo_equipo" name="tipo_equipo" placeholder="Tipo equipo" required />
+                        <input type="text" autocomplete="off" class="form-control" id="tipo_equipo" name="tipo_equipo" placeholder="Tipo equipo" required />
                       </div>
                       <br>
                     </div>
@@ -122,7 +122,7 @@ Dashboard_Page::headerTemplate('Tipo equipo');
           <div class="modal-body">
             <div class="form-group">
               <label for="tipo_equipo2">Tipo equipo:</label>
-              <input type="text" class="form-control" id="tipo_equipo2" name="tipo_equipo2" placeholder="Nombre empleado"
+              <input type="text" autocomplete="off" class="form-control" id="tipo_equipo2" name="tipo_equipo2" placeholder="Nombre empleado"
                 pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required minlength="3" maxlength="50" />
             </div>
           </div>
