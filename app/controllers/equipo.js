@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     fillSelectt(ENDPOINT_TIPOEQUIPO,'tipo_equipo', null);
     fillSelect(ENDPOINT_CAPACIDAD,'capacidad', null);
     readRows(API_EQUIPO);
-    document.getElementById('prg1').style.display = 'none';
 });
 
 // Función para llenar la tabla con los datos de los registros. Se manda a llamar en la función readRows().
@@ -73,14 +72,14 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     // Se establece el campo de archivo como obligatorio.
     document.getElementById('archivo_producto').required = true;
     
-    if(document.getElementById('chec').checked==true){ 
+    /*if(document.getElementById('chec').checked==true){ 
         saveRow(API_TIPO_EQUIPO, "create", 'save-form', null);
         var theSelect = document.getElementById('tipo_equipo');
         var lastValue = theSelect.options[theSelect.options.length - 1].value;
         document.getElementById('tipo_equipo').value = lastValue;
-    }else{
+    }else{*/
     saveRow(API_EQUIPO, 'create', 'save-form', null);
-    }
+    
 });
 
 // Función para preparar el formulario al momento de modificar un registro.
@@ -255,7 +254,7 @@ function openChartEquip(id){
     });
 }
 
-
+/*
 function d1(obj)
 {   
     if (obj.checked){ 
@@ -270,6 +269,6 @@ function d1(obj)
         document.getElementById('tipo_equipo').value = 1;
     }
 }
-
+*/
 
 
