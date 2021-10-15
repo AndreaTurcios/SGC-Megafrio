@@ -81,8 +81,7 @@ Dashboard_Page::headerTemplate('Equipo');
                               </div>
                               <div class="form-group">
                                 <label for="precio_equipo">Precio:</label>
-                                <input type="number" class="form-control" id="precio_equipo" name="precio_equipo" autocomplete="off"
-                                  min="100.0" max="999.99">
+                                <input type="number" class="form-control" id="precio_equipo" name="precio_equipo" autocomplete="off">
                               </div>
                               <div class="form-group">
                                 <label for="modelo">Modelo:</label>
@@ -223,8 +222,7 @@ Dashboard_Page::headerTemplate('Equipo');
             </div>
             <div class="form-group">
               <label for="precio_equipo2">Precio:</label>
-              <input type="number" class="form-control" id="precio_equipo2" name="precio_equipo2" min="100.0"
-                max="999.99">
+              <input type="number" class="form-control" id="precio_equipo2" name="precio_equipo2">
             </div>
             <div class="form-group">
               <label for="modelo2">Modelo:</label>
