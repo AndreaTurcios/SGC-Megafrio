@@ -107,6 +107,17 @@ class EmpleadosSinAcc extends Validator{
         return $this->acceso;
     }
 
+    public function searchRows($value)
+    {
+        $sql = 'SELECT em.id_empleado, em.nombre_emp,em.apellido_emp,em.telefono_emp,em.estado,od.tipoemp 
+                FROM empleado em
+                INNER JOIN tipoempleado od on em.id_tipo_emp = od.id_tipo_emp
+                WHERE em.nombre_emp ILIKE ? OR em.apellido_emp ILIKE ? OR od.tipoemp ILIKE ? OR em.telefono_emp ILIKE ?
+                ORDER BY apellido_emp';
+        $params = array("%$value%","%$value%","%$value%","%$value%");
+        return Database::getRows($sql, $params);
+    }
+
     public function createRowSinAcc()
     {   
         $acceso = 'false';

@@ -106,6 +106,32 @@ if (isset($_GET['action'])) {
                         $result['exception'] ='Estado incorrecto';
                           } 
                 break;
+
+                case 'search':
+                    $_POST = $empleados->validateForm($_POST);
+                    if ($_POST['search'] != '') {
+                        if ($result['dataset'] = $empleados->searchRows($_POST['search'])) {
+                            $result['status'] = 1;
+                            $rows = count($result['dataset']);
+                            if ($rows > 1) {
+                                $result['message'] = 'Se encontraron ' . $rows . ' coincidencias';
+                            } else {
+                                $result['message'] = 'Solo existe una coincidencia';
+                            }
+                        // Esto ocurrirá en el caso de que no existan coincidencias de la busqueda realizada
+                        } else {
+                            if (Database::getException()) {
+                                $result['exception'] = Database::getException();
+                            } else {
+                                $result['exception'] = 'No hay coincidencias';
+                            }
+                        }
+                    // En el caso de que esté vacío
+                    } else {
+                        $result['exception'] = 'Ingrese un valor para buscar';
+                    }
+                    break;
+                    
             // Si el action detecta que se desea realizar un delete a un dato se ejecuta lo siguiente
             case 'delete':
                 if ($empleados->setId($_POST['id_empleado'])) {
