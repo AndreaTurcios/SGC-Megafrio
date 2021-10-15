@@ -16,7 +16,7 @@ class Database
     {
         // Credenciales para establecer la conexión con la base de datos.
         $server = 'localhost';
-        $database = 'BaseMegafrio';   
+        $database = 'DBMegafrio';   
         $username = 'postgres';
         $password = 'admin';
    

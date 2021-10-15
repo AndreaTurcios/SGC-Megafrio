@@ -65,6 +65,7 @@ document.getElementById('search-form').addEventListener('submit', function (even
     searchRows(API_EQUIPO, 'search-form');
 });
 
+
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de guardar.
 document.getElementById('save-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.
@@ -72,8 +73,14 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     // Se establece el campo de archivo como obligatorio.
     document.getElementById('archivo_producto').required = true;
     
-    saveRow(API_TIPO_EQUIPO, "create", 'save-form', null);
+    if(document.getElementById('chec').checked==true){ 
+        saveRow(API_TIPO_EQUIPO, "create", 'save-form', null);
+        var theSelect = document.getElementById('tipo_equipo');
+        var lastValue = theSelect.options[theSelect.options.length - 1].value;
+        document.getElementById('tipo_equipo').value = lastValue;
+    }else{
     saveRow(API_EQUIPO, 'create', 'save-form', null);
+    }
 });
 
 // Función para preparar el formulario al momento de modificar un registro.
@@ -260,6 +267,7 @@ function d1(obj)
         document.getElementById('prg1').style.display = 'none';
         document.getElementById('prg1').value = '';
         document.getElementById('tipo_equipo').disabled = false;
+        document.getElementById('tipo_equipo').value = 1;
     }
 }
 

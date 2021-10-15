@@ -134,7 +134,7 @@ if (isset($_GET['action'])) {
                                                                         $result['exception'] = 'Capacidad incorrecta';
                                                                     }   
                                                                 } else {
-                                                                    $equipo->setIdTipoEqui($_POST['prg1']);
+                                                                    $result['exception'] = Database::getException();;
                                                                     $result['exception'] = 'Tipo equipo incorrecto';
                                                                 }        
                                                             } else {
@@ -156,7 +156,7 @@ if (isset($_GET['action'])) {
                                             $result['exception'] = 'Descripción incorrecta';
                                         }
                                     } else {
-                                        $result['exception'] = 'Nombre incorrecto';
+                                        $result['exception'] = 'Descripción incorrecta';
                                     }
                                     break;
                                     // Case para el caso del update del sistema
