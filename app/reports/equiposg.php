@@ -1,21 +1,23 @@
 <?php
     require('../../app/helpers/report.php');
     require('../../app/models/equipos.php');
+    require('../../app/models/tipo_equipo.php');
     // Se instancia la clase para crear el reporte.
 $pdf = new Report;
 // Se inicia el reporte con el encabezado del documento.
 $pdf->startReports('Reporte de datos de equipo por tipo equipo');
 // Se instancia el módelo Equipos para obtener los datos.
 $equipo = new Equipos;
+$tipoEquipo = new tipoequipo;
 // Se verifica si existen registros (equipos) para mostrar, de lo contrario se imprime un mensaje.
-if ($dataEquipos = $equipo->readAllTipoEquipo()) {
+if ($dataEquipos = $tipoEquipo->readAll()) {
     // Se recorren los registros ($dataEquipos) fila por fila ($rowEquipos).
     foreach ($dataEquipos as $rowEquipos) {
                 $pdf->SetFont('Arial', 'B', 11);
                 $pdf->SetFillColor(174, 232, 251);
                 $pdf->Cell(255, 10, utf8_decode('Tipo equipo: '.$rowEquipos['tipo_equipo']), 1, 1, 'C', 1);
-        if ($equipo->setId($rowEquipos['id_tipo_equipo'])) {
-            if ($dataEquipos = $equipo->readAll()) {
+        if ($equipo->setIdTipoEqui($rowEquipos['id_tipo_equipo'])) {
+            if ($dataEquipos = $equipo->readEquipo()) {
                 // Se establece un color de relleno para los encabezados.
                 $pdf->SetFillColor(174, 232, 251);
                 // Se establece la fuente para los encabezados.
@@ -45,7 +47,7 @@ if ($dataEquipos = $equipo->readAllTipoEquipo()) {
                 }   
             } else {
                 $pdf->SetFont('Arial', '', 11);
-                $pdf->Cell(193, 20, utf8_decode('                        '.'                            '.' No hay equipos registrados para este tipo'), 1, 1);
+                $pdf->Cell(255, 20, utf8_decode('                                                         '.'                            '.' No hay equipos registrados para este tipo'), 1, 1);
             }
             }
 }

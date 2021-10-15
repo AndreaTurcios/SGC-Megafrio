@@ -66,42 +66,43 @@ if(isset($_GET['action'])) {
                             }
                         }
                         break;
-                    
-                        
-                case 'changePassword':
-                    if ($usuario->setId($_SESSION['id_empleado'])) {
-                        $_POST = $usuario->validateForm($_POST);
-                        if ($usuario->checkPassword($_POST['clave_actual'])) {
-                            if ($_POST['clave_actual'] != $_POST['clave_nueva_1']) {
-                                if ($_POST['clave_nueva_1'] == $_POST['clave_nueva_2']) {
-                                        if ($usuario->setPasswordAlias($_POST['clave_nueva_1'], $_SESSION['nombre_usuario'])) {
-                                            if ($usuario->setClaveEmpleado($_POST['clave_nueva_1'])) {
-                                                if ($usuario->changePassword()) {
-                                                    $result['status'] = 1;
-                                                    $result['message'] = 'Contraseña cambiada correctamente, ingrese nuevamente al sistema';
+           
+           
+
+                        case 'changePassword':
+                            if ($usuario->setId($_SESSION['id_empleado'])) {
+                                $_POST = $usuario->validateForm($_POST);
+                                if ($usuario->checkPassword($_POST['clave_actual'])) {
+                                    if ($_POST['clave_actual'] != $_POST['clave_nueva_1']) {
+                                        if ($_POST['clave_nueva_1'] == $_POST['clave_nueva_2']) {
+                                                if ($usuario->setPasswordAlias($_POST['clave_nueva_1'], $_SESSION['nombre_usuario'])) {
+                                                    if ($usuario->setClaveEmpleado($_POST['clave_nueva_1'])) {
+                                                        if ($usuario->changePassword()) {
+                                                            $result['status'] = 1;
+                                                            $result['message'] = 'Contraseña cambiada correctamente, ingrese nuevamente al sistema';
+                                                        } else {
+                                                            $result['exception'] = Database::getException();
+                                                        }
+                                                    } else {
+                                                        $result['exception'] = $usuario->getPasswordError();
+                                                    }
                                                 } else {
-                                                    $result['exception'] = Database::getException();
+                                                    $result['exception'] = 'No puede ingresar su nombre de usuario como contraseña';
                                                 }
-                                            } else {
-                                                $result['exception'] = $usuario->getPasswordError();
-                                            }
+                                                
                                         } else {
-                                            $result['exception'] = $usuario->getPasswordError();
+                                            $result['exception'] = 'Claves nuevas diferentes';
                                         }
-                                        
+                                    } else {
+                                        $result['exception'] = 'Intente ingresar una contraseña que no sea igual a la anterior';
+                                    }    
                                 } else {
-                                    $result['exception'] = 'Claves nuevas diferentes';
+                                   $result['exception'] = 'Clave actual incorrecta';
                                 }
                             } else {
-                                $result['exception'] = 'Intente ingresar una contraseña que no sea igual a la anterior';
-                            }    
-                        } else {
-                           $result['exception'] = 'Clave actual incorrecta';
-                        }
-                    } else {
-                        $result['exception'] = 'Usuario incorrecto';
-                    }
-                    break;
+                                $result['exception'] = 'Usuario incorrecto';
+                            }
+                            break;
               
                 default:
                     $result['exception'] = 'Acción no disponible dentro de la sesión';
