@@ -97,7 +97,7 @@ Dashboard_Page::headerTemplate('Agenda');
                                         <div class="mb-3">
                                         <label for="message-text" class="col-form-label">Hora de programación:</label>
 
-                                        <input type="time" id="hora_pro" name="hora_pro" class="form-control" min="07:00" max="18:00"
+                                        <input type="time" id="hora_pro" name="hora_pro" class="form-control" 
                                              class="validate" required/>
                                         </div>
                                         <div class="mb-3">
@@ -109,7 +109,7 @@ Dashboard_Page::headerTemplate('Agenda');
                                         <div class="mb-3">
                                         <label for="message-text" class="col-form-label">Hora de provisional:</label>
 
-                                        <input type="time" id="hora_nal" name="hora_nal" class="form-control" min="07:00" max="18:00"
+                                        <input type="time" id="hora_nal" name="hora_nal" class="form-control" 
                                          class="validate" required/>
                                         </div>
                                         <div class="mb-3">
@@ -169,7 +169,7 @@ Dashboard_Page::headerTemplate('Agenda');
                                         <div class="mb-3">
                                         <label for="message-text" class="col-form-label">Hora de programación:</label>
 
-                                        <input type="time" id="hora_pro2" name="hora_pro2" class="form-control" min="07:00" max="18:00"
+                                        <input type="time" id="hora_pro2" name="hora_pro2" class="form-control"
                                              class="validate" required />
                                         </div>
                                         <div class="mb-3">
@@ -181,7 +181,7 @@ Dashboard_Page::headerTemplate('Agenda');
                                         <div class="mb-3">
                                         <label for="message-text" class="col-form-label">Hora provisional:</label>
 
-                                        <input type="time" id="hora_nal2" name="hora_nal2" class="form-control" min="07:00" max="18:00"
+                                        <input type="time" id="hora_nal2" name="hora_nal2" class="form-control"
                                          class="validate" required/>
                                         </div>
                                         <div class="mb-3">

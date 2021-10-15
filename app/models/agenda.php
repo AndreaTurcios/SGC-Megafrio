@@ -64,7 +64,7 @@ class Agenda extends Validator
 
     public function setHoraProgramacion($value)
     {
-        if ($this->validateString($value, 1, 6)) {
+        if ($this->validateString($value, 1, 8)) {
             $this->hora_programacion = $value;
             return true;
         } else {
@@ -84,7 +84,7 @@ class Agenda extends Validator
 
     public function setHoraProvisional($value)
     {
-        if ($this->validateString($value, 1, 6)) {
+        if ($this->validateString($value, 1, 8)) {
             $this->hora_provisional = $value;
             return true;
         } else {
