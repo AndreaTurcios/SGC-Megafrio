@@ -415,8 +415,8 @@ class Empleados extends Validator{
         $fechaHoy = date('Y-m-d');
         // Se transforma la contraseña a una cadena de texto de longitud fija mediante el algoritmo por defecto.
         $hash = password_hash($this->claveempleado, PASSWORD_DEFAULT);
-        $sql = 'UPDATE empleado SET clave_emp = ?, fechacontra = ? WHERE id_empleado = ?';
-        $params = array($hash, $fechaHoy, $_SESSION['id_empleado']);
+        $sql = 'UPDATE empleado SET clave_emp = ? WHERE id_empleado = ?';
+        $params = array($hash,  $_SESSION['id_empleado']);
         return Database::executeRow($sql, $params);
     }
 

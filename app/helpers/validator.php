@@ -293,10 +293,7 @@ class Validator
                                 if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $value)){
                                         return true;
                                 }
-                                else {
-                                    $this->passwordError = "Agregar por lo menos dos carácteres especiales";
-                                    return false;
-                                }
+                                
                             }
                         }
                     }
