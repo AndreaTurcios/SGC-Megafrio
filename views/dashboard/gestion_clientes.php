@@ -98,14 +98,14 @@ Dashboard_Page::headerTemplate('Clientes');
                                                     <div class="form-group">
                                                         <label for="nit_cli">NIT</label>
                                                         <input type="text" class="form-control" id="nit_cli"
-                                                            name="nit_cli" placeholder="0000-000000-000-0" autocomplete="off" validate />
+                                                            name="nit_cli" placeholder="0000-000000-000-0" autocomplete="off" />
                                                     </div>
                                                     <br>
                                                     <div class="form-group">
                                                         <label for="dui_cli">Dui</label>
                                                         <input type="text" class="form-control" id="dui_cli"
-                                                            name="dui_cli" placeholder="00000000-0" required
-                                                            minlength="10" maxlength="10" autocomplete="off" validate />
+                                                            name="dui_cli" placeholder="00000000-0"
+                                                            minlength="10" maxlength="10" autocomplete="off"/>
                                                     </div>
                                                     <br>
                                                     <div class="form-group">
@@ -179,13 +179,13 @@ Dashboard_Page::headerTemplate('Clientes');
                                 <div class="form-group">
                                     <label for="nit_cli2">NIT</label>
                                     <input type="text" class="form-control" id="nit_cli2" name="nit_cli2"
-                                        placeholder="0000-000000-000-0" autocomplete="off" validate required />
+                                        placeholder="0000-000000-000-0" autocomplete="off"/>
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <label for="dui_cli2">Dui</label>
                                     <input type="text" class="form-control" id="dui_cli2" name="dui_cli2"
-                                        placeholder="00000000-0" validate required minlength="10" autocomplete="off" maxlength="11" />
+                                        placeholder="00000000-0" minlength="10" autocomplete="off" maxlength="11" />
                                 </div>
                                 <br>
                                 <div class="form-group">
