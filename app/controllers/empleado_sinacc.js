@@ -73,7 +73,6 @@ function openUpdateDialog(id) {
                 document.getElementById('nombre_emp2').value = response.dataset.nombre_emp;
                 document.getElementById('apellido_emp2').value = response.dataset.apellido_emp;
                 document.getElementById('telefono_emp2').value = response.dataset.telefono_emp;
-                document.getElementById('estado2').value = response.dataset.estado;
                 fillSelect(ENDPOINT_TIPO,'tipoemp2',value = response.dataset.id_tipo_emp);
             } else {
                 sweetAlert(2, response.exception, null);

@@ -178,7 +178,6 @@ Dashboard_Page::headerTemplate('Registro de Empleados');
               <div class="input-field col s12 m6">
                 <label>Estado: </label>
                 <select class="form-select" id="estado2" name="estado2">
-                  <option selected></option>
                   <option value="1">Activo</option>
                   <option value="0">Bloqueado</option>
                 </select>
