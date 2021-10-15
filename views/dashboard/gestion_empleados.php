@@ -200,12 +200,12 @@ Dashboard_Page::headerTemplate('Empleados');
           <div class="modal-body">
             <div class="form-group">
               <label for="nombre_emp2">Nombre empleado:</label>
-              <input type="text" class="form-control" id="nombre_emp2" name="nombre_emp2" placeholder="Nombre empleado"
+              <input type="text" class="form-control" autocomplete="off" id="nombre_emp2" name="nombre_emp2" placeholder="Nombre empleado"
                 pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required minlength="3" maxlength="50" />
             </div>
             <div class="form-group">
               <label for="apellido_emp2">Apellido empleado</label>
-              <input class="form-control" id="apellido_emp2" type="text" name="apellido_emp2"
+              <input class="form-control" id="apellido_emp2" autocomplete="off" type="text" name="apellido_emp2"
                 placeholder="Apellido empleado" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" required minlength="3"
                 maxlength="50" />
             </div>

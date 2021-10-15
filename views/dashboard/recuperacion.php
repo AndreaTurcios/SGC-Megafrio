@@ -43,7 +43,7 @@ Dashboard_Page::headerTemplate('Recuperación de contraseña');
                                     <form id="restore-form" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
                                             <label for="clave_actual"><i class="fas fa-key"></i> Introduzca el código enviado:</label>   
-                                            <input id="codigo_recu" type="text" name="codigo_recu" class="validate form-control" required/>
+                                            <input id="codigo_recu" type="text" name="codigo_recu" class="validate form-control" autocomplete="off" required/>
                                     </div>
                                     <div class="center">
                                         <label>CLAVE NUEVA</label>

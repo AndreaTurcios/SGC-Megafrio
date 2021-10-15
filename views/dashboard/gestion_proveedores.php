@@ -84,26 +84,26 @@ Dashboard_Page::headerTemplate('Proveedores');
                       <form id="save-form" method="post" enctype="multipart/form-data">
                         <div class="form-group ">
                           <label for="nombre_compania">Nombre compañía:</label>
-                          <input type="text" class="form-control" id="nombre_compania" name="nombre_compania"
+                          <input type="text" autocomplete="off" class="form-control" id="nombre_compania" name="nombre_compania"
                             placeholder="Nombre compañía">
                         </div>
                         <div class="form-group">
                           <label for="telefono_pro">Teléfono proveedor:</label>
                           <!-- Aquí colocamos el input, pero el onkeypress es para no ingresar letras en el 
                           input ya que es del teléfono-->
-                          <input type="text" class="form-control" id="telefono_pro" name="telefono_pro"
+                          <input type="text" autocomplete="off" class="form-control" id="telefono_pro" name="telefono_pro"
                             placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required minlength="9"
                             maxlength="9"
                             onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
                         </div>
                         <div class="form-group">
                           <label for="direccion_pro">Dirección:</label>
-                          <textarea class="form-control" id="direccion_pro" name="direccion_pro" placeholder="Dirección"
+                          <textarea class="form-control" id="direccion_pro" autocomplete="off" name="direccion_pro" placeholder="Dirección"
                             rows="3"></textarea>
                         </div>
                         <div class="form-group">
                           <label for="info_tributaria">Informacion tributaria:</label>
-                          <textarea class="form-control" id="info_tributaria" name="info_tributaria"
+                          <textarea class="form-control" autocomplete="off" id="info_tributaria" name="info_tributaria"
                             placeholder="Informacion tributaria"></textarea>
                         </div>
                         <br>
@@ -153,25 +153,25 @@ Dashboard_Page::headerTemplate('Proveedores');
               <div class="row">
                 <div class="form-group ">
                   <label for="nombre_compania2">Nombre compañía:</label>
-                  <input type="text" class="form-control" id="nombre_compania2" name="nombre_compania2"
+                  <input type="text" class="form-control" autocomplete="off" id="nombre_compania2" name="nombre_compania2"
                     placeholder="Nombre compañía">
                 </div>
                 <div class="form-group">
                   <label for="formGroupExampleInput2">Teléfono proveedor:</label>
                   <!-- Aquí colocamos el input, pero el onkeypress es para no ingresar letras en el 
                   input ya que es del teléfono-->
-                  <input type="text" class="form-control" id="telefono_pro2" name="telefono_pro2"
+                  <input type="text" autocomplete="off" class="form-control" id="telefono_pro2" name="telefono_pro2"
                     placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required minlength="9" maxlength="9"
                     onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
                 </div>
                 <div class="form-group">
                   <label for="direccion_pro2">Dirección:</label>
-                  <textarea class="form-control" id="direccion_pro2" name="direccion_pro2" placeholder="Dirección"
+                  <textarea class="form-control" autocomplete="off" id="direccion_pro2" name="direccion_pro2" placeholder="Dirección"
                     rows="3"></textarea>
                 </div>
                 <div class="form-group">
                   <label for="info_tributaria2">Informacion tributaria:</label>
-                  <textarea class="form-control" id="info_tributaria2" name="info_tributaria2"
+                  <textarea class="form-control" autocomplete="off" id="info_tributaria2" name="info_tributaria2"
                     placeholder="Informacion tributaria"></textarea>
                 </div>
                 <br>

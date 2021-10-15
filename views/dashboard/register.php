@@ -23,7 +23,7 @@ Dashboard_Page::headerTemplate('Primer registro');
                 </div>
                 <div class="col-9">
                     <input type="text" class="form-control" placeholder="Ej: Alejandro..." aria-label="Buscar"
-                        aria-describedby="basic-addon1" id="nombres" type="text" name="nombres" class="validate"
+                        aria-describedby="basic-addon1" id="nombres" type="text" name="nombres" autocomplete="off" class="validate"
                         required>
                 </div>
 
@@ -34,7 +34,7 @@ Dashboard_Page::headerTemplate('Primer registro');
                 </div>
                 <div class="col-9">
                     <input type="text" class="form-control" placeholder="Ej: Martinez..." aria-label="Buscar"
-                        aria-describedby="basic-addon1" id="apellidos" type="text" name="apellidos" class="validate"
+                        aria-describedby="basic-addon1" id="apellidos" type="text" autocomplete="off" name="apellidos" class="validate"
                         required>
                 </div>
 
@@ -45,7 +45,7 @@ Dashboard_Page::headerTemplate('Primer registro');
                 </div>
                 <div class="col-9">
                     <input type="tel" class="form-control" placeholder="Ej: 7070-7070..." aria-label="Buscar"
-                        aria-describedby="basic-addon1" id="telefono" type="tel" name="telefono" class="validate"
+                        aria-describedby="basic-addon1" id="telefono" type="tel" autocomplete="off" name="telefono" class="validate"
                         required>
                 </div>
 
@@ -56,7 +56,7 @@ Dashboard_Page::headerTemplate('Primer registro');
                 </div>
                 <div class="col-9">
                     <input type="text" class="form-control" placeholder="Ej: alfredo567@gmail.com..."
-                        aria-label="Buscar" aria-describedby="basic-addon1" id="correo" type="text" name="correo"
+                        aria-label="Buscar" aria-describedby="basic-addon1" autocomplete="off" id="correo" type="text" name="correo"
                         class="validate" required>
                 </div>
             </div>
@@ -66,7 +66,7 @@ Dashboard_Page::headerTemplate('Primer registro');
                 </div>
                 <div class="col-9">
                     <input type="text" class="form-control" placeholder="Ej: Alejo224..." aria-label="Buscar"
-                        aria-describedby="basic-addon1" id="alias" type="text" name="alias" class="validate" required>
+                        aria-describedby="basic-addon1" id="alias" autocomplete="off" type="text" name="alias" class="validate" required>
                 </div>
             </div>
             <div class="row  p-3">
@@ -75,7 +75,7 @@ Dashboard_Page::headerTemplate('Primer registro');
                 </div>
                 <div class="col-9">
                     <input type="password" class="form-control" aria-label="Buscar" aria-describedby="basic-addon1"
-                        id="clave1" type="password" name="clave1" class="validate" required>
+                        id="clave1" type="password" name="clave1" autocomplete="off" class="validate" required>
                 </div>
             </div>
             <div class="row  p-3">
