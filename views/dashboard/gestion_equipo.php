@@ -109,14 +109,16 @@ Dashboard_Page::headerTemplate('Equipo');
                                 <input type="hidden" id="equipo_name" name="equipo_name" value="">
                               </div>-->
 
-                              <div class="form-group"> 
-                                <label>Tipo equipo: </label> 
-                                  <select name="pg1" class="form-select" id="tipo_equipo">
-                                    <option selected></option>
-                                  </select>
-                                  <label><input name="chec" type="checkbox" id="chec" onChange="d1(this);"/> Otro</label><br>
-                                  <input type='text' id="prg1" name='otro1' size='50' placeholder="Específicar...">
+                              <div class="form-group">
+                                <label>Tipo equipo: </label>
+                                <select id="tipo_equipo" name="tipo_equipo" class="form-select">
+                                  <option selected></option>
+                                </select>
                               </div>
+                              
+                                  <label><input name="chec" type="checkbox" id="chec" onChange="d1(this);"/> Otro</label><br>
+                                  <input id="prg1" name='prg1' size='50' placeholder="Específicar..." type='text' class="form-control"/>
+                              
                               
                               <div class="form-group">
                                 <label>Capacidad: </label>

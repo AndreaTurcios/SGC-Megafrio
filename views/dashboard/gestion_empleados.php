@@ -225,8 +225,7 @@ Dashboard_Page::headerTemplate('Empleados');
             <div class="form-group">
               <div class="input-field col s12 m6">
                 <label>Estado: </label>
-                <select class="form-select" id="estado2" name="estado2">
-                  <option selected></option>
+                <select class="form-select" id="estado2" name="estado2" required>
                   <option value="1">Activo</option>
                   <option value="0">Bloqueado</option>
                 </select>

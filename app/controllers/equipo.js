@@ -1,5 +1,6 @@
 // Constantes para establecer las rutas y parámetros de comunicación con la API.
 const API_EQUIPO = '../../app/api/equipo.php?action=';
+const API_TIPO_EQUIPO = '../../app/api/tipo_equipo.php?action=';
 const ENDPOINT_PROVEEDOR = '../../app/api/equipo.php?action=readProveedor';
 const ENDPOINT_TIPOEQUIPO = '../../app/api/equipo.php?action=readTipoEquipo';
 const ENDPOINT_CAPACIDAD = '../../app/api/equipo.php?action=readCapacidad';
@@ -70,8 +71,9 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     event.preventDefault();
     // Se establece el campo de archivo como obligatorio.
     document.getElementById('archivo_producto').required = true;
+    
+    saveRow(API_TIPO_EQUIPO, "create", 'save-form', null);
     saveRow(API_EQUIPO, 'create', 'save-form', null);
-
 });
 
 // Función para preparar el formulario al momento de modificar un registro.

@@ -24,8 +24,22 @@ if (isset($_GET['action'])) {
                     }
                 }
                 break;
+            case 'create':
+                $_POST = $tipoEquipo->validateForm($_POST);
+                if ($tipoEquipo->setTipoEquipo($_POST['prg1'])) {
+                    if ($tipoEquipo->createRow()) {
+                            $result['status'] = 1;
+                            // Se indica que el proveedor se registró existosamente en el caso de que los if se ejecuten automáticamente, caso contrario nos manda los siguientes mensajes
+                            $result['message'] = 'Tipo equipo registrado exitosamente';  
+                    } else {
+                            $result['exception'] = Database::getException();                                                        
+                    }   
+                    } else {
+                            $result['exception'] = 'Tipo equipo incorrecto';
+                    }
+                break;
             }
-        // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
+        // Se indica el tipo de contenido a mostrar y su respectivo conjunto de carácteres.
         header('content-type: application/json; charset=utf-8');
         // Se imprime el resultado en formato JSON y se retorna al controlador.
         print(json_encode($result));
