@@ -361,12 +361,12 @@ class Equipos extends Validator
 
     public function cantidadEquiposCapacidad2()
     {
-        $sql = 'SELECT tiposer.tiposervicio, equip.nombre_equipo, COUNT (bita.id_bitacora) as cantidad
-        from equipo equip 
-        inner join bitacora bita on equip.id_equipo = bita.id_equipo
-        inner join tiposervicio tiposer on tiposer.id_tipo_servicio = bita.id_tipo_servicio 
-        where equip.id_equipo = ?
-        group by tiposer.tiposervicio, equip.nombre_equipo, bita.id_bitacora';
+        $sql = 'SELECT  tiposervicio, COUNT (id_bitacora) cantidad
+        from bitacora 
+        INNER JOIN equipo USING(id_equipo)
+        INNER JOIN tiposervicio USING(id_tipo_servicio)
+        where id_equipo = ?
+        group by tiposervicio ORDER BY cantidad DESC';
         $params = array($this->id_equipo);
         return Database::getRows($sql, $params);
     }

@@ -20,9 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('fecha_pro').setAttribute('min', date);
     document.getElementById('fecha_nal').setAttribute('min', date);
-    document.getElementById('fecha_pro2').setAttribute('min', date);
-    document.getElementById('fecha_nal2').setAttribute('min', date);
     
+        
 });
 
 

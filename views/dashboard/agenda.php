@@ -114,7 +114,7 @@ Dashboard_Page::headerTemplate('Agenda');
                                         </div>
                                         <div class="mb-3">
                                             <label for="recipient-name" class="col-form-label">Tarea:</label>
-                                            <input type="text" class="form-control" id="tarea" name="tarea" class="validate" required>
+                                            <p><textarea type="text" id="tarea" name="tarea" rows="5" cols="60": class="validate" required></textarea></p>
                                         </div>
                                         <div class="mb-3">
                                             <label for="message-text" class="col-form-label">Selecciona el estado de la tarea:</label>
@@ -164,29 +164,29 @@ Dashboard_Page::headerTemplate('Agenda');
                                             <!-- Campo de entrada de fecha -->
 
                                             <input type="date" id="fecha_pro2" name="fecha_pro2" class="form-control" 
-                                                  class="validate" required readonly/>
+                                                  class="validate" required />
                                         </div>
                                         <div class="mb-3">
                                         <label for="message-text" class="col-form-label">Hora de programación:</label>
 
                                         <input type="time" id="hora_pro2" name="hora_pro2" class="form-control" min="07:00" max="18:00"
-                                             class="validate" required/>
+                                             class="validate" required />
                                         </div>
                                         <div class="mb-3">
-                                            <label for="message-text" class="col-form-label">Fecha de provisional:</label>
+                                            <label for="message-text" class="col-form-label">Fecha provisional:</label>
                                             <!-- Campo de entrada de fecha -->
 
                                             <input type="date" id="fecha_nal2" name="fecha_nal2" class="form-control" class="validate" required/>
                                         </div>
                                         <div class="mb-3">
-                                        <label for="message-text" class="col-form-label">Hora de provisional:</label>
+                                        <label for="message-text" class="col-form-label">Hora provisional:</label>
 
                                         <input type="time" id="hora_nal2" name="hora_nal2" class="form-control" min="07:00" max="18:00"
                                          class="validate" required/>
                                         </div>
                                         <div class="mb-3">
                                             <label for="recipient-name" class="col-form-label">Tarea:</label>
-                                            <input type="text" class="form-control" id="tarea2" name="tarea2" class="validate" required>
+                                            <p><textarea type="text" id="tarea2" name="tarea2" rows="5" cols="60": class="validate" required></textarea></p>
                                         </div>
                                         <div class="mb-3">
                                             <label for="message-text" class="col-form-label">Selecciona el estado de la tarea:</label>

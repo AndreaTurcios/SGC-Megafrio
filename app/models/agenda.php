@@ -94,7 +94,7 @@ class Agenda extends Validator
 
     public function setTarea($value)
     {
-        if ($this->validateAlphanumeric($value, 1, 50)) {
+        if ($this->validateAlphanumeric($value, 1, 100)) {
             $this->tarea = $value;
             return true;
         } else {
