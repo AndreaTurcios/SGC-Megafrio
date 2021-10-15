@@ -178,7 +178,7 @@ class Clientes extends Validator
 
     public function readOne()
     {
-        $sql = 'SELECT cli.id_cliente, cli.nombre_cli, cli.telefono_cli, cli.dui_cli, cli.nit_cli, cli.direccion_cli, cli.correo_cli, ep.estado_pago  id_estado_pago
+        $sql = 'SELECT cli.id_cliente, cli.nombre_cli, cli.telefono_cli, cli.dui_cli, cli.nit_cli, cli.direccion_cli, cli.correo_cli, ep.estado_pago, cli.id_estado_pago  
         FROM clientes cli
         INNER JOIN estado_pago ep on cli.id_estado_pago = ep.id_estado_pago
         WHERE cli.id_cliente = ?';

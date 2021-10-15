@@ -29,14 +29,17 @@ Dashboard_Page::headerTemplate('Gestión Capacidades');
           
         </div>
         <div class="col-6 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 col-xxl-2 p-3 text-center" text-center">
-          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalAgregarCapacidad">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus"
-              viewBox="0 0 16 16">
-              <path
-                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-            </svg>
-            Agregar
-          </button>
+          
+          <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Gestiones
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#ModalAgregarCapacidad" href="#">Agregar capacidad</a></li>
+          <li><a class="dropdown-item" href="gestion_equipo.php">Gestionar Equipos</a></li>
+          <li><a class="dropdown-item" href="tipo_equipo.php">Gestionar tipo de equipos</a></li>
+        </ul>
+      </div>
         </div>
     </div>
     </nav>

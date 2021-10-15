@@ -68,16 +68,16 @@ if (isset($_GET['action'])) {
                                                           $result['exception'] = Database::getException();                                                        
                                                       }   
                                 } else {
-                                    $result['exception'] = 'Carácteres incorrectos en informacion tributaria';
+                                    $result['exception'] = 'Carácteres incorrectos en informacion tributaria, favor ingresar solamente letras.';
                                 }
                             } else {
-                                $result['exception'] = 'Carácteres incorrectos en dirección';
+                                $result['exception'] = 'Pais incorrecto';
                             }
                         } else {
-                            $result['exception'] = 'El teléfono debe tener el formato 0000-0000 e iniciar con 2, 6 o 7';
+                            $result['exception'] = 'Carácteres incorrectos en dirección, favor ingresar solamente letras.';
                         }
                     } else {
-                        $result['exception'] = 'Carácteres incorrectos en representante';
+                        $result['exception'] = 'El teléfono debe tener el formato 0000-0000 e iniciar con 2, 6 o 7';
                     }
                 } else {
                     $result['exception'] = 'Carácteres incorrectos en nombre de la compañía';
