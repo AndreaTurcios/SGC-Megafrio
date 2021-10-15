@@ -261,12 +261,7 @@ if (isset($_GET['action'])) {
                 }
 
                 break;
-
-               
-
-
-
-
+                // Case el cual realiza la acción de actualizar
                 case 'update':
                     $_POST = $bitacora->validateForm($_POST);
                     if ($bitacora->setId($_POST['id_bitacora'])) {
@@ -377,6 +372,7 @@ if (isset($_GET['action'])) {
         header('content-type: application/json; charset=utf-8');
         // Se imprime el resultado en formato JSON y se retorna al controlador.
         print(json_encode($result));
+        // Se imprimen los mensajes ya sea de acceso denegado en caso de no ser el usuario correcto o recurso no disponible 
     } else {
         print(json_encode('Acceso denegado'));
     }

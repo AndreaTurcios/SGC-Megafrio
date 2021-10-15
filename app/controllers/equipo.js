@@ -8,9 +8,10 @@ const ENDPOINT_CAPACIDAD = '../../app/api/equipo.php?action=readCapacidad';
 document.addEventListener('DOMContentLoaded', function () {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
     fillSelect(ENDPOINT_PROVEEDOR,'nombre_compania', null);
-    fillSelect(ENDPOINT_TIPOEQUIPO,'tipo_equipo', null);
+    fillSelectt(ENDPOINT_TIPOEQUIPO,'tipo_equipo', null);
     fillSelect(ENDPOINT_CAPACIDAD,'capacidad', null);
     readRows(API_EQUIPO);
+    document.getElementById('prg1').style.display = 'none';
 });
 
 // Función para llenar la tabla con los datos de los registros. Se manda a llamar en la función readRows().
@@ -98,7 +99,7 @@ function openUpdateDialog(id) {
                 document.getElementById('voltaje2').value = response.dataset.voltaje;
                 document.getElementById('serie2').value = response.dataset.serie;
                 fillSelect(ENDPOINT_PROVEEDOR,'nombre_compania2',value = response.dataset.id_proveedor);
-                fillSelect(ENDPOINT_TIPOEQUIPO,'tipo_equipo2',value = response.dataset.id_tipo_equipo);
+                fillSelectt(ENDPOINT_TIPOEQUIPO,'tipo_equipo2',value = response.dataset.id_tipo_equipo);
                 fillSelect(ENDPOINT_CAPACIDAD,'capacidad2',value = response.dataset.id_capacidad);
             } else {
                 sweetAlert(2, response.exception, null);
@@ -244,3 +245,21 @@ function openChartEquip(id){
         console.log(error);
     });
 }
+
+
+function d1(obj)
+{   
+    if (obj.checked){ 
+        document.getElementById('prg1').style.display = 'inline';
+        document.getElementById('tipo_equipo').disabled = true;
+        document.getElementById('tipo_equipo').value = null;
+    }
+    else{ 
+        document.getElementById('prg1').style.display = 'none';
+        document.getElementById('prg1').value = '';
+        document.getElementById('tipo_equipo').disabled = false;
+    }
+}
+
+
+

@@ -61,7 +61,7 @@ if (isset($_GET['action'])) {
                             }
                         }
                         break;
-
+                        // Case para el search, realizar una busqueda de un equipo en específico 
                         case 'search':
                             $_POST = $equipo->validateForm($_POST);
                             if ($_POST['search'] != '') {
@@ -84,6 +84,7 @@ if (isset($_GET['action'])) {
                                 $result['exception'] = 'Ingrese un valor para buscar';
                             }
                             break;
+                            // Case para realizar el readOne, para leer un dato específico del sistema
                             case 'readOne':
                                 if ($equipo->setId($_POST['id_equipo'])) {
                                     if ($result['dataset'] = $equipo->readOne()) {
@@ -99,7 +100,7 @@ if (isset($_GET['action'])) {
                                     $result['exception'] = 'Equipo incorrecto';
                                 }
                                 break;
-                                
+                                // Case para crear un dato dentro de la tabla, detallando cada uno de los elementos de la vista de donde se agarra el dato en específico 
                                 case 'create':
                                     $_POST = $equipo->validateForm($_POST);
                                     if ($equipo->setNombre($_POST['nombre_equipo'])) {
@@ -109,7 +110,7 @@ if (isset($_GET['action'])) {
                                                     if ($equipo->setVoltaje($_POST['voltaje'])) {
                                                         if ($equipo->setSerie($_POST['serie'])) {
                                                             if ($equipo->setIdProveedor($_POST['nombre_compania'])) {
-                                                                if ($equipo->setIdTipoEqui($_POST['tipo_equipo'])) {
+                                                                if ($equipo->setIdTipoEqui($_POST['tipo_equipo'] /*|| $equipo->setIdTipoEqui($_POST['prg1'])*/)) {
                                                                     if ($equipo->setIdCapacidad($_POST['capacidad'])) {
                                                                         if (is_uploaded_file($_FILES['archivo_producto']['tmp_name'])) { //archivo_producto es creado en el modal del vista agregar
                                                                             if ($equipo->setFoto($_FILES['archivo_producto'])) {
@@ -157,7 +158,7 @@ if (isset($_GET['action'])) {
                                         $result['exception'] = 'Nombre incorrecto';
                                     }
                                     break;
-
+                                    // Case para el caso del update del sistema
                                     case 'update':
                                         $_POST = $equipo->validateForm($_POST);
                                         if ($equipo->setId($_POST['id_equipo2'])) {
@@ -239,23 +240,24 @@ if (isset($_GET['action'])) {
                                             $result['exception'] ='Equipo incorrecto';
                                               }   
                                         break;
-            case 'delete':
-                if ($equipo->setId($_POST['id_equipo'])) {
-                    if ($data = $equipo->readOne()) {
-                        if ($equipo->deleteRow()) {
-                            $result['status'] = 1;
-                            $result['message'] = 'Equipo eliminado correctamente'; 
-                           
-                        } else {
-                            $result['exception'] = Database::getException();
-                        }
-                    } else {
-                        $result['exception'] = 'Equipo inexistente';
-                    }
-                } else {
-                    $result['exception'] = 'Equipo incorrecto';
-                }
-                break;
+                                        // Case para el caso del delete
+                                    case 'delete':
+                                        if ($equipo->setId($_POST['id_equipo'])) {
+                                            if ($data = $equipo->readOne()) {
+                                                if ($equipo->deleteRow()) {
+                                                    $result['status'] = 1;
+                                                    $result['message'] = 'Equipo eliminado correctamente'; 
+                                                
+                                                } else {
+                                                    $result['exception'] = Database::getException();
+                                                }
+                                            } else {
+                                                $result['exception'] = 'Equipo inexistente';
+                                            }
+                                        } else {
+                                            $result['exception'] = 'Equipo incorrecto';
+                                        }
+                                        break;
                 case 'cantidadEquiposTipo':
                     if ($result['dataset'] = $equipo->cantidadEquiposTipo()) {
                         $result['status'] = 1;
